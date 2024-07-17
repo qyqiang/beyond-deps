@@ -6,7 +6,7 @@ import { useTooltipTriggerProps } from './trigger.mjs';
 import { createModelToggleComposable } from '../../../hooks/use-model-toggle/index.mjs';
 import { buildProps } from '../../../utils/vue/props/runtime.mjs';
 import { popperProps } from '../../popper/src/popper.mjs';
-import { popperArrowProps } from '../../popper/src/arrow2.mjs';
+import { popperArrowProps } from '../../popper/src/arrow.mjs';
 
 const {
   useModelToggleProps: useTooltipModelToggleProps,

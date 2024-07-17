@@ -80,7 +80,7 @@ export declare const ElImage: import("element-plus/es/utils").SFCWithInstall<imp
         onLoad?: ((evt: Event) => any) | undefined;
         onSwitch?: ((val: number) => any) | undefined;
     }>>;
-    emit: ((event: "error", evt: Event) => void) & ((event: "close") => void) & ((event: "show") => void) & ((event: "switch", val: number) => void) & ((event: "load", evt: Event) => void);
+    emit: ((event: "error", evt: Event) => void) & ((event: "close") => void) & ((event: "show") => void) & ((event: "load", evt: Event) => void) & ((event: "switch", val: number) => void);
     prevOverflow: string;
     t: import("../..").Translator;
     ns: {
@@ -179,8 +179,8 @@ export declare const ElImage: import("element-plus/es/utils").SFCWithInstall<imp
             };
         }>> & {
             onClose?: (() => any) | undefined;
-            onRotate?: ((deg: number) => any) | undefined;
             onSwitch?: ((index: number) => any) | undefined;
+            onRotate?: ((deg: number) => any) | undefined;
         }>>;
         emit: ((event: "close") => void) & ((event: "rotate", deg: number) => void) & ((event: "switch", index: number) => void);
         t: import("../..").Translator;
@@ -334,18 +334,18 @@ export declare const ElImage: import("element-plus/es/utils").SFCWithInstall<imp
         };
     }>> & {
         onClose?: (() => any) | undefined;
-        onRotate?: ((deg: number) => any) | undefined;
         onSwitch?: ((index: number) => any) | undefined;
+        onRotate?: ((deg: number) => any) | undefined;
     }, {
         readonly teleported: boolean;
         readonly infinite: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly initialIndex: number;
         readonly closeOnPressEscape: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        readonly urlList: string[];
         readonly zoomRate: number;
         readonly minScale: number;
         readonly maxScale: number;
         readonly hideOnClickModal: boolean;
+        readonly urlList: string[];
     }>> & Record<string, any>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     load: (evt: Event) => boolean;
@@ -403,11 +403,11 @@ export declare const ElImage: import("element-plus/es/utils").SFCWithInstall<imp
     readonly initialIndex: number;
     readonly lazy: boolean;
     readonly closeOnPressEscape: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly previewSrcList: string[];
     readonly zoomRate: number;
     readonly minScale: number;
     readonly maxScale: number;
     readonly hideOnClickModal: boolean;
-    readonly previewSrcList: string[];
     readonly previewTeleported: boolean;
 }>> & Record<string, any>;
 export default ElImage;
