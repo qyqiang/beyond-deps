@@ -1,4 +1,4 @@
-/*! Element Plus v1.01 */
+/*! Element Plus v0.0.0-dev.1 */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
@@ -11344,6 +11344,7 @@
     };
   }
 
+  const emptyValuesContextKey = Symbol("emptyValuesContextKey");
   const SCOPE$3 = "use-empty-values";
   const DEFAULT_EMPTY_VALUES = ["", void 0, null];
   const DEFAULT_VALUE_ON_CLEAR = void 0;
@@ -11356,10 +11357,7 @@
     }
   });
   const useEmptyValues = (props, defaultValue) => {
-    let config = useGlobalConfig();
-    if (!config.value) {
-      config = vue.ref({});
-    }
+    const config = vue.getCurrentInstance() ? vue.inject(emptyValuesContextKey, vue.ref({})) : vue.ref({});
     const emptyValues = vue.computed(() => props.emptyValues || config.value.emptyValues || DEFAULT_EMPTY_VALUES);
     const valueOnClear = vue.computed(() => {
       if (isFunction$1(props.valueOnClear)) {
@@ -11457,6 +11455,10 @@
     provideFn(SIZE_INJECTION_KEY, {
       size: vue.computed(() => context.value.size || "")
     });
+    provideFn(emptyValuesContextKey, vue.computed(() => ({
+      emptyValues: context.value.emptyValues,
+      valueOnClear: context.value.valueOnClear
+    })));
     if (global || !globalConfig.value) {
       globalConfig.value = context.value;
     }
@@ -11516,7 +11518,7 @@
 
   const ElConfigProvider = withInstall(ConfigProvider);
 
-  const version$1 = "1.01";
+  const version$1 = "0.0.0-dev.1";
 
   const makeInstaller = (components = []) => {
     const install = (app, options) => {
@@ -23891,6 +23893,10 @@
       type: Boolean,
       default: true
     },
+    persistent: {
+      type: Boolean,
+      default: true
+    },
     ...useEmptyValuesProps
   });
   const cascaderEmits = {
@@ -24313,7 +24319,7 @@
           transition: `${vue.unref(nsCascader).namespace.value}-zoom-in-top`,
           effect: "light",
           pure: "",
-          persistent: "",
+          persistent: _ctx.persistent,
           onHide: hideSuggestionPanel
         }, {
           default: vue.withCtx(() => [
@@ -24508,7 +24514,7 @@
             ]) : vue.createCommentVNode("v-if", true)
           ]),
           _: 3
-        }, 8, ["visible", "teleported", "popper-class", "transition"]);
+        }, 8, ["visible", "teleported", "popper-class", "transition", "persistent"]);
       };
     }
   });
@@ -38053,6 +38059,9 @@
               windowElement.scrollTop = scrollOffset;
             }
           }
+        });
+        vue.onActivated(() => {
+          vue.unref(windowRef).scrollTop = vue.unref(states).scrollOffset;
         });
         const api = {
           ns,
@@ -53194,6 +53203,11 @@
           result.select.onOptionCreate(vm);
         }
       });
+      vue.watch(() => ctx.attrs.visible, (val) => {
+        result.states.visible = val;
+      }, {
+        immediate: true
+      });
       return result;
     },
     methods: {
@@ -53305,7 +53319,8 @@
         return h(TreeSelectOption, {
           value: getNodeValByProp("value", data),
           label: getNodeValByProp("label", data),
-          disabled: getNodeValByProp("disabled", data)
+          disabled: getNodeValByProp("disabled", data),
+          visible: node.visible
         }, props.renderContent ? () => props.renderContent(h, { node, data, store }) : slots.default ? () => slots.default({ node, data, store }) : void 0);
       },
       filterNodeMethod: (value, data, node) => {
@@ -58984,6 +58999,7 @@
   exports.elPaginationKey = elPaginationKey;
   exports.emitChangeFn = emitChangeFn;
   exports.emptyProps = emptyProps;
+  exports.emptyValuesContextKey = emptyValuesContextKey;
   exports.extractDateFormat = extractDateFormat;
   exports.extractTimeFormat = extractTimeFormat;
   exports.formContextKey = formContextKey;

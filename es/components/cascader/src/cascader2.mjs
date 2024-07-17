@@ -437,7 +437,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         transition: `${unref(nsCascader).namespace.value}-zoom-in-top`,
         effect: "light",
         pure: "",
-        persistent: "",
+        persistent: _ctx.persistent,
         onHide: hideSuggestionPanel
       }, {
         default: withCtx(() => [
@@ -632,7 +632,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           ]) : createCommentVNode("v-if", true)
         ]),
         _: 3
-      }, 8, ["visible", "teleported", "popper-class", "transition"]);
+      }, 8, ["visible", "teleported", "popper-class", "transition", "persistent"]);
     };
   }
 });

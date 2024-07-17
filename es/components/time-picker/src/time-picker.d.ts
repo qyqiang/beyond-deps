@@ -192,10 +192,10 @@ declare const _default: import("vue").DefineComponent<{
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }, {
     type: string;
-    disabled: boolean;
     modelValue: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("./common/props").ModelValueType & {}) | (() => import("./common/props").ModelValueType) | ((new (...args: any[]) => import("./common/props").ModelValueType & {}) | (() => import("./common/props").ModelValueType))[], unknown, unknown>;
     popperClass: string;
     popperOptions: Partial<import("@popperjs/core").Options>;
+    disabled: boolean;
     clearable: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     name: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("./common/props").SingleOrRange<string> & {}) | (() => import("./common/props").SingleOrRange<string>) | ((new (...args: any[]) => import("./common/props").SingleOrRange<string> & {}) | (() => import("./common/props").SingleOrRange<string>))[], unknown, unknown>;
     placeholder: string;

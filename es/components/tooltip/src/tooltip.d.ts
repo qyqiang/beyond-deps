@@ -327,7 +327,7 @@ export declare const useTooltipProps: {
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+    role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
 };
 export declare const tooltipEmits: string[];
 export declare type ElTooltipProps = ExtractPropTypes<typeof useTooltipProps>;

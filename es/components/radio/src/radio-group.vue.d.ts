@@ -86,9 +86,9 @@ declare const _default: import("vue").DefineComponent<{
     "onUpdate:modelValue"?: ((val: string | number | boolean | undefined) => any) | undefined;
 }, {
     readonly fill: string;
-    readonly disabled: boolean;
     readonly modelValue: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor, BooleanConstructor], unknown, unknown>;
     readonly id: string;
+    readonly disabled: boolean;
     readonly name: string;
     readonly label: string;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;

@@ -245,9 +245,9 @@ export declare const ElRate: import("element-plus/es/utils").SFCWithInstall<impo
     onChange?: ((value: number) => any) | undefined;
     "onUpdate:modelValue"?: ((value: number) => any) | undefined;
 }, {
-    readonly disabled: boolean;
     readonly modelValue: number;
     readonly id: string;
+    readonly disabled: boolean;
     readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly label: string;
     readonly max: number;

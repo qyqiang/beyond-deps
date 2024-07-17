@@ -299,8 +299,8 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
         onItemRendered?: ((...args: any[]) => any) | undefined;
     }, {
         readonly direction: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "ltr" | "rtl", never>;
-        readonly layout: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", never>;
         readonly className: string;
+        readonly layout: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", never>;
         readonly data: any[];
         readonly scrollbarAlwaysOn: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly containerElement: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | Element) & {}) | (() => string | Element) | ((new (...args: any[]) => (string | Element) & {}) | (() => string | Element))[], unknown, unknown>;
@@ -650,14 +650,14 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
             onChange?: ((val: import("..").CheckboxValueType) => any) | undefined;
             "onUpdate:modelValue"?: ((val: import("..").CheckboxValueType) => any) | undefined;
         }, {
-            border: boolean;
-            disabled: boolean;
             value: string | number | boolean | Record<string, any>;
             modelValue: string | number | boolean;
             id: string;
+            disabled: boolean;
             name: string;
             label: string | number | boolean | Record<string, any>;
             validateEvent: boolean;
+            border: boolean;
             indeterminate: boolean;
             checked: boolean;
             trueValue: string | number;
@@ -883,14 +883,14 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
                 onChange?: ((val: import("..").CheckboxValueType) => any) | undefined;
                 "onUpdate:modelValue"?: ((val: import("..").CheckboxValueType) => any) | undefined;
             }, {
-                border: boolean;
-                disabled: boolean;
                 value: string | number | boolean | Record<string, any>;
                 modelValue: string | number | boolean;
                 id: string;
+                disabled: boolean;
                 name: string;
                 label: string | number | boolean | Record<string, any>;
                 validateEvent: boolean;
+                border: boolean;
                 indeterminate: boolean;
                 checked: boolean;
                 trueValue: string | number;
@@ -986,8 +986,8 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
                 onChange?: ((val: import("..").CheckboxValueType[]) => any) | undefined;
                 "onUpdate:modelValue"?: ((val: import("..").CheckboxGroupValueType) => any) | undefined;
             }, {
-                readonly disabled: boolean;
                 readonly modelValue: import("..").CheckboxGroupValueType;
+                readonly disabled: boolean;
                 readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly tag: string;
             }>;
@@ -1034,8 +1034,8 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
         onToggle?: ((node: import("./src/types").TreeNode) => any) | undefined;
         onCheck?: ((node: import("./src/types").TreeNode, checked: import("..").CheckboxValueType) => any) | undefined;
     }, {
-        readonly expanded: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly disabled: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly expanded: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly current: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly indeterminate: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly checked: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;

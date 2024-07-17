@@ -286,8 +286,8 @@ declare const _default: import("vue").DefineComponent<{
     onInput?: ((val: string | number | boolean) => any) | undefined;
 }, {
     readonly width: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
-    readonly disabled: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly modelValue: import("element-plus/es/utils").EpPropMergeType<readonly [BooleanConstructor, StringConstructor, NumberConstructor], unknown, unknown>;
+    readonly disabled: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly name: string;
     readonly label: string;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;

@@ -86,8 +86,8 @@ declare const _default: import("vue").DefineComponent<{
     onChange?: ((val: import("./checkbox").CheckboxValueType[]) => any) | undefined;
     "onUpdate:modelValue"?: ((val: CheckboxGroupValueType) => any) | undefined;
 }, {
-    readonly disabled: boolean;
     readonly modelValue: CheckboxGroupValueType;
+    readonly disabled: boolean;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly tag: string;
 }>;

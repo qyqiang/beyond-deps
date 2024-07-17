@@ -85,6 +85,10 @@
     "type": "string",
     "description": "binding value\n\n[Docs](https://element-plus.org/en-US/component/autocomplete.html#attributes)"
   },
+  "el-autocomplete/pre-star": {
+    "type": "boolean",
+    "description": "pre-star"
+  },
   "el-autocomplete/placeholder": {
     "type": "string",
     "description": "the placeholder of Autocomplete\n\n[Docs](https://element-plus.org/en-US/component/autocomplete.html#attributes)"
@@ -2099,6 +2103,14 @@
     "type": "boolean",
     "description": "whether to show toggleable password input, default: false.\n\n[Docs](https://element-plus.org/en-US/component/input.html#attributes)"
   },
+  "el-input/float-label": {
+    "type": "boolean",
+    "description": "float-label"
+  },
+  "el-input/pre-star": {
+    "type": "boolean",
+    "description": "pre-star"
+  },
   "el-input/disabled": {
     "type": "boolean",
     "description": "whether Input is disabled, default: false.\n\n[Docs](https://element-plus.org/en-US/component/input.html#attributes)"
@@ -3420,6 +3432,10 @@
     "type": "event",
     "description": "triggers when the clear icon is clicked in a clearable Select\n\n[Docs](https://element-plus.org/en-US/component/select-v2.html#events)"
   },
+  "el-virtualized-select/pre-star": {
+    "type": "boolean",
+    "description": "pre-star"
+  },
   "el-virtualized-select/blur": {
     "type": "event",
     "description": "triggers when Input blurs\n\n[Docs](https://element-plus.org/en-US/component/select-v2.html#events)"
@@ -3431,6 +3447,10 @@
   "el-select/model-value": {
     "type": "string | number | boolean | object | array",
     "description": "binding value\n\n[Docs](https://element-plus.org/en-US/component/select.html#select-attributes)"
+  },
+  "el-select/pre-star": {
+    "type": "boolean",
+    "description": "pre-star"
   },
   "el-select/multiple": {
     "type": "boolean",

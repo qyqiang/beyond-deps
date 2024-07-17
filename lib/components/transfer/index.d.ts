@@ -489,14 +489,14 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((val: import("..").CheckboxValueType) => any) | undefined;
                 "onUpdate:modelValue"?: ((val: import("..").CheckboxValueType) => any) | undefined;
             }, {
-                border: boolean;
-                disabled: boolean;
                 value: string | number | boolean | Record<string, any>;
                 modelValue: string | number | boolean;
                 id: string;
+                disabled: boolean;
                 name: string;
                 label: string | number | boolean | Record<string, any>;
                 validateEvent: boolean;
+                border: boolean;
                 indeterminate: boolean;
                 checked: boolean;
                 trueValue: string | number;
@@ -722,14 +722,14 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                     onChange?: ((val: import("..").CheckboxValueType) => any) | undefined;
                     "onUpdate:modelValue"?: ((val: import("..").CheckboxValueType) => any) | undefined;
                 }, {
-                    border: boolean;
-                    disabled: boolean;
                     value: string | number | boolean | Record<string, any>;
                     modelValue: string | number | boolean;
                     id: string;
+                    disabled: boolean;
                     name: string;
                     label: string | number | boolean | Record<string, any>;
                     validateEvent: boolean;
+                    border: boolean;
                     indeterminate: boolean;
                     checked: boolean;
                     trueValue: string | number;
@@ -825,8 +825,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                     onChange?: ((val: import("..").CheckboxValueType[]) => any) | undefined;
                     "onUpdate:modelValue"?: ((val: import("..").CheckboxGroupValueType) => any) | undefined;
                 }, {
-                    readonly disabled: boolean;
                     readonly modelValue: import("..").CheckboxGroupValueType;
+                    readonly disabled: boolean;
                     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly tag: string;
                 }>;
@@ -918,8 +918,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((val: import("..").CheckboxValueType[]) => any) | undefined;
                 "onUpdate:modelValue"?: ((val: import("..").CheckboxGroupValueType) => any) | undefined;
             }, {
-                readonly disabled: boolean;
                 readonly modelValue: import("..").CheckboxGroupValueType;
+                readonly disabled: boolean;
                 readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly tag: string;
             }>>;
@@ -1088,9 +1088,9 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                     onChange?: ((value: string) => any) | undefined;
                     "onUpdate:modelValue"?: ((value: string) => any) | undefined;
                     onInput?: ((value: string) => any) | undefined;
-                    onClear?: (() => any) | undefined;
                     onFocus?: ((evt: FocusEvent) => any) | undefined;
                     onBlur?: ((evt: FocusEvent) => any) | undefined;
+                    onClear?: (() => any) | undefined;
                     onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                     onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                     onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -1098,7 +1098,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                     onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
                     onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
                 }>>;
-                emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
+                emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "clear") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
                 rawAttrs: {
                     [x: string]: unknown;
                 };
@@ -1354,9 +1354,9 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((value: string) => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
                 onInput?: ((value: string) => any) | undefined;
-                onClear?: (() => any) | undefined;
                 onFocus?: ((evt: FocusEvent) => any) | undefined;
                 onBlur?: ((evt: FocusEvent) => any) | undefined;
+                onClear?: (() => any) | undefined;
                 onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                 onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -1365,10 +1365,10 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
             }, {
                 readonly type: string;
-                readonly disabled: boolean;
                 readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
                 readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly id: string;
+                readonly disabled: boolean;
                 readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly autosize: import("..").InputAutoSize;
                 readonly autocomplete: string;
@@ -1746,14 +1746,14 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             onChange?: ((val: import("..").CheckboxValueType) => any) | undefined;
             "onUpdate:modelValue"?: ((val: import("..").CheckboxValueType) => any) | undefined;
         }, {
-            border: boolean;
-            disabled: boolean;
             value: string | number | boolean | Record<string, any>;
             modelValue: string | number | boolean;
             id: string;
+            disabled: boolean;
             name: string;
             label: string | number | boolean | Record<string, any>;
             validateEvent: boolean;
+            border: boolean;
             indeterminate: boolean;
             checked: boolean;
             trueValue: string | number;
@@ -1979,14 +1979,14 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((val: import("..").CheckboxValueType) => any) | undefined;
                 "onUpdate:modelValue"?: ((val: import("..").CheckboxValueType) => any) | undefined;
             }, {
-                border: boolean;
-                disabled: boolean;
                 value: string | number | boolean | Record<string, any>;
                 modelValue: string | number | boolean;
                 id: string;
+                disabled: boolean;
                 name: string;
                 label: string | number | boolean | Record<string, any>;
                 validateEvent: boolean;
+                border: boolean;
                 indeterminate: boolean;
                 checked: boolean;
                 trueValue: string | number;
@@ -2082,8 +2082,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((val: import("..").CheckboxValueType[]) => any) | undefined;
                 "onUpdate:modelValue"?: ((val: import("..").CheckboxGroupValueType) => any) | undefined;
             }, {
-                readonly disabled: boolean;
                 readonly modelValue: import("..").CheckboxGroupValueType;
+                readonly disabled: boolean;
                 readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly tag: string;
             }>;
@@ -2175,8 +2175,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             onChange?: ((val: import("..").CheckboxValueType[]) => any) | undefined;
             "onUpdate:modelValue"?: ((val: import("..").CheckboxGroupValueType) => any) | undefined;
         }, {
-            readonly disabled: boolean;
             readonly modelValue: import("..").CheckboxGroupValueType;
+            readonly disabled: boolean;
             readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly tag: string;
         }>>;
@@ -2345,9 +2345,9 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((value: string) => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
                 onInput?: ((value: string) => any) | undefined;
-                onClear?: (() => any) | undefined;
                 onFocus?: ((evt: FocusEvent) => any) | undefined;
                 onBlur?: ((evt: FocusEvent) => any) | undefined;
+                onClear?: (() => any) | undefined;
                 onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                 onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -2355,7 +2355,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
                 onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
             }>>;
-            emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
+            emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "clear") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
             rawAttrs: {
                 [x: string]: unknown;
             };
@@ -2611,9 +2611,9 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             onChange?: ((value: string) => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
             onInput?: ((value: string) => any) | undefined;
-            onClear?: (() => any) | undefined;
             onFocus?: ((evt: FocusEvent) => any) | undefined;
             onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onClear?: (() => any) | undefined;
             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
             onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -2622,10 +2622,10 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
         }, {
             readonly type: string;
-            readonly disabled: boolean;
             readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
             readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly id: string;
+            readonly disabled: boolean;
             readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly autosize: import("..").InputAutoSize;
             readonly autocomplete: string;
@@ -3029,14 +3029,14 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((val: import("..").CheckboxValueType) => any) | undefined;
                 "onUpdate:modelValue"?: ((val: import("..").CheckboxValueType) => any) | undefined;
             }, {
-                border: boolean;
-                disabled: boolean;
                 value: string | number | boolean | Record<string, any>;
                 modelValue: string | number | boolean;
                 id: string;
+                disabled: boolean;
                 name: string;
                 label: string | number | boolean | Record<string, any>;
                 validateEvent: boolean;
+                border: boolean;
                 indeterminate: boolean;
                 checked: boolean;
                 trueValue: string | number;
@@ -3262,14 +3262,14 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                     onChange?: ((val: import("..").CheckboxValueType) => any) | undefined;
                     "onUpdate:modelValue"?: ((val: import("..").CheckboxValueType) => any) | undefined;
                 }, {
-                    border: boolean;
-                    disabled: boolean;
                     value: string | number | boolean | Record<string, any>;
                     modelValue: string | number | boolean;
                     id: string;
+                    disabled: boolean;
                     name: string;
                     label: string | number | boolean | Record<string, any>;
                     validateEvent: boolean;
+                    border: boolean;
                     indeterminate: boolean;
                     checked: boolean;
                     trueValue: string | number;
@@ -3365,8 +3365,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                     onChange?: ((val: import("..").CheckboxValueType[]) => any) | undefined;
                     "onUpdate:modelValue"?: ((val: import("..").CheckboxGroupValueType) => any) | undefined;
                 }, {
-                    readonly disabled: boolean;
                     readonly modelValue: import("..").CheckboxGroupValueType;
+                    readonly disabled: boolean;
                     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly tag: string;
                 }>;
@@ -3458,8 +3458,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((val: import("..").CheckboxValueType[]) => any) | undefined;
                 "onUpdate:modelValue"?: ((val: import("..").CheckboxGroupValueType) => any) | undefined;
             }, {
-                readonly disabled: boolean;
                 readonly modelValue: import("..").CheckboxGroupValueType;
+                readonly disabled: boolean;
                 readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly tag: string;
             }>>;
@@ -3628,9 +3628,9 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                     onChange?: ((value: string) => any) | undefined;
                     "onUpdate:modelValue"?: ((value: string) => any) | undefined;
                     onInput?: ((value: string) => any) | undefined;
-                    onClear?: (() => any) | undefined;
                     onFocus?: ((evt: FocusEvent) => any) | undefined;
                     onBlur?: ((evt: FocusEvent) => any) | undefined;
+                    onClear?: (() => any) | undefined;
                     onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                     onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                     onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -3638,7 +3638,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                     onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
                     onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
                 }>>;
-                emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
+                emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "clear") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
                 rawAttrs: {
                     [x: string]: unknown;
                 };
@@ -3894,9 +3894,9 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((value: string) => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
                 onInput?: ((value: string) => any) | undefined;
-                onClear?: (() => any) | undefined;
                 onFocus?: ((evt: FocusEvent) => any) | undefined;
                 onBlur?: ((evt: FocusEvent) => any) | undefined;
+                onClear?: (() => any) | undefined;
                 onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                 onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -3905,10 +3905,10 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
             }, {
                 readonly type: string;
-                readonly disabled: boolean;
                 readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
                 readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly id: string;
+                readonly disabled: boolean;
                 readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly autosize: import("..").InputAutoSize;
                 readonly autocomplete: string;
@@ -4286,14 +4286,14 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             onChange?: ((val: import("..").CheckboxValueType) => any) | undefined;
             "onUpdate:modelValue"?: ((val: import("..").CheckboxValueType) => any) | undefined;
         }, {
-            border: boolean;
-            disabled: boolean;
             value: string | number | boolean | Record<string, any>;
             modelValue: string | number | boolean;
             id: string;
+            disabled: boolean;
             name: string;
             label: string | number | boolean | Record<string, any>;
             validateEvent: boolean;
+            border: boolean;
             indeterminate: boolean;
             checked: boolean;
             trueValue: string | number;
@@ -4519,14 +4519,14 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((val: import("..").CheckboxValueType) => any) | undefined;
                 "onUpdate:modelValue"?: ((val: import("..").CheckboxValueType) => any) | undefined;
             }, {
-                border: boolean;
-                disabled: boolean;
                 value: string | number | boolean | Record<string, any>;
                 modelValue: string | number | boolean;
                 id: string;
+                disabled: boolean;
                 name: string;
                 label: string | number | boolean | Record<string, any>;
                 validateEvent: boolean;
+                border: boolean;
                 indeterminate: boolean;
                 checked: boolean;
                 trueValue: string | number;
@@ -4622,8 +4622,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((val: import("..").CheckboxValueType[]) => any) | undefined;
                 "onUpdate:modelValue"?: ((val: import("..").CheckboxGroupValueType) => any) | undefined;
             }, {
-                readonly disabled: boolean;
                 readonly modelValue: import("..").CheckboxGroupValueType;
+                readonly disabled: boolean;
                 readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly tag: string;
             }>;
@@ -4715,8 +4715,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             onChange?: ((val: import("..").CheckboxValueType[]) => any) | undefined;
             "onUpdate:modelValue"?: ((val: import("..").CheckboxGroupValueType) => any) | undefined;
         }, {
-            readonly disabled: boolean;
             readonly modelValue: import("..").CheckboxGroupValueType;
+            readonly disabled: boolean;
             readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly tag: string;
         }>>;
@@ -4885,9 +4885,9 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((value: string) => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
                 onInput?: ((value: string) => any) | undefined;
-                onClear?: (() => any) | undefined;
                 onFocus?: ((evt: FocusEvent) => any) | undefined;
                 onBlur?: ((evt: FocusEvent) => any) | undefined;
+                onClear?: (() => any) | undefined;
                 onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                 onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -4895,7 +4895,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
                 onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
             }>>;
-            emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
+            emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "clear") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
             rawAttrs: {
                 [x: string]: unknown;
             };
@@ -5151,9 +5151,9 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             onChange?: ((value: string) => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
             onInput?: ((value: string) => any) | undefined;
-            onClear?: (() => any) | undefined;
             onFocus?: ((evt: FocusEvent) => any) | undefined;
             onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onClear?: (() => any) | undefined;
             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
             onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -5162,10 +5162,10 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
         }, {
             readonly type: string;
-            readonly disabled: boolean;
             readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
             readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly id: string;
+            readonly disabled: boolean;
             readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly autosize: import("..").InputAutoSize;
             readonly autocomplete: string;
@@ -5394,11 +5394,11 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
         readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown>;
         readonly link: boolean;
         readonly dark: boolean;
-        readonly circle: boolean;
-        readonly round: boolean;
-        readonly text: boolean;
         readonly disabled: boolean;
+        readonly text: boolean;
         readonly autofocus: boolean;
+        readonly round: boolean;
+        readonly circle: boolean;
         readonly tag: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
         readonly loading: boolean;
         readonly nativeType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "button" | "reset" | "submit", unknown>;
@@ -5854,14 +5854,14 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             onChange?: ((val: import("..").CheckboxValueType) => any) | undefined;
             "onUpdate:modelValue"?: ((val: import("..").CheckboxValueType) => any) | undefined;
         }, {
-            border: boolean;
-            disabled: boolean;
             value: string | number | boolean | Record<string, any>;
             modelValue: string | number | boolean;
             id: string;
+            disabled: boolean;
             name: string;
             label: string | number | boolean | Record<string, any>;
             validateEvent: boolean;
+            border: boolean;
             indeterminate: boolean;
             checked: boolean;
             trueValue: string | number;
@@ -6087,14 +6087,14 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((val: import("..").CheckboxValueType) => any) | undefined;
                 "onUpdate:modelValue"?: ((val: import("..").CheckboxValueType) => any) | undefined;
             }, {
-                border: boolean;
-                disabled: boolean;
                 value: string | number | boolean | Record<string, any>;
                 modelValue: string | number | boolean;
                 id: string;
+                disabled: boolean;
                 name: string;
                 label: string | number | boolean | Record<string, any>;
                 validateEvent: boolean;
+                border: boolean;
                 indeterminate: boolean;
                 checked: boolean;
                 trueValue: string | number;
@@ -6190,8 +6190,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((val: import("..").CheckboxValueType[]) => any) | undefined;
                 "onUpdate:modelValue"?: ((val: import("..").CheckboxGroupValueType) => any) | undefined;
             }, {
-                readonly disabled: boolean;
                 readonly modelValue: import("..").CheckboxGroupValueType;
+                readonly disabled: boolean;
                 readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly tag: string;
             }>;
@@ -6283,8 +6283,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             onChange?: ((val: import("..").CheckboxValueType[]) => any) | undefined;
             "onUpdate:modelValue"?: ((val: import("..").CheckboxGroupValueType) => any) | undefined;
         }, {
-            readonly disabled: boolean;
             readonly modelValue: import("..").CheckboxGroupValueType;
+            readonly disabled: boolean;
             readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly tag: string;
         }>>;
@@ -6453,9 +6453,9 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onChange?: ((value: string) => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
                 onInput?: ((value: string) => any) | undefined;
-                onClear?: (() => any) | undefined;
                 onFocus?: ((evt: FocusEvent) => any) | undefined;
                 onBlur?: ((evt: FocusEvent) => any) | undefined;
+                onClear?: (() => any) | undefined;
                 onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                 onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -6463,7 +6463,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
                 onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
             }>>;
-            emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
+            emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "clear") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
             rawAttrs: {
                 [x: string]: unknown;
             };
@@ -6719,9 +6719,9 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             onChange?: ((value: string) => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
             onInput?: ((value: string) => any) | undefined;
-            onClear?: (() => any) | undefined;
             onFocus?: ((evt: FocusEvent) => any) | undefined;
             onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onClear?: (() => any) | undefined;
             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
             onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -6730,10 +6730,10 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
         }, {
             readonly type: string;
-            readonly disabled: boolean;
             readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
             readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly id: string;
+            readonly disabled: boolean;
             readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly autosize: import("..").InputAutoSize;
             readonly autocomplete: string;

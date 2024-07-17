@@ -106,10 +106,10 @@ declare const _default: import("vue").DefineComponent<{
     onChange?: ((val: any) => any) | undefined;
     "onUpdate:modelValue"?: ((val: any) => any) | undefined;
 }, {
-    block: boolean;
-    disabled: boolean;
     modelValue: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
+    disabled: boolean;
     validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    block: boolean;
     options: Option[];
 }>;
 export default _default;

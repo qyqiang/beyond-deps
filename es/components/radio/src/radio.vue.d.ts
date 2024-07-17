@@ -76,11 +76,11 @@ declare const _default: import("vue").DefineComponent<{
     onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
     "onUpdate:modelValue"?: ((val: string | number | boolean | undefined) => any) | undefined;
 }, {
-    readonly border: boolean;
-    readonly disabled: boolean;
     readonly value: import("../../../utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
     readonly modelValue: import("../../../utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
+    readonly disabled: boolean;
     readonly name: string;
     readonly label: import("../../../utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
+    readonly border: boolean;
 }>;
 export default _default;

@@ -141,7 +141,6 @@ export declare const ElForm: import("element-plus/es/utils").SFCWithInstall<impo
 }>> & {
     onValidate?: ((prop: import("./src/form-item").FormItemProp, isValid: boolean, message: string) => any) | undefined;
 }, {
-    readonly inline: boolean;
     readonly disabled: boolean;
     readonly labelPosition: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "top" | "left" | "right", unknown>;
     readonly requireAsteriskPosition: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "left" | "right", unknown>;
@@ -149,6 +148,7 @@ export declare const ElForm: import("element-plus/es/utils").SFCWithInstall<impo
     readonly labelSuffix: string;
     readonly showMessage: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly validateOnRuleChange: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly inline: boolean;
     readonly inlineMessage: boolean;
     readonly statusIcon: boolean;
     readonly hideRequiredAsterisk: boolean;

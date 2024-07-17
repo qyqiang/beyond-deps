@@ -565,11 +565,11 @@ declare const _default: import("vue").DefineComponent<{
         readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown>;
         readonly link: boolean;
         readonly dark: boolean;
-        readonly circle: boolean;
-        readonly round: boolean;
-        readonly text: boolean;
         readonly disabled: boolean;
+        readonly text: boolean;
         readonly autofocus: boolean;
+        readonly round: boolean;
+        readonly circle: boolean;
         readonly tag: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
         readonly loading: boolean;
         readonly nativeType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "button" | "reset" | "submit", unknown>;
@@ -793,9 +793,9 @@ declare const _default: import("vue").DefineComponent<{
             onChange?: ((value: string) => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
             onInput?: ((value: string) => any) | undefined;
-            onClear?: (() => any) | undefined;
             onFocus?: ((evt: FocusEvent) => any) | undefined;
             onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onClear?: (() => any) | undefined;
             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
             onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -803,7 +803,7 @@ declare const _default: import("vue").DefineComponent<{
             onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
             onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
         }>>;
-        emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
+        emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "clear") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
         rawAttrs: {
             [x: string]: unknown;
         };
@@ -1059,9 +1059,9 @@ declare const _default: import("vue").DefineComponent<{
         onChange?: ((value: string) => any) | undefined;
         "onUpdate:modelValue"?: ((value: string) => any) | undefined;
         onInput?: ((value: string) => any) | undefined;
-        onClear?: (() => any) | undefined;
         onFocus?: ((evt: FocusEvent) => any) | undefined;
         onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onClear?: (() => any) | undefined;
         onMouseleave?: ((evt: MouseEvent) => any) | undefined;
         onMouseenter?: ((evt: MouseEvent) => any) | undefined;
         onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -1070,10 +1070,10 @@ declare const _default: import("vue").DefineComponent<{
         onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
     }, {
         readonly type: string;
-        readonly disabled: boolean;
         readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
         readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly id: string;
+        readonly disabled: boolean;
         readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly autosize: import("element-plus/es/components/input").InputAutoSize;
         readonly autocomplete: string;

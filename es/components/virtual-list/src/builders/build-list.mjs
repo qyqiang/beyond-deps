@@ -1,4 +1,4 @@
-import { defineComponent, getCurrentInstance, ref, computed, unref, nextTick, onMounted, onUpdated, resolveDynamicComponent, h } from 'vue';
+import { defineComponent, getCurrentInstance, ref, computed, unref, nextTick, onMounted, onUpdated, onActivated, resolveDynamicComponent, h } from 'vue';
 import '../../../../utils/index.mjs';
 import '../../../../hooks/index.mjs';
 import { useCache } from '../hooks/use-cache.mjs';
@@ -257,6 +257,9 @@ const createList = ({
             windowElement.scrollTop = scrollOffset;
           }
         }
+      });
+      onActivated(() => {
+        unref(windowRef).scrollTop = unref(states).scrollOffset;
       });
       const api = {
         ns,

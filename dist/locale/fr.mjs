@@ -1,4 +1,4 @@
-/*! Element Plus v1.01 */
+/*! Element Plus v0.0.0-dev.1 */
 
 var fr = {
   name: "fr",
@@ -138,6 +138,11 @@ var fr = {
       resetFilter: "R\xE9initialiser",
       clearFilter: "Tous",
       sumText: "Somme"
+    },
+    tour: {
+      next: "suivant",
+      previous: "pr\xE9c\xE9dent",
+      finish: "fin"
     },
     tree: {
       emptyText: "Aucune donn\xE9e"

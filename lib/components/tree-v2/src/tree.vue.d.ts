@@ -299,8 +299,8 @@ declare const _default: import("vue").DefineComponent<{
         onItemRendered?: ((...args: any[]) => any) | undefined;
     }, {
         readonly direction: import("../../../utils").EpPropMergeType<StringConstructor, "ltr" | "rtl", never>;
-        readonly layout: import("../../../utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", never>;
         readonly className: string;
+        readonly layout: import("../../../utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", never>;
         readonly data: any[];
         readonly scrollbarAlwaysOn: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly containerElement: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | Element) & {}) | (() => string | Element) | ((new (...args: any[]) => (string | Element) & {}) | (() => string | Element))[], unknown, unknown>;
@@ -650,14 +650,14 @@ declare const _default: import("vue").DefineComponent<{
             onChange?: ((val: import("../..").CheckboxValueType) => any) | undefined;
             "onUpdate:modelValue"?: ((val: import("../..").CheckboxValueType) => any) | undefined;
         }, {
-            border: boolean;
-            disabled: boolean;
             value: string | number | boolean | Record<string, any>;
             modelValue: string | number | boolean;
             id: string;
+            disabled: boolean;
             name: string;
             label: string | number | boolean | Record<string, any>;
             validateEvent: boolean;
+            border: boolean;
             indeterminate: boolean;
             checked: boolean;
             trueValue: string | number;
@@ -883,14 +883,14 @@ declare const _default: import("vue").DefineComponent<{
                 onChange?: ((val: import("../..").CheckboxValueType) => any) | undefined;
                 "onUpdate:modelValue"?: ((val: import("../..").CheckboxValueType) => any) | undefined;
             }, {
-                border: boolean;
-                disabled: boolean;
                 value: string | number | boolean | Record<string, any>;
                 modelValue: string | number | boolean;
                 id: string;
+                disabled: boolean;
                 name: string;
                 label: string | number | boolean | Record<string, any>;
                 validateEvent: boolean;
+                border: boolean;
                 indeterminate: boolean;
                 checked: boolean;
                 trueValue: string | number;
@@ -986,8 +986,8 @@ declare const _default: import("vue").DefineComponent<{
                 onChange?: ((val: import("../..").CheckboxValueType[]) => any) | undefined;
                 "onUpdate:modelValue"?: ((val: import("../..").CheckboxGroupValueType) => any) | undefined;
             }, {
-                readonly disabled: boolean;
                 readonly modelValue: import("../..").CheckboxGroupValueType;
+                readonly disabled: boolean;
                 readonly validateEvent: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly tag: string;
             }>;
@@ -1034,8 +1034,8 @@ declare const _default: import("vue").DefineComponent<{
         onToggle?: ((node: import("./types").TreeNode) => any) | undefined;
         onCheck?: ((node: import("./types").TreeNode, checked: import("../..").CheckboxValueType) => any) | undefined;
     }, {
-        readonly expanded: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly disabled: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly expanded: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly current: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly indeterminate: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly checked: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;

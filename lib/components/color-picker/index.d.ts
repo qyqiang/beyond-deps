@@ -428,10 +428,6 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
         $props: Partial<{
             offset: number;
             effect: string;
-            visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-            content: string;
-            open: boolean;
-            disabled: boolean;
             placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
             showAfter: number;
             hideAfter: number;
@@ -445,12 +441,16 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
             pure: boolean;
             virtualTriggering: boolean;
+            content: string;
             rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             persistent: boolean;
-            role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+            disabled: boolean;
+            open: boolean;
+            role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
             trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
             triggerKeys: string[];
             arrowOffset: number;
@@ -776,10 +776,10 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & {
             [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
-        } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "offset" | "effect" | "visible" | "content" | "open" | "disabled" | "placement" | "showAfter" | "hideAfter" | "autoClose" | "boundariesPadding" | "fallbackPlacements" | "gpuAcceleration" | "popperOptions" | "strategy" | "enterable" | "focusOnShow" | "trapping" | "stopPopperMouseEvent" | "pure" | "virtualTriggering" | "rawContent" | "teleported" | "persistent" | "role" | "trigger" | "triggerKeys" | "arrowOffset" | "showArrow">;
+        } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "offset" | "effect" | "placement" | "showAfter" | "hideAfter" | "autoClose" | "boundariesPadding" | "fallbackPlacements" | "gpuAcceleration" | "popperOptions" | "strategy" | "enterable" | "focusOnShow" | "trapping" | "stopPopperMouseEvent" | "visible" | "pure" | "virtualTriggering" | "content" | "rawContent" | "teleported" | "persistent" | "disabled" | "open" | "role" | "trigger" | "triggerKeys" | "arrowOffset" | "showArrow">;
         $attrs: {
             [x: string]: unknown;
         };
@@ -1114,7 +1114,7 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & {
             [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
         }, {
@@ -1439,7 +1439,7 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
             }>>;
@@ -1449,9 +1449,9 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 $: import("vue").ComponentInternalInstance;
                 $data: {};
                 $props: Partial<{
-                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                 }> & Omit<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "role">;
                 $attrs: {
                     [x: string]: unknown;
@@ -1467,10 +1467,10 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 $emit: (event: string, ...args: any[]) => void;
                 $el: any;
                 $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>>, {
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                     }>> & {
                         [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                     }>>;
@@ -1478,10 +1478,10 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                     popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                     contentRef: import("vue").Ref<HTMLElement | undefined>;
                     referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                     popperProvides: import("..").ElPopperInjectionContext;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
-                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                 }> & {
                     beforeCreate?: ((() => void) | (() => void)[]) | undefined;
                     created?: ((() => void) | (() => void)[]) | undefined;
@@ -1503,10 +1503,10 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 $nextTick: typeof import("vue").nextTick;
                 $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
             } & Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & import("vue").ShallowUnwrapRef<{
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
@@ -1514,7 +1514,7 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                 contentRef: import("vue").Ref<HTMLElement | undefined>;
                 referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                 popperProvides: import("..").ElPopperInjectionContext;
             }> & {} & import("vue").ComponentCustomProperties) | undefined>;
             contentRef: import("vue").Ref<any>;
@@ -1529,10 +1529,10 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             controlled: import("vue").ComputedRef<boolean>;
             isFocusInsideContent: (event?: FocusEvent | undefined) => boolean | undefined;
             ElPopper: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
@@ -1540,12 +1540,12 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                 contentRef: import("vue").Ref<HTMLElement | undefined>;
                 referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                 popperProvides: import("..").ElPopperInjectionContext;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>>, {
-                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
             }>> & Record<string, any>;
             ElPopperArrow: import("vue").DefineComponent<{
                 readonly arrowOffset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 5, boolean>;
@@ -1902,8 +1902,8 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                     readonly id: StringConstructor;
                     readonly open: BooleanConstructor;
                 }>>, {
-                    readonly open: boolean;
                     readonly virtualTriggering: boolean;
+                    readonly open: boolean;
                 }>;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
                 readonly disabled: BooleanConstructor;
@@ -1961,9 +1961,9 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 readonly id: StringConstructor;
                 readonly open: BooleanConstructor;
             }>>, {
-                readonly open: boolean;
-                readonly disabled: boolean;
                 readonly virtualTriggering: boolean;
+                readonly disabled: boolean;
+                readonly open: boolean;
                 readonly trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
                 readonly triggerKeys: string[];
             }>;
@@ -3394,7 +3394,6 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 }, {
                     readonly offset: number;
                     readonly effect: string;
-                    readonly visible: boolean;
                     readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                     readonly boundariesPadding: number;
                     readonly fallbackPlacements: import("@popperjs/core").Placement[];
@@ -3405,6 +3404,7 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                     readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                    readonly visible: boolean;
                     readonly pure: boolean;
                     readonly virtualTriggering: boolean;
                 }>;
@@ -3673,9 +3673,6 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             }>>, {
                 readonly offset: number;
                 readonly effect: string;
-                readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-                readonly content: string;
-                readonly disabled: boolean;
                 readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                 readonly showAfter: number;
                 readonly hideAfter: number;
@@ -3689,19 +3686,18 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
                 readonly pure: boolean;
                 readonly virtualTriggering: boolean;
+                readonly content: string;
                 readonly rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly persistent: boolean;
+                readonly disabled: boolean;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, {
             offset: number;
             effect: string;
-            visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-            content: string;
-            open: boolean;
-            disabled: boolean;
             placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
             showAfter: number;
             hideAfter: number;
@@ -3715,12 +3711,16 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
             pure: boolean;
             virtualTriggering: boolean;
+            content: string;
             rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             persistent: boolean;
-            role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+            disabled: boolean;
+            open: boolean;
+            role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
             trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
             triggerKeys: string[];
             arrowOffset: number;
@@ -4066,7 +4066,7 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+        role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
     }>> & {
         [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
     } & import("vue").ShallowUnwrapRef<{
@@ -4391,7 +4391,7 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & {
             [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
         }>>;
@@ -4401,9 +4401,9 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             $: import("vue").ComponentInternalInstance;
             $data: {};
             $props: Partial<{
-                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
             }> & Omit<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "role">;
             $attrs: {
                 [x: string]: unknown;
@@ -4419,10 +4419,10 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             $emit: (event: string, ...args: any[]) => void;
             $el: any;
             $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>>, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
@@ -4430,10 +4430,10 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                 contentRef: import("vue").Ref<HTMLElement | undefined>;
                 referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                 popperProvides: import("..").ElPopperInjectionContext;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
-                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
             }> & {
                 beforeCreate?: ((() => void) | (() => void)[]) | undefined;
                 created?: ((() => void) | (() => void)[]) | undefined;
@@ -4455,10 +4455,10 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             $nextTick: typeof import("vue").nextTick;
             $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
         } & Readonly<import("vue").ExtractPropTypes<{
-            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & import("vue").ShallowUnwrapRef<{
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
             }>>;
@@ -4466,7 +4466,7 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
             contentRef: import("vue").Ref<HTMLElement | undefined>;
             referenceRef: import("vue").Ref<HTMLElement | undefined>;
-            role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+            role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
             popperProvides: import("..").ElPopperInjectionContext;
         }> & {} & import("vue").ComponentCustomProperties) | undefined>;
         contentRef: import("vue").Ref<any>;
@@ -4481,10 +4481,10 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
         controlled: import("vue").ComputedRef<boolean>;
         isFocusInsideContent: (event?: FocusEvent | undefined) => boolean | undefined;
         ElPopper: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
-            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
             }>>;
@@ -4492,12 +4492,12 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
             contentRef: import("vue").Ref<HTMLElement | undefined>;
             referenceRef: import("vue").Ref<HTMLElement | undefined>;
-            role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+            role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
             popperProvides: import("..").ElPopperInjectionContext;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>>, {
-            readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+            readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
         }>> & Record<string, any>;
         ElPopperArrow: import("vue").DefineComponent<{
             readonly arrowOffset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 5, boolean>;
@@ -4854,8 +4854,8 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 readonly id: StringConstructor;
                 readonly open: BooleanConstructor;
             }>>, {
-                readonly open: boolean;
                 readonly virtualTriggering: boolean;
+                readonly open: boolean;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
             readonly disabled: BooleanConstructor;
@@ -4913,9 +4913,9 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             readonly id: StringConstructor;
             readonly open: BooleanConstructor;
         }>>, {
-            readonly open: boolean;
-            readonly disabled: boolean;
             readonly virtualTriggering: boolean;
+            readonly disabled: boolean;
+            readonly open: boolean;
             readonly trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
             readonly triggerKeys: string[];
         }>;
@@ -6346,7 +6346,6 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             }, {
                 readonly offset: number;
                 readonly effect: string;
-                readonly visible: boolean;
                 readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                 readonly boundariesPadding: number;
                 readonly fallbackPlacements: import("@popperjs/core").Placement[];
@@ -6357,6 +6356,7 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                readonly visible: boolean;
                 readonly pure: boolean;
                 readonly virtualTriggering: boolean;
             }>;
@@ -6625,9 +6625,6 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
         }>>, {
             readonly offset: number;
             readonly effect: string;
-            readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-            readonly content: string;
-            readonly disabled: boolean;
             readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
             readonly showAfter: number;
             readonly hideAfter: number;
@@ -6641,11 +6638,14 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
             readonly pure: boolean;
             readonly virtualTriggering: boolean;
+            readonly content: string;
             readonly rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly persistent: boolean;
+            readonly disabled: boolean;
         }>;
     }> & {} & import("vue").ComponentCustomProperties) | undefined>;
     triggerRef: import("vue").Ref<any>;
@@ -6879,11 +6879,11 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
         readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown>;
         readonly link: boolean;
         readonly dark: boolean;
-        readonly circle: boolean;
-        readonly round: boolean;
-        readonly text: boolean;
         readonly disabled: boolean;
+        readonly text: boolean;
         readonly autofocus: boolean;
+        readonly round: boolean;
+        readonly circle: boolean;
         readonly tag: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
         readonly loading: boolean;
         readonly nativeType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "button" | "reset" | "submit", unknown>;
@@ -7327,7 +7327,7 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+        role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
     }, {
         props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
             showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
@@ -7650,7 +7650,7 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & {
             [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
         }>>;
@@ -7660,9 +7660,9 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             $: import("vue").ComponentInternalInstance;
             $data: {};
             $props: Partial<{
-                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
             }> & Omit<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "role">;
             $attrs: {
                 [x: string]: unknown;
@@ -7678,10 +7678,10 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             $emit: (event: string, ...args: any[]) => void;
             $el: any;
             $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>>, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
@@ -7689,10 +7689,10 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                 contentRef: import("vue").Ref<HTMLElement | undefined>;
                 referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                 popperProvides: import("..").ElPopperInjectionContext;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
-                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
             }> & {
                 beforeCreate?: ((() => void) | (() => void)[]) | undefined;
                 created?: ((() => void) | (() => void)[]) | undefined;
@@ -7714,10 +7714,10 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             $nextTick: typeof import("vue").nextTick;
             $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
         } & Readonly<import("vue").ExtractPropTypes<{
-            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & import("vue").ShallowUnwrapRef<{
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
             }>>;
@@ -7725,7 +7725,7 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
             contentRef: import("vue").Ref<HTMLElement | undefined>;
             referenceRef: import("vue").Ref<HTMLElement | undefined>;
-            role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+            role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
             popperProvides: import("..").ElPopperInjectionContext;
         }> & {} & import("vue").ComponentCustomProperties) | undefined>;
         contentRef: import("vue").Ref<any>;
@@ -7740,10 +7740,10 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
         controlled: import("vue").ComputedRef<boolean>;
         isFocusInsideContent: (event?: FocusEvent | undefined) => boolean | undefined;
         ElPopper: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
-            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
             }>>;
@@ -7751,12 +7751,12 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
             contentRef: import("vue").Ref<HTMLElement | undefined>;
             referenceRef: import("vue").Ref<HTMLElement | undefined>;
-            role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+            role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
             popperProvides: import("..").ElPopperInjectionContext;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>>, {
-            readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+            readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
         }>> & Record<string, any>;
         ElPopperArrow: import("vue").DefineComponent<{
             readonly arrowOffset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 5, boolean>;
@@ -8113,8 +8113,8 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 readonly id: StringConstructor;
                 readonly open: BooleanConstructor;
             }>>, {
-                readonly open: boolean;
                 readonly virtualTriggering: boolean;
+                readonly open: boolean;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
             readonly disabled: BooleanConstructor;
@@ -8172,9 +8172,9 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             readonly id: StringConstructor;
             readonly open: BooleanConstructor;
         }>>, {
-            readonly open: boolean;
-            readonly disabled: boolean;
             readonly virtualTriggering: boolean;
+            readonly disabled: boolean;
+            readonly open: boolean;
             readonly trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
             readonly triggerKeys: string[];
         }>;
@@ -9605,7 +9605,6 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             }, {
                 readonly offset: number;
                 readonly effect: string;
-                readonly visible: boolean;
                 readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                 readonly boundariesPadding: number;
                 readonly fallbackPlacements: import("@popperjs/core").Placement[];
@@ -9616,6 +9615,7 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
                 readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                readonly visible: boolean;
                 readonly pure: boolean;
                 readonly virtualTriggering: boolean;
             }>;
@@ -9884,9 +9884,6 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
         }>>, {
             readonly offset: number;
             readonly effect: string;
-            readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-            readonly content: string;
-            readonly disabled: boolean;
             readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
             readonly showAfter: number;
             readonly hideAfter: number;
@@ -9900,11 +9897,14 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
             readonly pure: boolean;
             readonly virtualTriggering: boolean;
+            readonly content: string;
             readonly rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly persistent: boolean;
+            readonly disabled: boolean;
         }>;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
         showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
@@ -10227,16 +10227,12 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+        role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
     }>> & {
         [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
     }, {
         offset: number;
         effect: string;
-        visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-        content: string;
-        open: boolean;
-        disabled: boolean;
         placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
         showAfter: number;
         hideAfter: number;
@@ -10250,12 +10246,16 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
         focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
         pure: boolean;
         virtualTriggering: boolean;
+        content: string;
         rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         persistent: boolean;
-        role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+        disabled: boolean;
+        open: boolean;
+        role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
         trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
         triggerKeys: string[];
         arrowOffset: number;
@@ -10426,9 +10426,9 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             onChange?: ((value: string) => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
             onInput?: ((value: string) => any) | undefined;
-            onClear?: (() => any) | undefined;
             onFocus?: ((evt: FocusEvent) => any) | undefined;
             onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onClear?: (() => any) | undefined;
             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
             onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -10436,7 +10436,7 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
             onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
             onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
         }>>;
-        emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
+        emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "clear") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
         rawAttrs: {
             [x: string]: unknown;
         };
@@ -10692,9 +10692,9 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
         onChange?: ((value: string) => any) | undefined;
         "onUpdate:modelValue"?: ((value: string) => any) | undefined;
         onInput?: ((value: string) => any) | undefined;
-        onClear?: (() => any) | undefined;
         onFocus?: ((evt: FocusEvent) => any) | undefined;
         onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onClear?: (() => any) | undefined;
         onMouseleave?: ((evt: MouseEvent) => any) | undefined;
         onMouseenter?: ((evt: MouseEvent) => any) | undefined;
         onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -10703,10 +10703,10 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
         onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
     }, {
         readonly type: string;
-        readonly disabled: boolean;
         readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
         readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly id: string;
+        readonly disabled: boolean;
         readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly autosize: import("..").InputAutoSize;
         readonly autocomplete: string;
@@ -10935,9 +10935,9 @@ export declare const ElColorPicker: import("element-plus/es/utils").SFCWithInsta
     onBlur?: ((event: FocusEvent) => any) | undefined;
     onActiveChange?: ((val: string | null) => any) | undefined;
 }, {
-    readonly disabled: boolean;
     readonly popperClass: string;
     readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly disabled: boolean;
     readonly label: string;
     readonly tabindex: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;

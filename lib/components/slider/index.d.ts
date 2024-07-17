@@ -587,7 +587,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                     showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
@@ -910,7 +910,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                         readonly validator: ((val: unknown) => boolean) | undefined;
                         __epPropKey: true;
                     };
-                    role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
                 }>>;
@@ -920,9 +920,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     $: import("vue").ComponentInternalInstance;
                     $data: {};
                     $props: Partial<{
-                        readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                        readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                     }> & Omit<Readonly<import("vue").ExtractPropTypes<{
-                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                     }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "role">;
                     $attrs: {
                         [x: string]: unknown;
@@ -938,10 +938,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     $emit: (event: string, ...args: any[]) => void;
                     $el: any;
                     $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                     }>>, {
                         props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                         }>> & {
                             [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                         }>>;
@@ -949,10 +949,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                         popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                         contentRef: import("vue").Ref<HTMLElement | undefined>;
                         referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                        role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                        role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                         popperProvides: import("..").ElPopperInjectionContext;
                     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
-                        readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                        readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                     }> & {
                         beforeCreate?: ((() => void) | (() => void)[]) | undefined;
                         created?: ((() => void) | (() => void)[]) | undefined;
@@ -974,10 +974,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     $nextTick: typeof import("vue").nextTick;
                     $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
                 } & Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & import("vue").ShallowUnwrapRef<{
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                     }>> & {
                         [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                     }>>;
@@ -985,7 +985,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                     contentRef: import("vue").Ref<HTMLElement | undefined>;
                     referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                     popperProvides: import("..").ElPopperInjectionContext;
                 }> & {} & import("vue").ComponentCustomProperties) | undefined>;
                 contentRef: import("vue").Ref<any>;
@@ -1000,10 +1000,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 controlled: import("vue").ComputedRef<boolean>;
                 isFocusInsideContent: (event?: FocusEvent | undefined) => boolean | undefined;
                 ElPopper: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }, {
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                     }>> & {
                         [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                     }>>;
@@ -1011,12 +1011,12 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                     contentRef: import("vue").Ref<HTMLElement | undefined>;
                     referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                     popperProvides: import("..").ElPopperInjectionContext;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>>, {
-                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                 }>> & Record<string, any>;
                 ElPopperArrow: import("vue").DefineComponent<{
                     readonly arrowOffset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 5, boolean>;
@@ -1373,8 +1373,8 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                         readonly id: StringConstructor;
                         readonly open: BooleanConstructor;
                     }>>, {
-                        readonly open: boolean;
                         readonly virtualTriggering: boolean;
+                        readonly open: boolean;
                     }>;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
                     readonly disabled: BooleanConstructor;
@@ -1432,9 +1432,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly id: StringConstructor;
                     readonly open: BooleanConstructor;
                 }>>, {
-                    readonly open: boolean;
-                    readonly disabled: boolean;
                     readonly virtualTriggering: boolean;
+                    readonly disabled: boolean;
+                    readonly open: boolean;
                     readonly trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
                     readonly triggerKeys: string[];
                 }>;
@@ -2865,7 +2865,6 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     }, {
                         readonly offset: number;
                         readonly effect: string;
-                        readonly visible: boolean;
                         readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                         readonly boundariesPadding: number;
                         readonly fallbackPlacements: import("@popperjs/core").Placement[];
@@ -2876,6 +2875,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                         readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                         readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                         readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                        readonly visible: boolean;
                         readonly pure: boolean;
                         readonly virtualTriggering: boolean;
                     }>;
@@ -3144,9 +3144,6 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 }>>, {
                     readonly offset: number;
                     readonly effect: string;
-                    readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-                    readonly content: string;
-                    readonly disabled: boolean;
                     readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                     readonly showAfter: number;
                     readonly hideAfter: number;
@@ -3160,11 +3157,14 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                    readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
                     readonly pure: boolean;
                     readonly virtualTriggering: boolean;
+                    readonly content: string;
                     readonly rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly persistent: boolean;
+                    readonly disabled: boolean;
                 }>;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
                 showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
@@ -3487,16 +3487,12 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
             }, {
                 offset: number;
                 effect: string;
-                visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-                content: string;
-                open: boolean;
-                disabled: boolean;
                 placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                 showAfter: number;
                 hideAfter: number;
@@ -3510,12 +3506,16 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
                 pure: boolean;
                 virtualTriggering: boolean;
+                content: string;
                 rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 persistent: boolean;
-                role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                disabled: boolean;
+                open: boolean;
+                role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                 trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
                 triggerKeys: string[];
                 arrowOffset: number;
@@ -3929,7 +3929,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                 showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
@@ -4252,7 +4252,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
             }>>;
@@ -4262,9 +4262,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 $: import("vue").ComponentInternalInstance;
                 $data: {};
                 $props: Partial<{
-                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                 }> & Omit<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "role">;
                 $attrs: {
                     [x: string]: unknown;
@@ -4280,10 +4280,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 $emit: (event: string, ...args: any[]) => void;
                 $el: any;
                 $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>>, {
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                     }>> & {
                         [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                     }>>;
@@ -4291,10 +4291,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                     contentRef: import("vue").Ref<HTMLElement | undefined>;
                     referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                     popperProvides: import("..").ElPopperInjectionContext;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
-                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                 }> & {
                     beforeCreate?: ((() => void) | (() => void)[]) | undefined;
                     created?: ((() => void) | (() => void)[]) | undefined;
@@ -4316,10 +4316,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 $nextTick: typeof import("vue").nextTick;
                 $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
             } & Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & import("vue").ShallowUnwrapRef<{
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
@@ -4327,7 +4327,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                 contentRef: import("vue").Ref<HTMLElement | undefined>;
                 referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                 popperProvides: import("..").ElPopperInjectionContext;
             }> & {} & import("vue").ComponentCustomProperties) | undefined>;
             contentRef: import("vue").Ref<any>;
@@ -4342,10 +4342,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             controlled: import("vue").ComputedRef<boolean>;
             isFocusInsideContent: (event?: FocusEvent | undefined) => boolean | undefined;
             ElPopper: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
@@ -4353,12 +4353,12 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                 contentRef: import("vue").Ref<HTMLElement | undefined>;
                 referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                 popperProvides: import("..").ElPopperInjectionContext;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>>, {
-                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
             }>> & Record<string, any>;
             ElPopperArrow: import("vue").DefineComponent<{
                 readonly arrowOffset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 5, boolean>;
@@ -4715,8 +4715,8 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly id: StringConstructor;
                     readonly open: BooleanConstructor;
                 }>>, {
-                    readonly open: boolean;
                     readonly virtualTriggering: boolean;
+                    readonly open: boolean;
                 }>;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
                 readonly disabled: BooleanConstructor;
@@ -4774,9 +4774,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 readonly id: StringConstructor;
                 readonly open: BooleanConstructor;
             }>>, {
-                readonly open: boolean;
-                readonly disabled: boolean;
                 readonly virtualTriggering: boolean;
+                readonly disabled: boolean;
+                readonly open: boolean;
                 readonly trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
                 readonly triggerKeys: string[];
             }>;
@@ -6207,7 +6207,6 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 }, {
                     readonly offset: number;
                     readonly effect: string;
-                    readonly visible: boolean;
                     readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                     readonly boundariesPadding: number;
                     readonly fallbackPlacements: import("@popperjs/core").Placement[];
@@ -6218,6 +6217,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                    readonly visible: boolean;
                     readonly pure: boolean;
                     readonly virtualTriggering: boolean;
                 }>;
@@ -6486,9 +6486,6 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             }>>, {
                 readonly offset: number;
                 readonly effect: string;
-                readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-                readonly content: string;
-                readonly disabled: boolean;
                 readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                 readonly showAfter: number;
                 readonly hideAfter: number;
@@ -6502,11 +6499,14 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
                 readonly pure: boolean;
                 readonly virtualTriggering: boolean;
+                readonly content: string;
                 readonly rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly persistent: boolean;
+                readonly disabled: boolean;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
             showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
@@ -6829,16 +6829,12 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & {
             [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
         }, {
             offset: number;
             effect: string;
-            visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-            content: string;
-            open: boolean;
-            disabled: boolean;
             placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
             showAfter: number;
             hideAfter: number;
@@ -6852,12 +6848,16 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
             pure: boolean;
             virtualTriggering: boolean;
+            content: string;
             rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             persistent: boolean;
-            role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+            disabled: boolean;
+            open: boolean;
+            role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
             trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
             triggerKeys: string[];
             arrowOffset: number;
@@ -7274,7 +7274,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                     showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
@@ -7597,7 +7597,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                         readonly validator: ((val: unknown) => boolean) | undefined;
                         __epPropKey: true;
                     };
-                    role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
                 }>>;
@@ -7607,9 +7607,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     $: import("vue").ComponentInternalInstance;
                     $data: {};
                     $props: Partial<{
-                        readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                        readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                     }> & Omit<Readonly<import("vue").ExtractPropTypes<{
-                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                     }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "role">;
                     $attrs: {
                         [x: string]: unknown;
@@ -7625,10 +7625,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     $emit: (event: string, ...args: any[]) => void;
                     $el: any;
                     $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                     }>>, {
                         props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                         }>> & {
                             [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                         }>>;
@@ -7636,10 +7636,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                         popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                         contentRef: import("vue").Ref<HTMLElement | undefined>;
                         referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                        role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                        role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                         popperProvides: import("..").ElPopperInjectionContext;
                     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
-                        readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                        readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                     }> & {
                         beforeCreate?: ((() => void) | (() => void)[]) | undefined;
                         created?: ((() => void) | (() => void)[]) | undefined;
@@ -7661,10 +7661,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     $nextTick: typeof import("vue").nextTick;
                     $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
                 } & Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & import("vue").ShallowUnwrapRef<{
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                     }>> & {
                         [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                     }>>;
@@ -7672,7 +7672,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                     contentRef: import("vue").Ref<HTMLElement | undefined>;
                     referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                     popperProvides: import("..").ElPopperInjectionContext;
                 }> & {} & import("vue").ComponentCustomProperties) | undefined>;
                 contentRef: import("vue").Ref<any>;
@@ -7687,10 +7687,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 controlled: import("vue").ComputedRef<boolean>;
                 isFocusInsideContent: (event?: FocusEvent | undefined) => boolean | undefined;
                 ElPopper: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }, {
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                     }>> & {
                         [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                     }>>;
@@ -7698,12 +7698,12 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                     contentRef: import("vue").Ref<HTMLElement | undefined>;
                     referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                     popperProvides: import("..").ElPopperInjectionContext;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>>, {
-                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                 }>> & Record<string, any>;
                 ElPopperArrow: import("vue").DefineComponent<{
                     readonly arrowOffset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 5, boolean>;
@@ -8060,8 +8060,8 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                         readonly id: StringConstructor;
                         readonly open: BooleanConstructor;
                     }>>, {
-                        readonly open: boolean;
                         readonly virtualTriggering: boolean;
+                        readonly open: boolean;
                     }>;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
                     readonly disabled: BooleanConstructor;
@@ -8119,9 +8119,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly id: StringConstructor;
                     readonly open: BooleanConstructor;
                 }>>, {
-                    readonly open: boolean;
-                    readonly disabled: boolean;
                     readonly virtualTriggering: boolean;
+                    readonly disabled: boolean;
+                    readonly open: boolean;
                     readonly trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
                     readonly triggerKeys: string[];
                 }>;
@@ -9552,7 +9552,6 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     }, {
                         readonly offset: number;
                         readonly effect: string;
-                        readonly visible: boolean;
                         readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                         readonly boundariesPadding: number;
                         readonly fallbackPlacements: import("@popperjs/core").Placement[];
@@ -9563,6 +9562,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                         readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                         readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                         readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                        readonly visible: boolean;
                         readonly pure: boolean;
                         readonly virtualTriggering: boolean;
                     }>;
@@ -9831,9 +9831,6 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 }>>, {
                     readonly offset: number;
                     readonly effect: string;
-                    readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-                    readonly content: string;
-                    readonly disabled: boolean;
                     readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                     readonly showAfter: number;
                     readonly hideAfter: number;
@@ -9847,11 +9844,14 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                    readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
                     readonly pure: boolean;
                     readonly virtualTriggering: boolean;
+                    readonly content: string;
                     readonly rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly persistent: boolean;
+                    readonly disabled: boolean;
                 }>;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
                 showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
@@ -10174,16 +10174,12 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
             }, {
                 offset: number;
                 effect: string;
-                visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-                content: string;
-                open: boolean;
-                disabled: boolean;
                 placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                 showAfter: number;
                 hideAfter: number;
@@ -10197,12 +10193,16 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
                 pure: boolean;
                 virtualTriggering: boolean;
+                content: string;
                 rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 persistent: boolean;
-                role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                disabled: boolean;
+                open: boolean;
+                role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                 trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
                 triggerKeys: string[];
                 arrowOffset: number;
@@ -10616,7 +10616,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                 showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
@@ -10939,7 +10939,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
             }>>;
@@ -10949,9 +10949,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 $: import("vue").ComponentInternalInstance;
                 $data: {};
                 $props: Partial<{
-                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                 }> & Omit<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "role">;
                 $attrs: {
                     [x: string]: unknown;
@@ -10967,10 +10967,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 $emit: (event: string, ...args: any[]) => void;
                 $el: any;
                 $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>>, {
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                     }>> & {
                         [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                     }>>;
@@ -10978,10 +10978,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                     contentRef: import("vue").Ref<HTMLElement | undefined>;
                     referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                     popperProvides: import("..").ElPopperInjectionContext;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
-                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                 }> & {
                     beforeCreate?: ((() => void) | (() => void)[]) | undefined;
                     created?: ((() => void) | (() => void)[]) | undefined;
@@ -11003,10 +11003,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 $nextTick: typeof import("vue").nextTick;
                 $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
             } & Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & import("vue").ShallowUnwrapRef<{
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
@@ -11014,7 +11014,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                 contentRef: import("vue").Ref<HTMLElement | undefined>;
                 referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                 popperProvides: import("..").ElPopperInjectionContext;
             }> & {} & import("vue").ComponentCustomProperties) | undefined>;
             contentRef: import("vue").Ref<any>;
@@ -11029,10 +11029,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             controlled: import("vue").ComputedRef<boolean>;
             isFocusInsideContent: (event?: FocusEvent | undefined) => boolean | undefined;
             ElPopper: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
@@ -11040,12 +11040,12 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                 contentRef: import("vue").Ref<HTMLElement | undefined>;
                 referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                 popperProvides: import("..").ElPopperInjectionContext;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>>, {
-                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
             }>> & Record<string, any>;
             ElPopperArrow: import("vue").DefineComponent<{
                 readonly arrowOffset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 5, boolean>;
@@ -11402,8 +11402,8 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly id: StringConstructor;
                     readonly open: BooleanConstructor;
                 }>>, {
-                    readonly open: boolean;
                     readonly virtualTriggering: boolean;
+                    readonly open: boolean;
                 }>;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
                 readonly disabled: BooleanConstructor;
@@ -11461,9 +11461,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 readonly id: StringConstructor;
                 readonly open: BooleanConstructor;
             }>>, {
-                readonly open: boolean;
-                readonly disabled: boolean;
                 readonly virtualTriggering: boolean;
+                readonly disabled: boolean;
+                readonly open: boolean;
                 readonly trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
                 readonly triggerKeys: string[];
             }>;
@@ -12894,7 +12894,6 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 }, {
                     readonly offset: number;
                     readonly effect: string;
-                    readonly visible: boolean;
                     readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                     readonly boundariesPadding: number;
                     readonly fallbackPlacements: import("@popperjs/core").Placement[];
@@ -12905,6 +12904,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                    readonly visible: boolean;
                     readonly pure: boolean;
                     readonly virtualTriggering: boolean;
                 }>;
@@ -13173,9 +13173,6 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             }>>, {
                 readonly offset: number;
                 readonly effect: string;
-                readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-                readonly content: string;
-                readonly disabled: boolean;
                 readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                 readonly showAfter: number;
                 readonly hideAfter: number;
@@ -13189,11 +13186,14 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
                 readonly pure: boolean;
                 readonly virtualTriggering: boolean;
+                readonly content: string;
                 readonly rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly persistent: boolean;
+                readonly disabled: boolean;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
             showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
@@ -13516,16 +13516,12 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & {
             [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
         }, {
             offset: number;
             effect: string;
-            visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-            content: string;
-            open: boolean;
-            disabled: boolean;
             placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
             showAfter: number;
             hideAfter: number;
@@ -13539,12 +13535,16 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
             pure: boolean;
             virtualTriggering: boolean;
+            content: string;
             rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             persistent: boolean;
-            role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+            disabled: boolean;
+            open: boolean;
+            role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
             trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
             triggerKeys: string[];
             arrowOffset: number;
@@ -13675,10 +13675,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             $data: {};
             $props: Partial<{
                 readonly type: string;
-                readonly disabled: boolean;
                 readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
                 readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly id: string;
+                readonly disabled: boolean;
                 readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly autosize: import("..").InputAutoSize;
                 readonly autocomplete: string;
@@ -13776,16 +13776,16 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 onChange?: ((value: string) => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
                 onInput?: ((value: string) => any) | undefined;
-                onClear?: (() => any) | undefined;
                 onFocus?: ((evt: FocusEvent) => any) | undefined;
                 onBlur?: ((evt: FocusEvent) => any) | undefined;
+                onClear?: (() => any) | undefined;
                 onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                 onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
                 onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
                 onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
                 onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
-            } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "type" | "disabled" | "modelValue" | "preStar" | "id" | "clearable" | "autosize" | "autocomplete" | "readonly" | "floatLabel" | "showPassword" | "showWordLimit" | "containerRole" | "label" | "tabindex" | "validateEvent" | "inputStyle" | "autofocus">;
+            } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "type" | "modelValue" | "preStar" | "id" | "disabled" | "clearable" | "autosize" | "autocomplete" | "readonly" | "floatLabel" | "showPassword" | "showWordLimit" | "containerRole" | "label" | "tabindex" | "validateEvent" | "inputStyle" | "autofocus">;
             $attrs: {
                 [x: string]: unknown;
             };
@@ -13797,7 +13797,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             }>;
             $root: import("vue").ComponentPublicInstance<{}, {}, {}, {}, {}, {}, {}, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}>> | null;
             $parent: import("vue").ComponentPublicInstance<{}, {}, {}, {}, {}, {}, {}, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}>> | null;
-            $emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
+            $emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "clear") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
             $el: any;
             $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
                 readonly ariaLabel: StringConstructor;
@@ -13883,9 +13883,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 onChange?: ((value: string) => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
                 onInput?: ((value: string) => any) | undefined;
-                onClear?: (() => any) | undefined;
                 onFocus?: ((evt: FocusEvent) => any) | undefined;
                 onBlur?: ((evt: FocusEvent) => any) | undefined;
+                onClear?: (() => any) | undefined;
                 onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                 onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -13977,9 +13977,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     onChange?: ((value: string) => any) | undefined;
                     "onUpdate:modelValue"?: ((value: string) => any) | undefined;
                     onInput?: ((value: string) => any) | undefined;
-                    onClear?: (() => any) | undefined;
                     onFocus?: ((evt: FocusEvent) => any) | undefined;
                     onBlur?: ((evt: FocusEvent) => any) | undefined;
+                    onClear?: (() => any) | undefined;
                     onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                     onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                     onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -13987,7 +13987,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
                     onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
                 }>>;
-                emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
+                emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "clear") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
                 rawAttrs: {
                     [x: string]: unknown;
                 };
@@ -14161,10 +14161,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 compositionend: (evt: CompositionEvent) => boolean;
             }, string, {
                 readonly type: string;
-                readonly disabled: boolean;
                 readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
                 readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly id: string;
+                readonly disabled: boolean;
                 readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly autosize: import("..").InputAutoSize;
                 readonly autocomplete: string;
@@ -14282,9 +14282,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             onChange?: ((value: string) => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
             onInput?: ((value: string) => any) | undefined;
-            onClear?: (() => any) | undefined;
             onFocus?: ((evt: FocusEvent) => any) | undefined;
             onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onClear?: (() => any) | undefined;
             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
             onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -14376,9 +14376,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 onChange?: ((value: string) => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
                 onInput?: ((value: string) => any) | undefined;
-                onClear?: (() => any) | undefined;
                 onFocus?: ((evt: FocusEvent) => any) | undefined;
                 onBlur?: ((evt: FocusEvent) => any) | undefined;
+                onClear?: (() => any) | undefined;
                 onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                 onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -14386,7 +14386,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
                 onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
             }>>;
-            emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
+            emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "clear") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
             rawAttrs: {
                 [x: string]: unknown;
             };
@@ -14738,9 +14738,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 onChange?: ((value: string) => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
                 onInput?: ((value: string) => any) | undefined;
-                onClear?: (() => any) | undefined;
                 onFocus?: ((evt: FocusEvent) => any) | undefined;
                 onBlur?: ((evt: FocusEvent) => any) | undefined;
+                onClear?: (() => any) | undefined;
                 onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                 onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -14748,7 +14748,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
                 onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
             }>>;
-            emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
+            emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "clear") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
             rawAttrs: {
                 [x: string]: unknown;
             };
@@ -15004,9 +15004,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             onChange?: ((value: string) => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
             onInput?: ((value: string) => any) | undefined;
-            onClear?: (() => any) | undefined;
             onFocus?: ((evt: FocusEvent) => any) | undefined;
             onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onClear?: (() => any) | undefined;
             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
             onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
@@ -15015,10 +15015,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
         }, {
             readonly type: string;
-            readonly disabled: boolean;
             readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
             readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly id: string;
+            readonly disabled: boolean;
             readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly autosize: import("..").InputAutoSize;
             readonly autocomplete: string;
@@ -15143,8 +15143,8 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
         onFocus?: ((e: FocusEvent) => any) | undefined;
         onBlur?: ((e: FocusEvent) => any) | undefined;
     }, {
-        readonly disabled: boolean;
         readonly id: string;
+        readonly disabled: boolean;
         readonly readonly: boolean;
         readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly max: number;
@@ -15535,7 +15535,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                 showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
@@ -15858,7 +15858,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
             }>>;
@@ -15868,9 +15868,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 $: import("vue").ComponentInternalInstance;
                 $data: {};
                 $props: Partial<{
-                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                 }> & Omit<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "role">;
                 $attrs: {
                     [x: string]: unknown;
@@ -15886,10 +15886,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 $emit: (event: string, ...args: any[]) => void;
                 $el: any;
                 $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>>, {
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                     }>> & {
                         [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                     }>>;
@@ -15897,10 +15897,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                     contentRef: import("vue").Ref<HTMLElement | undefined>;
                     referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                    role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                     popperProvides: import("..").ElPopperInjectionContext;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
-                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
                 }> & {
                     beforeCreate?: ((() => void) | (() => void)[]) | undefined;
                     created?: ((() => void) | (() => void)[]) | undefined;
@@ -15922,10 +15922,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 $nextTick: typeof import("vue").nextTick;
                 $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
             } & Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & import("vue").ShallowUnwrapRef<{
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
@@ -15933,7 +15933,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                 contentRef: import("vue").Ref<HTMLElement | undefined>;
                 referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                 popperProvides: import("..").ElPopperInjectionContext;
             }> & {} & import("vue").ComponentCustomProperties) | undefined>;
             contentRef: import("vue").Ref<any>;
@@ -15948,10 +15948,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             controlled: import("vue").ComputedRef<boolean>;
             isFocusInsideContent: (event?: FocusEvent | undefined) => boolean | undefined;
             ElPopper: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
@@ -15959,12 +15959,12 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 popperInstanceRef: import("vue").Ref<import("@popperjs/core").Instance | undefined>;
                 contentRef: import("vue").Ref<HTMLElement | undefined>;
                 referenceRef: import("vue").Ref<HTMLElement | undefined>;
-                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
+                role: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
                 popperProvides: import("..").ElPopperInjectionContext;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>>, {
-                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
             }>> & Record<string, any>;
             ElPopperArrow: import("vue").DefineComponent<{
                 readonly arrowOffset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 5, boolean>;
@@ -16321,8 +16321,8 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly id: StringConstructor;
                     readonly open: BooleanConstructor;
                 }>>, {
-                    readonly open: boolean;
                     readonly virtualTriggering: boolean;
+                    readonly open: boolean;
                 }>;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
                 readonly disabled: BooleanConstructor;
@@ -16380,9 +16380,9 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 readonly id: StringConstructor;
                 readonly open: BooleanConstructor;
             }>>, {
-                readonly open: boolean;
-                readonly disabled: boolean;
                 readonly virtualTriggering: boolean;
+                readonly disabled: boolean;
+                readonly open: boolean;
                 readonly trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
                 readonly triggerKeys: string[];
             }>;
@@ -17813,7 +17813,6 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 }, {
                     readonly offset: number;
                     readonly effect: string;
-                    readonly visible: boolean;
                     readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                     readonly boundariesPadding: number;
                     readonly fallbackPlacements: import("@popperjs/core").Placement[];
@@ -17824,6 +17823,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                    readonly visible: boolean;
                     readonly pure: boolean;
                     readonly virtualTriggering: boolean;
                 }>;
@@ -18092,9 +18092,6 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             }>>, {
                 readonly offset: number;
                 readonly effect: string;
-                readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-                readonly content: string;
-                readonly disabled: boolean;
                 readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                 readonly showAfter: number;
                 readonly hideAfter: number;
@@ -18108,11 +18105,14 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
                 readonly pure: boolean;
                 readonly virtualTriggering: boolean;
+                readonly content: string;
                 readonly rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly persistent: boolean;
+                readonly disabled: boolean;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
             showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
@@ -18435,16 +18435,12 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & {
             [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
         }, {
             offset: number;
             effect: string;
-            visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-            content: string;
-            open: boolean;
-            disabled: boolean;
             placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
             showAfter: number;
             hideAfter: number;
@@ -18458,12 +18454,16 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
             pure: boolean;
             virtualTriggering: boolean;
+            content: string;
             rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             persistent: boolean;
-            role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
+            disabled: boolean;
+            open: boolean;
+            role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
             trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown>;
             triggerKeys: string[];
             arrowOffset: number;
@@ -18610,14 +18610,14 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
     onInput?: ((value: import("element-plus/es/utils").Arrayable<number>) => any) | undefined;
 }, {
     readonly vertical: boolean;
-    readonly range: boolean;
-    readonly disabled: boolean;
     readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<number> & {}) | (() => import("element-plus/es/utils").Arrayable<number>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<number> & {}) | (() => import("element-plus/es/utils").Arrayable<number>))[], unknown, unknown>;
     readonly debounce: number;
     readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
     readonly id: string;
+    readonly disabled: boolean;
     readonly label: string;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly range: boolean;
     readonly max: number;
     readonly min: number;
     readonly step: number;

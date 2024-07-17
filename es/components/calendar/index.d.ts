@@ -257,11 +257,11 @@ export declare const ElCalendar: import("element-plus/es/utils").SFCWithInstall<
         readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown>;
         readonly link: boolean;
         readonly dark: boolean;
-        readonly circle: boolean;
-        readonly round: boolean;
-        readonly text: boolean;
         readonly disabled: boolean;
+        readonly text: boolean;
         readonly autofocus: boolean;
+        readonly round: boolean;
+        readonly circle: boolean;
         readonly tag: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
         readonly loading: boolean;
         readonly nativeType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "button" | "reset" | "submit", unknown>;

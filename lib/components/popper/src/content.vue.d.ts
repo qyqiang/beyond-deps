@@ -850,7 +850,6 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     readonly offset: number;
     readonly effect: string;
-    readonly visible: boolean;
     readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
     readonly boundariesPadding: number;
     readonly fallbackPlacements: import("@popperjs/core").Placement[];
@@ -861,6 +860,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly visible: boolean;
     readonly pure: boolean;
     readonly virtualTriggering: boolean;
 }>;

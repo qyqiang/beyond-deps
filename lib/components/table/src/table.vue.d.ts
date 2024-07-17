@@ -219,7 +219,7 @@ declare const _default: import("vue").DefineComponent<{
      * @description set vertical scroll position
      */
     setScrollTop: (top?: number | undefined) => void;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("select-all" | "expand-change" | "current-change" | "select" | "selection-change" | "cell-mouse-enter" | "cell-mouse-leave" | "cell-contextmenu" | "cell-click" | "cell-dblclick" | "row-click" | "row-contextmenu" | "row-dblclick" | "header-click" | "header-contextmenu" | "sort-change" | "filter-change" | "header-dragend")[], "select-all" | "select" | "expand-change" | "current-change" | "selection-change" | "cell-mouse-enter" | "cell-mouse-leave" | "cell-contextmenu" | "cell-click" | "cell-dblclick" | "row-click" | "row-contextmenu" | "row-dblclick" | "header-click" | "header-contextmenu" | "sort-change" | "filter-change" | "header-dragend", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("select-all" | "expand-change" | "current-change" | "select" | "selection-change" | "cell-mouse-enter" | "cell-mouse-leave" | "cell-contextmenu" | "cell-click" | "cell-dblclick" | "row-click" | "row-contextmenu" | "row-dblclick" | "header-click" | "header-contextmenu" | "sort-change" | "filter-change" | "header-dragend")[], "select" | "select-all" | "expand-change" | "current-change" | "selection-change" | "cell-mouse-enter" | "cell-mouse-leave" | "cell-contextmenu" | "cell-click" | "cell-dblclick" | "row-click" | "row-contextmenu" | "row-dblclick" | "header-click" | "header-contextmenu" | "sort-change" | "filter-change" | "header-dragend", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     data: {
         type: import("vue").PropType<any[]>;
         default: () => never[];
@@ -329,12 +329,12 @@ declare const _default: import("vue").DefineComponent<{
     "onFilter-change"?: ((...args: any[]) => any) | undefined;
     "onHeader-dragend"?: ((...args: any[]) => any) | undefined;
 }, {
-    fit: boolean;
     style: import("vue").CSSProperties;
-    border: boolean;
     className: string;
     tableLayout: "auto" | "fixed";
+    border: boolean;
     data: any[];
+    fit: boolean;
     lazy: boolean;
     scrollbarAlwaysOn: boolean;
     stripe: boolean;

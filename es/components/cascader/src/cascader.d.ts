@@ -46,6 +46,7 @@ export declare const cascaderProps: {
         __epPropKey: true;
     };
     validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+    persistent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     modelValue: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("../../cascader-panel/src/node").CascaderValue & {}) | (() => import("../../cascader-panel/src/node").CascaderValue) | ((new (...args: any[]) => import("../../cascader-panel/src/node").CascaderValue & {}) | (() => import("../../cascader-panel/src/node").CascaderValue))[], unknown, unknown>>;
         readonly required: false;

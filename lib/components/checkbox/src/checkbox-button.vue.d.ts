@@ -216,14 +216,14 @@ declare const _default: import("vue").DefineComponent<{
     onChange?: ((val: import("./checkbox").CheckboxValueType) => any) | undefined;
     "onUpdate:modelValue"?: ((val: import("./checkbox").CheckboxValueType) => any) | undefined;
 }, {
-    border: boolean;
-    disabled: boolean;
     value: string | number | boolean | Record<string, any>;
     modelValue: string | number | boolean;
     id: string;
+    disabled: boolean;
     name: string;
     label: string | number | boolean | Record<string, any>;
     validateEvent: boolean;
+    border: boolean;
     indeterminate: boolean;
     checked: boolean;
     trueValue: string | number;

@@ -37,6 +37,7 @@
   "el-autocomplete": {
     "attributes": [
       "model-value",
+      "pre-star",
       "placeholder",
       "clearable",
       "disabled",
@@ -706,6 +707,8 @@
   "el-input": {
     "attributes": [
       "type",
+      "pre-star",
+      "float-label",
       "model-value",
       "maxlength",
       "minlength",
@@ -1078,6 +1081,7 @@
   "el-virtualized-select": {
     "attributes": [
       "model-value",
+      "pre-star",
       "options",
       "props",
       "multiple",
@@ -1133,6 +1137,7 @@
   "el-select": {
     "attributes": [
       "model-value",
+      "pre-star",
       "multiple",
       "disabled",
       "value-key",

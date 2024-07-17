@@ -231,6 +231,15 @@
           "doc-url": "https://element-plus.org/en-US/component/autocomplete.html#autocomplete",
           "props": [
             {
+              "name": "pre-star",
+              "description": "whether show word count, only works when `type` is 'text' or 'textarea'",
+              "doc-url": "https://element-plus.org/en-US/component/input.html#attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
               "name": "model-value",
               "description": "binding value",
               "doc-url": "https://element-plus.org/en-US/component/autocomplete.html#attributes",
@@ -4953,6 +4962,24 @@
               "default": "false"
             },
             {
+              "name": "float-label",
+              "description": "float-label'",
+              "doc-url": "https://element-plus.org/en-US/component/input.html#attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "pre-star",
+              "description": "whether show word count, only works when `type` is 'text' or 'textarea'",
+              "doc-url": "https://element-plus.org/en-US/component/input.html#attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
               "name": "placeholder",
               "description": "placeholder of Input",
               "doc-url": "https://element-plus.org/en-US/component/input.html#attributes",
@@ -7724,6 +7751,15 @@
           "doc-url": "https://element-plus.org/en-US/component/select-v2.html#virtualized-select",
           "props": [
             {
+              "name": "pre-star",
+              "description": "whether show word count, only works when `type` is 'text' or 'textarea'",
+              "doc-url": "https://element-plus.org/en-US/component/input.html#attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
               "name": "model-value",
               "description": "binding value",
               "doc-url": "https://element-plus.org/en-US/component/select-v2.html#attributes",
@@ -8219,6 +8255,15 @@
           "description": "When there are plenty of options, use a drop-down menu to display and select desired ones.",
           "doc-url": "https://element-plus.org/en-US/component/select.html#select",
           "props": [
+            {
+              "name": "pre-star",
+              "description": "whether show word count, only works when `type` is 'text' or 'textarea'",
+              "doc-url": "https://element-plus.org/en-US/component/input.html#attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
             {
               "name": "model-value",
               "description": "binding value",

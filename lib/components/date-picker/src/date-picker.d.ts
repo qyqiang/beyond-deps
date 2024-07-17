@@ -180,10 +180,10 @@ declare const _default: import("vue").DefineComponent<{
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }, {
     readonly type: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("./date-picker.type").IDatePickerType & {}) | (() => import("./date-picker.type").IDatePickerType) | ((new (...args: any[]) => import("./date-picker.type").IDatePickerType & {}) | (() => import("./date-picker.type").IDatePickerType))[], unknown, unknown>;
-    readonly disabled: boolean;
     readonly modelValue: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/components/time-picker").ModelValueType & {}) | (() => import("element-plus/es/components/time-picker").ModelValueType) | ((new (...args: any[]) => import("element-plus/es/components/time-picker").ModelValueType & {}) | (() => import("element-plus/es/components/time-picker").ModelValueType))[], unknown, unknown>;
     readonly popperClass: string;
     readonly popperOptions: Partial<import("@popperjs/core").Options>;
+    readonly disabled: boolean;
     readonly clearable: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly name: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/components/time-picker").SingleOrRange<string> & {}) | (() => import("element-plus/es/components/time-picker").SingleOrRange<string>) | ((new (...args: any[]) => import("element-plus/es/components/time-picker").SingleOrRange<string> & {}) | (() => import("element-plus/es/components/time-picker").SingleOrRange<string>))[], unknown, unknown>;
     readonly placeholder: string;

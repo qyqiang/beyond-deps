@@ -59,6 +59,10 @@ const cascaderProps = buildProps({
     type: Boolean,
     default: true
   },
+  persistent: {
+    type: Boolean,
+    default: true
+  },
   ...useEmptyValuesProps
 });
 const cascaderEmits = {

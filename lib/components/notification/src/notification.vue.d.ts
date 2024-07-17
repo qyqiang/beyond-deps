@@ -115,7 +115,7 @@ declare const _default: import("vue").DefineComponent<{
     timer: undefined;
     typeClass: import("vue").ComputedRef<string>;
     iconComponent: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown> | undefined>;
-    horizontalClass: import("vue").ComputedRef<"left" | "right">;
+    horizontalClass: import("vue").ComputedRef<"right" | "left">;
     verticalProperty: import("vue").ComputedRef<"top" | "bottom">;
     positionStyle: import("vue").ComputedRef<CSSProperties>;
     startTimer: () => void;

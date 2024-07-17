@@ -48,8 +48,8 @@ declare const _default: import("vue").DefineComponent<{
         };
     }>> & {
         onClose?: (() => any) | undefined;
-        onSwitch?: ((index: number) => any) | undefined;
         onRotate?: ((deg: number) => any) | undefined;
+        onSwitch?: ((index: number) => any) | undefined;
     }>>;
     emit: ((event: "close") => void) & ((event: "rotate", deg: number) => void) & ((event: "switch", index: number) => void);
     t: import("element-plus/es/hooks").Translator;
@@ -203,17 +203,17 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>> & {
     onClose?: (() => any) | undefined;
-    onSwitch?: ((index: number) => any) | undefined;
     onRotate?: ((deg: number) => any) | undefined;
+    onSwitch?: ((index: number) => any) | undefined;
 }, {
-    readonly infinite: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly teleported: boolean;
+    readonly infinite: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly initialIndex: number;
     readonly closeOnPressEscape: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly urlList: string[];
     readonly zoomRate: number;
     readonly minScale: number;
     readonly maxScale: number;
     readonly hideOnClickModal: boolean;
-    readonly urlList: string[];
 }>;
 export default _default;

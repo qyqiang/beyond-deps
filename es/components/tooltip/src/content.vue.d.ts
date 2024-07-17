@@ -1425,7 +1425,6 @@ declare const _default: import("vue").DefineComponent<{
     }, {
         readonly offset: number;
         readonly effect: string;
-        readonly visible: boolean;
         readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("element-plus/es/components/popper").Placement, unknown>;
         readonly boundariesPadding: number;
         readonly fallbackPlacements: import("element-plus/es/components/popper").Placement[];
@@ -1436,6 +1435,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly visible: boolean;
         readonly pure: boolean;
         readonly virtualTriggering: boolean;
     }>;
@@ -1704,9 +1704,6 @@ declare const _default: import("vue").DefineComponent<{
 }>>, {
     readonly offset: number;
     readonly effect: string;
-    readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
-    readonly content: string;
-    readonly disabled: boolean;
     readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("element-plus/es/components/popper").Placement, unknown>;
     readonly showAfter: number;
     readonly hideAfter: number;
@@ -1720,10 +1717,13 @@ declare const _default: import("vue").DefineComponent<{
     readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
     readonly pure: boolean;
     readonly virtualTriggering: boolean;
+    readonly content: string;
     readonly rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly persistent: boolean;
+    readonly disabled: boolean;
 }>;
 export default _default;
