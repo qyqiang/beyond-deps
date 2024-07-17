@@ -117,15 +117,15 @@ declare const _default: import("vue").DefineComponent<{
         props: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("element-plus/es/components/cascader-panel").CascaderProps) | (() => import("element-plus/es/components/cascader-panel").CascaderProps) | ((new (...args: any[]) => import("element-plus/es/components/cascader-panel").CascaderProps) | (() => import("element-plus/es/components/cascader-panel").CascaderProps))[], unknown, unknown, () => import("element-plus/es/components/cascader-panel").CascaderProps, boolean>;
     }>> & {
         onChange?: ((_: CascaderValue) => any) | undefined;
-        onClear?: (() => any) | undefined;
         "onUpdate:modelValue"?: ((_: CascaderValue) => any) | undefined;
-        onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onClear?: (() => any) | undefined;
         onFocus?: ((evt: FocusEvent) => any) | undefined;
+        onBlur?: ((evt: FocusEvent) => any) | undefined;
         onVisibleChange?: ((val: boolean) => any) | undefined;
         onExpandChange?: ((val: CascaderValue) => any) | undefined;
         onRemoveTag?: ((val: import("../../cascader-panel/src/node").CascaderNodeValue | import("../../cascader-panel/src/node").CascaderNodePathValue) => any) | undefined;
     }>>;
-    emit: ((event: "update:modelValue", _: CascaderValue) => void) & ((event: "change", _: CascaderValue) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "clear") => void) & ((event: "visibleChange", val: boolean) => void) & ((event: "expandChange", val: CascaderValue) => void) & ((event: "removeTag", val: import("../../cascader-panel/src/node").CascaderNodeValue | import("../../cascader-panel/src/node").CascaderNodePathValue) => void);
+    emit: ((event: "update:modelValue", _: CascaderValue) => void) & ((event: "change", _: CascaderValue) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "visibleChange", val: boolean) => void) & ((event: "expandChange", val: CascaderValue) => void) & ((event: "removeTag", val: import("../../cascader-panel/src/node").CascaderNodeValue | import("../../cascader-panel/src/node").CascaderNodePathValue) => void);
     attrs: {
         [x: string]: unknown;
     };
@@ -177,6 +177,10 @@ declare const _default: import("vue").DefineComponent<{
         $props: Partial<{
             offset: number;
             effect: string;
+            visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
+            content: string;
+            open: boolean;
+            disabled: boolean;
             placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("element-plus/es/components/popper").Placement, unknown>;
             showAfter: number;
             hideAfter: number;
@@ -190,16 +194,12 @@ declare const _default: import("vue").DefineComponent<{
             focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
             pure: boolean;
             virtualTriggering: boolean;
-            content: string;
             rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             persistent: boolean;
-            disabled: boolean;
-            open: boolean;
-            role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
+            role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
             trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType>))[], unknown, unknown>;
             triggerKeys: string[];
             arrowOffset: number;
@@ -525,10 +525,10 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & {
             [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
-        } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "offset" | "effect" | "placement" | "showAfter" | "hideAfter" | "autoClose" | "boundariesPadding" | "fallbackPlacements" | "gpuAcceleration" | "popperOptions" | "strategy" | "enterable" | "focusOnShow" | "trapping" | "stopPopperMouseEvent" | "visible" | "pure" | "virtualTriggering" | "content" | "rawContent" | "teleported" | "persistent" | "disabled" | "open" | "role" | "trigger" | "triggerKeys" | "arrowOffset" | "showArrow">;
+        } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "offset" | "effect" | "visible" | "content" | "open" | "disabled" | "placement" | "showAfter" | "hideAfter" | "autoClose" | "boundariesPadding" | "fallbackPlacements" | "gpuAcceleration" | "popperOptions" | "strategy" | "enterable" | "focusOnShow" | "trapping" | "stopPopperMouseEvent" | "pure" | "virtualTriggering" | "rawContent" | "teleported" | "persistent" | "role" | "trigger" | "triggerKeys" | "arrowOffset" | "showArrow">;
         $attrs: {
             [x: string]: unknown;
         };
@@ -863,7 +863,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & {
             [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
         }, {
@@ -1188,7 +1188,7 @@ declare const _default: import("vue").DefineComponent<{
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
             }>>;
@@ -1198,9 +1198,9 @@ declare const _default: import("vue").DefineComponent<{
                 $: import("vue").ComponentInternalInstance;
                 $data: {};
                 $props: Partial<{
-                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
+                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
                 }> & Omit<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "role">;
                 $attrs: {
                     [x: string]: unknown;
@@ -1216,10 +1216,10 @@ declare const _default: import("vue").DefineComponent<{
                 $emit: (event: string, ...args: any[]) => void;
                 $el: any;
                 $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>>, {
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                        readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                     }>> & {
                         [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                     }>>;
@@ -1227,10 +1227,10 @@ declare const _default: import("vue").DefineComponent<{
                     popperInstanceRef: Ref<import("@popperjs/core").Instance | undefined>;
                     contentRef: Ref<HTMLElement | undefined>;
                     referenceRef: Ref<HTMLElement | undefined>;
-                    role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
+                    role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
                     popperProvides: import("element-plus/es/components/popper").ElPopperInjectionContext;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
-                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
+                    readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
                 }> & {
                     beforeCreate?: ((() => void) | (() => void)[]) | undefined;
                     created?: ((() => void) | (() => void)[]) | undefined;
@@ -1252,10 +1252,10 @@ declare const _default: import("vue").DefineComponent<{
                 $nextTick: typeof nextTick;
                 $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
             } & Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & import("vue").ShallowUnwrapRef<{
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
@@ -1263,7 +1263,7 @@ declare const _default: import("vue").DefineComponent<{
                 popperInstanceRef: Ref<import("@popperjs/core").Instance | undefined>;
                 contentRef: Ref<HTMLElement | undefined>;
                 referenceRef: Ref<HTMLElement | undefined>;
-                role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
+                role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
                 popperProvides: import("element-plus/es/components/popper").ElPopperInjectionContext;
             }> & {} & import("vue").ComponentCustomProperties) | undefined>;
             contentRef: Ref<any>;
@@ -1278,10 +1278,10 @@ declare const _default: import("vue").DefineComponent<{
             controlled: ComputedRef<boolean>;
             isFocusInsideContent: (event?: FocusEvent | undefined) => boolean | undefined;
             ElPopper: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
@@ -1289,12 +1289,12 @@ declare const _default: import("vue").DefineComponent<{
                 popperInstanceRef: Ref<import("@popperjs/core").Instance | undefined>;
                 contentRef: Ref<HTMLElement | undefined>;
                 referenceRef: Ref<HTMLElement | undefined>;
-                role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
+                role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
                 popperProvides: import("element-plus/es/components/popper").ElPopperInjectionContext;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>>, {
-                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
+                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
             }>> & Record<string, any>;
             ElPopperArrow: import("vue").DefineComponent<{
                 readonly arrowOffset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 5, boolean>;
@@ -1651,8 +1651,8 @@ declare const _default: import("vue").DefineComponent<{
                     readonly id: StringConstructor;
                     readonly open: BooleanConstructor;
                 }>>, {
-                    readonly virtualTriggering: boolean;
                     readonly open: boolean;
+                    readonly virtualTriggering: boolean;
                 }>;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
                 readonly disabled: BooleanConstructor;
@@ -1710,9 +1710,9 @@ declare const _default: import("vue").DefineComponent<{
                 readonly id: StringConstructor;
                 readonly open: BooleanConstructor;
             }>>, {
-                readonly virtualTriggering: boolean;
-                readonly disabled: boolean;
                 readonly open: boolean;
+                readonly disabled: boolean;
+                readonly virtualTriggering: boolean;
                 readonly trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType>))[], unknown, unknown>;
                 readonly triggerKeys: string[];
             }>;
@@ -2539,7 +2539,7 @@ declare const _default: import("vue").DefineComponent<{
                     readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<Options>) | (() => Partial<Options>) | ((new (...args: any[]) => Partial<Options>) | (() => Partial<Options>))[], unknown, unknown, () => {}, boolean>;
                     readonly strategy: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "fixed" | "absolute", unknown, "absolute", boolean>;
                 }, {
-                    emit: ((event: "blur") => void) & ((event: "close") => void) & ((event: "focus") => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void);
+                    emit: ((event: "close") => void) & ((event: "focus") => void) & ((event: "blur") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void);
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                         readonly ariaLabel: StringConstructor;
                         readonly id: StringConstructor;
@@ -2789,10 +2789,10 @@ declare const _default: import("vue").DefineComponent<{
                         readonly strategy: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "fixed" | "absolute", unknown, "absolute", boolean>;
                     }>> & {
                         onClose?: (() => any) | undefined;
-                        onBlur?: (() => any) | undefined;
                         onFocus?: (() => any) | undefined;
-                        onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+                        onBlur?: (() => any) | undefined;
                         onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+                        onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                     }>>;
                     focusStartRef: Ref<HTMLElement | "container" | "first" | undefined>;
                     trapped: Ref<boolean>;
@@ -2861,7 +2861,7 @@ declare const _default: import("vue").DefineComponent<{
                         };
                     }, {
                         onKeydown: (e: KeyboardEvent) => void;
-                    }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("focusin" | "focusout" | "focusAfterTrapped" | "focusAfterReleased" | "focusout-prevented" | "release-requested")[], "focusin" | "focusout" | "focusAfterTrapped" | "focusAfterReleased" | "focusout-prevented" | "release-requested", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                    }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("focusAfterTrapped" | "focusAfterReleased" | "focusin" | "focusout" | "focusout-prevented" | "release-requested")[], "focusAfterTrapped" | "focusAfterReleased" | "focusin" | "focusout" | "focusout-prevented" | "release-requested", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
                         loop: BooleanConstructor;
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
@@ -3136,13 +3136,14 @@ declare const _default: import("vue").DefineComponent<{
                     readonly strategy: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "fixed" | "absolute", unknown, "absolute", boolean>;
                 }>> & {
                     onClose?: (() => any) | undefined;
-                    onBlur?: (() => any) | undefined;
                     onFocus?: (() => any) | undefined;
-                    onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+                    onBlur?: (() => any) | undefined;
                     onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+                    onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 }, {
                     readonly offset: number;
                     readonly effect: string;
+                    readonly visible: boolean;
                     readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("element-plus/es/components/popper").Placement, unknown>;
                     readonly boundariesPadding: number;
                     readonly fallbackPlacements: import("element-plus/es/components/popper").Placement[];
@@ -3153,7 +3154,6 @@ declare const _default: import("vue").DefineComponent<{
                     readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                    readonly visible: boolean;
                     readonly pure: boolean;
                     readonly virtualTriggering: boolean;
                 }>;
@@ -3422,6 +3422,9 @@ declare const _default: import("vue").DefineComponent<{
             }>>, {
                 readonly offset: number;
                 readonly effect: string;
+                readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
+                readonly content: string;
+                readonly disabled: boolean;
                 readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("element-plus/es/components/popper").Placement, unknown>;
                 readonly showAfter: number;
                 readonly hideAfter: number;
@@ -3435,18 +3438,19 @@ declare const _default: import("vue").DefineComponent<{
                 readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
                 readonly pure: boolean;
                 readonly virtualTriggering: boolean;
-                readonly content: string;
                 readonly rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly persistent: boolean;
-                readonly disabled: boolean;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, {
             offset: number;
             effect: string;
+            visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
+            content: string;
+            open: boolean;
+            disabled: boolean;
             placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("element-plus/es/components/popper").Placement, unknown>;
             showAfter: number;
             hideAfter: number;
@@ -3460,16 +3464,12 @@ declare const _default: import("vue").DefineComponent<{
             focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
             pure: boolean;
             virtualTriggering: boolean;
-            content: string;
             rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             persistent: boolean;
-            disabled: boolean;
-            open: boolean;
-            role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
+            role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
             trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType>))[], unknown, unknown>;
             triggerKeys: string[];
             arrowOffset: number;
@@ -3815,7 +3815,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+        role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
     }>> & {
         [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
     } & import("vue").ShallowUnwrapRef<{
@@ -4140,7 +4140,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & {
             [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
         }>>;
@@ -4150,9 +4150,9 @@ declare const _default: import("vue").DefineComponent<{
             $: import("vue").ComponentInternalInstance;
             $data: {};
             $props: Partial<{
-                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
+                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
             }> & Omit<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "role">;
             $attrs: {
                 [x: string]: unknown;
@@ -4168,10 +4168,10 @@ declare const _default: import("vue").DefineComponent<{
             $emit: (event: string, ...args: any[]) => void;
             $el: any;
             $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>>, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
@@ -4179,10 +4179,10 @@ declare const _default: import("vue").DefineComponent<{
                 popperInstanceRef: Ref<import("@popperjs/core").Instance | undefined>;
                 contentRef: Ref<HTMLElement | undefined>;
                 referenceRef: Ref<HTMLElement | undefined>;
-                role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
+                role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
                 popperProvides: import("element-plus/es/components/popper").ElPopperInjectionContext;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
-                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
+                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
             }> & {
                 beforeCreate?: ((() => void) | (() => void)[]) | undefined;
                 created?: ((() => void) | (() => void)[]) | undefined;
@@ -4204,10 +4204,10 @@ declare const _default: import("vue").DefineComponent<{
             $nextTick: typeof nextTick;
             $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
         } & Readonly<import("vue").ExtractPropTypes<{
-            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & import("vue").ShallowUnwrapRef<{
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
             }>>;
@@ -4215,7 +4215,7 @@ declare const _default: import("vue").DefineComponent<{
             popperInstanceRef: Ref<import("@popperjs/core").Instance | undefined>;
             contentRef: Ref<HTMLElement | undefined>;
             referenceRef: Ref<HTMLElement | undefined>;
-            role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
+            role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
             popperProvides: import("element-plus/es/components/popper").ElPopperInjectionContext;
         }> & {} & import("vue").ComponentCustomProperties) | undefined>;
         contentRef: Ref<any>;
@@ -4230,10 +4230,10 @@ declare const _default: import("vue").DefineComponent<{
         controlled: ComputedRef<boolean>;
         isFocusInsideContent: (event?: FocusEvent | undefined) => boolean | undefined;
         ElPopper: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
-            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
             }>>;
@@ -4241,12 +4241,12 @@ declare const _default: import("vue").DefineComponent<{
             popperInstanceRef: Ref<import("@popperjs/core").Instance | undefined>;
             contentRef: Ref<HTMLElement | undefined>;
             referenceRef: Ref<HTMLElement | undefined>;
-            role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
+            role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
             popperProvides: import("element-plus/es/components/popper").ElPopperInjectionContext;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>>, {
-            readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
+            readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
         }>> & Record<string, any>;
         ElPopperArrow: import("vue").DefineComponent<{
             readonly arrowOffset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 5, boolean>;
@@ -4603,8 +4603,8 @@ declare const _default: import("vue").DefineComponent<{
                 readonly id: StringConstructor;
                 readonly open: BooleanConstructor;
             }>>, {
-                readonly virtualTriggering: boolean;
                 readonly open: boolean;
+                readonly virtualTriggering: boolean;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
             readonly disabled: BooleanConstructor;
@@ -4662,9 +4662,9 @@ declare const _default: import("vue").DefineComponent<{
             readonly id: StringConstructor;
             readonly open: BooleanConstructor;
         }>>, {
-            readonly virtualTriggering: boolean;
-            readonly disabled: boolean;
             readonly open: boolean;
+            readonly disabled: boolean;
+            readonly virtualTriggering: boolean;
             readonly trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType>))[], unknown, unknown>;
             readonly triggerKeys: string[];
         }>;
@@ -5491,7 +5491,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<Options>) | (() => Partial<Options>) | ((new (...args: any[]) => Partial<Options>) | (() => Partial<Options>))[], unknown, unknown, () => {}, boolean>;
                 readonly strategy: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "fixed" | "absolute", unknown, "absolute", boolean>;
             }, {
-                emit: ((event: "blur") => void) & ((event: "close") => void) & ((event: "focus") => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void);
+                emit: ((event: "close") => void) & ((event: "focus") => void) & ((event: "blur") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void);
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                     readonly ariaLabel: StringConstructor;
                     readonly id: StringConstructor;
@@ -5741,10 +5741,10 @@ declare const _default: import("vue").DefineComponent<{
                     readonly strategy: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "fixed" | "absolute", unknown, "absolute", boolean>;
                 }>> & {
                     onClose?: (() => any) | undefined;
-                    onBlur?: (() => any) | undefined;
                     onFocus?: (() => any) | undefined;
-                    onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+                    onBlur?: (() => any) | undefined;
                     onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+                    onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 }>>;
                 focusStartRef: Ref<HTMLElement | "container" | "first" | undefined>;
                 trapped: Ref<boolean>;
@@ -5813,7 +5813,7 @@ declare const _default: import("vue").DefineComponent<{
                     };
                 }, {
                     onKeydown: (e: KeyboardEvent) => void;
-                }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("focusin" | "focusout" | "focusAfterTrapped" | "focusAfterReleased" | "focusout-prevented" | "release-requested")[], "focusin" | "focusout" | "focusAfterTrapped" | "focusAfterReleased" | "focusout-prevented" | "release-requested", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("focusAfterTrapped" | "focusAfterReleased" | "focusin" | "focusout" | "focusout-prevented" | "release-requested")[], "focusAfterTrapped" | "focusAfterReleased" | "focusin" | "focusout" | "focusout-prevented" | "release-requested", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
                     loop: BooleanConstructor;
                     trapped: BooleanConstructor;
                     focusTrapEl: import("vue").PropType<HTMLElement>;
@@ -6088,13 +6088,14 @@ declare const _default: import("vue").DefineComponent<{
                 readonly strategy: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "fixed" | "absolute", unknown, "absolute", boolean>;
             }>> & {
                 onClose?: (() => any) | undefined;
-                onBlur?: (() => any) | undefined;
                 onFocus?: (() => any) | undefined;
-                onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+                onBlur?: (() => any) | undefined;
                 onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+                onMouseenter?: ((evt: MouseEvent) => any) | undefined;
             }, {
                 readonly offset: number;
                 readonly effect: string;
+                readonly visible: boolean;
                 readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("element-plus/es/components/popper").Placement, unknown>;
                 readonly boundariesPadding: number;
                 readonly fallbackPlacements: import("element-plus/es/components/popper").Placement[];
@@ -6105,7 +6106,6 @@ declare const _default: import("vue").DefineComponent<{
                 readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                readonly visible: boolean;
                 readonly pure: boolean;
                 readonly virtualTriggering: boolean;
             }>;
@@ -6374,6 +6374,9 @@ declare const _default: import("vue").DefineComponent<{
         }>>, {
             readonly offset: number;
             readonly effect: string;
+            readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
+            readonly content: string;
+            readonly disabled: boolean;
             readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("element-plus/es/components/popper").Placement, unknown>;
             readonly showAfter: number;
             readonly hideAfter: number;
@@ -6387,28 +6390,27 @@ declare const _default: import("vue").DefineComponent<{
             readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
             readonly pure: boolean;
             readonly virtualTriggering: boolean;
-            readonly content: string;
             readonly rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly persistent: boolean;
-            readonly disabled: boolean;
         }>;
     }> & {} & import("vue").ComponentCustomProperties) | null>;
     input: Ref<({
         $: import("vue").ComponentInternalInstance;
         $data: {};
         $props: Partial<{
-            readonly id: string;
             readonly type: string;
-            readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
             readonly disabled: boolean;
+            readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
+            readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly id: string;
             readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly autosize: import("element-plus/es/components/input").InputAutoSize;
             readonly autocomplete: string;
             readonly readonly: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly floatLabel: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly showPassword: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly showWordLimit: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly containerRole: string;
@@ -6474,6 +6476,8 @@ declare const _default: import("vue").DefineComponent<{
                 __epPropKey: true;
             };
             readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -6497,18 +6501,18 @@ declare const _default: import("vue").DefineComponent<{
             readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         }>> & {
             onChange?: ((value: string) => any) | undefined;
-            onClear?: (() => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
             onInput?: ((value: string) => any) | undefined;
-            onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onClear?: (() => any) | undefined;
             onFocus?: ((evt: FocusEvent) => any) | undefined;
-            onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+            onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+            onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+            onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
             onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
             onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-            onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
-            onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-            onMouseleave?: ((evt: MouseEvent) => any) | undefined;
-        } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "id" | "type" | "modelValue" | "disabled" | "clearable" | "autosize" | "autocomplete" | "readonly" | "showPassword" | "showWordLimit" | "containerRole" | "label" | "tabindex" | "validateEvent" | "inputStyle" | "autofocus">;
+            onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+        } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "type" | "disabled" | "modelValue" | "preStar" | "id" | "clearable" | "autosize" | "autocomplete" | "readonly" | "floatLabel" | "showPassword" | "showWordLimit" | "containerRole" | "label" | "tabindex" | "validateEvent" | "inputStyle" | "autofocus">;
         $attrs: {
             [x: string]: unknown;
         };
@@ -6520,7 +6524,7 @@ declare const _default: import("vue").DefineComponent<{
         }>;
         $root: import("vue").ComponentPublicInstance<{}, {}, {}, {}, {}, {}, {}, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}>> | null;
         $parent: import("vue").ComponentPublicInstance<{}, {}, {}, {}, {}, {}, {}, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}>> | null;
-        $emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "clear") => void);
+        $emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
         $el: any;
         $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
             readonly ariaLabel: StringConstructor;
@@ -6579,6 +6583,8 @@ declare const _default: import("vue").DefineComponent<{
                 __epPropKey: true;
             };
             readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -6602,17 +6608,17 @@ declare const _default: import("vue").DefineComponent<{
             readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         }>> & {
             onChange?: ((value: string) => any) | undefined;
-            onClear?: (() => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
             onInput?: ((value: string) => any) | undefined;
-            onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onClear?: (() => any) | undefined;
             onFocus?: ((evt: FocusEvent) => any) | undefined;
-            onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+            onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+            onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+            onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
             onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
             onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-            onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
-            onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-            onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+            onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                 readonly ariaLabel: StringConstructor;
@@ -6671,6 +6677,8 @@ declare const _default: import("vue").DefineComponent<{
                     __epPropKey: true;
                 };
                 readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+                readonly preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
                 readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
                 readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
                 readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -6694,19 +6702,19 @@ declare const _default: import("vue").DefineComponent<{
                 readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             }>> & {
                 onChange?: ((value: string) => any) | undefined;
-                onClear?: (() => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
                 onInput?: ((value: string) => any) | undefined;
-                onBlur?: ((evt: FocusEvent) => any) | undefined;
+                onClear?: (() => any) | undefined;
                 onFocus?: ((evt: FocusEvent) => any) | undefined;
-                onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+                onBlur?: ((evt: FocusEvent) => any) | undefined;
+                onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+                onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+                onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
                 onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
                 onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-                onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
-                onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-                onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+                onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
             }>>;
-            emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "clear") => void);
+            emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
             rawAttrs: {
                 [x: string]: unknown;
             };
@@ -6771,9 +6779,8 @@ declare const _default: import("vue").DefineComponent<{
             handleFocus: (event: FocusEvent) => void;
             handleBlur: (event: FocusEvent) => void;
             needStatusIcon: ComputedRef<boolean>;
-            validateState: ComputedRef<"" | "error" | "success" | "validating">;
-            validateIcon: ComputedRef<any>;
-            passwordIcon: ComputedRef<any>;
+            validateState: ComputedRef<"" | "success" | "error" | "validating">;
+            validateIcon: ComputedRef<string>;
             containerStyle: ComputedRef<StyleValue>;
             textareaStyle: ComputedRef<StyleValue>;
             nativeInputValue: ComputedRef<string>;
@@ -6865,7 +6872,6 @@ declare const _default: import("vue").DefineComponent<{
                     __epPropKey: true;
                 };
             }>>, {}>> & Record<string, any>;
-            CircleClose: any;
             NOOP: () => void;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
             "update:modelValue": (value: string) => boolean;
@@ -6881,14 +6887,16 @@ declare const _default: import("vue").DefineComponent<{
             compositionupdate: (evt: CompositionEvent) => boolean;
             compositionend: (evt: CompositionEvent) => boolean;
         }, string, {
-            readonly id: string;
             readonly type: string;
-            readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
             readonly disabled: boolean;
+            readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
+            readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly id: string;
             readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly autosize: import("element-plus/es/components/input").InputAutoSize;
             readonly autocomplete: string;
             readonly readonly: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly floatLabel: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly showPassword: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly showWordLimit: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly containerRole: string;
@@ -6974,6 +6982,8 @@ declare const _default: import("vue").DefineComponent<{
             __epPropKey: true;
         };
         readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -6997,17 +7007,17 @@ declare const _default: import("vue").DefineComponent<{
         readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     }>> & {
         onChange?: ((value: string) => any) | undefined;
-        onClear?: (() => any) | undefined;
         "onUpdate:modelValue"?: ((value: string) => any) | undefined;
         onInput?: ((value: string) => any) | undefined;
-        onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onClear?: (() => any) | undefined;
         onFocus?: ((evt: FocusEvent) => any) | undefined;
-        onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+        onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+        onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+        onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
         onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
         onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-        onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
-        onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-        onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+        onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
     } & import("vue").ShallowUnwrapRef<{
         props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
             readonly ariaLabel: StringConstructor;
@@ -7066,6 +7076,8 @@ declare const _default: import("vue").DefineComponent<{
                 __epPropKey: true;
             };
             readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -7089,19 +7101,19 @@ declare const _default: import("vue").DefineComponent<{
             readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         }>> & {
             onChange?: ((value: string) => any) | undefined;
-            onClear?: (() => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
             onInput?: ((value: string) => any) | undefined;
-            onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onClear?: (() => any) | undefined;
             onFocus?: ((evt: FocusEvent) => any) | undefined;
-            onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+            onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+            onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+            onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
             onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
             onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-            onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
-            onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-            onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+            onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
         }>>;
-        emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "clear") => void);
+        emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
         rawAttrs: {
             [x: string]: unknown;
         };
@@ -7166,9 +7178,8 @@ declare const _default: import("vue").DefineComponent<{
         handleFocus: (event: FocusEvent) => void;
         handleBlur: (event: FocusEvent) => void;
         needStatusIcon: ComputedRef<boolean>;
-        validateState: ComputedRef<"" | "error" | "success" | "validating">;
-        validateIcon: ComputedRef<any>;
-        passwordIcon: ComputedRef<any>;
+        validateState: ComputedRef<"" | "success" | "error" | "validating">;
+        validateIcon: ComputedRef<string>;
         containerStyle: ComputedRef<StyleValue>;
         textareaStyle: ComputedRef<StyleValue>;
         nativeInputValue: ComputedRef<string>;
@@ -7260,7 +7271,6 @@ declare const _default: import("vue").DefineComponent<{
                 __epPropKey: true;
             };
         }>>, {}>> & Record<string, any>;
-        CircleClose: any;
         NOOP: () => void;
     }> & {} & import("vue").ComponentCustomProperties) | null>;
     tagWrapper: Ref<null>;
@@ -8851,7 +8861,7 @@ declare const _default: import("vue").DefineComponent<{
     checkedNodes: ComputedRef<CascaderNode[]>;
     clearBtnVisible: ComputedRef<boolean>;
     presentText: ComputedRef<string>;
-    validateState: ComputedRef<"" | "error" | "success" | "validating">;
+    validateState: ComputedRef<"" | "success" | "error" | "validating">;
     checkedValue: import("vue").WritableComputedRef<CascaderValue>;
     cascaderKls: ComputedRef<unknown[]>;
     cascaderIconKls: ComputedRef<string[]>;
@@ -9118,6 +9128,8 @@ declare const _default: import("vue").DefineComponent<{
             __epPropKey: true;
         };
         readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -9197,6 +9209,8 @@ declare const _default: import("vue").DefineComponent<{
                 __epPropKey: true;
             };
             readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -9220,19 +9234,19 @@ declare const _default: import("vue").DefineComponent<{
             readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         }>> & {
             onChange?: ((value: string) => any) | undefined;
-            onClear?: (() => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
             onInput?: ((value: string) => any) | undefined;
-            onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onClear?: (() => any) | undefined;
             onFocus?: ((evt: FocusEvent) => any) | undefined;
-            onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+            onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+            onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+            onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
             onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
             onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-            onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
-            onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-            onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+            onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
         }>>;
-        emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "clear") => void);
+        emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
         rawAttrs: {
             [x: string]: unknown;
         };
@@ -9297,9 +9311,8 @@ declare const _default: import("vue").DefineComponent<{
         handleFocus: (event: FocusEvent) => void;
         handleBlur: (event: FocusEvent) => void;
         needStatusIcon: ComputedRef<boolean>;
-        validateState: ComputedRef<"" | "error" | "success" | "validating">;
-        validateIcon: ComputedRef<any>;
-        passwordIcon: ComputedRef<any>;
+        validateState: ComputedRef<"" | "success" | "error" | "validating">;
+        validateIcon: ComputedRef<string>;
         containerStyle: ComputedRef<StyleValue>;
         textareaStyle: ComputedRef<StyleValue>;
         nativeInputValue: ComputedRef<string>;
@@ -9391,7 +9404,6 @@ declare const _default: import("vue").DefineComponent<{
                 __epPropKey: true;
             };
         }>>, {}>> & Record<string, any>;
-        CircleClose: any;
         NOOP: () => void;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         "update:modelValue": (value: string) => boolean;
@@ -9463,6 +9475,8 @@ declare const _default: import("vue").DefineComponent<{
             __epPropKey: true;
         };
         readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -9486,26 +9500,28 @@ declare const _default: import("vue").DefineComponent<{
         readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     }>> & {
         onChange?: ((value: string) => any) | undefined;
-        onClear?: (() => any) | undefined;
         "onUpdate:modelValue"?: ((value: string) => any) | undefined;
         onInput?: ((value: string) => any) | undefined;
-        onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onClear?: (() => any) | undefined;
         onFocus?: ((evt: FocusEvent) => any) | undefined;
-        onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+        onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+        onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+        onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
         onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
         onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-        onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
-        onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-        onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+        onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
     }, {
-        readonly id: string;
         readonly type: string;
-        readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
         readonly disabled: boolean;
+        readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
+        readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly id: string;
         readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly autosize: import("element-plus/es/components/input").InputAutoSize;
         readonly autocomplete: string;
         readonly readonly: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly floatLabel: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly showPassword: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly showWordLimit: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly containerRole: string;
@@ -9836,7 +9852,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+        role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
     }, {
         props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
             showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
@@ -10159,7 +10175,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & {
             [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
         }>>;
@@ -10169,9 +10185,9 @@ declare const _default: import("vue").DefineComponent<{
             $: import("vue").ComponentInternalInstance;
             $data: {};
             $props: Partial<{
-                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
+                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
             }> & Omit<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "role">;
             $attrs: {
                 [x: string]: unknown;
@@ -10187,10 +10203,10 @@ declare const _default: import("vue").DefineComponent<{
             $emit: (event: string, ...args: any[]) => void;
             $el: any;
             $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>>, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                    readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
@@ -10198,10 +10214,10 @@ declare const _default: import("vue").DefineComponent<{
                 popperInstanceRef: Ref<import("@popperjs/core").Instance | undefined>;
                 contentRef: Ref<HTMLElement | undefined>;
                 referenceRef: Ref<HTMLElement | undefined>;
-                role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
+                role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
                 popperProvides: import("element-plus/es/components/popper").ElPopperInjectionContext;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
-                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
+                readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
             }> & {
                 beforeCreate?: ((() => void) | (() => void)[]) | undefined;
                 created?: ((() => void) | (() => void)[]) | undefined;
@@ -10223,10 +10239,10 @@ declare const _default: import("vue").DefineComponent<{
             $nextTick: typeof nextTick;
             $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
         } & Readonly<import("vue").ExtractPropTypes<{
-            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & import("vue").ShallowUnwrapRef<{
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
             }>>;
@@ -10234,7 +10250,7 @@ declare const _default: import("vue").DefineComponent<{
             popperInstanceRef: Ref<import("@popperjs/core").Instance | undefined>;
             contentRef: Ref<HTMLElement | undefined>;
             referenceRef: Ref<HTMLElement | undefined>;
-            role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
+            role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
             popperProvides: import("element-plus/es/components/popper").ElPopperInjectionContext;
         }> & {} & import("vue").ComponentCustomProperties) | undefined>;
         contentRef: Ref<any>;
@@ -10249,10 +10265,10 @@ declare const _default: import("vue").DefineComponent<{
         controlled: ComputedRef<boolean>;
         isFocusInsideContent: (event?: FocusEvent | undefined) => boolean | undefined;
         ElPopper: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
-            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+                readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
             }>>;
@@ -10260,12 +10276,12 @@ declare const _default: import("vue").DefineComponent<{
             popperInstanceRef: Ref<import("@popperjs/core").Instance | undefined>;
             contentRef: Ref<HTMLElement | undefined>;
             referenceRef: Ref<HTMLElement | undefined>;
-            role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>>;
+            role: ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>>;
             popperProvides: import("element-plus/es/components/popper").ElPopperInjectionContext;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+            readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>>, {
-            readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
+            readonly role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
         }>> & Record<string, any>;
         ElPopperArrow: import("vue").DefineComponent<{
             readonly arrowOffset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 5, boolean>;
@@ -10622,8 +10638,8 @@ declare const _default: import("vue").DefineComponent<{
                 readonly id: StringConstructor;
                 readonly open: BooleanConstructor;
             }>>, {
-                readonly virtualTriggering: boolean;
                 readonly open: boolean;
+                readonly virtualTriggering: boolean;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
             readonly disabled: BooleanConstructor;
@@ -10681,9 +10697,9 @@ declare const _default: import("vue").DefineComponent<{
             readonly id: StringConstructor;
             readonly open: BooleanConstructor;
         }>>, {
-            readonly virtualTriggering: boolean;
-            readonly disabled: boolean;
             readonly open: boolean;
+            readonly disabled: boolean;
+            readonly virtualTriggering: boolean;
             readonly trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType>))[], unknown, unknown>;
             readonly triggerKeys: string[];
         }>;
@@ -11510,7 +11526,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<Options>) | (() => Partial<Options>) | ((new (...args: any[]) => Partial<Options>) | (() => Partial<Options>))[], unknown, unknown, () => {}, boolean>;
                 readonly strategy: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "fixed" | "absolute", unknown, "absolute", boolean>;
             }, {
-                emit: ((event: "blur") => void) & ((event: "close") => void) & ((event: "focus") => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void);
+                emit: ((event: "close") => void) & ((event: "focus") => void) & ((event: "blur") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void);
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                     readonly ariaLabel: StringConstructor;
                     readonly id: StringConstructor;
@@ -11760,10 +11776,10 @@ declare const _default: import("vue").DefineComponent<{
                     readonly strategy: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "fixed" | "absolute", unknown, "absolute", boolean>;
                 }>> & {
                     onClose?: (() => any) | undefined;
-                    onBlur?: (() => any) | undefined;
                     onFocus?: (() => any) | undefined;
-                    onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+                    onBlur?: (() => any) | undefined;
                     onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+                    onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 }>>;
                 focusStartRef: Ref<HTMLElement | "container" | "first" | undefined>;
                 trapped: Ref<boolean>;
@@ -11832,7 +11848,7 @@ declare const _default: import("vue").DefineComponent<{
                     };
                 }, {
                     onKeydown: (e: KeyboardEvent) => void;
-                }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("focusin" | "focusout" | "focusAfterTrapped" | "focusAfterReleased" | "focusout-prevented" | "release-requested")[], "focusin" | "focusout" | "focusAfterTrapped" | "focusAfterReleased" | "focusout-prevented" | "release-requested", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("focusAfterTrapped" | "focusAfterReleased" | "focusin" | "focusout" | "focusout-prevented" | "release-requested")[], "focusAfterTrapped" | "focusAfterReleased" | "focusin" | "focusout" | "focusout-prevented" | "release-requested", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
                     loop: BooleanConstructor;
                     trapped: BooleanConstructor;
                     focusTrapEl: import("vue").PropType<HTMLElement>;
@@ -12107,13 +12123,14 @@ declare const _default: import("vue").DefineComponent<{
                 readonly strategy: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "fixed" | "absolute", unknown, "absolute", boolean>;
             }>> & {
                 onClose?: (() => any) | undefined;
-                onBlur?: (() => any) | undefined;
                 onFocus?: (() => any) | undefined;
-                onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+                onBlur?: (() => any) | undefined;
                 onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+                onMouseenter?: ((evt: MouseEvent) => any) | undefined;
             }, {
                 readonly offset: number;
                 readonly effect: string;
+                readonly visible: boolean;
                 readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("element-plus/es/components/popper").Placement, unknown>;
                 readonly boundariesPadding: number;
                 readonly fallbackPlacements: import("element-plus/es/components/popper").Placement[];
@@ -12124,7 +12141,6 @@ declare const _default: import("vue").DefineComponent<{
                 readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                readonly visible: boolean;
                 readonly pure: boolean;
                 readonly virtualTriggering: boolean;
             }>;
@@ -12393,6 +12409,9 @@ declare const _default: import("vue").DefineComponent<{
         }>>, {
             readonly offset: number;
             readonly effect: string;
+            readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
+            readonly content: string;
+            readonly disabled: boolean;
             readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("element-plus/es/components/popper").Placement, unknown>;
             readonly showAfter: number;
             readonly hideAfter: number;
@@ -12406,14 +12425,11 @@ declare const _default: import("vue").DefineComponent<{
             readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
             readonly pure: boolean;
             readonly virtualTriggering: boolean;
-            readonly content: string;
             readonly rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly persistent: boolean;
-            readonly disabled: boolean;
         }>;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
         showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
@@ -12736,12 +12752,16 @@ declare const _default: import("vue").DefineComponent<{
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
+        role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
     }>> & {
         [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
     }, {
         offset: number;
         effect: string;
+        visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
+        content: string;
+        open: boolean;
+        disabled: boolean;
         placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("element-plus/es/components/popper").Placement, unknown>;
         showAfter: number;
         hideAfter: number;
@@ -12755,16 +12775,12 @@ declare const _default: import("vue").DefineComponent<{
         focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        visible: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown>;
         pure: boolean;
         virtualTriggering: boolean;
-        content: string;
         rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         persistent: boolean;
-        disabled: boolean;
-        open: boolean;
-        role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown>;
+        role: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "listbox" | "grid" | "menu" | "tooltip" | "group" | "dialog" | "navigation" | "tree", unknown>;
         trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("element-plus/es/components/tooltip").TooltipTriggerType>))[], unknown, unknown>;
         triggerKeys: string[];
         arrowOffset: number;
@@ -13382,7 +13398,7 @@ declare const _default: import("vue").DefineComponent<{
             onClose?: ((evt: MouseEvent) => any) | undefined;
             onClick?: ((evt: MouseEvent) => any) | undefined;
         }>>;
-        emit: ((event: "click", evt: MouseEvent) => void) & ((event: "close", evt: MouseEvent) => void);
+        emit: ((event: "close", evt: MouseEvent) => void) & ((event: "click", evt: MouseEvent) => void);
         tagSize: ComputedRef<"" | "default" | "small" | "large">;
         ns: {
             namespace: ComputedRef<string>;
@@ -13468,7 +13484,6 @@ declare const _default: import("vue").DefineComponent<{
                 __epPropKey: true;
             };
         }>>, {}>> & Record<string, any>;
-        Close: any;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         close: (evt: MouseEvent) => boolean;
         click: (evt: MouseEvent) => boolean;
@@ -13630,22 +13645,22 @@ declare const _default: import("vue").DefineComponent<{
     props: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("element-plus/es/components/cascader-panel").CascaderProps) | (() => import("element-plus/es/components/cascader-panel").CascaderProps) | ((new (...args: any[]) => import("element-plus/es/components/cascader-panel").CascaderProps) | (() => import("element-plus/es/components/cascader-panel").CascaderProps))[], unknown, unknown, () => import("element-plus/es/components/cascader-panel").CascaderProps, boolean>;
 }>> & {
     onChange?: ((_: CascaderValue) => any) | undefined;
-    onClear?: (() => any) | undefined;
     "onUpdate:modelValue"?: ((_: CascaderValue) => any) | undefined;
-    onBlur?: ((evt: FocusEvent) => any) | undefined;
+    onClear?: (() => any) | undefined;
     onFocus?: ((evt: FocusEvent) => any) | undefined;
+    onBlur?: ((evt: FocusEvent) => any) | undefined;
     onVisibleChange?: ((val: boolean) => any) | undefined;
     onExpandChange?: ((val: CascaderValue) => any) | undefined;
     onRemoveTag?: ((val: import("../../cascader-panel/src/node").CascaderNodeValue | import("../../cascader-panel/src/node").CascaderNodePathValue) => any) | undefined;
 }, {
     props: import("element-plus/es/components/cascader-panel").CascaderProps;
+    separator: string;
+    disabled: boolean;
     debounce: number;
     popperClass: string;
     teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    disabled: boolean;
     clearable: boolean;
     validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    separator: string;
     options: import("element-plus/es/components/cascader-panel").CascaderOption[];
     filterable: boolean;
     filterMethod: (node: CascaderNode, keyword: string) => boolean;

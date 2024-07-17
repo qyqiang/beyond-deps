@@ -236,12 +236,12 @@ declare const _default: import("vue").DefineComponent<{
         $: import("vue").ComponentInternalInstance;
         $data: {};
         $props: Partial<{
+            readonly onError: (err: import("./ajax").UploadAjaxError, rawFile: import("./upload").UploadRawFile) => void;
             readonly drag: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly disabled: boolean;
             readonly name: string;
-            readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly data: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>))[], unknown, unknown>;
-            readonly onError: (err: import("./ajax").UploadAjaxError, rawFile: import("./upload").UploadRawFile) => void;
             readonly onProgress: (evt: import("./upload").UploadProgressEvent, rawFile: import("./upload").UploadRawFile) => void;
             readonly action: string;
             readonly method: string;
@@ -350,7 +350,7 @@ declare const _default: import("vue").DefineComponent<{
             })[], unknown, unknown, import("./upload").UploadRequestHandler, boolean>;
             readonly disabled: BooleanConstructor;
             readonly limit: NumberConstructor;
-        }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "drag" | "disabled" | "name" | "multiple" | "data" | "onError" | "onProgress" | "action" | "method" | "showFileList" | "accept" | "fileList" | "autoUpload" | "listType" | "httpRequest" | "withCredentials" | "beforeUpload" | "onRemove" | "onSuccess" | "onExceed" | "onStart">;
+        }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "onError" | "drag" | "multiple" | "disabled" | "name" | "data" | "onProgress" | "action" | "method" | "showFileList" | "accept" | "fileList" | "autoUpload" | "listType" | "httpRequest" | "withCredentials" | "beforeUpload" | "onRemove" | "onSuccess" | "onExceed" | "onStart">;
         $attrs: {
             [x: string]: unknown;
         };
@@ -621,12 +621,12 @@ declare const _default: import("vue").DefineComponent<{
                 readonly disabled: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
+            readonly onError: (err: import("./ajax").UploadAjaxError, rawFile: import("./upload").UploadRawFile) => void;
             readonly drag: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly disabled: boolean;
             readonly name: string;
-            readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly data: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>))[], unknown, unknown>;
-            readonly onError: (err: import("./ajax").UploadAjaxError, rawFile: import("./upload").UploadRawFile) => void;
             readonly onProgress: (evt: import("./upload").UploadProgressEvent, rawFile: import("./upload").UploadRawFile) => void;
             readonly action: string;
             readonly method: string;
@@ -1129,7 +1129,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly indeterminate: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly duration: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 3, boolean>;
             readonly strokeWidth: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 6, boolean>;
-            readonly strokeLinecap: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square") | ((new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square"))[], unknown, unknown, "round", boolean>;
+            readonly strokeLinecap: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt") | ((new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt"))[], unknown, unknown, "round", boolean>;
             readonly textInside: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly width: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 126, boolean>;
             readonly showText: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -1154,7 +1154,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly indeterminate: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
                 readonly duration: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 3, boolean>;
                 readonly strokeWidth: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 6, boolean>;
-                readonly strokeLinecap: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square") | ((new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square"))[], unknown, unknown, "round", boolean>;
+                readonly strokeLinecap: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt") | ((new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt"))[], unknown, unknown, "round", boolean>;
                 readonly textInside: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
                 readonly width: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 126, boolean>;
                 readonly showText: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -1276,7 +1276,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly indeterminate: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly duration: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 3, boolean>;
             readonly strokeWidth: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 6, boolean>;
-            readonly strokeLinecap: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square") | ((new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square"))[], unknown, unknown, "round", boolean>;
+            readonly strokeLinecap: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt") | ((new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt"))[], unknown, unknown, "round", boolean>;
             readonly textInside: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly width: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 126, boolean>;
             readonly showText: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -1297,7 +1297,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly width: number;
             readonly color: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("../..").ProgressFn | import("../..").ProgressColor[]) & {}) | (() => string | import("../..").ProgressFn | import("../..").ProgressColor[]) | ((new (...args: any[]) => (string | import("../..").ProgressFn | import("../..").ProgressColor[]) & {}) | (() => string | import("../..").ProgressFn | import("../..").ProgressColor[]))[], unknown, unknown>;
             readonly duration: number;
-            readonly strokeLinecap: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square") | ((new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square"))[], unknown, unknown>;
+            readonly strokeLinecap: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt") | ((new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt"))[], unknown, unknown>;
             readonly strokeWidth: number;
             readonly indeterminate: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly format: import("../..").ProgressFn;
@@ -1687,12 +1687,12 @@ declare const _default: import("vue").DefineComponent<{
         readonly disabled: BooleanConstructor;
         readonly limit: NumberConstructor;
     }>>, {
+        readonly onError: (err: import("./ajax").UploadAjaxError, rawFile: import("./upload").UploadRawFile) => void;
         readonly drag: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly disabled: boolean;
         readonly name: string;
-        readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly data: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>))[], unknown, unknown>;
-        readonly onError: (err: import("./ajax").UploadAjaxError, rawFile: import("./upload").UploadRawFile) => void;
         readonly onProgress: (evt: import("./upload").UploadProgressEvent, rawFile: import("./upload").UploadRawFile) => void;
         readonly action: string;
         readonly method: string;
@@ -1824,13 +1824,13 @@ declare const _default: import("vue").DefineComponent<{
     readonly disabled: BooleanConstructor;
     readonly limit: NumberConstructor;
 }>>, {
-    readonly drag: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly onChange: (uploadFile: import("./upload").UploadFile, uploadFiles: import("./upload").UploadFiles) => void;
+    readonly onError: (error: Error, uploadFile: import("./upload").UploadFile, uploadFiles: import("./upload").UploadFiles) => void;
+    readonly drag: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly disabled: boolean;
     readonly name: string;
-    readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly data: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>))[], unknown, unknown>;
-    readonly onError: (error: Error, uploadFile: import("./upload").UploadFile, uploadFiles: import("./upload").UploadFiles) => void;
     readonly onProgress: (evt: import("./upload").UploadProgressEvent, uploadFile: import("./upload").UploadFile, uploadFiles: import("./upload").UploadFiles) => void;
     readonly action: string;
     readonly method: string;

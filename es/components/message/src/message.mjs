@@ -1,12 +1,12 @@
-import { defineComponent, ref, computed, onMounted, watch, openBlock, createBlock, Transition, unref, withCtx, withDirectives, createElementVNode, normalizeClass, normalizeStyle, createCommentVNode, resolveDynamicComponent, renderSlot, createElementBlock, toDisplayString, Fragment, withModifiers, createVNode, vShow } from 'vue';
+import { defineComponent, ref, computed, onMounted, watch, openBlock, createBlock, Transition, unref, withCtx, withDirectives, createElementVNode, normalizeClass, normalizeStyle, createCommentVNode, renderSlot, createElementBlock, toDisplayString, Fragment, withModifiers, createVNode, vShow } from 'vue';
 import { useTimeoutFn, useEventListener, useResizeObserver } from '@vueuse/core';
-import '../../../utils/index.mjs';
-import '../../../constants/index.mjs';
 import { ElBadge } from '../../badge/index.mjs';
 import '../../config-provider/index.mjs';
 import { ElIcon } from '../../icon/index.mjs';
-import { messageProps, messageEmits } from './message2.mjs';
+import '../../../constants/index.mjs';
+import '../../../utils/index.mjs';
 import { getLastOffset, getOffsetOrSpace } from './instance.mjs';
+import { messageProps, messageEmits } from './message2.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import { TypeComponents, TypeComponentsMap } from '../../../utils/vue/icon.mjs';
 import { useGlobalComponentSettings } from '../../config-provider/src/hooks/use-global-config.mjs';
@@ -112,13 +112,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             }, null, 8, ["value", "type", "class"])) : createCommentVNode("v-if", true),
             unref(iconComponent) ? (openBlock(), createBlock(unref(ElIcon), {
               key: 1,
-              class: normalizeClass([unref(ns).e("icon"), unref(typeClass)])
-            }, {
-              default: withCtx(() => [
-                (openBlock(), createBlock(resolveDynamicComponent(unref(iconComponent))))
-              ]),
-              _: 1
-            }, 8, ["class"])) : createCommentVNode("v-if", true),
+              class: normalizeClass([unref(ns).e("icon"), unref(typeClass)]),
+              color: _ctx.plain ? unref(badgeType) === "warning" ? "#2a3f4d" : "#fff" : unref(badgeType) === "warning" ? "#d9a514" : "#2a3f4d",
+              size: "16px",
+              innerHTML: unref(iconComponent)
+            }, null, 8, ["class", "color", "innerHTML"])) : createCommentVNode("v-if", true),
             renderSlot(_ctx.$slots, "default", {}, () => [
               !_ctx.dangerouslyUseHTMLString ? (openBlock(), createElementBlock("p", {
                 key: 0,

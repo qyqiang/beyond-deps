@@ -75,12 +75,12 @@ export declare const ElImage: import("element-plus/es/utils").SFCWithInstall<imp
         };
     }>> & {
         onClose?: (() => any) | undefined;
-        onShow?: (() => any) | undefined;
         onError?: ((evt: Event) => any) | undefined;
+        onShow?: (() => any) | undefined;
         onLoad?: ((evt: Event) => any) | undefined;
         onSwitch?: ((val: number) => any) | undefined;
     }>>;
-    emit: ((event: "close") => void) & ((event: "error", evt: Event) => void) & ((event: "load", evt: Event) => void) & ((event: "show") => void) & ((event: "switch", val: number) => void);
+    emit: ((event: "error", evt: Event) => void) & ((event: "close") => void) & ((event: "show") => void) & ((event: "load", evt: Event) => void) & ((event: "switch", val: number) => void);
     prevOverflow: string;
     t: import("../..").Translator;
     ns: {
@@ -337,8 +337,8 @@ export declare const ElImage: import("element-plus/es/utils").SFCWithInstall<imp
         onSwitch?: ((index: number) => any) | undefined;
         onRotate?: ((deg: number) => any) | undefined;
     }, {
-        readonly teleported: boolean;
         readonly infinite: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly teleported: boolean;
         readonly initialIndex: number;
         readonly closeOnPressEscape: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly zoomRate: number;
@@ -392,14 +392,14 @@ export declare const ElImage: import("element-plus/es/utils").SFCWithInstall<imp
     };
 }>> & {
     onClose?: (() => any) | undefined;
-    onShow?: (() => any) | undefined;
     onError?: ((evt: Event) => any) | undefined;
+    onShow?: (() => any) | undefined;
     onLoad?: ((evt: Event) => any) | undefined;
     onSwitch?: ((val: number) => any) | undefined;
 }, {
-    readonly infinite: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly src: string;
     readonly fit: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "fill" | "none" | "contain" | "cover" | "scale-down", unknown>;
+    readonly infinite: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly initialIndex: number;
     readonly lazy: boolean;
     readonly closeOnPressEscape: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;

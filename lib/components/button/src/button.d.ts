@@ -1,5 +1,5 @@
 import type { Component, ExtractPropTypes } from 'vue';
-export declare const buttonTypes: readonly ["default", "primary", "success", "warning", "info", "danger", "text", ""];
+export declare const buttonTypes: readonly ["default", "primary", "success", "warning", "info", "danger", "error", "filled", "text", ""];
 export declare const buttonNativeTypes: readonly ["button", "submit", "reset"];
 export declare const buttonProps: {
     readonly size: {
@@ -9,14 +9,14 @@ export declare const buttonProps: {
         __epPropKey: true;
     };
     readonly disabled: BooleanConstructor;
-    readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown, "", boolean>;
+    readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown, "", boolean>;
     readonly icon: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly nativeType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "reset" | "submit" | "button", unknown, "button", boolean>;
+    readonly nativeType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "button" | "reset" | "submit", unknown, "button", boolean>;
     readonly loading: BooleanConstructor;
     readonly loadingIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, () => any, boolean>;
     readonly plain: BooleanConstructor;

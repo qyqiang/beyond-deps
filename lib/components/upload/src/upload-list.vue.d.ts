@@ -177,7 +177,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly indeterminate: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly duration: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 3, boolean>;
         readonly strokeWidth: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 6, boolean>;
-        readonly strokeLinecap: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square") | ((new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square"))[], unknown, unknown, "round", boolean>;
+        readonly strokeLinecap: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt") | ((new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt"))[], unknown, unknown, "round", boolean>;
         readonly textInside: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly width: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 126, boolean>;
         readonly showText: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -202,7 +202,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly indeterminate: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly duration: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 3, boolean>;
             readonly strokeWidth: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 6, boolean>;
-            readonly strokeLinecap: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square") | ((new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square"))[], unknown, unknown, "round", boolean>;
+            readonly strokeLinecap: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt") | ((new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt"))[], unknown, unknown, "round", boolean>;
             readonly textInside: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly width: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 126, boolean>;
             readonly showText: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -324,7 +324,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly indeterminate: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly duration: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 3, boolean>;
         readonly strokeWidth: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 6, boolean>;
-        readonly strokeLinecap: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square") | ((new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square"))[], unknown, unknown, "round", boolean>;
+        readonly strokeLinecap: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt") | ((new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt"))[], unknown, unknown, "round", boolean>;
         readonly textInside: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly width: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 126, boolean>;
         readonly showText: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -345,7 +345,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly width: number;
         readonly color: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("element-plus/es/components/progress").ProgressFn | import("element-plus/es/components/progress").ProgressColor[]) & {}) | (() => string | import("element-plus/es/components/progress").ProgressFn | import("element-plus/es/components/progress").ProgressColor[]) | ((new (...args: any[]) => (string | import("element-plus/es/components/progress").ProgressFn | import("element-plus/es/components/progress").ProgressColor[]) & {}) | (() => string | import("element-plus/es/components/progress").ProgressFn | import("element-plus/es/components/progress").ProgressColor[]))[], unknown, unknown>;
         readonly duration: number;
-        readonly strokeLinecap: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square") | ((new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square"))[], unknown, unknown>;
+        readonly strokeLinecap: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt") | ((new (...args: any[]) => ("inherit" | "square" | "round" | "butt") & {}) | (() => "inherit" | "square" | "round" | "butt"))[], unknown, unknown>;
         readonly strokeWidth: number;
         readonly indeterminate: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly format: import("element-plus/es/components/progress").ProgressFn;

@@ -11,11 +11,11 @@ declare const _default: import("vue").DefineComponent<{
     readonly overflow: BooleanConstructor;
     readonly fullscreen: BooleanConstructor;
     readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#f2f7f7", boolean>;
     readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
 }, {
     t: import("element-plus/es/hooks").Translator;
-    Close: any;
     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
         readonly center: BooleanConstructor;
         readonly alignCenter: BooleanConstructor;
@@ -29,6 +29,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly overflow: BooleanConstructor;
         readonly fullscreen: BooleanConstructor;
         readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#f2f7f7", boolean>;
         readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
     }>> & {
@@ -141,6 +142,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly overflow: BooleanConstructor;
     readonly fullscreen: BooleanConstructor;
     readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#f2f7f7", boolean>;
     readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
 }>> & {
@@ -150,6 +152,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly center: boolean;
     readonly overflow: boolean;
     readonly showClose: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly headerBackgroundColor: string;
     readonly ariaLevel: string;
     readonly alignCenter: boolean;
     readonly draggable: boolean;

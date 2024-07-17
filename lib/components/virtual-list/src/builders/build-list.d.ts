@@ -153,8 +153,8 @@ declare const createList: ({ name, getOffset, getItemSize, getItemOffset, getEst
     onItemRendered?: ((...args: any[]) => any) | undefined;
 }, {
     readonly direction: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "ltr" | "rtl", never>;
-    readonly className: string;
     readonly layout: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", never>;
+    readonly className: string;
     readonly data: any[];
     readonly scrollbarAlwaysOn: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly containerElement: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | Element) & {}) | (() => string | Element) | ((new (...args: any[]) => (string | Element) & {}) | (() => string | Element))[], unknown, unknown>;

@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, onMounted, openBlock, createBlock, Transition, unref, withCtx, withDirectives, createElementVNode, normalizeClass, normalizeStyle, resolveDynamicComponent, createCommentVNode, toDisplayString, renderSlot, createElementBlock, Fragment, vShow, withModifiers, createVNode } from 'vue';
+import { defineComponent, ref, computed, onMounted, openBlock, createBlock, Transition, unref, withCtx, withDirectives, createElementVNode, normalizeClass, normalizeStyle, createCommentVNode, toDisplayString, renderSlot, createElementBlock, Fragment, vShow, withModifiers, createVNode } from 'vue';
 import { useTimeoutFn, useEventListener } from '@vueuse/core';
 import '../../../utils/index.mjs';
 import '../../../constants/index.mjs';
@@ -101,13 +101,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           }, [
             unref(iconComponent) ? (openBlock(), createBlock(unref(ElIcon), {
               key: 0,
-              class: normalizeClass([unref(ns).e("icon"), unref(typeClass)])
-            }, {
-              default: withCtx(() => [
-                (openBlock(), createBlock(resolveDynamicComponent(unref(iconComponent))))
-              ]),
-              _: 1
-            }, 8, ["class"])) : createCommentVNode("v-if", true),
+              class: normalizeClass([unref(ns).e("icon"), unref(typeClass)]),
+              innerHTML: unref(iconComponent)
+            }, null, 8, ["class", "innerHTML"])) : createCommentVNode("v-if", true),
             createElementVNode("div", {
               class: normalizeClass(unref(ns).e("group"))
             }, [

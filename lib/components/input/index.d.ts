@@ -55,6 +55,8 @@ export declare const ElInput: import("element-plus/es/utils").SFCWithInstall<imp
         __epPropKey: true;
     };
     readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -134,6 +136,8 @@ export declare const ElInput: import("element-plus/es/utils").SFCWithInstall<imp
             __epPropKey: true;
         };
         readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -157,19 +161,19 @@ export declare const ElInput: import("element-plus/es/utils").SFCWithInstall<imp
         readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     }>> & {
         onChange?: ((value: string) => any) | undefined;
-        onClear?: (() => any) | undefined;
         "onUpdate:modelValue"?: ((value: string) => any) | undefined;
         onInput?: ((value: string) => any) | undefined;
-        onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onClear?: (() => any) | undefined;
         onFocus?: ((evt: FocusEvent) => any) | undefined;
-        onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+        onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+        onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+        onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
         onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
         onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-        onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
-        onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-        onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+        onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
     }>>;
-    emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "clear") => void);
+    emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
     rawAttrs: {
         [x: string]: unknown;
     };
@@ -234,9 +238,8 @@ export declare const ElInput: import("element-plus/es/utils").SFCWithInstall<imp
     handleFocus: (event: FocusEvent) => void;
     handleBlur: (event: FocusEvent) => void;
     needStatusIcon: import("vue").ComputedRef<boolean>;
-    validateState: import("vue").ComputedRef<"" | "error" | "success" | "validating">;
-    validateIcon: import("vue").ComputedRef<any>;
-    passwordIcon: import("vue").ComputedRef<any>;
+    validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
+    validateIcon: import("vue").ComputedRef<string>;
     containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
     textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
     nativeInputValue: import("vue").ComputedRef<string>;
@@ -328,7 +331,6 @@ export declare const ElInput: import("element-plus/es/utils").SFCWithInstall<imp
             __epPropKey: true;
         };
     }>>, {}>> & Record<string, any>;
-    CircleClose: any;
     NOOP: () => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "update:modelValue": (value: string) => boolean;
@@ -400,6 +402,8 @@ export declare const ElInput: import("element-plus/es/utils").SFCWithInstall<imp
         __epPropKey: true;
     };
     readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -423,26 +427,28 @@ export declare const ElInput: import("element-plus/es/utils").SFCWithInstall<imp
     readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
 }>> & {
     onChange?: ((value: string) => any) | undefined;
-    onClear?: (() => any) | undefined;
     "onUpdate:modelValue"?: ((value: string) => any) | undefined;
     onInput?: ((value: string) => any) | undefined;
-    onBlur?: ((evt: FocusEvent) => any) | undefined;
+    onClear?: (() => any) | undefined;
     onFocus?: ((evt: FocusEvent) => any) | undefined;
-    onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+    onBlur?: ((evt: FocusEvent) => any) | undefined;
+    onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+    onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+    onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
     onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
     onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-    onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
-    onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-    onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+    onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
 }, {
-    readonly id: string;
     readonly type: string;
-    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
     readonly disabled: boolean;
+    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
+    readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly id: string;
     readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly autosize: import("./src/input").InputAutoSize;
     readonly autocomplete: string;
     readonly readonly: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly floatLabel: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly showPassword: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly showWordLimit: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly containerRole: string;

@@ -22,7 +22,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     readonly error: StringConstructor;
     readonly validateStatus: {
-        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "error" | "success" | "validating", unknown>>;
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "error" | "validating", unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
@@ -56,7 +56,7 @@ declare const _default: import("vue").DefineComponent<{
         };
         readonly error: StringConstructor;
         readonly validateStatus: {
-            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "error" | "success" | "validating", unknown>>;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "error" | "validating", unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
@@ -99,8 +99,8 @@ declare const _default: import("vue").DefineComponent<{
     };
     labelId: string;
     inputIds: import("vue").Ref<string[]>;
-    validateState: import("vue").Ref<"" | "error" | "success" | "validating">;
-    validateStateDebounced: Readonly<import("vue").Ref<"" | "error" | "success" | "validating">>;
+    validateState: import("vue").Ref<"" | "success" | "error" | "validating">;
+    validateStateDebounced: Readonly<import("vue").Ref<"" | "success" | "error" | "validating">>;
     validateMessage: import("vue").Ref<string>;
     formItemRef: import("vue").Ref<HTMLDivElement | undefined>;
     initialValue: any;
@@ -166,7 +166,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     readonly error: StringConstructor;
     readonly validateStatus: {
-        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "error" | "success" | "validating", unknown>>;
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "error" | "validating", unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;

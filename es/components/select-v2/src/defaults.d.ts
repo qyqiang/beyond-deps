@@ -6,7 +6,8 @@ export declare const SelectProps: {
     readonly emptyValues: ArrayConstructor;
     readonly valueOnClear: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown, undefined, boolean>;
     readonly allowCreate: BooleanConstructor;
-    readonly autocomplete: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("none" | "inline" | "both" | "list") & {}) | (() => "none" | "inline" | "both" | "list") | ((new (...args: any[]) => ("none" | "inline" | "both" | "list") & {}) | (() => "none" | "inline" | "both" | "list"))[], unknown, unknown, "none", boolean>;
+    readonly autocomplete: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("none" | "both" | "inline" | "list") & {}) | (() => "none" | "both" | "inline" | "list") | ((new (...args: any[]) => ("none" | "both" | "inline" | "list") & {}) | (() => "none" | "both" | "inline" | "list"))[], unknown, unknown, "none", boolean>;
+    readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly automaticDropdown: BooleanConstructor;
     readonly clearable: BooleanConstructor;
     readonly clearIcon: {

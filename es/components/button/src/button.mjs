@@ -12,6 +12,8 @@ const buttonTypes = [
   "warning",
   "info",
   "danger",
+  "error",
+  "filled",
   "text",
   ""
 ];

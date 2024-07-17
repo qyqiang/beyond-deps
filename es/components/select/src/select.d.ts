@@ -42,6 +42,7 @@ export declare const SelectProps: {
     };
     defaultFirstOption: BooleanConstructor;
     reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+    floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     valueKey: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
     collapseTags: BooleanConstructor;
     collapseTagsTooltip: BooleanConstructor;

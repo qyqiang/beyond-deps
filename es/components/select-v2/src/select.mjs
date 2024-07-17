@@ -1,4 +1,4 @@
-import { defineComponent, computed, reactive, toRefs, provide, resolveComponent, resolveDirective, withDirectives, openBlock, createElementBlock, normalizeClass, createVNode, withCtx, createElementVNode, withModifiers, renderSlot, createCommentVNode, Fragment, renderList, normalizeStyle, createTextVNode, toDisplayString, createBlock, withKeys, vModelText, resolveDynamicComponent, vShow, createSlots, normalizeProps, guardReactiveProps } from 'vue';
+import { defineComponent, computed, reactive, toRefs, provide, createElementVNode, resolveComponent, resolveDirective, withDirectives, openBlock, createElementBlock, normalizeClass, createVNode, withCtx, withModifiers, toDisplayString, createCommentVNode, renderSlot, Fragment, renderList, normalizeStyle, createTextVNode, createBlock, withKeys, vModelText, resolveDynamicComponent, vShow, createSlots, normalizeProps, guardReactiveProps } from 'vue';
 import '../../../utils/index.mjs';
 import '../../../directives/index.mjs';
 import { ElTooltip } from '../../tooltip/index.mjs';
@@ -64,9 +64,20 @@ const _sfc_main = defineComponent({
     };
   }
 });
-const _hoisted_1 = ["id", "autocomplete", "aria-expanded", "aria-label", "disabled", "readonly", "name"];
-const _hoisted_2 = ["textContent"];
-const _hoisted_3 = { key: 1 };
+const _hoisted_1 = {
+  key: 0,
+  class: "float-label"
+};
+const _hoisted_2 = ["id", "autocomplete", "aria-expanded", "aria-label", "disabled", "readonly", "name"];
+const _hoisted_3 = ["textContent"];
+const _hoisted_4 = /* @__PURE__ */ createElementVNode("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "12",
+  height: "12",
+  viewBox: "0 0 12 12"
+}, [
+  /* @__PURE__ */ createElementVNode("path", { d: "M9.35349 3.35342L8.64648 2.64642L5.99998 5.29292L3.35348 2.64642L2.64648 3.35342L5.29298 5.99992L2.64648 8.64642L3.35348 9.35342L5.99998 6.70692L8.64648 9.35342L9.35349 8.64642L6.70698 5.99992L9.35349 3.35342Z" })
+], -1);
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_tag = resolveComponent("el-tag");
   const _component_el_tooltip = resolveComponent("el-tooltip");
@@ -105,12 +116,14 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
             _ctx.nsSelect.is("focused", _ctx.isFocused),
             _ctx.nsSelect.is("hovering", _ctx.states.inputHovering),
             _ctx.nsSelect.is("filterable", _ctx.filterable),
-            _ctx.nsSelect.is("disabled", _ctx.selectDisabled)
+            _ctx.nsSelect.is("disabled", _ctx.selectDisabled),
+            _ctx.nsSelect.is("value", _ctx.hasModelValue)
           ]),
           onClick: _cache[13] || (_cache[13] = withModifiers((...args) => _ctx.toggleMenu && _ctx.toggleMenu(...args), ["prevent", "stop"]))
         }, [
+          _ctx.floatLabel ? (openBlock(), createElementBlock("span", _hoisted_1, toDisplayString(_ctx.placeholder), 1)) : createCommentVNode("v-if", true),
           _ctx.$slots.prefix ? (openBlock(), createElementBlock("div", {
-            key: 0,
+            key: 1,
             ref: "prefixRef",
             class: normalizeClass(_ctx.nsSelect.e("prefix"))
           }, [
@@ -265,7 +278,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                   _cache[11] || (_cache[11] = withKeys(withModifiers((...args) => _ctx.handleDel && _ctx.handleDel(...args), ["stop"]), ["delete"]))
                 ],
                 onClick: _cache[12] || (_cache[12] = withModifiers((...args) => _ctx.toggleMenu && _ctx.toggleMenu(...args), ["stop"]))
-              }, null, 46, _hoisted_1), [
+              }, null, 46, _hoisted_2), [
                 [vModelText, _ctx.states.inputValue]
               ]),
               _ctx.filterable ? (openBlock(), createElementBlock("span", {
@@ -274,9 +287,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 "aria-hidden": "true",
                 class: normalizeClass(_ctx.nsSelect.e("input-calculator")),
                 textContent: toDisplayString(_ctx.states.inputValue)
-              }, null, 10, _hoisted_2)) : createCommentVNode("v-if", true)
+              }, null, 10, _hoisted_3)) : createCommentVNode("v-if", true)
             ], 2)) : createCommentVNode("v-if", true),
-            _ctx.shouldShowPlaceholder ? (openBlock(), createElementBlock("div", {
+            _ctx.shouldShowPlaceholder && _ctx.hasModelValue ? (openBlock(), createElementBlock("div", {
               key: 2,
               class: normalizeClass([
                 _ctx.nsSelect.e("selected-item"),
@@ -284,13 +297,12 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 _ctx.nsSelect.is("transparent", !_ctx.hasModelValue || _ctx.expanded && !_ctx.states.inputValue)
               ])
             }, [
-              _ctx.hasModelValue ? renderSlot(_ctx.$slots, "label", {
-                key: 0,
+              renderSlot(_ctx.$slots, "label", {
                 label: _ctx.currentPlaceholder,
                 value: _ctx.modelValue
               }, () => [
                 createElementVNode("span", null, toDisplayString(_ctx.currentPlaceholder), 1)
-              ]) : (openBlock(), createElementBlock("span", _hoisted_3, toDisplayString(_ctx.currentPlaceholder), 1))
+              ])
             ], 2)) : createCommentVNode("v-if", true)
           ], 2),
           createElementVNode("div", {
@@ -314,19 +326,15 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
               onClick: withModifiers(_ctx.handleClear, ["prevent", "stop"])
             }, {
               default: withCtx(() => [
-                (openBlock(), createBlock(resolveDynamicComponent(_ctx.clearIcon)))
+                _hoisted_4
               ]),
               _: 1
             }, 8, ["class", "onClick"])) : createCommentVNode("v-if", true),
             _ctx.validateState && _ctx.validateIcon ? (openBlock(), createBlock(_component_el_icon, {
               key: 2,
-              class: normalizeClass([_ctx.nsInput.e("icon"), _ctx.nsInput.e("validateIcon")])
-            }, {
-              default: withCtx(() => [
-                (openBlock(), createBlock(resolveDynamicComponent(_ctx.validateIcon)))
-              ]),
-              _: 1
-            }, 8, ["class"])) : createCommentVNode("v-if", true)
+              class: normalizeClass([_ctx.nsInput.e("icon"), _ctx.nsInput.e("validateIcon")]),
+              innerHTML: _ctx.validateIcon
+            }, null, 8, ["class", "innerHTML"])) : createCommentVNode("v-if", true)
           ], 2)
         ], 2)
       ]),

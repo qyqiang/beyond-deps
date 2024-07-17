@@ -70,10 +70,10 @@ export declare const ElPagination: import("element-plus/es/utils").SFCWithInstal
     "onNext-click"?: ((val: number) => any) | undefined;
 }, {
     readonly small: boolean;
+    readonly layout: string;
+    readonly disabled: boolean;
     readonly popperClass: string;
     readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly disabled: boolean;
-    readonly layout: string;
     readonly background: boolean;
     readonly pagerCount: number;
     readonly pageSizes: number[];

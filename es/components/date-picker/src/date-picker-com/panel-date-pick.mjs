@@ -1,4 +1,4 @@
-import { defineComponent, useAttrs, useSlots, inject, toRef, ref, computed, nextTick, watch, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, renderSlot, Fragment, renderList, toDisplayString, createCommentVNode, createVNode, withDirectives, withCtx, vShow, withKeys, createBlock, createTextVNode } from 'vue';
+import { createElementVNode, defineComponent, useAttrs, useSlots, inject, toRef, ref, computed, nextTick, watch, openBlock, createElementBlock, normalizeClass, unref, renderSlot, Fragment, renderList, toDisplayString, createCommentVNode, createVNode, withDirectives, withCtx, vShow, withKeys, createBlock, createTextVNode } from 'vue';
 import dayjs from 'dayjs';
 import { ElButton } from '../../../button/index.mjs';
 import '../../../../directives/index.mjs';
@@ -8,7 +8,6 @@ import '../../../time-picker/index.mjs';
 import { ElIcon } from '../../../icon/index.mjs';
 import '../../../../utils/index.mjs';
 import '../../../../constants/index.mjs';
-import { DArrowLeft, ArrowLeft, ArrowRight, DArrowRight } from '@element-plus/icons-vue';
 import '../../../tooltip/index.mjs';
 import { panelDatePickProps } from '../props/panel-date-pick.mjs';
 import DateTable from './basic-date-table.mjs';
@@ -26,9 +25,43 @@ import ClickOutside from '../../../../directives/click-outside/index.mjs';
 
 const _hoisted_1 = ["onClick"];
 const _hoisted_2 = ["aria-label"];
-const _hoisted_3 = ["aria-label"];
+const _hoisted_3 = /* @__PURE__ */ createElementVNode("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "17",
+  height: "16",
+  viewBox: "0 0 17 16"
+}, [
+  /* @__PURE__ */ createElementVNode("path", { d: "M7.95949 4.47147L7.01683 3.52881L3.48816 7.05747C3.2382 7.30751 3.09778 7.64659 3.09778 8.00014C3.09778 8.35369 3.2382 8.69277 3.48816 8.94281L7.01683 12.4715L7.95949 11.5288L4.43349 8.00014L7.95949 4.47147Z" }),
+  /* @__PURE__ */ createElementVNode("path", { d: "M12.6259 4.47147L11.6833 3.52881L7.68329 7.52881C7.55831 7.65383 7.4881 7.82337 7.4881 8.00014C7.4881 8.17692 7.55831 8.34646 7.68329 8.47147L11.6833 12.4715L12.6259 11.5288L9.09995 8.00014L12.6259 4.47147Z" })
+], -1);
 const _hoisted_4 = ["aria-label"];
-const _hoisted_5 = ["aria-label"];
+const _hoisted_5 = /* @__PURE__ */ createElementVNode("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "17",
+  height: "16",
+  viewBox: "0 0 17 16"
+}, [
+  /* @__PURE__ */ createElementVNode("path", { d: "M9.68339 12.4715L6.15473 8.94281C5.90476 8.69277 5.76434 8.35369 5.76434 8.00014C5.76434 7.64659 5.90476 7.30751 6.15473 7.05747L9.68339 3.52881L10.6261 4.47147L7.10006 8.00014L10.6287 11.5288L9.68339 12.4715Z" })
+], -1);
+const _hoisted_6 = ["aria-label"];
+const _hoisted_7 = /* @__PURE__ */ createElementVNode("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "17",
+  height: "16",
+  viewBox: "0 0 17 16"
+}, [
+  /* @__PURE__ */ createElementVNode("path", { d: "M7.70742 12.4715L6.76675 11.5288L10.2927 8.00014L6.76675 4.47147L7.71009 3.52881L11.2334 7.05747C11.4834 7.30751 11.6238 7.64659 11.6238 8.00014C11.6238 8.35369 11.4834 8.69277 11.2334 8.94281L7.70742 12.4715Z" })
+], -1);
+const _hoisted_8 = ["aria-label"];
+const _hoisted_9 = /* @__PURE__ */ createElementVNode("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "17",
+  height: "16",
+  viewBox: "0 0 17 16"
+}, [
+  /* @__PURE__ */ createElementVNode("path", { d: "M13.2334 7.05747L9.70742 3.52881L8.76675 4.47147L12.2927 8.00014L8.76675 11.5288L9.71009 12.4715L13.2334 8.94281C13.4834 8.69277 13.6238 8.35369 13.6238 8.00014C13.6238 7.64659 13.4834 7.30751 13.2334 7.05747Z" }),
+  /* @__PURE__ */ createElementVNode("path", { d: "M9.04055 7.52881L5.04055 3.52881L4.09988 4.47147L7.62588 8.00014L4.09988 11.5288L5.04322 12.4715L9.04322 8.47147C9.16784 8.3461 9.23758 8.17637 9.23708 7.99959C9.23658 7.82281 9.16589 7.65347 9.04055 7.52881Z" })
+], -1);
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "panel-date-pick",
   props: panelDatePickProps,
@@ -525,9 +558,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   class: normalizeClass(["d-arrow-left", unref(ppNs).e("icon-btn")]),
                   onClick: _cache[2] || (_cache[2] = ($event) => moveByYear(false))
                 }, [
-                  createVNode(unref(ElIcon), null, {
+                  createVNode(unref(ElIcon), { size: "16px" }, {
                     default: withCtx(() => [
-                      createVNode(unref(DArrowLeft))
+                      _hoisted_3
                     ]),
                     _: 1
                   })
@@ -538,13 +571,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   class: normalizeClass([unref(ppNs).e("icon-btn"), "arrow-left"]),
                   onClick: _cache[3] || (_cache[3] = ($event) => moveByMonth(false))
                 }, [
-                  createVNode(unref(ElIcon), null, {
+                  createVNode(unref(ElIcon), { size: "16px" }, {
                     default: withCtx(() => [
-                      createVNode(unref(ArrowLeft))
+                      _hoisted_5
                     ]),
                     _: 1
                   })
-                ], 10, _hoisted_3), [
+                ], 10, _hoisted_4), [
                   [vShow, currentView.value === "date"]
                 ])
               ], 2),
@@ -578,13 +611,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   class: normalizeClass([unref(ppNs).e("icon-btn"), "arrow-right"]),
                   onClick: _cache[8] || (_cache[8] = ($event) => moveByMonth(true))
                 }, [
-                  createVNode(unref(ElIcon), null, {
+                  createVNode(unref(ElIcon), { size: "16px" }, {
                     default: withCtx(() => [
-                      createVNode(unref(ArrowRight))
+                      _hoisted_7
                     ]),
                     _: 1
                   })
-                ], 10, _hoisted_4), [
+                ], 10, _hoisted_6), [
                   [vShow, currentView.value === "date"]
                 ]),
                 createElementVNode("button", {
@@ -593,13 +626,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   class: normalizeClass([unref(ppNs).e("icon-btn"), "d-arrow-right"]),
                   onClick: _cache[9] || (_cache[9] = ($event) => moveByYear(true))
                 }, [
-                  createVNode(unref(ElIcon), null, {
+                  createVNode(unref(ElIcon), { size: "16px" }, {
                     default: withCtx(() => [
-                      createVNode(unref(DArrowRight))
+                      _hoisted_9
                     ]),
                     _: 1
                   })
-                ], 10, _hoisted_5)
+                ], 10, _hoisted_8)
               ], 2)
             ], 2), [
               [vShow, currentView.value !== "time"]

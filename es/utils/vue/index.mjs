@@ -1,5 +1,5 @@
 export { changeGlobalNodesTarget, createGlobalNode, removeGlobalNode } from './global-node.mjs';
-export { CloseComponents, TypeComponents, TypeComponentsMap, ValidateComponentsMap, iconPropType } from './icon.mjs';
+export { CloseComponents, TypeComponents, TypeComponentsMap, ValidateComponentsMap, check, circleCheck, error, iconPropType, info, loading, warning } from './icon.mjs';
 export { withInstall, withInstallDirective, withInstallFunction, withNoopInstall } from './install.mjs';
 import './props/index.mjs';
 export { composeRefs } from './refs.mjs';

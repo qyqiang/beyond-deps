@@ -15,6 +15,10 @@ const dialogContentProps = buildProps({
     type: Boolean,
     default: true
   },
+  headerBackgroundColor: {
+    type: String,
+    default: "#f2f7f7"
+  },
   title: {
     type: String,
     default: ""

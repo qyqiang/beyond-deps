@@ -52,6 +52,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly overflow: BooleanConstructor;
     readonly fullscreen: BooleanConstructor;
     readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#f2f7f7", boolean>;
     readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
 }, {
@@ -109,6 +110,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly overflow: BooleanConstructor;
         readonly fullscreen: BooleanConstructor;
         readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#f2f7f7", boolean>;
         readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
     }>> & {
@@ -211,7 +213,7 @@ declare const _default: import("vue").DefineComponent<{
         };
     }, {
         onKeydown: (e: KeyboardEvent) => void;
-    }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("focusin" | "focusout" | "focusAfterTrapped" | "focusAfterReleased" | "focusout-prevented" | "release-requested")[], "focusin" | "focusout" | "focusAfterTrapped" | "focusAfterReleased" | "focusout-prevented" | "release-requested", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("focusAfterTrapped" | "focusAfterReleased" | "focusin" | "focusout" | "focusout-prevented" | "release-requested")[], "focusAfterTrapped" | "focusAfterReleased" | "focusin" | "focusout" | "focusout-prevented" | "release-requested", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
         loop: BooleanConstructor;
         trapped: BooleanConstructor;
         focusTrapEl: import("vue").PropType<HTMLElement>;
@@ -356,6 +358,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly overflow: BooleanConstructor;
     readonly fullscreen: BooleanConstructor;
     readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#f2f7f7", boolean>;
     readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
 }>> & {
@@ -375,6 +378,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly appendTo: string;
     readonly overflow: boolean;
     readonly showClose: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly headerBackgroundColor: string;
     readonly ariaLevel: string;
     readonly alignCenter: boolean;
     readonly draggable: boolean;

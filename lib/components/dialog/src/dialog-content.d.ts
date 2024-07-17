@@ -11,6 +11,7 @@ export declare const dialogContentProps: {
     readonly overflow: BooleanConstructor;
     readonly fullscreen: BooleanConstructor;
     readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#f2f7f7", boolean>;
     readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
 };

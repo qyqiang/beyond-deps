@@ -122,7 +122,7 @@ declare const _default: import("vue").DefineComponent<{
     }>>;
     emit: ((event: "update:modelValue", val: string | number | boolean) => void) & ((event: "change", val: string | number | boolean) => void) & ((event: "input", val: string | number | boolean) => void);
     formItem: import("element-plus/es/components/form").FormItemContext | undefined;
-    switchSize: import("vue").ComputedRef<"" | "default" | "small" | "large">;
+    switchSize: import("vue").Ref<string>;
     ns: {
         namespace: import("vue").ComputedRef<string>;
         b: (blockSuffix?: string) => string;
@@ -286,8 +286,8 @@ declare const _default: import("vue").DefineComponent<{
     onInput?: ((val: string | number | boolean) => any) | undefined;
 }, {
     readonly width: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
-    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<readonly [BooleanConstructor, StringConstructor, NumberConstructor], unknown, unknown>;
     readonly disabled: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<readonly [BooleanConstructor, StringConstructor, NumberConstructor], unknown, unknown>;
     readonly name: string;
     readonly label: string;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;

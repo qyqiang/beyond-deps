@@ -49,8 +49,8 @@ export declare const ElSpace: import("element-plus/es/utils").SFCWithInstall<imp
     readonly fill: boolean;
     readonly direction: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", unknown>;
     readonly style: import("vue").StyleValue;
-    readonly class: import("element-plus/es/utils").Arrayable<string | Record<string, boolean>>;
     readonly wrap: boolean;
+    readonly class: import("element-plus/es/utils").Arrayable<string | Record<string, boolean>>;
     readonly alignment: string;
     readonly spacer: import("vue").VNodeChild;
     readonly fillRatio: number;

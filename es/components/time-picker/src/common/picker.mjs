@@ -498,12 +498,18 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         visible: pickerVisible.value,
         effect: "light",
         pure: "",
+        "show-arrow": false,
         trigger: "click"
       }, _ctx.$attrs, {
         role: "dialog",
         teleported: "",
         transition: `${unref(nsDate).namespace.value}-zoom-in-top`,
-        "popper-class": [`${unref(nsDate).namespace.value}-picker__popper`, _ctx.popperClass],
+        "popper-class": [
+          `${unref(nsDate).namespace.value}-picker__popper`,
+          _ctx.popperClass,
+          "date-picker-popover"
+        ],
+        offset: 5,
         "popper-options": unref(elPopperOptions),
         "fallback-placements": ["bottom", "top", "right", "left"],
         "gpu-acceleration": false,

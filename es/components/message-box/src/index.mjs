@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref, reactive, watch, nextTick, onMounted, onBeforeUnmount, toRefs, resolveComponent, openBlock, createBlock, Transition, withCtx, withDirectives, createVNode, createElementVNode, normalizeClass, normalizeStyle, withModifiers, createElementBlock, resolveDynamicComponent, createCommentVNode, toDisplayString, withKeys, renderSlot, createTextVNode, vShow } from 'vue';
+import { defineComponent, computed, ref, reactive, watch, nextTick, onMounted, onBeforeUnmount, toRefs, createElementVNode, resolveComponent, openBlock, createBlock, Transition, withCtx, withDirectives, createVNode, normalizeClass, normalizeStyle, withModifiers, createElementBlock, createCommentVNode, toDisplayString, withKeys, renderSlot, resolveDynamicComponent, createTextVNode, vShow } from 'vue';
 import { ElButton } from '../../button/index.mjs';
 import '../../../directives/index.mjs';
 import '../../../hooks/index.mjs';
@@ -73,6 +73,10 @@ const _sfc_main = defineComponent({
     container: {
       type: String,
       default: "body"
+    },
+    headerBackgroundColor: {
+      type: String,
+      default: "#f2f7f7"
     },
     boxType: {
       type: String,
@@ -295,10 +299,17 @@ const _sfc_main = defineComponent({
 });
 const _hoisted_1 = ["aria-label", "aria-describedby"];
 const _hoisted_2 = ["aria-label"];
-const _hoisted_3 = ["id"];
+const _hoisted_3 = /* @__PURE__ */ createElementVNode("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "25",
+  height: "24",
+  viewBox: "0 0 25 24"
+}, [
+  /* @__PURE__ */ createElementVNode("path", { d: "M19.2068 6.70685L17.7928 5.29285L12.4998 10.5858L7.20685 5.29285L5.79285 6.70685L11.0858 11.9998L5.79285 17.2928L7.20685 18.7068L12.4998 13.4138L17.7928 18.7068L19.2068 17.2928L13.9138 11.9998L19.2068 6.70685Z" })
+], -1);
+const _hoisted_4 = ["id"];
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_icon = resolveComponent("el-icon");
-  const _component_close = resolveComponent("close");
   const _component_el_input = resolveComponent("el-input");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_focus_trap = resolveComponent("el-focus-trap");
@@ -356,13 +367,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                     }, [
                       _ctx.iconComponent && _ctx.center ? (openBlock(), createBlock(_component_el_icon, {
                         key: 0,
-                        class: normalizeClass([_ctx.ns.e("status"), _ctx.typeClass])
-                      }, {
-                        default: withCtx(() => [
-                          (openBlock(), createBlock(resolveDynamicComponent(_ctx.iconComponent)))
-                        ]),
-                        _: 1
-                      }, 8, ["class"])) : createCommentVNode("v-if", true),
+                        class: normalizeClass([_ctx.ns.e("status"), _ctx.typeClass]),
+                        innerHTML: _ctx.iconComponent
+                      }, null, 8, ["class", "innerHTML"])) : createCommentVNode("v-if", true),
                       createElementVNode("span", null, toDisplayString(_ctx.title), 1)
                     ], 2),
                     _ctx.showClose ? (openBlock(), createElementBlock("button", {
@@ -374,10 +381,11 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                       onKeydown: _cache[1] || (_cache[1] = withKeys(withModifiers(($event) => _ctx.handleAction(_ctx.distinguishCancelAndClose ? "close" : "cancel"), ["prevent"]), ["enter"]))
                     }, [
                       createVNode(_component_el_icon, {
-                        class: normalizeClass(_ctx.ns.e("close"))
+                        class: normalizeClass(_ctx.ns.e("close")),
+                        size: "24px"
                       }, {
                         default: withCtx(() => [
-                          createVNode(_component_close)
+                          _hoisted_3
                         ]),
                         _: 1
                       }, 8, ["class"])
@@ -392,13 +400,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                     }, [
                       _ctx.iconComponent && !_ctx.center && _ctx.hasMessage ? (openBlock(), createBlock(_component_el_icon, {
                         key: 0,
-                        class: normalizeClass([_ctx.ns.e("status"), _ctx.typeClass])
-                      }, {
-                        default: withCtx(() => [
-                          (openBlock(), createBlock(resolveDynamicComponent(_ctx.iconComponent)))
-                        ]),
-                        _: 1
-                      }, 8, ["class"])) : createCommentVNode("v-if", true),
+                        class: normalizeClass([_ctx.ns.e("status"), _ctx.typeClass]),
+                        innerHTML: _ctx.iconComponent
+                      }, null, 8, ["class", "innerHTML"])) : createCommentVNode("v-if", true),
                       _ctx.hasMessage ? (openBlock(), createElementBlock("div", {
                         key: 1,
                         class: normalizeClass(_ctx.ns.e("message"))
@@ -443,7 +447,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                     ], 2), [
                       [vShow, _ctx.showInput]
                     ])
-                  ], 10, _hoisted_3),
+                  ], 10, _hoisted_4),
                   createElementVNode("div", {
                     class: normalizeClass(_ctx.ns.e("btns"))
                   }, [

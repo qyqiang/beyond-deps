@@ -48,6 +48,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
     readonly overflow: BooleanConstructor;
     readonly fullscreen: BooleanConstructor;
     readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#f2f7f7", boolean>;
     readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
 }, {
@@ -101,6 +102,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
         readonly overflow: BooleanConstructor;
         readonly fullscreen: BooleanConstructor;
         readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#f2f7f7", boolean>;
         readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
     }>> & {
@@ -208,7 +210,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
         };
     }, {
         onKeydown: (e: KeyboardEvent) => void;
-    }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("focusin" | "focusout" | "focusAfterTrapped" | "focusAfterReleased" | "focusout-prevented" | "release-requested")[], "focusin" | "focusout" | "focusAfterTrapped" | "focusAfterReleased" | "focusout-prevented" | "release-requested", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("focusAfterTrapped" | "focusAfterReleased" | "focusin" | "focusout" | "focusout-prevented" | "release-requested")[], "focusAfterTrapped" | "focusAfterReleased" | "focusin" | "focusout" | "focusout-prevented" | "release-requested", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
         loop: BooleanConstructor;
         trapped: BooleanConstructor;
         focusTrapEl: import("vue").PropType<HTMLElement>;
@@ -241,11 +243,11 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
         readonly overflow: BooleanConstructor;
         readonly fullscreen: BooleanConstructor;
         readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#f2f7f7", boolean>;
         readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
     }, {
         t: import("../..").Translator;
-        Close: any;
         props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
             readonly center: BooleanConstructor;
             readonly alignCenter: BooleanConstructor;
@@ -259,6 +261,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
             readonly overflow: BooleanConstructor;
             readonly fullscreen: BooleanConstructor;
             readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#f2f7f7", boolean>;
             readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
             readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
         }>> & {
@@ -371,6 +374,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
         readonly overflow: BooleanConstructor;
         readonly fullscreen: BooleanConstructor;
         readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#f2f7f7", boolean>;
         readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
     }>> & {
@@ -380,6 +384,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
         readonly center: boolean;
         readonly overflow: boolean;
         readonly showClose: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly headerBackgroundColor: string;
         readonly ariaLevel: string;
         readonly alignCenter: boolean;
         readonly draggable: boolean;
@@ -443,6 +448,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
     readonly overflow: BooleanConstructor;
     readonly fullscreen: BooleanConstructor;
     readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#f2f7f7", boolean>;
     readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
 }>> & {
@@ -460,6 +466,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
     readonly appendTo: string;
     readonly overflow: boolean;
     readonly showClose: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly headerBackgroundColor: string;
     readonly ariaLevel: string;
     readonly alignCenter: boolean;
     readonly draggable: boolean;

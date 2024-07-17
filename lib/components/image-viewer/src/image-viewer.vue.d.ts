@@ -206,8 +206,8 @@ declare const _default: import("vue").DefineComponent<{
     onSwitch?: ((index: number) => any) | undefined;
     onRotate?: ((deg: number) => any) | undefined;
 }, {
-    readonly teleported: boolean;
     readonly infinite: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly teleported: boolean;
     readonly initialIndex: number;
     readonly closeOnPressEscape: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly zoomRate: number;

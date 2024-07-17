@@ -181,10 +181,10 @@ declare const _DatePicker: SFCWithInstall<import("vue").DefineComponent<{
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }, {
     readonly type: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("./src/date-picker.type").IDatePickerType & {}) | (() => import("./src/date-picker.type").IDatePickerType) | ((new (...args: any[]) => import("./src/date-picker.type").IDatePickerType & {}) | (() => import("./src/date-picker.type").IDatePickerType))[], unknown, unknown>;
+    readonly disabled: boolean;
     readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("..").ModelValueType & {}) | (() => import("..").ModelValueType) | ((new (...args: any[]) => import("..").ModelValueType & {}) | (() => import("..").ModelValueType))[], unknown, unknown>;
     readonly popperClass: string;
     readonly popperOptions: Partial<import("@popperjs/core").Options>;
-    readonly disabled: boolean;
     readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly name: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("..").SingleOrRange<string> & {}) | (() => import("..").SingleOrRange<string>) | ((new (...args: any[]) => import("..").SingleOrRange<string> & {}) | (() => import("..").SingleOrRange<string>))[], unknown, unknown>;
     readonly placeholder: string;
@@ -384,10 +384,10 @@ export declare const ElDatePicker: SFCWithInstall<import("vue").DefineComponent<
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }, {
     readonly type: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("./src/date-picker.type").IDatePickerType & {}) | (() => import("./src/date-picker.type").IDatePickerType) | ((new (...args: any[]) => import("./src/date-picker.type").IDatePickerType & {}) | (() => import("./src/date-picker.type").IDatePickerType))[], unknown, unknown>;
+    readonly disabled: boolean;
     readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("..").ModelValueType & {}) | (() => import("..").ModelValueType) | ((new (...args: any[]) => import("..").ModelValueType & {}) | (() => import("..").ModelValueType))[], unknown, unknown>;
     readonly popperClass: string;
     readonly popperOptions: Partial<import("@popperjs/core").Options>;
-    readonly disabled: boolean;
     readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly name: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("..").SingleOrRange<string> & {}) | (() => import("..").SingleOrRange<string>) | ((new (...args: any[]) => import("..").SingleOrRange<string> & {}) | (() => import("..").SingleOrRange<string>))[], unknown, unknown>;
     readonly placeholder: string;

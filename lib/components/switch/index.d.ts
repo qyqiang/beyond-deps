@@ -121,7 +121,7 @@ export declare const ElSwitch: import("element-plus/es/utils").SFCWithInstall<im
     }>>;
     emit: ((event: "update:modelValue", val: string | number | boolean) => void) & ((event: "change", val: string | number | boolean) => void) & ((event: "input", val: string | number | boolean) => void);
     formItem: import("..").FormItemContext | undefined;
-    switchSize: import("vue").ComputedRef<"" | "default" | "small" | "large">;
+    switchSize: import("vue").Ref<string>;
     ns: {
         namespace: import("vue").ComputedRef<string>;
         b: (blockSuffix?: string) => string;
@@ -285,8 +285,8 @@ export declare const ElSwitch: import("element-plus/es/utils").SFCWithInstall<im
     onInput?: ((val: string | number | boolean) => any) | undefined;
 }, {
     readonly width: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
-    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<readonly [BooleanConstructor, StringConstructor, NumberConstructor], unknown, unknown>;
     readonly disabled: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<readonly [BooleanConstructor, StringConstructor, NumberConstructor], unknown, unknown>;
     readonly name: string;
     readonly label: string;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;

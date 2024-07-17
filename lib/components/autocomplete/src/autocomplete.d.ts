@@ -10,6 +10,7 @@ export declare const autocompleteProps: {
     readonly valueKey: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "value", boolean>;
     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, "", boolean>;
     readonly debounce: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 300, boolean>;
+    readonly preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Placement & {}) | (() => Placement) | ((new (...args: any[]) => Placement & {}) | (() => Placement))[], "top" | "bottom" | "top-start" | "top-end" | "bottom-start" | "bottom-end", unknown, "bottom-start", boolean>;
     readonly fetchSuggestions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ((queryString: string, cb: AutocompleteFetchSuggestionsCallback) => Awaitable<AutocompleteData> | void) | AutocompleteData) | (() => AutocompleteFetchSuggestions) | ((new (...args: any[]) => ((queryString: string, cb: AutocompleteFetchSuggestionsCallback) => Awaitable<AutocompleteData> | void) | AutocompleteData) | (() => AutocompleteFetchSuggestions))[], unknown, unknown, () => void, boolean>;
     readonly popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;

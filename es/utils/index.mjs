@@ -20,7 +20,7 @@ export { animateScrollTo, getScrollBarWidth, getScrollContainer, getScrollElemen
 export { addClass, addUnit, classNameToArray, getStyle, hasClass, removeClass, removeStyle, setStyle } from './dom/style.mjs';
 export { getElement } from './dom/element.mjs';
 export { changeGlobalNodesTarget, createGlobalNode, removeGlobalNode } from './vue/global-node.mjs';
-export { CloseComponents, TypeComponents, TypeComponentsMap, ValidateComponentsMap, iconPropType } from './vue/icon.mjs';
+export { CloseComponents, TypeComponents, TypeComponentsMap, ValidateComponentsMap, check, circleCheck, error, iconPropType, info, loading, warning } from './vue/icon.mjs';
 export { withInstall, withInstallDirective, withInstallFunction, withNoopInstall } from './vue/install.mjs';
 export { buildProp, buildProps, definePropType, epPropKey, isEpProp } from './vue/props/runtime.mjs';
 export { composeRefs } from './vue/refs.mjs';

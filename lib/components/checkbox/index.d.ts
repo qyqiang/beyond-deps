@@ -215,14 +215,14 @@ export declare const ElCheckbox: import("element-plus/es/utils").SFCWithInstall<
     onChange?: ((val: import("./src/checkbox").CheckboxValueType) => any) | undefined;
     "onUpdate:modelValue"?: ((val: import("./src/checkbox").CheckboxValueType) => any) | undefined;
 }, {
-    id: string;
+    border: boolean;
+    disabled: boolean;
     value: string | number | boolean | Record<string, any>;
     modelValue: string | number | boolean;
-    disabled: boolean;
+    id: string;
     name: string;
     label: string | number | boolean | Record<string, any>;
     validateEvent: boolean;
-    border: boolean;
     indeterminate: boolean;
     checked: boolean;
     trueValue: string | number;
@@ -448,14 +448,14 @@ export declare const ElCheckbox: import("element-plus/es/utils").SFCWithInstall<
         onChange?: ((val: import("./src/checkbox").CheckboxValueType) => any) | undefined;
         "onUpdate:modelValue"?: ((val: import("./src/checkbox").CheckboxValueType) => any) | undefined;
     }, {
-        id: string;
+        border: boolean;
+        disabled: boolean;
         value: string | number | boolean | Record<string, any>;
         modelValue: string | number | boolean;
-        disabled: boolean;
+        id: string;
         name: string;
         label: string | number | boolean | Record<string, any>;
         validateEvent: boolean;
-        border: boolean;
         indeterminate: boolean;
         checked: boolean;
         trueValue: string | number;
@@ -551,8 +551,8 @@ export declare const ElCheckbox: import("element-plus/es/utils").SFCWithInstall<
         onChange?: ((val: import("./src/checkbox").CheckboxValueType[]) => any) | undefined;
         "onUpdate:modelValue"?: ((val: import("./src/checkbox-group").CheckboxGroupValueType) => any) | undefined;
     }, {
-        readonly modelValue: import("./src/checkbox-group").CheckboxGroupValueType;
         readonly disabled: boolean;
+        readonly modelValue: import("./src/checkbox-group").CheckboxGroupValueType;
         readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly tag: string;
     }>;
@@ -775,14 +775,14 @@ export declare const ElCheckboxButton: import("element-plus/es/utils").SFCWithIn
     onChange?: ((val: import("./src/checkbox").CheckboxValueType) => any) | undefined;
     "onUpdate:modelValue"?: ((val: import("./src/checkbox").CheckboxValueType) => any) | undefined;
 }, {
-    id: string;
+    border: boolean;
+    disabled: boolean;
     value: string | number | boolean | Record<string, any>;
     modelValue: string | number | boolean;
-    disabled: boolean;
+    id: string;
     name: string;
     label: string | number | boolean | Record<string, any>;
     validateEvent: boolean;
-    border: boolean;
     indeterminate: boolean;
     checked: boolean;
     trueValue: string | number;
@@ -878,8 +878,8 @@ export declare const ElCheckboxGroup: import("element-plus/es/utils").SFCWithIns
     onChange?: ((val: import("./src/checkbox").CheckboxValueType[]) => any) | undefined;
     "onUpdate:modelValue"?: ((val: import("./src/checkbox-group").CheckboxGroupValueType) => any) | undefined;
 }, {
-    readonly modelValue: import("./src/checkbox-group").CheckboxGroupValueType;
     readonly disabled: boolean;
+    readonly modelValue: import("./src/checkbox-group").CheckboxGroupValueType;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly tag: string;
 }>>;

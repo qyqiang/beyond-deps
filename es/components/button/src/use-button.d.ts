@@ -3,13 +3,13 @@ import type { ButtonEmits, ButtonProps } from './button';
 export declare const useButton: (props: ButtonProps, emit: SetupContext<ButtonEmits>['emit']) => {
     _disabled: import("vue").ComputedRef<boolean>;
     _size: import("vue").ComputedRef<"" | "default" | "small" | "large">;
-    _type: import("vue").ComputedRef<"" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger">;
+    _type: import("vue").ComputedRef<"" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger">;
     _ref: import("vue").Ref<HTMLButtonElement | undefined>;
     _props: import("vue").ComputedRef<{
         ariaDisabled: boolean;
         disabled: boolean;
         autofocus: boolean;
-        type: import("../../../utils").EpPropMergeType<StringConstructor, "reset" | "submit" | "button", unknown>;
+        type: import("../../../utils").EpPropMergeType<StringConstructor, "button" | "reset" | "submit", unknown>;
     } | {
         ariaDisabled?: undefined;
         disabled?: undefined;

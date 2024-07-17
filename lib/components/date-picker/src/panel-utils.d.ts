@@ -371,14 +371,14 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
             __epPropKey: true;
         };
         readonly disabled: BooleanConstructor;
-        readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown, "", boolean>;
+        readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown, "", boolean>;
         readonly icon: {
             readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        readonly nativeType: import("../../../utils").EpPropFinalized<StringConstructor, "reset" | "submit" | "button", unknown, "button", boolean>;
+        readonly nativeType: import("../../../utils").EpPropFinalized<StringConstructor, "button" | "reset" | "submit", unknown, "button", boolean>;
         readonly loading: BooleanConstructor;
         readonly loadingIcon: import("../../../utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, () => any, boolean>;
         readonly plain: BooleanConstructor;
@@ -401,14 +401,14 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
                 __epPropKey: true;
             };
             readonly disabled: BooleanConstructor;
-            readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown, "", boolean>;
+            readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown, "", boolean>;
             readonly icon: {
                 readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly nativeType: import("../../../utils").EpPropFinalized<StringConstructor, "reset" | "submit" | "button", unknown, "button", boolean>;
+            readonly nativeType: import("../../../utils").EpPropFinalized<StringConstructor, "button" | "reset" | "submit", unknown, "button", boolean>;
             readonly loading: BooleanConstructor;
             readonly loadingIcon: import("../../../utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, () => any, boolean>;
             readonly plain: BooleanConstructor;
@@ -447,13 +447,13 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
         };
         _ref: import("vue").Ref<HTMLButtonElement | undefined>;
         _size: import("vue").ComputedRef<"" | "default" | "small" | "large">;
-        _type: import("vue").ComputedRef<"" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger">;
+        _type: import("vue").ComputedRef<"" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger">;
         _disabled: import("vue").ComputedRef<boolean>;
         _props: import("vue").ComputedRef<{
             ariaDisabled: boolean;
             disabled: boolean;
             autofocus: boolean;
-            type: import("../../../utils").EpPropMergeType<StringConstructor, "reset" | "submit" | "button", unknown>;
+            type: import("../../../utils").EpPropMergeType<StringConstructor, "button" | "reset" | "submit", unknown>;
         } | {
             ariaDisabled?: undefined;
             disabled?: undefined;
@@ -536,14 +536,14 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
             __epPropKey: true;
         };
         readonly disabled: BooleanConstructor;
-        readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown, "", boolean>;
+        readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown, "", boolean>;
         readonly icon: {
             readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        readonly nativeType: import("../../../utils").EpPropFinalized<StringConstructor, "reset" | "submit" | "button", unknown, "button", boolean>;
+        readonly nativeType: import("../../../utils").EpPropFinalized<StringConstructor, "button" | "reset" | "submit", unknown, "button", boolean>;
         readonly loading: BooleanConstructor;
         readonly loadingIcon: import("../../../utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, () => any, boolean>;
         readonly plain: BooleanConstructor;
@@ -560,21 +560,21 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
     }>> & {
         onClick?: ((evt: MouseEvent) => any) | undefined;
     }, {
-        readonly bg: boolean;
-        readonly type: import("../../../utils").EpPropMergeType<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown>;
+        readonly type: import("../../../utils").EpPropMergeType<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown>;
         readonly link: boolean;
         readonly dark: boolean;
-        readonly disabled: boolean;
-        readonly text: boolean;
-        readonly autofocus: boolean;
-        readonly round: boolean;
         readonly circle: boolean;
+        readonly round: boolean;
+        readonly text: boolean;
+        readonly disabled: boolean;
+        readonly autofocus: boolean;
         readonly tag: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
         readonly loading: boolean;
-        readonly nativeType: import("../../../utils").EpPropMergeType<StringConstructor, "reset" | "submit" | "button", unknown>;
+        readonly nativeType: import("../../../utils").EpPropMergeType<StringConstructor, "button" | "reset" | "submit", unknown>;
         readonly loadingIcon: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
         readonly autoInsertSpace: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly plain: boolean;
+        readonly bg: boolean;
     }>> & {
         ButtonGroup: import("vue").DefineComponent<{
             readonly size: {
@@ -583,7 +583,7 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown, "", boolean>;
+            readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown, "", boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                 readonly size: {
@@ -592,7 +592,7 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown, "", boolean>;
+                readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown, "", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
             }>>;
@@ -621,9 +621,9 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown, "", boolean>;
+            readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown, "", boolean>;
         }>>, {
-            readonly type: import("../../../utils").EpPropMergeType<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown>;
+            readonly type: import("../../../utils").EpPropMergeType<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown>;
         }>;
     };
     ElInput: import("../../../utils").SFCWithInstall<import("vue").DefineComponent<{
@@ -683,6 +683,8 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
             __epPropKey: true;
         };
         readonly readonly: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly floatLabel: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly preStar: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly clearable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showPassword: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showWordLimit: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -762,6 +764,8 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
                 __epPropKey: true;
             };
             readonly readonly: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly floatLabel: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly preStar: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly clearable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly showPassword: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly showWordLimit: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -785,19 +789,19 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
             readonly autofocus: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         }>> & {
             onChange?: ((value: string) => any) | undefined;
-            onClear?: (() => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
             onInput?: ((value: string) => any) | undefined;
-            onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onClear?: (() => any) | undefined;
             onFocus?: ((evt: FocusEvent) => any) | undefined;
-            onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+            onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+            onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+            onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
             onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
             onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-            onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
-            onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-            onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+            onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
         }>>;
-        emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "clear") => void);
+        emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
         rawAttrs: {
             [x: string]: unknown;
         };
@@ -862,9 +866,8 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
         handleFocus: (event: FocusEvent) => void;
         handleBlur: (event: FocusEvent) => void;
         needStatusIcon: import("vue").ComputedRef<boolean>;
-        validateState: import("vue").ComputedRef<"" | "error" | "success" | "validating">;
-        validateIcon: import("vue").ComputedRef<any>;
-        passwordIcon: import("vue").ComputedRef<any>;
+        validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
+        validateIcon: import("vue").ComputedRef<string>;
         containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
         textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
         nativeInputValue: import("vue").ComputedRef<string>;
@@ -956,7 +959,6 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
                 __epPropKey: true;
             };
         }>>, {}>> & Record<string, any>;
-        CircleClose: any;
         NOOP: () => void;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         "update:modelValue": (value: string) => boolean;
@@ -1028,6 +1030,8 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
             __epPropKey: true;
         };
         readonly readonly: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly floatLabel: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly preStar: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly clearable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showPassword: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showWordLimit: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -1051,26 +1055,28 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
         readonly autofocus: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     }>> & {
         onChange?: ((value: string) => any) | undefined;
-        onClear?: (() => any) | undefined;
         "onUpdate:modelValue"?: ((value: string) => any) | undefined;
         onInput?: ((value: string) => any) | undefined;
-        onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onClear?: (() => any) | undefined;
         onFocus?: ((evt: FocusEvent) => any) | undefined;
-        onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+        onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+        onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+        onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
         onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
         onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-        onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
-        onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-        onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+        onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
     }, {
-        readonly id: string;
         readonly type: string;
-        readonly modelValue: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
         readonly disabled: boolean;
+        readonly modelValue: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
+        readonly preStar: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly id: string;
         readonly clearable: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly autosize: import("../..").InputAutoSize;
         readonly autocomplete: string;
         readonly readonly: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly floatLabel: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly showPassword: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly showWordLimit: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly containerRole: string;
@@ -9311,14 +9317,14 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
             __epPropKey: true;
         };
         readonly disabled: BooleanConstructor;
-        readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown, "", boolean>;
+        readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown, "", boolean>;
         readonly icon: {
             readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        readonly nativeType: import("../../../utils").EpPropFinalized<StringConstructor, "reset" | "submit" | "button", unknown, "button", boolean>;
+        readonly nativeType: import("../../../utils").EpPropFinalized<StringConstructor, "button" | "reset" | "submit", unknown, "button", boolean>;
         readonly loading: BooleanConstructor;
         readonly loadingIcon: import("../../../utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, () => any, boolean>;
         readonly plain: BooleanConstructor;
@@ -9341,14 +9347,14 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
                 __epPropKey: true;
             };
             readonly disabled: BooleanConstructor;
-            readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown, "", boolean>;
+            readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown, "", boolean>;
             readonly icon: {
                 readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly nativeType: import("../../../utils").EpPropFinalized<StringConstructor, "reset" | "submit" | "button", unknown, "button", boolean>;
+            readonly nativeType: import("../../../utils").EpPropFinalized<StringConstructor, "button" | "reset" | "submit", unknown, "button", boolean>;
             readonly loading: BooleanConstructor;
             readonly loadingIcon: import("../../../utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, () => any, boolean>;
             readonly plain: BooleanConstructor;
@@ -9387,13 +9393,13 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
         };
         _ref: import("vue").Ref<HTMLButtonElement | undefined>;
         _size: import("vue").ComputedRef<"" | "default" | "small" | "large">;
-        _type: import("vue").ComputedRef<"" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger">;
+        _type: import("vue").ComputedRef<"" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger">;
         _disabled: import("vue").ComputedRef<boolean>;
         _props: import("vue").ComputedRef<{
             ariaDisabled: boolean;
             disabled: boolean;
             autofocus: boolean;
-            type: import("../../../utils").EpPropMergeType<StringConstructor, "reset" | "submit" | "button", unknown>;
+            type: import("../../../utils").EpPropMergeType<StringConstructor, "button" | "reset" | "submit", unknown>;
         } | {
             ariaDisabled?: undefined;
             disabled?: undefined;
@@ -9476,14 +9482,14 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
             __epPropKey: true;
         };
         readonly disabled: BooleanConstructor;
-        readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown, "", boolean>;
+        readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown, "", boolean>;
         readonly icon: {
             readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        readonly nativeType: import("../../../utils").EpPropFinalized<StringConstructor, "reset" | "submit" | "button", unknown, "button", boolean>;
+        readonly nativeType: import("../../../utils").EpPropFinalized<StringConstructor, "button" | "reset" | "submit", unknown, "button", boolean>;
         readonly loading: BooleanConstructor;
         readonly loadingIcon: import("../../../utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, () => any, boolean>;
         readonly plain: BooleanConstructor;
@@ -9500,21 +9506,21 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
     }>> & {
         onClick?: ((evt: MouseEvent) => any) | undefined;
     }, {
-        readonly bg: boolean;
-        readonly type: import("../../../utils").EpPropMergeType<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown>;
+        readonly type: import("../../../utils").EpPropMergeType<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown>;
         readonly link: boolean;
         readonly dark: boolean;
-        readonly disabled: boolean;
-        readonly text: boolean;
-        readonly autofocus: boolean;
-        readonly round: boolean;
         readonly circle: boolean;
+        readonly round: boolean;
+        readonly text: boolean;
+        readonly disabled: boolean;
+        readonly autofocus: boolean;
         readonly tag: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
         readonly loading: boolean;
-        readonly nativeType: import("../../../utils").EpPropMergeType<StringConstructor, "reset" | "submit" | "button", unknown>;
+        readonly nativeType: import("../../../utils").EpPropMergeType<StringConstructor, "button" | "reset" | "submit", unknown>;
         readonly loadingIcon: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
         readonly autoInsertSpace: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly plain: boolean;
+        readonly bg: boolean;
     }>> & {
         ButtonGroup: import("vue").DefineComponent<{
             readonly size: {
@@ -9523,7 +9529,7 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown, "", boolean>;
+            readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown, "", boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                 readonly size: {
@@ -9532,7 +9538,7 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown, "", boolean>;
+                readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown, "", boolean>;
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
             }>>;
@@ -9561,9 +9567,9 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown, "", boolean>;
+            readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown, "", boolean>;
         }>>, {
-            readonly type: import("../../../utils").EpPropMergeType<StringConstructor, "" | "default" | "success" | "warning" | "info" | "text" | "primary" | "danger", unknown>;
+            readonly type: import("../../../utils").EpPropMergeType<StringConstructor, "" | "default" | "success" | "warning" | "error" | "info" | "text" | "filled" | "primary" | "danger", unknown>;
         }>;
     };
     vClickOutside: import("vue").ObjectDirective<any, any>;
@@ -9624,6 +9630,8 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
             __epPropKey: true;
         };
         readonly readonly: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly floatLabel: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly preStar: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly clearable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showPassword: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showWordLimit: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -9703,6 +9711,8 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
                 __epPropKey: true;
             };
             readonly readonly: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly floatLabel: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly preStar: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly clearable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly showPassword: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
             readonly showWordLimit: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -9726,19 +9736,19 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
             readonly autofocus: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         }>> & {
             onChange?: ((value: string) => any) | undefined;
-            onClear?: (() => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
             onInput?: ((value: string) => any) | undefined;
-            onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onClear?: (() => any) | undefined;
             onFocus?: ((evt: FocusEvent) => any) | undefined;
-            onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+            onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+            onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+            onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
             onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
             onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-            onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
-            onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-            onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+            onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
         }>>;
-        emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "clear") => void);
+        emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "clear") => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
         rawAttrs: {
             [x: string]: unknown;
         };
@@ -9803,9 +9813,8 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
         handleFocus: (event: FocusEvent) => void;
         handleBlur: (event: FocusEvent) => void;
         needStatusIcon: import("vue").ComputedRef<boolean>;
-        validateState: import("vue").ComputedRef<"" | "error" | "success" | "validating">;
-        validateIcon: import("vue").ComputedRef<any>;
-        passwordIcon: import("vue").ComputedRef<any>;
+        validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
+        validateIcon: import("vue").ComputedRef<string>;
         containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
         textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
         nativeInputValue: import("vue").ComputedRef<string>;
@@ -9897,7 +9906,6 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
                 __epPropKey: true;
             };
         }>>, {}>> & Record<string, any>;
-        CircleClose: any;
         NOOP: () => void;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         "update:modelValue": (value: string) => boolean;
@@ -9969,6 +9977,8 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
             __epPropKey: true;
         };
         readonly readonly: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly floatLabel: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly preStar: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly clearable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showPassword: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         readonly showWordLimit: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -9992,26 +10002,28 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
         readonly autofocus: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     }>> & {
         onChange?: ((value: string) => any) | undefined;
-        onClear?: (() => any) | undefined;
         "onUpdate:modelValue"?: ((value: string) => any) | undefined;
         onInput?: ((value: string) => any) | undefined;
-        onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onClear?: (() => any) | undefined;
         onFocus?: ((evt: FocusEvent) => any) | undefined;
-        onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+        onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+        onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+        onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
         onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
         onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-        onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
-        onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-        onMouseleave?: ((evt: MouseEvent) => any) | undefined;
+        onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
     }, {
-        readonly id: string;
         readonly type: string;
-        readonly modelValue: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
         readonly disabled: boolean;
+        readonly modelValue: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
+        readonly preStar: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly id: string;
         readonly clearable: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly autosize: import("../..").InputAutoSize;
         readonly autocomplete: string;
         readonly readonly: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly floatLabel: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly showPassword: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly showWordLimit: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly containerRole: string;
@@ -17015,10 +17027,6 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
             __epPropKey: true;
         };
     }>>, {}>> & Record<string, any>;
-    ArrowLeft: any;
-    ArrowRight: any;
-    DArrowLeft: any;
-    DArrowRight: any;
     DateTable: import("vue").DefineComponent<{
         readonly cellClassName: {
             readonly type: import("vue").PropType<(date: Date) => string>;

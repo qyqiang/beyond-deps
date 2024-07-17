@@ -105,10 +105,10 @@ export declare const ElSegmented: import("element-plus/es/utils").SFCWithInstall
     onChange?: ((val: any) => any) | undefined;
     "onUpdate:modelValue"?: ((val: any) => any) | undefined;
 }, {
-    modelValue: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
-    disabled: boolean;
-    validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     block: boolean;
+    disabled: boolean;
+    modelValue: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
+    validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     options: import("./src/types").Option[];
 }>> & Record<string, any>;
 export default ElSegmented;

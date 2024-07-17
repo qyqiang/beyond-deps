@@ -6,7 +6,7 @@ import { CircleClose, ArrowDown } from '@element-plus/icons-vue';
 import '../../tag/index.mjs';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { useSizeProp } from '../../../hooks/use-size/index.mjs';
-import { useTooltipContentProps } from '../../tooltip/src/content.mjs';
+import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';
 import { iconPropType } from '../../../utils/vue/icon.mjs';
 import { tagProps } from '../../tag/src/tag2.mjs';
 import { useEmptyValuesProps } from '../../../hooks/use-empty-values/index.mjs';
@@ -58,6 +58,10 @@ const SelectProps = buildProps({
   },
   defaultFirstOption: Boolean,
   reserveKeyword: {
+    type: Boolean,
+    default: true
+  },
+  floatLabel: {
     type: Boolean,
     default: true
   },

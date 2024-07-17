@@ -33,7 +33,7 @@ declare const _default: import("vue").DefineComponent<{
         onToggle?: ((node: import("./types").TreeNode) => any) | undefined;
         onCheck?: ((node: import("./types").TreeNode, checked: CheckboxValueType) => any) | undefined;
     }>>;
-    emit: ((event: "click", node: import("./types").TreeNode, e: MouseEvent) => void) & ((event: "toggle", node: import("./types").TreeNode) => void) & ((event: "check", node: import("./types").TreeNode, checked: CheckboxValueType) => void);
+    emit: ((event: "click", node: import("./types").TreeNode, e: MouseEvent) => void) & ((event: "check", node: import("./types").TreeNode, checked: CheckboxValueType) => void) & ((event: "toggle", node: import("./types").TreeNode) => void);
     tree: import("./types").TreeContext | undefined;
     ns: {
         namespace: import("vue").ComputedRef<string>;
@@ -339,14 +339,14 @@ declare const _default: import("vue").DefineComponent<{
         onChange?: ((val: CheckboxValueType) => any) | undefined;
         "onUpdate:modelValue"?: ((val: CheckboxValueType) => any) | undefined;
     }, {
-        id: string;
+        border: boolean;
+        disabled: boolean;
         value: string | number | boolean | Record<string, any>;
         modelValue: string | number | boolean;
-        disabled: boolean;
+        id: string;
         name: string;
         label: string | number | boolean | Record<string, any>;
         validateEvent: boolean;
-        border: boolean;
         indeterminate: boolean;
         checked: boolean;
         trueValue: string | number;
@@ -572,14 +572,14 @@ declare const _default: import("vue").DefineComponent<{
             onChange?: ((val: CheckboxValueType) => any) | undefined;
             "onUpdate:modelValue"?: ((val: CheckboxValueType) => any) | undefined;
         }, {
-            id: string;
+            border: boolean;
+            disabled: boolean;
             value: string | number | boolean | Record<string, any>;
             modelValue: string | number | boolean;
-            disabled: boolean;
+            id: string;
             name: string;
             label: string | number | boolean | Record<string, any>;
             validateEvent: boolean;
-            border: boolean;
             indeterminate: boolean;
             checked: boolean;
             trueValue: string | number;
@@ -675,8 +675,8 @@ declare const _default: import("vue").DefineComponent<{
             onChange?: ((val: CheckboxValueType[]) => any) | undefined;
             "onUpdate:modelValue"?: ((val: import("element-plus/es/components/checkbox").CheckboxGroupValueType) => any) | undefined;
         }, {
-            readonly modelValue: import("element-plus/es/components/checkbox").CheckboxGroupValueType;
             readonly disabled: boolean;
+            readonly modelValue: import("element-plus/es/components/checkbox").CheckboxGroupValueType;
             readonly validateEvent: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly tag: string;
         }>;
@@ -723,8 +723,8 @@ declare const _default: import("vue").DefineComponent<{
     onToggle?: ((node: import("./types").TreeNode) => any) | undefined;
     onCheck?: ((node: import("./types").TreeNode, checked: CheckboxValueType) => any) | undefined;
 }, {
-    readonly disabled: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly expanded: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly disabled: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly current: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly indeterminate: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly checked: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;

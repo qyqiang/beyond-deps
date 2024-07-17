@@ -40,6 +40,10 @@ declare const _default: import("vue").DefineComponent<{
         type: StringConstructor;
         default: string;
     };
+    headerBackgroundColor: {
+        type: StringConstructor;
+        default: string;
+    };
     boxType: {
         type: PropType<MessageBoxType>;
         default: string;
@@ -71,7 +75,7 @@ declare const _default: import("vue").DefineComponent<{
     visible: import("vue").Ref<boolean>;
     hasMessage: import("vue").ComputedRef<boolean>;
     typeClass: import("vue").ComputedRef<{
-        [x: string]: any;
+        [x: string]: string;
     }>;
     contentId: import("vue").Ref<string>;
     inputId: import("vue").Ref<string>;
@@ -93,7 +97,7 @@ declare const _default: import("vue").DefineComponent<{
     autofocus: import("vue").Ref<boolean>;
     title: import("vue").Ref<string>;
     message: import("vue").Ref<string>;
-    type: import("vue").Ref<"" | "error" | "success" | "warning" | "info">;
+    type: import("vue").Ref<"" | "success" | "warning" | "error" | "info">;
     icon: import("vue").Ref<string | import("vue").FunctionalComponent<any, any> | {
         new (...args: any[]): any;
         __isFragment?: undefined;
@@ -2074,6 +2078,10 @@ declare const _default: import("vue").DefineComponent<{
         type: StringConstructor;
         default: string;
     };
+    headerBackgroundColor: {
+        type: StringConstructor;
+        default: string;
+    };
     boxType: {
         type: PropType<MessageBoxType>;
         default: string;
@@ -2086,6 +2094,7 @@ declare const _default: import("vue").DefineComponent<{
     container: string;
     overflow: boolean;
     showClose: boolean;
+    headerBackgroundColor: string;
     draggable: boolean;
     closeOnClickModal: boolean;
     closeOnPressEscape: boolean;

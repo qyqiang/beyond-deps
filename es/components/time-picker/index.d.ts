@@ -192,10 +192,10 @@ declare const _TimePicker: SFCWithInstall<import("vue").DefineComponent<{
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }, {
     type: string;
+    disabled: boolean;
     modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("./src/common/props").ModelValueType & {}) | (() => import("./src/common/props").ModelValueType) | ((new (...args: any[]) => import("./src/common/props").ModelValueType & {}) | (() => import("./src/common/props").ModelValueType))[], unknown, unknown>;
     popperClass: string;
     popperOptions: Partial<import("@popperjs/core").Options>;
-    disabled: boolean;
     clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     name: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("./src/common/props").SingleOrRange<string> & {}) | (() => import("./src/common/props").SingleOrRange<string>) | ((new (...args: any[]) => import("./src/common/props").SingleOrRange<string> & {}) | (() => import("./src/common/props").SingleOrRange<string>))[], unknown, unknown>;
     placeholder: string;
@@ -402,10 +402,10 @@ export declare const ElTimePicker: SFCWithInstall<import("vue").DefineComponent<
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }, {
     type: string;
+    disabled: boolean;
     modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("./src/common/props").ModelValueType & {}) | (() => import("./src/common/props").ModelValueType) | ((new (...args: any[]) => import("./src/common/props").ModelValueType & {}) | (() => import("./src/common/props").ModelValueType))[], unknown, unknown>;
     popperClass: string;
     popperOptions: Partial<import("@popperjs/core").Options>;
-    disabled: boolean;
     clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     name: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("./src/common/props").SingleOrRange<string> & {}) | (() => import("./src/common/props").SingleOrRange<string>) | ((new (...args: any[]) => import("./src/common/props").SingleOrRange<string> & {}) | (() => import("./src/common/props").SingleOrRange<string>))[], unknown, unknown>;
     placeholder: string;

@@ -142,6 +142,7 @@ declare const _default: import("vue").DefineComponent<{
 }>> & {
     onValidate?: ((prop: FormItemProp, isValid: boolean, message: string) => any) | undefined;
 }, {
+    readonly inline: boolean;
     readonly disabled: boolean;
     readonly labelPosition: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "top" | "left" | "right", unknown>;
     readonly requireAsteriskPosition: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "left" | "right", unknown>;
@@ -149,7 +150,6 @@ declare const _default: import("vue").DefineComponent<{
     readonly labelSuffix: string;
     readonly showMessage: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly validateOnRuleChange: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly inline: boolean;
     readonly inlineMessage: boolean;
     readonly statusIcon: boolean;
     readonly hideRequiredAsterisk: boolean;

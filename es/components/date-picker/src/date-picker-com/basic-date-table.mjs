@@ -5,12 +5,13 @@ import ElDatePickerCell from './basic-cell-render.mjs';
 import _export_sfc from '../../../../_virtual/plugin-vue_export-helper.mjs';
 
 const _hoisted_1 = ["aria-label"];
-const _hoisted_2 = {
+const _hoisted_2 = { class: "date-picker-table-header" };
+const _hoisted_3 = {
   key: 0,
   scope: "col"
 };
-const _hoisted_3 = ["aria-label"];
-const _hoisted_4 = ["aria-current", "aria-selected", "tabindex"];
+const _hoisted_4 = ["aria-label"];
+const _hoisted_5 = ["aria-current", "aria-selected", "tabindex"];
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "basic-date-table",
   props: basicDateTableProps,
@@ -55,14 +56,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           ref_key: "tbodyRef",
           ref: tbodyRef
         }, [
-          createElementVNode("tr", null, [
-            _ctx.showWeekNumber ? (openBlock(), createElementBlock("th", _hoisted_2, toDisplayString(unref(weekLabel)), 1)) : createCommentVNode("v-if", true),
+          createElementVNode("tr", _hoisted_2, [
+            _ctx.showWeekNumber ? (openBlock(), createElementBlock("th", _hoisted_3, toDisplayString(unref(weekLabel)), 1)) : createCommentVNode("v-if", true),
             (openBlock(true), createElementBlock(Fragment, null, renderList(unref(WEEKS), (week, key) => {
               return openBlock(), createElementBlock("th", {
                 key,
                 "aria-label": unref(t)("el.datepicker.weeksFull." + week),
                 scope: "col"
-              }, toDisplayString(unref(t)("el.datepicker.weeks." + week)), 9, _hoisted_3);
+              }, toDisplayString(unref(t)("el.datepicker.weeks." + week)), 9, _hoisted_4);
             }), 128))
           ]),
           (openBlock(true), createElementBlock(Fragment, null, renderList(unref(rows), (row, rowKey) => {
@@ -82,7 +83,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   onFocus: _cache[0] || (_cache[0] = (...args) => unref(handleFocus) && unref(handleFocus)(...args))
                 }, [
                   createVNode(unref(ElDatePickerCell), { cell }, null, 8, ["cell"])
-                ], 42, _hoisted_4);
+                ], 42, _hoisted_5);
               }), 128))
             ], 2);
           }), 128))

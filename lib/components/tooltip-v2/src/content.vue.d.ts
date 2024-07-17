@@ -132,9 +132,9 @@ declare const _default: import("vue").DefineComponent<{
 }>>, {
     offset: number;
     effect: string;
+    nowrap: boolean;
     placement: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("@floating-ui/dom").Placement & {}) | (() => import("@floating-ui/dom").Placement) | ((new (...args: any[]) => import("@floating-ui/dom").Placement & {}) | (() => import("@floating-ui/dom").Placement))[], "top" | "bottom" | "left" | "right" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end", unknown>;
     strategy: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("@floating-ui/dom").Strategy & {}) | (() => import("@floating-ui/dom").Strategy) | ((new (...args: any[]) => import("@floating-ui/dom").Strategy & {}) | (() => import("@floating-ui/dom").Strategy))[], "fixed" | "absolute", unknown>;
-    nowrap: boolean;
     showArrow: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     arrowPadding: number;
     reference: import("../../../utils").EpPropMergeType<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown>;

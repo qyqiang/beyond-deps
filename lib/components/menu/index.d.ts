@@ -233,8 +233,8 @@ export declare const ElMenu: import("element-plus/es/utils").SFCWithInstall<impo
             __epPropKey: true;
         };
     }>>, {
-        readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly disabled: boolean;
+        readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     }>;
 };
 export default ElMenu;
@@ -406,8 +406,8 @@ export declare const ElSubMenu: import("element-plus/es/utils").SFCWithInstall<i
         __epPropKey: true;
     };
 }>>, {
-    readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly disabled: boolean;
+    readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
 }>>;
 export * from './src/menu';
 export * from './src/menu-item';

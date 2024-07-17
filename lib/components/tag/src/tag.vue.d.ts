@@ -31,7 +31,7 @@ declare const _default: import("vue").DefineComponent<{
         onClose?: ((evt: MouseEvent) => any) | undefined;
         onClick?: ((evt: MouseEvent) => any) | undefined;
     }>>;
-    emit: ((event: "click", evt: MouseEvent) => void) & ((event: "close", evt: MouseEvent) => void);
+    emit: ((event: "close", evt: MouseEvent) => void) & ((event: "click", evt: MouseEvent) => void);
     tagSize: import("vue").ComputedRef<"" | "default" | "small" | "large">;
     ns: {
         namespace: import("vue").ComputedRef<string>;
@@ -117,7 +117,6 @@ declare const _default: import("vue").DefineComponent<{
             __epPropKey: true;
         };
     }>>, {}>> & Record<string, any>;
-    Close: any;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     close: (evt: MouseEvent) => boolean;
     click: (evt: MouseEvent) => boolean;

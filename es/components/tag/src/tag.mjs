@@ -1,6 +1,5 @@
-import { defineComponent, computed, openBlock, createElementBlock, normalizeClass, unref, normalizeStyle, createElementVNode, renderSlot, createBlock, withModifiers, withCtx, createVNode, createCommentVNode, Transition } from 'vue';
+import { createElementVNode, defineComponent, computed, openBlock, createElementBlock, normalizeClass, unref, normalizeStyle, renderSlot, createBlock, withModifiers, withCtx, createCommentVNode, Transition } from 'vue';
 import { ElIcon } from '../../icon/index.mjs';
-import { Close } from '@element-plus/icons-vue';
 import '../../../hooks/index.mjs';
 import '../../form/index.mjs';
 import { tagProps, tagEmits } from './tag2.mjs';
@@ -8,6 +7,22 @@ import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import { useFormSize } from '../../form/src/hooks/use-form-common-props.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 
+const _hoisted_1 = /* @__PURE__ */ createElementVNode("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "12",
+  height: "12",
+  viewBox: "0 0 12 12"
+}, [
+  /* @__PURE__ */ createElementVNode("path", { d: "M9.35349 3.35342L8.64648 2.64642L5.99998 5.29292L3.35348 2.64642L2.64648 3.35342L5.29298 5.99992L2.64648 8.64642L3.35348 9.35342L5.99998 6.70692L8.64648 9.35342L9.35349 8.64642L6.70698 5.99992L9.35349 3.35342Z" })
+], -1);
+const _hoisted_2 = /* @__PURE__ */ createElementVNode("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "12",
+  height: "12",
+  viewBox: "0 0 12 12"
+}, [
+  /* @__PURE__ */ createElementVNode("path", { d: "M9.35349 3.35342L8.64648 2.64642L5.99998 5.29292L3.35348 2.64642L2.64648 3.35342L5.29298 5.99992L2.64648 8.64642L3.35348 9.35342L5.99998 6.70692L8.64648 9.35342L9.35349 8.64642L6.70698 5.99992L9.35349 3.35342Z" })
+], -1);
 const __default__ = defineComponent({
   name: "ElTag"
 });
@@ -55,7 +70,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           onClick: withModifiers(handleClose, ["stop"])
         }, {
           default: withCtx(() => [
-            createVNode(unref(Close))
+            _hoisted_1
           ]),
           _: 1
         }, 8, ["class", "onClick"])) : createCommentVNode("v-if", true)
@@ -81,7 +96,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               onClick: withModifiers(handleClose, ["stop"])
             }, {
               default: withCtx(() => [
-                createVNode(unref(Close))
+                _hoisted_2
               ]),
               _: 1
             }, 8, ["class", "onClick"])) : createCommentVNode("v-if", true)

@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref, watch, nextTick, onMounted, openBlock, createElementBlock, normalizeClass, unref, withModifiers, createElementVNode, withKeys, createBlock, withCtx, resolveDynamicComponent, createCommentVNode, toDisplayString, normalizeStyle, createVNode, renderSlot } from 'vue';
+import { createElementVNode, defineComponent, ref, computed, watch, nextTick, onMounted, openBlock, createElementBlock, normalizeClass, unref, withModifiers, withKeys, normalizeStyle, createBlock, withCtx, resolveDynamicComponent, toDisplayString, createCommentVNode, createVNode, renderSlot } from 'vue';
 import { isPromise } from '@vue/shared';
 import '../../../utils/index.mjs';
 import { ElIcon } from '../../icon/index.mjs';
@@ -9,8 +9,8 @@ import '../../../hooks/index.mjs';
 import { switchProps, switchEmits } from './switch2.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import { useFormItem, useFormItemInputId } from '../../form/src/hooks/use-form-item.mjs';
-import { useFormSize, useFormDisabled } from '../../form/src/hooks/use-form-common-props.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
+import { useFormDisabled } from '../../form/src/hooks/use-form-common-props.mjs';
 import { addUnit } from '../../../utils/dom/style.mjs';
 import { UPDATE_MODEL_EVENT, CHANGE_EVENT, INPUT_EVENT } from '../../../constants/event.mjs';
 import { debugWarn, throwError } from '../../../utils/error.mjs';
@@ -20,8 +20,34 @@ import { useDeprecated } from '../../../hooks/use-deprecated/index.mjs';
 const _hoisted_1 = ["onClick"];
 const _hoisted_2 = ["id", "aria-checked", "aria-disabled", "aria-label", "name", "true-value", "false-value", "disabled", "tabindex", "onKeydown"];
 const _hoisted_3 = ["aria-hidden"];
-const _hoisted_4 = ["aria-hidden"];
+const _hoisted_4 = /* @__PURE__ */ createElementVNode("svg", {
+  width: "13",
+  height: "12",
+  viewBox: "0 0 13 12",
+  xmlns: "http://www.w3.org/2000/svg"
+}, [
+  /* @__PURE__ */ createElementVNode("g", {
+    id: "fi-bs-check",
+    "clip-path": "url(#clip0_439_1388)"
+  }, [
+    /* @__PURE__ */ createElementVNode("path", {
+      id: "Vector",
+      d: "M4.40004 10.7123C4.23287 10.7124 4.06732 10.6795 3.91289 10.6155C3.75845 10.5515 3.61816 10.4576 3.50004 10.3393L0.719543 7.5603L1.78054 6.4998L4.40004 9.1193L11.2195 2.2998L12.2805 3.3603L5.30004 10.3393C5.18193 10.4576 5.04164 10.5515 4.8872 10.6155C4.73276 10.6795 4.56722 10.7124 4.40004 10.7123Z"
+    })
+  ]),
+  /* @__PURE__ */ createElementVNode("defs", null, [
+    /* @__PURE__ */ createElementVNode("clipPath", { id: "clip0_439_1388" }, [
+      /* @__PURE__ */ createElementVNode("rect", {
+        width: "12",
+        height: "12",
+        fill: "white",
+        transform: "translate(0.5)"
+      })
+    ])
+  ])
+], -1);
 const _hoisted_5 = ["aria-hidden"];
+const _hoisted_6 = ["aria-hidden"];
 const COMPONENT_NAME = "ElSwitch";
 const __default__ = defineComponent({
   name: COMPONENT_NAME
@@ -33,7 +59,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   setup(__props, { expose, emit }) {
     const props = __props;
     const { formItem } = useFormItem();
-    const switchSize = useFormSize();
+    const switchSize = ref("small");
     const ns = useNamespace("switch");
     const { inputId } = useFormItemInputId(props, {
       formItemContext: formItem
@@ -158,21 +184,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           onChange: handleChange,
           onKeydown: withKeys(switchValue, ["enter"])
         }, null, 42, _hoisted_2),
-        !_ctx.inlinePrompt && (_ctx.inactiveIcon || _ctx.inactiveText) ? (openBlock(), createElementBlock("span", {
-          key: 0,
-          class: normalizeClass(unref(labelLeftKls))
-        }, [
-          _ctx.inactiveIcon ? (openBlock(), createBlock(unref(ElIcon), { key: 0 }, {
-            default: withCtx(() => [
-              (openBlock(), createBlock(resolveDynamicComponent(_ctx.inactiveIcon)))
-            ]),
-            _: 1
-          })) : createCommentVNode("v-if", true),
-          !_ctx.inactiveIcon && _ctx.inactiveText ? (openBlock(), createElementBlock("span", {
-            key: 1,
-            "aria-hidden": unref(checked)
-          }, toDisplayString(_ctx.inactiveText), 9, _hoisted_3)) : createCommentVNode("v-if", true)
-        ], 2)) : createCommentVNode("v-if", true),
         createElementVNode("span", {
           ref_key: "core",
           ref: core,
@@ -195,7 +206,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               key: 1,
               class: normalizeClass(unref(ns).is("text")),
               "aria-hidden": !unref(checked)
-            }, toDisplayString(unref(checked) ? _ctx.activeText : _ctx.inactiveText), 11, _hoisted_4)) : createCommentVNode("v-if", true)
+            }, toDisplayString(unref(checked) ? _ctx.activeText : _ctx.inactiveText), 11, _hoisted_3)) : createCommentVNode("v-if", true)
           ], 2)) : createCommentVNode("v-if", true),
           createElementVNode("div", {
             class: normalizeClass(unref(ns).e("action"))
@@ -209,12 +220,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               ]),
               _: 1
             }, 8, ["class"])) : unref(checked) ? renderSlot(_ctx.$slots, "active-action", { key: 1 }, () => [
-              _ctx.activeActionIcon ? (openBlock(), createBlock(unref(ElIcon), { key: 0 }, {
+              createVNode(unref(ElIcon), { size: "8px" }, {
                 default: withCtx(() => [
-                  (openBlock(), createBlock(resolveDynamicComponent(_ctx.activeActionIcon)))
+                  _hoisted_4
                 ]),
                 _: 1
-              })) : createCommentVNode("v-if", true)
+              })
             ]) : !unref(checked) ? renderSlot(_ctx.$slots, "inactive-action", { key: 2 }, () => [
               _ctx.inactiveActionIcon ? (openBlock(), createBlock(unref(ElIcon), { key: 0 }, {
                 default: withCtx(() => [
@@ -226,7 +237,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           ], 2)
         ], 6),
         !_ctx.inlinePrompt && (_ctx.activeIcon || _ctx.activeText) ? (openBlock(), createElementBlock("span", {
-          key: 1,
+          key: 0,
           class: normalizeClass(unref(labelRightKls))
         }, [
           _ctx.activeIcon ? (openBlock(), createBlock(unref(ElIcon), { key: 0 }, {
@@ -235,10 +246,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             ]),
             _: 1
           })) : createCommentVNode("v-if", true),
-          !_ctx.activeIcon && _ctx.activeText ? (openBlock(), createElementBlock("span", {
+          !_ctx.activeIcon && _ctx.activeText && unref(checked) ? (openBlock(), createElementBlock("span", {
             key: 1,
             "aria-hidden": !unref(checked)
-          }, toDisplayString(_ctx.activeText), 9, _hoisted_5)) : createCommentVNode("v-if", true)
+          }, toDisplayString(_ctx.activeText), 9, _hoisted_5)) : createCommentVNode("v-if", true),
+          !_ctx.inactiveIcon && _ctx.inactiveText && !unref(checked) ? (openBlock(), createElementBlock("span", {
+            key: 2,
+            "aria-hidden": unref(checked)
+          }, toDisplayString(_ctx.inactiveText), 9, _hoisted_6)) : createCommentVNode("v-if", true)
         ], 2)) : createCommentVNode("v-if", true)
       ], 10, _hoisted_1);
     };
