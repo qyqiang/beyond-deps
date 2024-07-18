@@ -33,8 +33,8 @@ declare const _default: import("vue").DefineComponent<{
         readonly name: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
         readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     }>> & {
-        onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
         "onUpdate:modelValue"?: ((val: string | number | boolean | undefined) => any) | undefined;
+        onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
     }>>;
     emit: ((event: "update:modelValue", val: string | number | boolean | undefined) => void) & ((event: "change", val: string | number | boolean | undefined) => void);
     ns: {
@@ -82,15 +82,15 @@ declare const _default: import("vue").DefineComponent<{
     readonly name: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
 }>> & {
-    onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
     "onUpdate:modelValue"?: ((val: string | number | boolean | undefined) => any) | undefined;
+    onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
 }, {
     readonly fill: string;
-    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor, BooleanConstructor], unknown, unknown>;
-    readonly id: string;
-    readonly disabled: boolean;
     readonly name: string;
     readonly label: string;
+    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor, BooleanConstructor], unknown, unknown>;
+    readonly disabled: boolean;
+    readonly id: string;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly textColor: string;
 }>;

@@ -58,7 +58,7 @@ declare const _default: import("vue").DefineComponent<{
         };
         readonly type: import("../../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "text", boolean>;
         readonly resize: {
-            readonly type: import("vue").PropType<import("../../../../utils").EpPropMergeType<StringConstructor, "none" | "vertical" | "horizontal" | "both", unknown>>;
+            readonly type: import("vue").PropType<import("../../../../utils").EpPropMergeType<StringConstructor, "horizontal" | "vertical" | "none" | "both", unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
@@ -139,7 +139,7 @@ declare const _default: import("vue").DefineComponent<{
             };
             readonly type: import("../../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "text", boolean>;
             readonly resize: {
-                readonly type: import("vue").PropType<import("../../../../utils").EpPropMergeType<StringConstructor, "none" | "vertical" | "horizontal" | "both", unknown>>;
+                readonly type: import("vue").PropType<import("../../../../utils").EpPropMergeType<StringConstructor, "horizontal" | "vertical" | "none" | "both", unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
@@ -195,20 +195,20 @@ declare const _default: import("vue").DefineComponent<{
             readonly inputStyle: import("../../../../utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("../../../../utils").Mutable<{}>, boolean>;
             readonly autofocus: import("../../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
         }>> & {
-            onChange?: ((value: string) => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
-            onInput?: ((value: string) => any) | undefined;
-            onFocus?: ((evt: FocusEvent) => any) | undefined;
-            onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onChange?: ((value: string) => any) | undefined;
             onClear?: (() => any) | undefined;
-            onMouseleave?: ((evt: MouseEvent) => any) | undefined;
-            onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-            onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
+            onInput?: ((value: string) => any) | undefined;
+            onBlur?: ((evt: FocusEvent) => any) | undefined;
+            onFocus?: ((evt: FocusEvent) => any) | undefined;
+            onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
             onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
             onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-            onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+            onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
+            onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+            onMouseleave?: ((evt: MouseEvent) => any) | undefined;
         }>>;
-        emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "clear") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void);
+        emit: ((event: "update:modelValue", value: string) => void) & ((event: "change", value: string) => void) & ((event: "input", value: string) => void) & ((event: "blur", evt: FocusEvent) => void) & ((event: "compositionend", evt: CompositionEvent) => void) & ((event: "compositionstart", evt: CompositionEvent) => void) & ((event: "compositionupdate", evt: CompositionEvent) => void) & ((event: "focus", evt: FocusEvent) => void) & ((event: "keydown", evt: Event | KeyboardEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "clear") => void);
         rawAttrs: {
             [x: string]: unknown;
         };
@@ -273,7 +273,7 @@ declare const _default: import("vue").DefineComponent<{
         handleFocus: (event: FocusEvent) => void;
         handleBlur: (event: FocusEvent) => void;
         needStatusIcon: import("vue").ComputedRef<boolean>;
-        validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
+        validateState: import("vue").ComputedRef<"" | "error" | "success" | "validating">;
         validateIcon: import("vue").ComputedRef<string>;
         containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
         textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
@@ -405,7 +405,7 @@ declare const _default: import("vue").DefineComponent<{
         };
         readonly type: import("../../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "text", boolean>;
         readonly resize: {
-            readonly type: import("vue").PropType<import("../../../../utils").EpPropMergeType<StringConstructor, "none" | "vertical" | "horizontal" | "both", unknown>>;
+            readonly type: import("vue").PropType<import("../../../../utils").EpPropMergeType<StringConstructor, "horizontal" | "vertical" | "none" | "both", unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
@@ -461,24 +461,26 @@ declare const _default: import("vue").DefineComponent<{
         readonly inputStyle: import("../../../../utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("../../../../utils").Mutable<{}>, boolean>;
         readonly autofocus: import("../../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     }>> & {
-        onChange?: ((value: string) => any) | undefined;
         "onUpdate:modelValue"?: ((value: string) => any) | undefined;
-        onInput?: ((value: string) => any) | undefined;
-        onFocus?: ((evt: FocusEvent) => any) | undefined;
-        onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onChange?: ((value: string) => any) | undefined;
         onClear?: (() => any) | undefined;
-        onMouseleave?: ((evt: MouseEvent) => any) | undefined;
-        onMouseenter?: ((evt: MouseEvent) => any) | undefined;
-        onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
+        onInput?: ((value: string) => any) | undefined;
+        onBlur?: ((evt: FocusEvent) => any) | undefined;
+        onFocus?: ((evt: FocusEvent) => any) | undefined;
+        onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
         onCompositionstart?: ((evt: CompositionEvent) => any) | undefined;
         onCompositionupdate?: ((evt: CompositionEvent) => any) | undefined;
-        onCompositionend?: ((evt: CompositionEvent) => any) | undefined;
+        onKeydown?: ((evt: Event | KeyboardEvent) => any) | undefined;
+        onMouseenter?: ((evt: MouseEvent) => any) | undefined;
+        onMouseleave?: ((evt: MouseEvent) => any) | undefined;
     }, {
         readonly type: string;
+        readonly tabindex: import("../../../../utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
+        readonly label: string;
         readonly modelValue: import("../../../../utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
-        readonly preStar: import("../../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        readonly id: string;
         readonly disabled: boolean;
+        readonly id: string;
+        readonly preStar: import("../../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly clearable: import("../../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly autosize: import("element-plus/es/components/input").InputAutoSize;
         readonly autocomplete: string;
@@ -487,8 +489,6 @@ declare const _default: import("vue").DefineComponent<{
         readonly showPassword: import("../../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly showWordLimit: import("../../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly containerRole: string;
-        readonly label: string;
-        readonly tabindex: import("../../../../utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
         readonly validateEvent: import("../../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly inputStyle: import("vue").StyleValue;
         readonly autofocus: import("../../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;

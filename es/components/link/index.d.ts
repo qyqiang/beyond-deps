@@ -128,10 +128,10 @@ export declare const ElLink: import("element-plus/es/utils").SFCWithInstall<impo
     onClick?: ((evt: MouseEvent) => any) | undefined;
 }, {
     readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "default" | "success" | "warning" | "info" | "primary" | "danger", unknown>;
+    readonly disabled: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly target: string;
     readonly underline: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly href: string;
-    readonly disabled: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
 }>> & Record<string, any>;
 export default ElLink;
 export * from './src/link';

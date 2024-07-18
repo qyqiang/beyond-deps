@@ -428,8 +428,8 @@ declare const _default: import("vue").DefineComponent<{
     "onNode-drag-enter"?: ((...args: any[]) => any) | undefined;
     "onNode-drag-over"?: ((...args: any[]) => any) | undefined;
 }, {
-    props: import("./tree.type").TreeOptionProps;
     data: unknown[];
+    props: import("./tree.type").TreeOptionProps;
     checkStrictly: boolean;
     lazy: boolean;
     accordion: boolean;

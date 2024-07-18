@@ -149,8 +149,8 @@ declare const _default: import("vue").DefineComponent<{
     onClose?: (() => any) | undefined;
 }, {
     readonly title: string;
-    readonly center: boolean;
     readonly overflow: boolean;
+    readonly center: boolean;
     readonly showClose: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly headerBackgroundColor: string;
     readonly ariaLevel: string;

@@ -2,7 +2,7 @@ import type { MenuItemClicked } from './types';
 import type { NavigationFailure } from 'vue-router';
 import type { Component, ExtractPropTypes, VNode } from 'vue';
 export declare const menuProps: {
-    readonly mode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "vertical" | "horizontal", unknown, "vertical", boolean>;
+    readonly mode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "horizontal" | "vertical", unknown, "vertical", boolean>;
     readonly defaultActive: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly defaultOpeneds: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string[]) | (() => string[]) | ((new (...args: any[]) => string[]) | (() => string[]))[], unknown, unknown, () => [], boolean>;
     readonly uniqueOpened: BooleanConstructor;
@@ -30,7 +30,7 @@ export declare const menuEmits: {
 };
 export declare type MenuEmits = typeof menuEmits;
 declare const _default: import("vue").DefineComponent<{
-    readonly mode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "vertical" | "horizontal", unknown, "vertical", boolean>;
+    readonly mode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "horizontal" | "vertical", unknown, "vertical", boolean>;
     readonly defaultActive: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly defaultOpeneds: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string[]) | (() => string[]) | ((new (...args: any[]) => string[]) | (() => string[]))[], unknown, unknown, () => [], boolean>;
     readonly uniqueOpened: BooleanConstructor;
@@ -56,7 +56,7 @@ declare const _default: import("vue").DefineComponent<{
     open: (index: string, indexPath: string[]) => boolean;
     select: (index: string, indexPath: string[], item: MenuItemClicked, routerResult?: Promise<void | NavigationFailure> | undefined) => boolean;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<ExtractPropTypes<{
-    readonly mode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "vertical" | "horizontal", unknown, "vertical", boolean>;
+    readonly mode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "horizontal" | "vertical", unknown, "vertical", boolean>;
     readonly defaultActive: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly defaultOpeneds: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string[]) | (() => string[]) | ((new (...args: any[]) => string[]) | (() => string[]))[], unknown, unknown, () => [], boolean>;
     readonly uniqueOpened: BooleanConstructor;
@@ -80,9 +80,9 @@ declare const _default: import("vue").DefineComponent<{
     onSelect?: ((index: string, indexPath: string[], item: MenuItemClicked, routerResult?: Promise<void | NavigationFailure> | undefined) => any) | undefined;
     onOpen?: ((index: string, indexPath: string[]) => any) | undefined;
 }, {
+    readonly mode: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "horizontal" | "vertical", unknown>;
     readonly ellipsis: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly collapse: boolean;
-    readonly mode: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", unknown>;
     readonly showTimeout: number;
     readonly hideTimeout: number;
     readonly defaultActive: string;

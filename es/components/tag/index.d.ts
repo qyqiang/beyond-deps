@@ -31,7 +31,7 @@ export declare const ElTag: import("element-plus/es/utils").SFCWithInstall<impor
         onClose?: ((evt: MouseEvent) => any) | undefined;
         onClick?: ((evt: MouseEvent) => any) | undefined;
     }>>;
-    emit: ((event: "close", evt: MouseEvent) => void) & ((event: "click", evt: MouseEvent) => void);
+    emit: ((event: "click", evt: MouseEvent) => void) & ((event: "close", evt: MouseEvent) => void);
     tagSize: import("vue").ComputedRef<"" | "default" | "small" | "large">;
     ns: {
         namespace: import("vue").ComputedRef<string>;
@@ -139,8 +139,8 @@ export declare const ElTag: import("element-plus/es/utils").SFCWithInstall<impor
     onClick?: ((evt: MouseEvent) => any) | undefined;
 }, {
     readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>;
-    readonly closable: boolean;
     readonly effect: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "light" | "dark" | "plain", unknown>;
+    readonly closable: boolean;
     readonly round: boolean;
     readonly disableTransitions: boolean;
     readonly hit: boolean;

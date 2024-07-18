@@ -100,7 +100,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
     readonly accept: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly fileList: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]) | ((new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
     readonly autoUpload: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+    readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
     readonly httpRequest: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadRequestHandler) | (() => import("./src/upload").UploadRequestHandler) | {
         (): import("./src/upload").UploadRequestHandler;
         new (): any;
@@ -215,7 +215,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
         readonly accept: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly fileList: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]) | ((new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
         readonly autoUpload: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
         readonly httpRequest: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadRequestHandler) | (() => import("./src/upload").UploadRequestHandler) | {
             (): import("./src/upload").UploadRequestHandler;
             new (): any;
@@ -235,11 +235,11 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
         $: import("vue").ComponentInternalInstance;
         $data: {};
         $props: Partial<{
-            readonly disabled: boolean;
-            readonly name: string;
             readonly drag: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly multiple: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly name: string;
             readonly data: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>))[], unknown, unknown>;
+            readonly disabled: boolean;
+            readonly multiple: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly onError: (err: import("./src/ajax").UploadAjaxError, rawFile: import("./src/upload").UploadRawFile) => void;
             readonly onProgress: (evt: import("./src/upload").UploadProgressEvent, rawFile: import("./src/upload").UploadRawFile) => void;
             readonly action: string;
@@ -248,7 +248,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
             readonly accept: string;
             readonly fileList: import("./src/upload").UploadUserFile[];
             readonly autoUpload: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly listType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "text" | "picture" | "picture-card", unknown>;
+            readonly listType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "picture" | "text" | "picture-card", unknown>;
             readonly httpRequest: import("./src/upload").UploadRequestHandler;
             readonly withCredentials: boolean;
             readonly beforeUpload: (rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<boolean | void | File | Blob | null | undefined>;
@@ -337,7 +337,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
             readonly accept: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
             readonly fileList: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]) | ((new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
             readonly autoUpload: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-            readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+            readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
             readonly httpRequest: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadRequestHandler) | (() => import("./src/upload").UploadRequestHandler) | {
                 (): import("./src/upload").UploadRequestHandler;
                 new (): any;
@@ -349,7 +349,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
             })[], unknown, unknown, import("./src/upload").UploadRequestHandler, boolean>;
             readonly disabled: BooleanConstructor;
             readonly limit: NumberConstructor;
-        }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "disabled" | "name" | "drag" | "multiple" | "data" | "onError" | "onProgress" | "action" | "method" | "showFileList" | "accept" | "fileList" | "autoUpload" | "listType" | "httpRequest" | "withCredentials" | "beforeUpload" | "onRemove" | "onSuccess" | "onExceed" | "onStart">;
+        }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "drag" | "name" | "data" | "disabled" | "multiple" | "onError" | "onProgress" | "action" | "method" | "showFileList" | "accept" | "fileList" | "autoUpload" | "listType" | "httpRequest" | "withCredentials" | "beforeUpload" | "onRemove" | "onSuccess" | "onExceed" | "onStart">;
         $attrs: {
             [x: string]: unknown;
         };
@@ -444,7 +444,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
             readonly accept: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
             readonly fileList: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]) | ((new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
             readonly autoUpload: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-            readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+            readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
             readonly httpRequest: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadRequestHandler) | (() => import("./src/upload").UploadRequestHandler) | {
                 (): import("./src/upload").UploadRequestHandler;
                 new (): any;
@@ -538,7 +538,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
                 readonly accept: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
                 readonly fileList: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]) | ((new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
                 readonly autoUpload: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+                readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
                 readonly httpRequest: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadRequestHandler) | (() => import("./src/upload").UploadRequestHandler) | {
                     (): import("./src/upload").UploadRequestHandler;
                     new (): any;
@@ -620,11 +620,11 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
                 readonly disabled: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
-            readonly disabled: boolean;
-            readonly name: string;
             readonly drag: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly multiple: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly name: string;
             readonly data: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>))[], unknown, unknown>;
+            readonly disabled: boolean;
+            readonly multiple: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly onError: (err: import("./src/ajax").UploadAjaxError, rawFile: import("./src/upload").UploadRawFile) => void;
             readonly onProgress: (evt: import("./src/upload").UploadProgressEvent, rawFile: import("./src/upload").UploadRawFile) => void;
             readonly action: string;
@@ -633,7 +633,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
             readonly accept: string;
             readonly fileList: import("./src/upload").UploadUserFile[];
             readonly autoUpload: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly listType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "text" | "picture" | "picture-card", unknown>;
+            readonly listType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "picture" | "text" | "picture-card", unknown>;
             readonly httpRequest: import("./src/upload").UploadRequestHandler;
             readonly withCredentials: boolean;
             readonly beforeUpload: (rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<boolean | void | File | Blob | null | undefined>;
@@ -742,7 +742,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
         readonly accept: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly fileList: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]) | ((new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
         readonly autoUpload: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
         readonly httpRequest: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadRequestHandler) | (() => import("./src/upload").UploadRequestHandler) | {
             (): import("./src/upload").UploadRequestHandler;
             new (): any;
@@ -836,7 +836,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
             readonly accept: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
             readonly fileList: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]) | ((new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
             readonly autoUpload: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-            readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+            readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
             readonly httpRequest: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadRequestHandler) | (() => import("./src/upload").UploadRequestHandler) | {
                 (): import("./src/upload").UploadRequestHandler;
                 new (): any;
@@ -962,7 +962,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
             new (): any;
             readonly prototype: any;
         })[], unknown, unknown, () => void, boolean>;
-        readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
         readonly crossorigin: {
             readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
             readonly required: false;
@@ -982,7 +982,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
                 new (): any;
                 readonly prototype: any;
             })[], unknown, unknown, () => void, boolean>;
-            readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+            readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
             readonly crossorigin: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
                 readonly required: false;
@@ -1295,9 +1295,9 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
             readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "circle" | "line" | "dashboard", unknown>;
             readonly width: number;
             readonly color: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("..").ProgressFn | import("..").ProgressColor[]) & {}) | (() => string | import("..").ProgressFn | import("..").ProgressColor[]) | ((new (...args: any[]) => (string | import("..").ProgressFn | import("..").ProgressColor[]) & {}) | (() => string | import("..").ProgressFn | import("..").ProgressColor[]))[], unknown, unknown>;
-            readonly duration: number;
             readonly strokeLinecap: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square") | ((new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square"))[], unknown, unknown>;
             readonly strokeWidth: number;
+            readonly duration: number;
             readonly indeterminate: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly format: import("..").ProgressFn;
             readonly percentage: number;
@@ -1321,7 +1321,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
             new (): any;
             readonly prototype: any;
         })[], unknown, unknown, () => void, boolean>;
-        readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
         readonly crossorigin: {
             readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
             readonly required: false;
@@ -1332,7 +1332,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
         onRemove?: ((file: import("./src/upload").UploadFile) => any) | undefined;
     }, {
         readonly disabled: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        readonly listType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "text" | "picture" | "picture-card", unknown>;
+        readonly listType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "picture" | "text" | "picture-card", unknown>;
         readonly files: import("./src/upload").UploadFiles;
         readonly handlePreview: (uploadFile: import("./src/upload").UploadFile) => void;
     }>;
@@ -1417,7 +1417,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
         readonly accept: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly fileList: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]) | ((new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
         readonly autoUpload: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
         readonly httpRequest: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadRequestHandler) | (() => import("./src/upload").UploadRequestHandler) | {
             (): import("./src/upload").UploadRequestHandler;
             new (): any;
@@ -1511,7 +1511,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
             readonly accept: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
             readonly fileList: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]) | ((new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
             readonly autoUpload: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-            readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+            readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
             readonly httpRequest: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadRequestHandler) | (() => import("./src/upload").UploadRequestHandler) | {
                 (): import("./src/upload").UploadRequestHandler;
                 new (): any;
@@ -1673,7 +1673,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
         readonly accept: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly fileList: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]) | ((new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
         readonly autoUpload: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
         readonly httpRequest: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadRequestHandler) | (() => import("./src/upload").UploadRequestHandler) | {
             (): import("./src/upload").UploadRequestHandler;
             new (): any;
@@ -1686,11 +1686,11 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
         readonly disabled: BooleanConstructor;
         readonly limit: NumberConstructor;
     }>>, {
-        readonly disabled: boolean;
-        readonly name: string;
         readonly drag: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        readonly multiple: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly name: string;
         readonly data: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>))[], unknown, unknown>;
+        readonly disabled: boolean;
+        readonly multiple: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly onError: (err: import("./src/ajax").UploadAjaxError, rawFile: import("./src/upload").UploadRawFile) => void;
         readonly onProgress: (evt: import("./src/upload").UploadProgressEvent, rawFile: import("./src/upload").UploadRawFile) => void;
         readonly action: string;
@@ -1699,7 +1699,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
         readonly accept: string;
         readonly fileList: import("./src/upload").UploadUserFile[];
         readonly autoUpload: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        readonly listType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "text" | "picture" | "picture-card", unknown>;
+        readonly listType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "picture" | "text" | "picture-card", unknown>;
         readonly httpRequest: import("./src/upload").UploadRequestHandler;
         readonly withCredentials: boolean;
         readonly beforeUpload: (rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<boolean | void | File | Blob | null | undefined>;
@@ -1810,7 +1810,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
     readonly accept: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly fileList: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]) | ((new (...args: any[]) => import("./src/upload").UploadUserFile[]) | (() => import("./src/upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
     readonly autoUpload: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+    readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
     readonly httpRequest: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadRequestHandler) | (() => import("./src/upload").UploadRequestHandler) | {
         (): import("./src/upload").UploadRequestHandler;
         new (): any;
@@ -1823,12 +1823,12 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
     readonly disabled: BooleanConstructor;
     readonly limit: NumberConstructor;
 }>>, {
-    readonly onChange: (uploadFile: import("./src/upload").UploadFile, uploadFiles: import("./src/upload").UploadFiles) => void;
-    readonly disabled: boolean;
-    readonly name: string;
     readonly drag: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly multiple: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly name: string;
     readonly data: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>))[], unknown, unknown>;
+    readonly disabled: boolean;
+    readonly onChange: (uploadFile: import("./src/upload").UploadFile, uploadFiles: import("./src/upload").UploadFiles) => void;
+    readonly multiple: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly onError: (error: Error, uploadFile: import("./src/upload").UploadFile, uploadFiles: import("./src/upload").UploadFiles) => void;
     readonly onProgress: (evt: import("./src/upload").UploadProgressEvent, uploadFile: import("./src/upload").UploadFile, uploadFiles: import("./src/upload").UploadFiles) => void;
     readonly action: string;
@@ -1837,7 +1837,7 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
     readonly accept: string;
     readonly fileList: import("./src/upload").UploadUserFile[];
     readonly autoUpload: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly listType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "text" | "picture" | "picture-card", unknown>;
+    readonly listType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "picture" | "text" | "picture-card", unknown>;
     readonly httpRequest: import("./src/upload").UploadRequestHandler;
     readonly withCredentials: boolean;
     readonly beforeUpload: (rawFile: import("./src/upload").UploadRawFile) => import("element-plus/es/utils").Awaitable<boolean | void | File | Blob | null | undefined>;

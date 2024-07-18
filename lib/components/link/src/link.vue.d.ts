@@ -128,9 +128,9 @@ declare const _default: import("vue").DefineComponent<{
     onClick?: ((evt: MouseEvent) => any) | undefined;
 }, {
     readonly type: import("../../../utils").EpPropMergeType<StringConstructor, "default" | "success" | "warning" | "info" | "primary" | "danger", unknown>;
+    readonly disabled: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly target: string;
     readonly underline: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly href: string;
-    readonly disabled: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
 }>;
 export default _default;

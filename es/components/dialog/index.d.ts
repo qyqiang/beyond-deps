@@ -106,8 +106,8 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
         readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
     }>> & {
-        onClose?: (() => any) | undefined;
         "onUpdate:modelValue"?: ((value: boolean) => any) | undefined;
+        onClose?: (() => any) | undefined;
         onOpen?: (() => any) | undefined;
         onOpened?: (() => any) | undefined;
         onClosed?: (() => any) | undefined;
@@ -210,7 +210,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
         };
     }, {
         onKeydown: (e: KeyboardEvent) => void;
-    }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("focusAfterTrapped" | "focusAfterReleased" | "focusin" | "focusout" | "focusout-prevented" | "release-requested")[], "focusAfterTrapped" | "focusAfterReleased" | "focusin" | "focusout" | "focusout-prevented" | "release-requested", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("focusin" | "focusout" | "focusAfterTrapped" | "focusAfterReleased" | "focusout-prevented" | "release-requested")[], "focusin" | "focusout" | "focusAfterTrapped" | "focusAfterReleased" | "focusout-prevented" | "release-requested", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
         loop: BooleanConstructor;
         trapped: BooleanConstructor;
         focusTrapEl: import("vue").PropType<HTMLElement>;
@@ -381,8 +381,8 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
         onClose?: (() => any) | undefined;
     }, {
         readonly title: string;
-        readonly center: boolean;
         readonly overflow: boolean;
+        readonly center: boolean;
         readonly showClose: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly headerBackgroundColor: string;
         readonly ariaLevel: string;
@@ -452,8 +452,8 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
     readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
 }>> & {
-    onClose?: (() => any) | undefined;
     "onUpdate:modelValue"?: ((value: boolean) => any) | undefined;
+    onClose?: (() => any) | undefined;
     onOpen?: (() => any) | undefined;
     onOpened?: (() => any) | undefined;
     onClosed?: (() => any) | undefined;
@@ -461,10 +461,10 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
     onCloseAutoFocus?: (() => any) | undefined;
 }, {
     readonly title: string;
-    readonly center: boolean;
-    readonly modelValue: boolean;
-    readonly appendTo: string;
     readonly overflow: boolean;
+    readonly modelValue: boolean;
+    readonly center: boolean;
+    readonly appendTo: string;
     readonly showClose: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly headerBackgroundColor: string;
     readonly ariaLevel: string;

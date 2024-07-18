@@ -31,7 +31,7 @@ declare const _default: import("vue").DefineComponent<{
         onClose?: ((evt: MouseEvent) => any) | undefined;
         onClick?: ((evt: MouseEvent) => any) | undefined;
     }>>;
-    emit: ((event: "close", evt: MouseEvent) => void) & ((event: "click", evt: MouseEvent) => void);
+    emit: ((event: "click", evt: MouseEvent) => void) & ((event: "close", evt: MouseEvent) => void);
     tagSize: import("vue").ComputedRef<"" | "default" | "small" | "large">;
     ns: {
         namespace: import("vue").ComputedRef<string>;
@@ -139,8 +139,8 @@ declare const _default: import("vue").DefineComponent<{
     onClick?: ((evt: MouseEvent) => any) | undefined;
 }, {
     readonly type: import("../../../utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>;
-    readonly closable: boolean;
     readonly effect: import("../../../utils").EpPropMergeType<StringConstructor, "light" | "dark" | "plain", unknown>;
+    readonly closable: boolean;
     readonly round: boolean;
     readonly disableTransitions: boolean;
     readonly hit: boolean;

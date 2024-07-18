@@ -11,7 +11,7 @@ declare const _default: import("vue").DefineComponent<{
     duration: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
     marker: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     type: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("default" | "underline") & {}) | (() => "default" | "underline") | ((new (...args: any[]) => ("default" | "underline") & {}) | (() => "default" | "underline"))[], unknown, unknown, string, boolean>;
-    direction: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("vertical" | "horizontal") & {}) | (() => "vertical" | "horizontal") | ((new (...args: any[]) => ("vertical" | "horizontal") & {}) | (() => "vertical" | "horizontal"))[], unknown, unknown, string, boolean>;
+    direction: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("horizontal" | "vertical") & {}) | (() => "horizontal" | "vertical") | ((new (...args: any[]) => ("horizontal" | "vertical") & {}) | (() => "horizontal" | "vertical"))[], unknown, unknown, string, boolean>;
 }, {
     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
         container: {
@@ -25,7 +25,7 @@ declare const _default: import("vue").DefineComponent<{
         duration: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         marker: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         type: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("default" | "underline") & {}) | (() => "default" | "underline") | ((new (...args: any[]) => ("default" | "underline") & {}) | (() => "default" | "underline"))[], unknown, unknown, string, boolean>;
-        direction: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("vertical" | "horizontal") & {}) | (() => "vertical" | "horizontal") | ((new (...args: any[]) => ("vertical" | "horizontal") & {}) | (() => "vertical" | "horizontal"))[], unknown, unknown, string, boolean>;
+        direction: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("horizontal" | "vertical") & {}) | (() => "horizontal" | "vertical") | ((new (...args: any[]) => ("horizontal" | "vertical") & {}) | (() => "horizontal" | "vertical"))[], unknown, unknown, string, boolean>;
     }>> & {
         onChange?: ((href: string) => any) | undefined;
         onClick?: ((e: MouseEvent, href?: string | undefined) => any) | undefined;
@@ -101,16 +101,16 @@ declare const _default: import("vue").DefineComponent<{
     duration: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
     marker: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     type: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("default" | "underline") & {}) | (() => "default" | "underline") | ((new (...args: any[]) => ("default" | "underline") & {}) | (() => "default" | "underline"))[], unknown, unknown, string, boolean>;
-    direction: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("vertical" | "horizontal") & {}) | (() => "vertical" | "horizontal") | ((new (...args: any[]) => ("vertical" | "horizontal") & {}) | (() => "vertical" | "horizontal"))[], unknown, unknown, string, boolean>;
+    direction: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("horizontal" | "vertical") & {}) | (() => "horizontal" | "vertical") | ((new (...args: any[]) => ("horizontal" | "vertical") & {}) | (() => "horizontal" | "vertical"))[], unknown, unknown, string, boolean>;
 }>> & {
     onChange?: ((href: string) => any) | undefined;
     onClick?: ((e: MouseEvent, href?: string | undefined) => any) | undefined;
 }, {
     type: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("default" | "underline") & {}) | (() => "default" | "underline") | ((new (...args: any[]) => ("default" | "underline") & {}) | (() => "default" | "underline"))[], unknown, unknown>;
     offset: number;
+    direction: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("horizontal" | "vertical") & {}) | (() => "horizontal" | "vertical") | ((new (...args: any[]) => ("horizontal" | "vertical") & {}) | (() => "horizontal" | "vertical"))[], unknown, unknown>;
+    marker: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     bound: number;
     duration: number;
-    marker: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    direction: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("vertical" | "horizontal") & {}) | (() => "vertical" | "horizontal") | ((new (...args: any[]) => ("vertical" | "horizontal") & {}) | (() => "vertical" | "horizontal"))[], unknown, unknown>;
 }>;
 export default _default;

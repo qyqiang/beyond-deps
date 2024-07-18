@@ -172,9 +172,9 @@ export declare const ElProgress: import("element-plus/es/utils").SFCWithInstall<
     readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "circle" | "line" | "dashboard", unknown>;
     readonly width: number;
     readonly color: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("./src/progress").ProgressFn | import("./src/progress").ProgressColor[]) & {}) | (() => string | import("./src/progress").ProgressFn | import("./src/progress").ProgressColor[]) | ((new (...args: any[]) => (string | import("./src/progress").ProgressFn | import("./src/progress").ProgressColor[]) & {}) | (() => string | import("./src/progress").ProgressFn | import("./src/progress").ProgressColor[]))[], unknown, unknown>;
-    readonly duration: number;
     readonly strokeLinecap: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square") | ((new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square"))[], unknown, unknown>;
     readonly strokeWidth: number;
+    readonly duration: number;
     readonly indeterminate: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly format: import("./src/progress").ProgressFn;
     readonly percentage: number;

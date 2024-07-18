@@ -63,8 +63,8 @@ export declare const ElRate: import("element-plus/es/utils").SFCWithInstall<impo
         readonly label: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
         readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     }>> & {
-        onChange?: ((value: number) => any) | undefined;
         "onUpdate:modelValue"?: ((value: number) => any) | undefined;
+        onChange?: ((value: number) => any) | undefined;
     }>>;
     emit: ((event: "update:modelValue", value: number) => void) & ((event: "change", value: number) => void);
     formContext: import("..").FormContext | undefined;
@@ -242,14 +242,14 @@ export declare const ElRate: import("element-plus/es/utils").SFCWithInstall<impo
     readonly label: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
 }>> & {
-    onChange?: ((value: number) => any) | undefined;
     "onUpdate:modelValue"?: ((value: number) => any) | undefined;
+    onChange?: ((value: number) => any) | undefined;
 }, {
-    readonly modelValue: number;
-    readonly id: string;
-    readonly disabled: boolean;
-    readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly label: string;
+    readonly modelValue: number;
+    readonly disabled: boolean;
+    readonly id: string;
+    readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly max: number;
     readonly textColor: string;
     readonly colors: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string[] | Record<number, string>) | (() => string[] | Record<number, string>) | ((new (...args: any[]) => string[] | Record<number, string>) | (() => string[] | Record<number, string>))[], unknown, unknown>;

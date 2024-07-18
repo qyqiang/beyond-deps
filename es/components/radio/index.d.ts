@@ -26,8 +26,8 @@ export declare const ElRadio: import("element-plus/es/utils").SFCWithInstall<imp
         readonly value: import("element-plus/es/utils").EpPropFinalized<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown, undefined, boolean>;
         readonly name: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     }>> & {
-        onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
         "onUpdate:modelValue"?: ((val: string | number | boolean | undefined) => any) | undefined;
+        onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
     }>>;
     emit: ((event: "update:modelValue", val: string | number | boolean | undefined) => void) & ((event: "change", val: string | number | boolean | undefined) => void);
     ns: {
@@ -73,15 +73,15 @@ export declare const ElRadio: import("element-plus/es/utils").SFCWithInstall<imp
     readonly value: import("element-plus/es/utils").EpPropFinalized<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown, undefined, boolean>;
     readonly name: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
 }>> & {
-    onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
     "onUpdate:modelValue"?: ((val: string | number | boolean | undefined) => any) | undefined;
+    onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
 }, {
     readonly value: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
-    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
-    readonly disabled: boolean;
     readonly name: string;
     readonly label: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
     readonly border: boolean;
+    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
+    readonly disabled: boolean;
 }>> & {
     RadioButton: import("vue").DefineComponent<{
         readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown, undefined, boolean>;
@@ -151,10 +151,10 @@ export declare const ElRadio: import("element-plus/es/utils").SFCWithInstall<imp
         readonly name: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     }>>, {
         readonly value: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
-        readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
-        readonly disabled: boolean;
         readonly name: string;
         readonly label: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
+        readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
+        readonly disabled: boolean;
     }>;
     RadioGroup: import("vue").DefineComponent<{
         readonly ariaLabel: StringConstructor;
@@ -190,8 +190,8 @@ export declare const ElRadio: import("element-plus/es/utils").SFCWithInstall<imp
             readonly name: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
             readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
         }>> & {
-            onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
             "onUpdate:modelValue"?: ((val: string | number | boolean | undefined) => any) | undefined;
+            onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
         }>>;
         emit: ((event: "update:modelValue", val: string | number | boolean | undefined) => void) & ((event: "change", val: string | number | boolean | undefined) => void);
         ns: {
@@ -239,15 +239,15 @@ export declare const ElRadio: import("element-plus/es/utils").SFCWithInstall<imp
         readonly name: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
         readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     }>> & {
-        onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
         "onUpdate:modelValue"?: ((val: string | number | boolean | undefined) => any) | undefined;
+        onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
     }, {
         readonly fill: string;
-        readonly modelValue: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor, BooleanConstructor], unknown, unknown>;
-        readonly id: string;
-        readonly disabled: boolean;
         readonly name: string;
         readonly label: string;
+        readonly modelValue: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor, BooleanConstructor], unknown, unknown>;
+        readonly disabled: boolean;
+        readonly id: string;
         readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly textColor: string;
     }>;
@@ -287,8 +287,8 @@ export declare const ElRadioGroup: import("element-plus/es/utils").SFCWithInstal
         readonly name: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
         readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     }>> & {
-        onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
         "onUpdate:modelValue"?: ((val: string | number | boolean | undefined) => any) | undefined;
+        onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
     }>>;
     emit: ((event: "update:modelValue", val: string | number | boolean | undefined) => void) & ((event: "change", val: string | number | boolean | undefined) => void);
     ns: {
@@ -336,15 +336,15 @@ export declare const ElRadioGroup: import("element-plus/es/utils").SFCWithInstal
     readonly name: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
 }>> & {
-    onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
     "onUpdate:modelValue"?: ((val: string | number | boolean | undefined) => any) | undefined;
+    onChange?: ((val: string | number | boolean | undefined) => any) | undefined;
 }, {
     readonly fill: string;
-    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor, BooleanConstructor], unknown, unknown>;
-    readonly id: string;
-    readonly disabled: boolean;
     readonly name: string;
     readonly label: string;
+    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor, BooleanConstructor], unknown, unknown>;
+    readonly disabled: boolean;
+    readonly id: string;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly textColor: string;
 }>>;
@@ -416,10 +416,10 @@ export declare const ElRadioButton: import("element-plus/es/utils").SFCWithInsta
     readonly name: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
 }>>, {
     readonly value: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
-    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
-    readonly disabled: boolean;
     readonly name: string;
     readonly label: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
+    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
+    readonly disabled: boolean;
 }>>;
 export * from './src/radio';
 export * from './src/radio-group';

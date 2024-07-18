@@ -153,7 +153,7 @@ declare const _default: {
      * @description whether to hide extra content and show them in a tooltip when hovering on the cell
      */
     showOverflowTooltip: {
-        type: PropType<boolean | Partial<Pick<import("../../..").ElTooltipProps, "offset" | "effect" | "placement" | "popperClass" | "showAfter" | "hideAfter" | "popperOptions" | "enterable" | "appendTo" | "transition" | "showArrow">> | undefined>;
+        type: PropType<boolean | Partial<Pick<import("../../..").ElTooltipProps, "showAfter" | "hideAfter" | "placement" | "offset" | "transition" | "effect" | "popperClass" | "popperOptions" | "enterable" | "appendTo" | "showArrow">> | undefined>;
         default: undefined;
     };
     /**

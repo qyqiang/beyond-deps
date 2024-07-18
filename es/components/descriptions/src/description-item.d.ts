@@ -29,10 +29,10 @@ declare const DescriptionItem: import("vue").DefineComponent<{
     labelClassName: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
 }>>, {
     width: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | StringConstructor)[], unknown, unknown>;
-    className: string;
     label: string;
     minWidth: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | StringConstructor)[], unknown, unknown>;
     span: number;
+    className: string;
     align: string;
     labelAlign: string;
     labelClassName: string;

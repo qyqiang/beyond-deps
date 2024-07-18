@@ -282,7 +282,7 @@ declare const _default: {
     /**
      * @description the options for the overflow tooltip, [see the following tooltip component](tooltip.html#attributes)
      */
-    tooltipOptions: PropType<Partial<Pick<import("../../..").ElTooltipProps, "offset" | "effect" | "placement" | "popperClass" | "showAfter" | "hideAfter" | "popperOptions" | "enterable" | "appendTo" | "transition" | "showArrow">> | undefined>;
+    tooltipOptions: PropType<Partial<Pick<import("../../..").ElTooltipProps, "showAfter" | "hideAfter" | "placement" | "offset" | "transition" | "effect" | "popperClass" | "popperOptions" | "enterable" | "appendTo" | "showArrow">> | undefined>;
     /**
      * @description method that returns rowspan and colspan
      */
@@ -356,7 +356,7 @@ declare const _default: {
     /**
      * @description whether to hide extra content and show them in a tooltip when hovering on the cell.It will affect all the table columns
      */
-    showOverflowTooltip: PropType<boolean | Partial<Pick<import("../../..").ElTooltipProps, "offset" | "effect" | "placement" | "popperClass" | "showAfter" | "hideAfter" | "popperOptions" | "enterable" | "appendTo" | "transition" | "showArrow">> | undefined>;
+    showOverflowTooltip: PropType<boolean | Partial<Pick<import("../../..").ElTooltipProps, "showAfter" | "hideAfter" | "placement" | "offset" | "transition" | "effect" | "popperClass" | "popperOptions" | "enterable" | "appendTo" | "showArrow">> | undefined>;
 };
 export default _default;
 export type { SummaryMethod, Table, TableProps, TableRefs, ColumnCls, ColumnStyle, CellCls, CellStyle, TreeNode, RenderRowData, Sort, Filter, TableColumnCtx, };

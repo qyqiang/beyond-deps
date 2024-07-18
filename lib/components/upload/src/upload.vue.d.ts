@@ -101,7 +101,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly accept: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly fileList: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]) | ((new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
     readonly autoUpload: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+    readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
     readonly httpRequest: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadRequestHandler) | (() => import("./upload").UploadRequestHandler) | {
         (): import("./upload").UploadRequestHandler;
         new (): any;
@@ -216,7 +216,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly accept: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly fileList: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]) | ((new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
         readonly autoUpload: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
         readonly httpRequest: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadRequestHandler) | (() => import("./upload").UploadRequestHandler) | {
             (): import("./upload").UploadRequestHandler;
             new (): any;
@@ -236,11 +236,11 @@ declare const _default: import("vue").DefineComponent<{
         $: import("vue").ComponentInternalInstance;
         $data: {};
         $props: Partial<{
-            readonly disabled: boolean;
-            readonly name: string;
             readonly drag: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly name: string;
             readonly data: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>))[], unknown, unknown>;
+            readonly disabled: boolean;
+            readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly onError: (err: import("./ajax").UploadAjaxError, rawFile: import("./upload").UploadRawFile) => void;
             readonly onProgress: (evt: import("./upload").UploadProgressEvent, rawFile: import("./upload").UploadRawFile) => void;
             readonly action: string;
@@ -249,7 +249,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly accept: string;
             readonly fileList: import("./upload").UploadUserFile[];
             readonly autoUpload: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly listType: import("../../../utils").EpPropMergeType<StringConstructor, "text" | "picture" | "picture-card", unknown>;
+            readonly listType: import("../../../utils").EpPropMergeType<StringConstructor, "picture" | "text" | "picture-card", unknown>;
             readonly httpRequest: import("./upload").UploadRequestHandler;
             readonly withCredentials: boolean;
             readonly beforeUpload: (rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<boolean | void | File | Blob | null | undefined>;
@@ -338,7 +338,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly accept: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
             readonly fileList: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]) | ((new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
             readonly autoUpload: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-            readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+            readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
             readonly httpRequest: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadRequestHandler) | (() => import("./upload").UploadRequestHandler) | {
                 (): import("./upload").UploadRequestHandler;
                 new (): any;
@@ -350,7 +350,7 @@ declare const _default: import("vue").DefineComponent<{
             })[], unknown, unknown, import("./upload").UploadRequestHandler, boolean>;
             readonly disabled: BooleanConstructor;
             readonly limit: NumberConstructor;
-        }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "disabled" | "name" | "drag" | "multiple" | "data" | "onError" | "onProgress" | "action" | "method" | "showFileList" | "accept" | "fileList" | "autoUpload" | "listType" | "httpRequest" | "withCredentials" | "beforeUpload" | "onRemove" | "onSuccess" | "onExceed" | "onStart">;
+        }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "drag" | "name" | "data" | "disabled" | "multiple" | "onError" | "onProgress" | "action" | "method" | "showFileList" | "accept" | "fileList" | "autoUpload" | "listType" | "httpRequest" | "withCredentials" | "beforeUpload" | "onRemove" | "onSuccess" | "onExceed" | "onStart">;
         $attrs: {
             [x: string]: unknown;
         };
@@ -445,7 +445,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly accept: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
             readonly fileList: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]) | ((new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
             readonly autoUpload: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-            readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+            readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
             readonly httpRequest: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadRequestHandler) | (() => import("./upload").UploadRequestHandler) | {
                 (): import("./upload").UploadRequestHandler;
                 new (): any;
@@ -539,7 +539,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly accept: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
                 readonly fileList: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]) | ((new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
                 readonly autoUpload: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+                readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
                 readonly httpRequest: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadRequestHandler) | (() => import("./upload").UploadRequestHandler) | {
                     (): import("./upload").UploadRequestHandler;
                     new (): any;
@@ -621,11 +621,11 @@ declare const _default: import("vue").DefineComponent<{
                 readonly disabled: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
-            readonly disabled: boolean;
-            readonly name: string;
             readonly drag: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly name: string;
             readonly data: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>))[], unknown, unknown>;
+            readonly disabled: boolean;
+            readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly onError: (err: import("./ajax").UploadAjaxError, rawFile: import("./upload").UploadRawFile) => void;
             readonly onProgress: (evt: import("./upload").UploadProgressEvent, rawFile: import("./upload").UploadRawFile) => void;
             readonly action: string;
@@ -634,7 +634,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly accept: string;
             readonly fileList: import("./upload").UploadUserFile[];
             readonly autoUpload: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly listType: import("../../../utils").EpPropMergeType<StringConstructor, "text" | "picture" | "picture-card", unknown>;
+            readonly listType: import("../../../utils").EpPropMergeType<StringConstructor, "picture" | "text" | "picture-card", unknown>;
             readonly httpRequest: import("./upload").UploadRequestHandler;
             readonly withCredentials: boolean;
             readonly beforeUpload: (rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<boolean | void | File | Blob | null | undefined>;
@@ -743,7 +743,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly accept: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly fileList: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]) | ((new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
         readonly autoUpload: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
         readonly httpRequest: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadRequestHandler) | (() => import("./upload").UploadRequestHandler) | {
             (): import("./upload").UploadRequestHandler;
             new (): any;
@@ -837,7 +837,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly accept: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
             readonly fileList: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]) | ((new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
             readonly autoUpload: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-            readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+            readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
             readonly httpRequest: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadRequestHandler) | (() => import("./upload").UploadRequestHandler) | {
                 (): import("./upload").UploadRequestHandler;
                 new (): any;
@@ -963,7 +963,7 @@ declare const _default: import("vue").DefineComponent<{
             new (): any;
             readonly prototype: any;
         })[], unknown, unknown, () => void, boolean>;
-        readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
         readonly crossorigin: {
             readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
             readonly required: false;
@@ -983,7 +983,7 @@ declare const _default: import("vue").DefineComponent<{
                 new (): any;
                 readonly prototype: any;
             })[], unknown, unknown, () => void, boolean>;
-            readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+            readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
             readonly crossorigin: {
                 readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
                 readonly required: false;
@@ -1296,9 +1296,9 @@ declare const _default: import("vue").DefineComponent<{
             readonly type: import("../../../utils").EpPropMergeType<StringConstructor, "circle" | "line" | "dashboard", unknown>;
             readonly width: number;
             readonly color: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("../..").ProgressFn | import("../..").ProgressColor[]) & {}) | (() => string | import("../..").ProgressFn | import("../..").ProgressColor[]) | ((new (...args: any[]) => (string | import("../..").ProgressFn | import("../..").ProgressColor[]) & {}) | (() => string | import("../..").ProgressFn | import("../..").ProgressColor[]))[], unknown, unknown>;
-            readonly duration: number;
             readonly strokeLinecap: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square") | ((new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square"))[], unknown, unknown>;
             readonly strokeWidth: number;
+            readonly duration: number;
             readonly indeterminate: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly format: import("../..").ProgressFn;
             readonly percentage: number;
@@ -1322,7 +1322,7 @@ declare const _default: import("vue").DefineComponent<{
             new (): any;
             readonly prototype: any;
         })[], unknown, unknown, () => void, boolean>;
-        readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
         readonly crossorigin: {
             readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
             readonly required: false;
@@ -1333,7 +1333,7 @@ declare const _default: import("vue").DefineComponent<{
         onRemove?: ((file: import("./upload").UploadFile) => any) | undefined;
     }, {
         readonly disabled: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        readonly listType: import("../../../utils").EpPropMergeType<StringConstructor, "text" | "picture" | "picture-card", unknown>;
+        readonly listType: import("../../../utils").EpPropMergeType<StringConstructor, "picture" | "text" | "picture-card", unknown>;
         readonly files: import("./upload").UploadFiles;
         readonly handlePreview: (uploadFile: import("./upload").UploadFile) => void;
     }>;
@@ -1418,7 +1418,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly accept: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly fileList: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]) | ((new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
         readonly autoUpload: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
         readonly httpRequest: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadRequestHandler) | (() => import("./upload").UploadRequestHandler) | {
             (): import("./upload").UploadRequestHandler;
             new (): any;
@@ -1512,7 +1512,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly accept: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
             readonly fileList: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]) | ((new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
             readonly autoUpload: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-            readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+            readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
             readonly httpRequest: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadRequestHandler) | (() => import("./upload").UploadRequestHandler) | {
                 (): import("./upload").UploadRequestHandler;
                 new (): any;
@@ -1674,7 +1674,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly accept: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly fileList: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]) | ((new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
         readonly autoUpload: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
         readonly httpRequest: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadRequestHandler) | (() => import("./upload").UploadRequestHandler) | {
             (): import("./upload").UploadRequestHandler;
             new (): any;
@@ -1687,11 +1687,11 @@ declare const _default: import("vue").DefineComponent<{
         readonly disabled: BooleanConstructor;
         readonly limit: NumberConstructor;
     }>>, {
-        readonly disabled: boolean;
-        readonly name: string;
         readonly drag: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly name: string;
         readonly data: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>))[], unknown, unknown>;
+        readonly disabled: boolean;
+        readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly onError: (err: import("./ajax").UploadAjaxError, rawFile: import("./upload").UploadRawFile) => void;
         readonly onProgress: (evt: import("./upload").UploadProgressEvent, rawFile: import("./upload").UploadRawFile) => void;
         readonly action: string;
@@ -1700,7 +1700,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly accept: string;
         readonly fileList: import("./upload").UploadUserFile[];
         readonly autoUpload: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        readonly listType: import("../../../utils").EpPropMergeType<StringConstructor, "text" | "picture" | "picture-card", unknown>;
+        readonly listType: import("../../../utils").EpPropMergeType<StringConstructor, "picture" | "text" | "picture-card", unknown>;
         readonly httpRequest: import("./upload").UploadRequestHandler;
         readonly withCredentials: boolean;
         readonly beforeUpload: (rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<boolean | void | File | Blob | null | undefined>;
@@ -1811,7 +1811,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly accept: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly fileList: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]) | ((new (...args: any[]) => import("./upload").UploadUserFile[]) | (() => import("./upload").UploadUserFile[]))[], unknown, unknown, () => [], boolean>;
     readonly autoUpload: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+    readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "picture" | "text" | "picture-card", unknown, "text", boolean>;
     readonly httpRequest: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadRequestHandler) | (() => import("./upload").UploadRequestHandler) | {
         (): import("./upload").UploadRequestHandler;
         new (): any;
@@ -1824,12 +1824,12 @@ declare const _default: import("vue").DefineComponent<{
     readonly disabled: BooleanConstructor;
     readonly limit: NumberConstructor;
 }>>, {
-    readonly onChange: (uploadFile: import("./upload").UploadFile, uploadFiles: import("./upload").UploadFiles) => void;
-    readonly disabled: boolean;
-    readonly name: string;
     readonly drag: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly name: string;
     readonly data: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Mutable<Record<string, any>> | Promise<import("../../../utils").Mutable<Record<string, any>>>) | (() => ((rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>) | import("../../../utils").Awaitable<import("../../../utils").Mutable<Record<string, any>>>))[], unknown, unknown>;
+    readonly disabled: boolean;
+    readonly onChange: (uploadFile: import("./upload").UploadFile, uploadFiles: import("./upload").UploadFiles) => void;
+    readonly multiple: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly onError: (error: Error, uploadFile: import("./upload").UploadFile, uploadFiles: import("./upload").UploadFiles) => void;
     readonly onProgress: (evt: import("./upload").UploadProgressEvent, uploadFile: import("./upload").UploadFile, uploadFiles: import("./upload").UploadFiles) => void;
     readonly action: string;
@@ -1838,7 +1838,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly accept: string;
     readonly fileList: import("./upload").UploadUserFile[];
     readonly autoUpload: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly listType: import("../../../utils").EpPropMergeType<StringConstructor, "text" | "picture" | "picture-card", unknown>;
+    readonly listType: import("../../../utils").EpPropMergeType<StringConstructor, "picture" | "text" | "picture-card", unknown>;
     readonly httpRequest: import("./upload").UploadRequestHandler;
     readonly withCredentials: boolean;
     readonly beforeUpload: (rawFile: import("./upload").UploadRawFile) => import("../../../utils").Awaitable<boolean | void | File | Blob | null | undefined>;

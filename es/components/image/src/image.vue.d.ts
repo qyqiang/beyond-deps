@@ -2,7 +2,7 @@ import type { CSSProperties, StyleValue } from 'vue';
 declare const _default: import("vue").DefineComponent<{
     readonly hideOnClickModal: BooleanConstructor;
     readonly src: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-    readonly fit: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "fill" | "none" | "contain" | "cover" | "scale-down", unknown, "", boolean>;
+    readonly fit: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "fill" | "contain" | "none" | "cover" | "scale-down", unknown, "", boolean>;
     readonly loading: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "lazy" | "eager", unknown>>;
         readonly required: false;
@@ -40,7 +40,7 @@ declare const _default: import("vue").DefineComponent<{
     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
         readonly hideOnClickModal: BooleanConstructor;
         readonly src: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-        readonly fit: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "fill" | "none" | "contain" | "cover" | "scale-down", unknown, "", boolean>;
+        readonly fit: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "fill" | "contain" | "none" | "cover" | "scale-down", unknown, "", boolean>;
         readonly loading: {
             readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "lazy" | "eager", unknown>>;
             readonly required: false;
@@ -75,13 +75,13 @@ declare const _default: import("vue").DefineComponent<{
             __epPropKey: true;
         };
     }>> & {
-        onClose?: (() => any) | undefined;
         onShow?: (() => any) | undefined;
+        onClose?: (() => any) | undefined;
         onError?: ((evt: Event) => any) | undefined;
         onLoad?: ((evt: Event) => any) | undefined;
         onSwitch?: ((val: number) => any) | undefined;
     }>>;
-    emit: ((event: "error", evt: Event) => void) & ((event: "close") => void) & ((event: "show") => void) & ((event: "load", evt: Event) => void) & ((event: "switch", val: number) => void);
+    emit: ((event: "close") => void) & ((event: "error", evt: Event) => void) & ((event: "load", evt: Event) => void) & ((event: "show") => void) & ((event: "switch", val: number) => void);
     prevOverflow: string;
     t: import("element-plus/es/hooks").Translator;
     ns: {
@@ -357,7 +357,7 @@ declare const _default: import("vue").DefineComponent<{
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     readonly hideOnClickModal: BooleanConstructor;
     readonly src: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-    readonly fit: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "fill" | "none" | "contain" | "cover" | "scale-down", unknown, "", boolean>;
+    readonly fit: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "fill" | "contain" | "none" | "cover" | "scale-down", unknown, "", boolean>;
     readonly loading: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "lazy" | "eager", unknown>>;
         readonly required: false;
@@ -392,15 +392,15 @@ declare const _default: import("vue").DefineComponent<{
         __epPropKey: true;
     };
 }>> & {
-    onClose?: (() => any) | undefined;
     onShow?: (() => any) | undefined;
+    onClose?: (() => any) | undefined;
     onError?: ((evt: Event) => any) | undefined;
     onLoad?: ((evt: Event) => any) | undefined;
     onSwitch?: ((val: number) => any) | undefined;
 }, {
     readonly infinite: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly src: string;
-    readonly fit: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "fill" | "none" | "contain" | "cover" | "scale-down", unknown>;
+    readonly fit: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "fill" | "contain" | "none" | "cover" | "scale-down", unknown>;
     readonly initialIndex: number;
     readonly lazy: boolean;
     readonly closeOnPressEscape: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;

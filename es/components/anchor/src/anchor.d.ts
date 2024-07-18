@@ -12,7 +12,7 @@ export declare const anchorProps: {
     duration: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
     marker: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     type: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("default" | "underline") & {}) | (() => "default" | "underline") | ((new (...args: any[]) => ("default" | "underline") & {}) | (() => "default" | "underline"))[], unknown, unknown, string, boolean>;
-    direction: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("vertical" | "horizontal") & {}) | (() => "vertical" | "horizontal") | ((new (...args: any[]) => ("vertical" | "horizontal") & {}) | (() => "vertical" | "horizontal"))[], unknown, unknown, string, boolean>;
+    direction: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("horizontal" | "vertical") & {}) | (() => "horizontal" | "vertical") | ((new (...args: any[]) => ("horizontal" | "vertical") & {}) | (() => "horizontal" | "vertical"))[], unknown, unknown, string, boolean>;
 };
 export declare type AnchorProps = ExtractPropTypes<typeof anchorProps>;
 export declare type AnchorInstance = InstanceType<typeof Anchor>;

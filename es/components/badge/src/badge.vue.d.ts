@@ -124,8 +124,8 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>;
-    readonly offset: [number, number];
     readonly value: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
+    readonly offset: [number, number];
     readonly hidden: boolean;
     readonly max: number;
     readonly showZero: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;

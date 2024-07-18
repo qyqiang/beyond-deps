@@ -30,8 +30,8 @@ export declare const ElSegmented: import("element-plus/es/utils").SFCWithInstall
         id: StringConstructor;
         name: StringConstructor;
     }>> & {
-        onChange?: ((val: any) => any) | undefined;
         "onUpdate:modelValue"?: ((val: any) => any) | undefined;
+        onChange?: ((val: any) => any) | undefined;
     }>>;
     emit: ((event: "update:modelValue", val: any) => void) & ((event: "change", val: any) => void);
     ns: {
@@ -102,14 +102,14 @@ export declare const ElSegmented: import("element-plus/es/utils").SFCWithInstall
     id: StringConstructor;
     name: StringConstructor;
 }>> & {
-    onChange?: ((val: any) => any) | undefined;
     "onUpdate:modelValue"?: ((val: any) => any) | undefined;
+    onChange?: ((val: any) => any) | undefined;
 }, {
+    options: import("./src/types").Option[];
     modelValue: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
     disabled: boolean;
     validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     block: boolean;
-    options: import("./src/types").Option[];
 }>> & Record<string, any>;
 export default ElSegmented;
 export * from './src/segmented';

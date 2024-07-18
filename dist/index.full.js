@@ -35191,7 +35191,6 @@
     name: COMPONENT_NAME$9,
     componentName: COMPONENT_NAME$9,
     components: {
-      ElInput,
       ElSelectMenu: ElSelectMenu$1,
       ElOption: Option,
       ElOptions,

@@ -180,19 +180,19 @@ declare const _default: import("vue").DefineComponent<{
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }, {
     readonly type: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("./date-picker.type").IDatePickerType & {}) | (() => import("./date-picker.type").IDatePickerType) | ((new (...args: any[]) => import("./date-picker.type").IDatePickerType & {}) | (() => import("./date-picker.type").IDatePickerType))[], unknown, unknown>;
+    readonly valueOnClear: import("../../../utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown>;
+    readonly name: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/components/time-picker").SingleOrRange<string> & {}) | (() => import("element-plus/es/components/time-picker").SingleOrRange<string>) | ((new (...args: any[]) => import("element-plus/es/components/time-picker").SingleOrRange<string> & {}) | (() => import("element-plus/es/components/time-picker").SingleOrRange<string>))[], unknown, unknown>;
+    readonly tabindex: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | number) & {}) | (() => string | number) | ((new (...args: any[]) => (string | number) & {}) | (() => string | number))[], unknown, unknown>;
+    readonly label: string;
+    readonly placeholder: string;
     readonly modelValue: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/components/time-picker").ModelValueType & {}) | (() => import("element-plus/es/components/time-picker").ModelValueType) | ((new (...args: any[]) => import("element-plus/es/components/time-picker").ModelValueType & {}) | (() => import("element-plus/es/components/time-picker").ModelValueType))[], unknown, unknown>;
+    readonly disabled: boolean;
     readonly popperClass: string;
     readonly popperOptions: Partial<import("@popperjs/core").Options>;
-    readonly disabled: boolean;
     readonly clearable: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly name: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("element-plus/es/components/time-picker").SingleOrRange<string> & {}) | (() => import("element-plus/es/components/time-picker").SingleOrRange<string>) | ((new (...args: any[]) => import("element-plus/es/components/time-picker").SingleOrRange<string> & {}) | (() => import("element-plus/es/components/time-picker").SingleOrRange<string>))[], unknown, unknown>;
-    readonly placeholder: string;
     readonly readonly: boolean;
     readonly prefixIcon: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
-    readonly label: string;
-    readonly tabindex: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | number) & {}) | (() => string | number) | ((new (...args: any[]) => (string | number) & {}) | (() => string | number))[], unknown, unknown>;
     readonly validateEvent: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly valueOnClear: import("../../../utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown>;
     readonly editable: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly rangeSeparator: string;
     readonly shortcuts: unknown[];

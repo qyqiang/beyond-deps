@@ -116,8 +116,8 @@ declare const _default: import("vue").DefineComponent<{
         };
         readonly label: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     }>> & {
-        onChange?: ((val: string | number | boolean) => any) | undefined;
         "onUpdate:modelValue"?: ((val: string | number | boolean) => any) | undefined;
+        onChange?: ((val: string | number | boolean) => any) | undefined;
         onInput?: ((val: string | number | boolean) => any) | undefined;
     }>>;
     emit: ((event: "update:modelValue", val: string | number | boolean) => void) & ((event: "change", val: string | number | boolean) => void) & ((event: "input", val: string | number | boolean) => void);
@@ -281,17 +281,17 @@ declare const _default: import("vue").DefineComponent<{
     };
     readonly label: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
 }>> & {
-    onChange?: ((val: string | number | boolean) => any) | undefined;
     "onUpdate:modelValue"?: ((val: string | number | boolean) => any) | undefined;
+    onChange?: ((val: string | number | boolean) => any) | undefined;
     onInput?: ((val: string | number | boolean) => any) | undefined;
 }, {
+    readonly name: string;
     readonly width: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
+    readonly label: string;
+    readonly loading: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly modelValue: import("element-plus/es/utils").EpPropMergeType<readonly [BooleanConstructor, StringConstructor, NumberConstructor], unknown, unknown>;
     readonly disabled: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly name: string;
-    readonly label: string;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly loading: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly inlinePrompt: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly activeText: string;
     readonly inactiveText: string;

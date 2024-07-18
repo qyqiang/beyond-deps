@@ -31,8 +31,8 @@ declare const _default: import("vue").DefineComponent<{
         id: StringConstructor;
         name: StringConstructor;
     }>> & {
-        onChange?: ((val: any) => any) | undefined;
         "onUpdate:modelValue"?: ((val: any) => any) | undefined;
+        onChange?: ((val: any) => any) | undefined;
     }>>;
     emit: ((event: "update:modelValue", val: any) => void) & ((event: "change", val: any) => void);
     ns: {
@@ -103,13 +103,13 @@ declare const _default: import("vue").DefineComponent<{
     id: StringConstructor;
     name: StringConstructor;
 }>> & {
-    onChange?: ((val: any) => any) | undefined;
     "onUpdate:modelValue"?: ((val: any) => any) | undefined;
+    onChange?: ((val: any) => any) | undefined;
 }, {
+    options: Option[];
     modelValue: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
     disabled: boolean;
     validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     block: boolean;
-    options: Option[];
 }>;
 export default _default;

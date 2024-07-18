@@ -115,8 +115,8 @@ declare const _default: import("vue").DefineComponent<{
             default: boolean;
         };
     }>> & {
-        onChange?: ((val: import("./checkbox").CheckboxValueType) => any) | undefined;
         "onUpdate:modelValue"?: ((val: import("./checkbox").CheckboxValueType) => any) | undefined;
+        onChange?: ((val: import("./checkbox").CheckboxValueType) => any) | undefined;
     }>>;
     slots: Readonly<{
         [name: string]: import("vue").Slot | undefined;
@@ -131,7 +131,7 @@ declare const _default: import("vue").DefineComponent<{
     checkboxGroup: ({
         modelValue?: import("vue").WritableComputedRef<any> | undefined;
         changeEvent?: ((...args: any) => any) | undefined;
-    } & import("vue").ToRefs<Pick<import("./checkbox-group").CheckboxGroupProps, "fill" | "size" | "disabled" | "validateEvent" | "max" | "min" | "textColor">>) | undefined;
+    } & import("vue").ToRefs<Pick<import("./checkbox-group").CheckboxGroupProps, "fill" | "disabled" | "size" | "validateEvent" | "max" | "min" | "textColor">>) | undefined;
     ns: {
         namespace: import("vue").ComputedRef<string>;
         b: (blockSuffix?: string) => string;
@@ -213,17 +213,17 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
 }>> & {
-    onChange?: ((val: import("./checkbox").CheckboxValueType) => any) | undefined;
     "onUpdate:modelValue"?: ((val: import("./checkbox").CheckboxValueType) => any) | undefined;
+    onChange?: ((val: import("./checkbox").CheckboxValueType) => any) | undefined;
 }, {
     value: string | number | boolean | Record<string, any>;
-    modelValue: string | number | boolean;
-    id: string;
-    disabled: boolean;
     name: string;
     label: string | number | boolean | Record<string, any>;
-    validateEvent: boolean;
     border: boolean;
+    modelValue: string | number | boolean;
+    disabled: boolean;
+    id: string;
+    validateEvent: boolean;
     indeterminate: boolean;
     checked: boolean;
     trueValue: string | number;

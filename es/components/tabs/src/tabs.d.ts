@@ -13,7 +13,7 @@ export declare const tabsProps: {
         __epPropKey: true;
     };
     readonly editable: BooleanConstructor;
-    readonly tabPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "top" | "bottom" | "left" | "right", unknown, "top", boolean>;
+    readonly tabPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "top" | "right" | "bottom" | "left", unknown, "top", boolean>;
     readonly beforeLeave: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (newName: TabPaneName, oldName: TabPaneName) => Awaitable<void | boolean>) | (() => (newName: TabPaneName, oldName: TabPaneName) => Awaitable<void | boolean>) | {
         (): (newName: TabPaneName, oldName: TabPaneName) => Awaitable<void | boolean>;
         new (): any;
@@ -47,7 +47,7 @@ declare const Tabs: import("vue").DefineComponent<{
         __epPropKey: true;
     };
     readonly editable: BooleanConstructor;
-    readonly tabPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "top" | "bottom" | "left" | "right", unknown, "top", boolean>;
+    readonly tabPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "top" | "right" | "bottom" | "left", unknown, "top", boolean>;
     readonly beforeLeave: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (newName: TabPaneName, oldName: TabPaneName) => Awaitable<void | boolean>) | (() => (newName: TabPaneName, oldName: TabPaneName) => Awaitable<void | boolean>) | {
         (): (newName: TabPaneName, oldName: TabPaneName) => Awaitable<void | boolean>;
         new (): any;
@@ -76,7 +76,7 @@ declare const Tabs: import("vue").DefineComponent<{
         __epPropKey: true;
     };
     readonly editable: BooleanConstructor;
-    readonly tabPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "top" | "bottom" | "left" | "right", unknown, "top", boolean>;
+    readonly tabPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "top" | "right" | "bottom" | "left", unknown, "top", boolean>;
     readonly beforeLeave: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (newName: TabPaneName, oldName: TabPaneName) => Awaitable<void | boolean>) | (() => (newName: TabPaneName, oldName: TabPaneName) => Awaitable<void | boolean>) | {
         (): (newName: TabPaneName, oldName: TabPaneName) => Awaitable<void | boolean>;
         new (): any;
@@ -95,9 +95,9 @@ declare const Tabs: import("vue").DefineComponent<{
             [name: string]: import("vue").Slot | undefined;
         }>;
         props: {
-            readonly closable: boolean;
-            readonly disabled: boolean;
             readonly label: string;
+            readonly disabled: boolean;
+            readonly closable: boolean;
             readonly lazy: boolean;
             readonly name?: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown> | undefined;
         };
@@ -116,7 +116,7 @@ declare const Tabs: import("vue").DefineComponent<{
     readonly stretch: boolean;
     readonly editable: boolean;
     readonly beforeLeave: (newName: TabPaneName, oldName: TabPaneName) => Awaitable<void | boolean>;
-    readonly tabPosition: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "top" | "bottom" | "left" | "right", unknown>;
+    readonly tabPosition: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "top" | "right" | "bottom" | "left", unknown>;
     readonly addable: boolean;
 }>;
 export declare type TabsInstance = InstanceType<typeof Tabs> & {
