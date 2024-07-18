@@ -1,6 +1,6 @@
 import '../../utils/index.mjs';
 import Anchor from './src/anchor.mjs';
-import AnchorLink from './src/anchor-link.mjs';
+import AnchorLink from './src/anchor-link2.mjs';
 export { anchorEmits, anchorProps } from './src/anchor2.mjs';
 import { withInstall, withNoopInstall } from '../../utils/vue/install.mjs';
 

@@ -9008,7 +9008,7 @@ var English = {
     },
     pagination: {
       goto: "Go to",
-      pagesize: "/page",
+      pagesize: " / page",
       total: "Total {total}",
       pageClassifier: "",
       page: "Page",
@@ -13843,7 +13843,7 @@ const _hoisted_4$g = /* @__PURE__ */ createElementVNode("svg", {
 }, [
   /* @__PURE__ */ createElementVNode("path", { d: "M9.35349 3.35342L8.64648 2.64642L5.99998 5.29292L3.35348 2.64642L2.64648 3.35342L5.29298 5.99992L2.64648 8.64642L3.35348 9.35342L5.99998 6.70692L8.64648 9.35342L9.35349 8.64642L6.70698 5.99992L9.35349 3.35342Z" })
 ], -1);
-const _hoisted_5$9 = {
+const _hoisted_5$b = {
   key: 0,
   xmlns: "http://www.w3.org/2000/svg",
   "xmlns:xlink": "http://www.w3.org/1999/xlink",
@@ -14247,7 +14247,7 @@ const _sfc_main$2l = /* @__PURE__ */ defineComponent({
                   onClick: handlePasswordVisible
                 }, {
                   default: withCtx(() => [
-                    passwordVisible.value ? (openBlock(), createElementBlock("svg", _hoisted_5$9, _hoisted_7$4)) : (openBlock(), createElementBlock("svg", _hoisted_8$4, _hoisted_10$1))
+                    passwordVisible.value ? (openBlock(), createElementBlock("svg", _hoisted_5$b, _hoisted_7$4)) : (openBlock(), createElementBlock("svg", _hoisted_8$4, _hoisted_10$1))
                   ]),
                   _: 1
                 }, 8, ["class"])) : createCommentVNode("v-if", true),
@@ -15904,7 +15904,7 @@ const useTooltipProps = buildProps({
   ...popperArrowProps,
   showArrow: {
     type: Boolean,
-    default: true
+    default: false
   }
 });
 const tooltipEmits = [
@@ -21545,7 +21545,7 @@ const _hoisted_1$_ = ["aria-label"];
 const _hoisted_2$E = ["aria-label"];
 const _hoisted_3$l = ["onMouseenter", "onClick"];
 const _hoisted_4$f = ["aria-label"];
-const _hoisted_5$8 = { key: 0 };
+const _hoisted_5$a = { key: 0 };
 const _hoisted_6$6 = {
   key: 3,
   xmlns: "http://www.w3.org/2000/svg",
@@ -21731,7 +21731,7 @@ const _sfc_main$1W = /* @__PURE__ */ defineComponent({
                 class: normalizeClass(unref(ns).e("button")),
                 "aria-label": unref(t)("el.carousel.indicator", { index: index + 1 })
               }, [
-                unref(hasLabel) ? (openBlock(), createElementBlock("span", _hoisted_5$8, toDisplayString(item.props.label), 1)) : createCommentVNode("v-if", true)
+                unref(hasLabel) ? (openBlock(), createElementBlock("span", _hoisted_5$a, toDisplayString(item.props.label), 1)) : createCommentVNode("v-if", true)
               ], 10, _hoisted_4$f)
             ], 42, _hoisted_3$l)), [
               [vShow, unref(isTwoLengthShow)(index)]
@@ -27136,7 +27136,7 @@ const _hoisted_3$j = {
   scope: "col"
 };
 const _hoisted_4$e = ["aria-label"];
-const _hoisted_5$7 = ["aria-current", "aria-selected", "tabindex"];
+const _hoisted_5$9 = ["aria-current", "aria-selected", "tabindex"];
 const _sfc_main$1t = /* @__PURE__ */ defineComponent({
   __name: "basic-date-table",
   props: basicDateTableProps,
@@ -27208,7 +27208,7 @@ const _sfc_main$1t = /* @__PURE__ */ defineComponent({
                   onFocus: _cache[0] || (_cache[0] = (...args) => unref(handleFocus) && unref(handleFocus)(...args))
                 }, [
                   createVNode(unref(ElDatePickerCell), { cell }, null, 8, ["cell"])
-                ], 42, _hoisted_5$7);
+                ], 42, _hoisted_5$9);
               }), 128))
             ], 2);
           }), 128))
@@ -27553,7 +27553,7 @@ const _hoisted_3$g = /* @__PURE__ */ createElementVNode("svg", {
   /* @__PURE__ */ createElementVNode("path", { d: "M12.6259 4.47147L11.6833 3.52881L7.68329 7.52881C7.55831 7.65383 7.4881 7.82337 7.4881 8.00014C7.4881 8.17692 7.55831 8.34646 7.68329 8.47147L11.6833 12.4715L12.6259 11.5288L9.09995 8.00014L12.6259 4.47147Z" })
 ], -1);
 const _hoisted_4$c = ["aria-label"];
-const _hoisted_5$6 = /* @__PURE__ */ createElementVNode("svg", {
+const _hoisted_5$8 = /* @__PURE__ */ createElementVNode("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   width: "17",
   height: "16",
@@ -28091,7 +28091,7 @@ const _sfc_main$1q = /* @__PURE__ */ defineComponent({
                 }, [
                   createVNode(unref(ElIcon), { size: "16px" }, {
                     default: withCtx(() => [
-                      _hoisted_5$6
+                      _hoisted_5$8
                     ]),
                     _: 1
                   })
@@ -28339,7 +28339,7 @@ const _hoisted_1$J = ["onClick"];
 const _hoisted_2$r = ["aria-label"];
 const _hoisted_3$f = ["aria-label"];
 const _hoisted_4$b = ["disabled", "aria-label"];
-const _hoisted_5$5 = ["disabled", "aria-label"];
+const _hoisted_5$7 = ["disabled", "aria-label"];
 const _hoisted_6$4 = ["disabled", "aria-label"];
 const _hoisted_7$1 = ["disabled", "aria-label"];
 const _hoisted_8$1 = ["aria-label"];
@@ -28858,7 +28858,7 @@ const _sfc_main$1p = /* @__PURE__ */ defineComponent({
                     ]),
                     _: 1
                   })
-                ], 10, _hoisted_5$5)) : createCommentVNode("v-if", true),
+                ], 10, _hoisted_5$7)) : createCommentVNode("v-if", true),
                 createElementVNode("div", null, toDisplayString(unref(leftLabel)), 1)
               ], 2),
               createVNode(DateTable, {
@@ -31530,7 +31530,7 @@ const _hoisted_1$B = {
 const _hoisted_2$n = ["id"];
 const _hoisted_3$b = ["stop-color"];
 const _hoisted_4$8 = ["stop-color"];
-const _hoisted_5$4 = ["id"];
+const _hoisted_5$6 = ["id"];
 const _hoisted_6$3 = ["stop-color"];
 const _hoisted_7 = ["stop-color"];
 const _hoisted_8 = ["id"];
@@ -31609,7 +31609,7 @@ const _sfc_main$18 = /* @__PURE__ */ defineComponent({
               "stop-color": `var(${unref(ns).cssVarBlockName("fill-color-6")})`,
               offset: "100%"
             }, null, 8, _hoisted_7)
-          ], 8, _hoisted_5$4),
+          ], 8, _hoisted_5$6),
           createElementVNode("rect", {
             id: `path-3-${unref(id)}`,
             x: "0",
@@ -35236,6 +35236,14 @@ const _hoisted_4$7 = /* @__PURE__ */ createElementVNode("svg", {
   height: "12",
   viewBox: "0 0 12 12"
 }, [
+  /* @__PURE__ */ createElementVNode("path", { d: "M5.99992 7.75002C5.86862 7.75024 5.73856 7.72452 5.61723 7.67432C5.4959 7.62413 5.38569 7.55045 5.29292 7.45752L2.64642 4.81052L3.35342 4.10352L5.99992 6.75002L8.64642 4.10352L9.35342 4.81052L6.70692 7.45702C6.6142 7.55004 6.50401 7.62381 6.38267 7.67409C6.26134 7.72438 6.13126 7.75018 5.99992 7.75002Z" })
+], -1);
+const _hoisted_5$5 = /* @__PURE__ */ createElementVNode("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "12",
+  height: "12",
+  viewBox: "0 0 12 12"
+}, [
   /* @__PURE__ */ createElementVNode("path", { d: "M9.35349 3.35342L8.64648 2.64642L5.99998 5.29292L3.35348 2.64642L2.64648 3.35342L5.29298 5.99992L2.64648 8.64642L3.35348 9.35342L5.99998 6.70692L8.64648 9.35342L9.35349 8.64642L6.70698 5.99992L9.35349 3.35342Z" })
 ], -1);
 function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
@@ -35480,7 +35488,7 @@ function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
                 class: normalizeClass([_ctx.nsSelect.e("caret"), _ctx.nsSelect.e("icon"), _ctx.iconReverse])
               }, {
                 default: withCtx(() => [
-                  (openBlock(), createBlock(resolveDynamicComponent(_ctx.iconComponent)))
+                  _hoisted_4$7
                 ]),
                 _: 1
               }, 8, ["class"])) : createCommentVNode("v-if", true),
@@ -35490,7 +35498,7 @@ function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
                 onClick: _ctx.handleClearClick
               }, {
                 default: withCtx(() => [
-                  _hoisted_4$7
+                  _hoisted_5$5
                 ]),
                 _: 1
               }, 8, ["class", "onClick"])) : createCommentVNode("v-if", true),
@@ -35851,7 +35859,7 @@ const _hoisted_1$o = ["onKeyup"];
 const _hoisted_2$g = ["aria-current", "aria-label", "tabindex"];
 const _hoisted_3$7 = ["tabindex", "aria-label"];
 const _hoisted_4$6 = ["aria-current", "aria-label", "tabindex"];
-const _hoisted_5$3 = ["tabindex", "aria-label"];
+const _hoisted_5$4 = ["tabindex", "aria-label"];
 const _hoisted_6$2 = ["aria-current", "aria-label", "tabindex"];
 const __default__$H = defineComponent({
   name: "ElPaginationPager"
@@ -36040,7 +36048,7 @@ const _sfc_main$R = /* @__PURE__ */ defineComponent({
           onBlur: _cache[7] || (_cache[7] = ($event) => quickNextFocus.value = false)
         }, [
           (quickNextHover.value || quickNextFocus.value) && !_ctx.disabled ? (openBlock(), createBlock(unref(d_arrow_right_default), { key: 0 })) : (openBlock(), createBlock(unref(more_filled_default), { key: 1 }))
-        ], 42, _hoisted_5$3)) : createCommentVNode("v-if", true),
+        ], 42, _hoisted_5$4)) : createCommentVNode("v-if", true),
         _ctx.pageCount > 1 ? (openBlock(), createElementBlock("li", {
           key: 3,
           class: normalizeClass([[
@@ -36521,7 +36529,7 @@ const popoverProps = buildProps({
   },
   showArrow: {
     type: Boolean,
-    default: true
+    default: false
   },
   persistent: {
     type: Boolean,
@@ -36731,7 +36739,7 @@ const _hoisted_1$n = ["aria-valuenow"];
 const _hoisted_2$f = { viewBox: "0 0 100 100" };
 const _hoisted_3$6 = ["d", "stroke", "stroke-linecap", "stroke-width"];
 const _hoisted_4$5 = ["d", "stroke", "opacity", "stroke-linecap", "stroke-width"];
-const _hoisted_5$2 = { key: 0 };
+const _hoisted_5$3 = { key: 0 };
 const __default__$E = defineComponent({
   name: "ElProgress"
 });
@@ -36920,7 +36928,7 @@ const _sfc_main$O = /* @__PURE__ */ defineComponent({
           style: normalizeStyle({ fontSize: `${unref(progressTextSize)}px` })
         }, [
           renderSlot(_ctx.$slots, "default", { percentage: _ctx.percentage }, () => [
-            !_ctx.status ? (openBlock(), createElementBlock("span", _hoisted_5$2, toDisplayString(unref(content)), 1)) : (openBlock(), createBlock(unref(ElIcon), { key: 1 }, {
+            !_ctx.status ? (openBlock(), createElementBlock("span", _hoisted_5$3, toDisplayString(unref(content)), 1)) : (openBlock(), createBlock(unref(ElIcon), { key: 1 }, {
               default: withCtx(() => [
                 (openBlock(), createBlock(resolveDynamicComponent(unref(statusIcon))))
               ]),
@@ -40433,6 +40441,14 @@ const _hoisted_4$4 = /* @__PURE__ */ createElementVNode("svg", {
   height: "12",
   viewBox: "0 0 12 12"
 }, [
+  /* @__PURE__ */ createElementVNode("path", { d: "M5.99992 7.75002C5.86862 7.75024 5.73856 7.72452 5.61723 7.67432C5.4959 7.62413 5.38569 7.55045 5.29292 7.45752L2.64642 4.81052L3.35342 4.10352L5.99992 6.75002L8.64642 4.10352L9.35342 4.81052L6.70692 7.45702C6.6142 7.55004 6.50401 7.62381 6.38267 7.67409C6.26134 7.72438 6.13126 7.75018 5.99992 7.75002Z" })
+], -1);
+const _hoisted_5$2 = /* @__PURE__ */ createElementVNode("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "12",
+  height: "12",
+  viewBox: "0 0 12 12"
+}, [
   /* @__PURE__ */ createElementVNode("path", { d: "M9.35349 3.35342L8.64648 2.64642L5.99998 5.29292L3.35348 2.64642L2.64648 3.35342L5.29298 5.99992L2.64648 8.64642L3.35348 9.35342L5.99998 6.70692L8.64648 9.35342L9.35349 8.64642L6.70698 5.99992L9.35349 3.35342Z" })
 ], -1);
 function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
@@ -40671,7 +40687,7 @@ function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
               class: normalizeClass([_ctx.nsSelect.e("caret"), _ctx.nsInput.e("icon"), _ctx.iconReverse])
             }, {
               default: withCtx(() => [
-                (openBlock(), createBlock(resolveDynamicComponent(_ctx.iconComponent)))
+                _hoisted_4$4
               ]),
               _: 1
             }, 8, ["class"])), [
@@ -40683,7 +40699,7 @@ function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
               onClick: withModifiers(_ctx.handleClear, ["prevent", "stop"])
             }, {
               default: withCtx(() => [
-                _hoisted_4$4
+                _hoisted_5$2
               ]),
               _: 1
             }, 8, ["class", "onClick"])) : createCommentVNode("v-if", true),
@@ -56045,7 +56061,7 @@ const tourProps = buildProps({
   },
   showArrow: {
     type: Boolean,
-    default: true
+    default: false
   },
   showClose: {
     type: Boolean,

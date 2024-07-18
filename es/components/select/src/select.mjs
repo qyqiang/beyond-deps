@@ -1,4 +1,4 @@
-import { defineComponent, provide, reactive, createElementVNode, resolveComponent, resolveDirective, withDirectives, openBlock, createElementBlock, normalizeClass, toHandlerKey, withModifiers, createVNode, withCtx, toDisplayString, createCommentVNode, renderSlot, Fragment, renderList, normalizeStyle, createTextVNode, createBlock, withKeys, vModelText, resolveDynamicComponent, vShow } from 'vue';
+import { defineComponent, provide, reactive, createElementVNode, resolveComponent, resolveDirective, withDirectives, openBlock, createElementBlock, normalizeClass, toHandlerKey, withModifiers, createVNode, withCtx, toDisplayString, createCommentVNode, renderSlot, Fragment, renderList, normalizeStyle, createTextVNode, createBlock, withKeys, vModelText, vShow } from 'vue';
 import '../../../directives/index.mjs';
 import { ElInput } from '../../input/index.mjs';
 import { ElTooltip } from '../../tooltip/index.mjs';
@@ -65,6 +65,14 @@ const _hoisted_1 = {
 const _hoisted_2 = ["id", "name", "disabled", "autocomplete", "readonly", "aria-activedescendant", "aria-controls", "aria-expanded", "aria-label"];
 const _hoisted_3 = ["textContent"];
 const _hoisted_4 = /* @__PURE__ */ createElementVNode("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "12",
+  height: "12",
+  viewBox: "0 0 12 12"
+}, [
+  /* @__PURE__ */ createElementVNode("path", { d: "M5.99992 7.75002C5.86862 7.75024 5.73856 7.72452 5.61723 7.67432C5.4959 7.62413 5.38569 7.55045 5.29292 7.45752L2.64642 4.81052L3.35342 4.10352L5.99992 6.75002L8.64642 4.10352L9.35342 4.81052L6.70692 7.45702C6.6142 7.55004 6.50401 7.62381 6.38267 7.67409C6.26134 7.72438 6.13126 7.75018 5.99992 7.75002Z" })
+], -1);
+const _hoisted_5 = /* @__PURE__ */ createElementVNode("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   width: "12",
   height: "12",
@@ -314,7 +322,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 class: normalizeClass([_ctx.nsSelect.e("caret"), _ctx.nsSelect.e("icon"), _ctx.iconReverse])
               }, {
                 default: withCtx(() => [
-                  (openBlock(), createBlock(resolveDynamicComponent(_ctx.iconComponent)))
+                  _hoisted_4
                 ]),
                 _: 1
               }, 8, ["class"])) : createCommentVNode("v-if", true),
@@ -324,7 +332,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 onClick: _ctx.handleClearClick
               }, {
                 default: withCtx(() => [
-                  _hoisted_4
+                  _hoisted_5
                 ]),
                 _: 1
               }, 8, ["class", "onClick"])) : createCommentVNode("v-if", true),

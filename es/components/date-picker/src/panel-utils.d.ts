@@ -569,10 +569,10 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
         readonly round: boolean;
         readonly circle: boolean;
         readonly tag: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
+        readonly loading: boolean;
         readonly nativeType: import("../../../utils").EpPropMergeType<StringConstructor, "button" | "reset" | "submit", unknown>;
         readonly loadingIcon: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
         readonly autoInsertSpace: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        readonly loading: boolean;
         readonly plain: boolean;
         readonly bg: boolean;
     }>> & {
@@ -9515,10 +9515,10 @@ export declare const getPanel: (type: IDatePickerType) => import("vue").DefineCo
         readonly round: boolean;
         readonly circle: boolean;
         readonly tag: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
+        readonly loading: boolean;
         readonly nativeType: import("../../../utils").EpPropMergeType<StringConstructor, "button" | "reset" | "submit", unknown>;
         readonly loadingIcon: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
         readonly autoInsertSpace: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        readonly loading: boolean;
         readonly plain: boolean;
         readonly bg: boolean;
     }>> & {

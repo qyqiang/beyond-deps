@@ -231,6 +231,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly contentClass?: string | undefined;
         readonly to?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").RendererElement | null | undefined) & {}) | (() => string | import("vue").RendererElement | null | undefined) | ((new (...args: any[]) => (string | import("vue").RendererElement | null | undefined) & {}) | (() => string | import("vue").RendererElement | null | undefined))[], unknown, unknown>;
         readonly alwaysOn?: boolean | undefined;
+        readonly reference?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown> | undefined;
         readonly delayDuration?: number | undefined;
         readonly onOpenChange?: ((state: boolean) => void) | undefined;
         readonly "onUpdate:open"?: ((state: boolean) => void) | undefined;
@@ -239,7 +240,6 @@ declare const _default: import("vue").DefineComponent<{
         readonly onMouseEnter?: ((e: Event) => boolean | void) | undefined;
         readonly onMouseLeave?: ((e: Event) => boolean | void) | undefined;
         readonly arrowPadding?: number | undefined;
-        readonly reference?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown> | undefined;
         readonly transitionProps?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("vue").TransitionProps) | (() => import("vue").TransitionProps | null) | ((new (...args: any[]) => import("vue").TransitionProps) | (() => import("vue").TransitionProps | null))[], unknown, unknown> | undefined;
         readonly fullTransition?: boolean | undefined;
     };
@@ -262,6 +262,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly contentClass?: string | undefined;
         readonly to?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").RendererElement | null | undefined) & {}) | (() => string | import("vue").RendererElement | null | undefined) | ((new (...args: any[]) => (string | import("vue").RendererElement | null | undefined) & {}) | (() => string | import("vue").RendererElement | null | undefined))[], unknown, unknown>;
         readonly alwaysOn?: boolean | undefined;
+        readonly reference?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown> | undefined;
         readonly delayDuration?: number | undefined;
         readonly onOpenChange?: ((state: boolean) => void) | undefined;
         readonly "onUpdate:open"?: ((state: boolean) => void) | undefined;
@@ -270,7 +271,6 @@ declare const _default: import("vue").DefineComponent<{
         readonly onMouseEnter?: ((e: Event) => boolean | void) | undefined;
         readonly onMouseLeave?: ((e: Event) => boolean | void) | undefined;
         readonly arrowPadding?: number | undefined;
-        readonly reference?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown> | undefined;
         readonly transitionProps?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("vue").TransitionProps) | (() => import("vue").TransitionProps | null) | ((new (...args: any[]) => import("vue").TransitionProps) | (() => import("vue").TransitionProps | null))[], unknown, unknown> | undefined;
         readonly fullTransition?: boolean | undefined;
     };
@@ -293,6 +293,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly contentClass?: string | undefined;
         readonly to?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").RendererElement | null | undefined) & {}) | (() => string | import("vue").RendererElement | null | undefined) | ((new (...args: any[]) => (string | import("vue").RendererElement | null | undefined) & {}) | (() => string | import("vue").RendererElement | null | undefined))[], unknown, unknown>;
         readonly alwaysOn?: boolean | undefined;
+        readonly reference?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown> | undefined;
         readonly delayDuration?: number | undefined;
         readonly onOpenChange?: ((state: boolean) => void) | undefined;
         readonly "onUpdate:open"?: ((state: boolean) => void) | undefined;
@@ -301,7 +302,6 @@ declare const _default: import("vue").DefineComponent<{
         readonly onMouseEnter?: ((e: Event) => boolean | void) | undefined;
         readonly onMouseLeave?: ((e: Event) => boolean | void) | undefined;
         readonly arrowPadding?: number | undefined;
-        readonly reference?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown> | undefined;
         readonly transitionProps?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("vue").TransitionProps) | (() => import("vue").TransitionProps | null) | ((new (...args: any[]) => import("vue").TransitionProps) | (() => import("vue").TransitionProps | null))[], unknown, unknown> | undefined;
         readonly fullTransition?: boolean | undefined;
     };
@@ -324,6 +324,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly contentClass?: string | undefined;
         readonly to?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").RendererElement | null | undefined) & {}) | (() => string | import("vue").RendererElement | null | undefined) | ((new (...args: any[]) => (string | import("vue").RendererElement | null | undefined) & {}) | (() => string | import("vue").RendererElement | null | undefined))[], unknown, unknown>;
         readonly alwaysOn?: boolean | undefined;
+        readonly reference?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown> | undefined;
         readonly delayDuration?: number | undefined;
         readonly onOpenChange?: ((state: boolean) => void) | undefined;
         readonly "onUpdate:open"?: ((state: boolean) => void) | undefined;
@@ -332,7 +333,6 @@ declare const _default: import("vue").DefineComponent<{
         readonly onMouseEnter?: ((e: Event) => boolean | void) | undefined;
         readonly onMouseLeave?: ((e: Event) => boolean | void) | undefined;
         readonly arrowPadding?: number | undefined;
-        readonly reference?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown> | undefined;
         readonly transitionProps?: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("vue").TransitionProps) | (() => import("vue").TransitionProps | null) | ((new (...args: any[]) => import("vue").TransitionProps) | (() => import("vue").TransitionProps | null))[], unknown, unknown> | undefined;
         readonly fullTransition?: boolean | undefined;
     };
@@ -619,8 +619,8 @@ declare const _default: import("vue").DefineComponent<{
         strategy: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("@floating-ui/core").Strategy & {}) | (() => import("@floating-ui/core").Strategy) | ((new (...args: any[]) => import("@floating-ui/core").Strategy & {}) | (() => import("@floating-ui/core").Strategy))[], "fixed" | "absolute", unknown>;
         nowrap: boolean;
         showArrow: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        arrowPadding: number;
         reference: import("../../../utils").EpPropMergeType<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown>;
+        arrowPadding: number;
     }>;
     TooltipV2Trigger: import("vue").DefineComponent<{
         onBlur: {
@@ -867,10 +867,10 @@ declare const _default: import("vue").DefineComponent<{
     readonly showArrow: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly to: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").RendererElement | null | undefined) & {}) | (() => string | import("vue").RendererElement | null | undefined) | ((new (...args: any[]) => (string | import("vue").RendererElement | null | undefined) & {}) | (() => string | import("vue").RendererElement | null | undefined))[], unknown, unknown>;
     readonly alwaysOn: boolean;
+    readonly reference: import("../../../utils").EpPropMergeType<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown>;
     readonly delayDuration: number;
     readonly defaultOpen: boolean;
     readonly arrowPadding: number;
-    readonly reference: import("../../../utils").EpPropMergeType<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown>;
     readonly transitionProps: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("vue").TransitionProps) | (() => import("vue").TransitionProps | null) | ((new (...args: any[]) => import("vue").TransitionProps) | (() => import("vue").TransitionProps | null))[], unknown, unknown>;
     readonly fullTransition: boolean;
 }>;

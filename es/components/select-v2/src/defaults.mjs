@@ -7,7 +7,7 @@ import '../../tag/index.mjs';
 import { defaultProps } from './useProps.mjs';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { iconPropType } from '../../../utils/vue/icon.mjs';
-import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';
+import { useTooltipContentProps } from '../../tooltip/src/content.mjs';
 import { useSizeProp } from '../../../hooks/use-size/index.mjs';
 import { tagProps } from '../../tag/src/tag2.mjs';
 import { useEmptyValuesProps } from '../../../hooks/use-empty-values/index.mjs';

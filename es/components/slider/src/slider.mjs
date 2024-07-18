@@ -4,7 +4,7 @@ import '../../form/index.mjs';
 import '../../../hooks/index.mjs';
 import { sliderContextKey } from './constants.mjs';
 import { sliderProps, sliderEmits } from './slider2.mjs';
-import SliderButton from './button.mjs';
+import SliderButton from './button2.mjs';
 import SliderMarker from './marker.mjs';
 import './composables/index.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
