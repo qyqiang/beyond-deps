@@ -8,7 +8,8 @@
 
 @include b(message) {
   width: fit-content;
-  max-width: calc(100% - 32px);
+  //max-width: calc(100% - 32px);
+  max-width: 1000px;
   box-sizing: border-box;
   border-radius: getCssVar('border-radius-custom');
   border-width: getCssVar('border-width');
@@ -22,13 +23,12 @@
   transition: opacity getCssVar('transition-duration'), transform 0.4s, top 0.4s;
   padding: getCssVar('message', 'padding');
   display: flex;
-  align-items: center;
+  //align-items: center;
   gap: 8px;
 
   @include when(center) {
     justify-content: center;
   }
-
 
   p {
     margin: 0;
@@ -37,12 +37,12 @@
   @each $type in (success, info, warning, error) {
     @include m($type) {
       @include css-var-from-global(
-            ('message', 'bg-color'),
-            ('color', $type, 'light-9')
+        ('message', 'bg-color'),
+        ('color', $type, 'light-9')
       );
       @include css-var-from-global(
-            ('message', 'border-color'),
-            ('color', $type)
+        ('message', 'border-color'),
+        ('color', $type)
       );
       @include css-var-from-global(('message', 'text-color'), ('color', $type));
 
@@ -51,10 +51,7 @@
         overflow-wrap: break-word;
       }
       @include when(plain) {
-        @include css-var-from-global(
-              ('message', 'bg-color'),
-              ('color', $type,)
-        );
+        @include css-var-from-global(('message', 'bg-color'), ('color', $type));
         border-color: getCssVar('bg-color', 'overlay');
 
         .#{$namespace}-message__content {
@@ -62,7 +59,6 @@
         }
       }
     }
-
   }
 
   .#{$namespace}-message__badge {
@@ -75,7 +71,6 @@
     padding: 0;
     font-size: 14px;
     line-height: 20px;
-    margin-left: 16px !important;
 
     &:focus {
       outline-width: 0;

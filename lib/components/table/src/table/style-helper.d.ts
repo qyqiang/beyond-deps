@@ -8,7 +8,7 @@ declare function useStyle<T>(props: TableProps<T>, layout: TableLayout<T>, store
     isGroup: import("vue").Ref<boolean>;
     handleMouseLeave: () => void;
     handleHeaderFooterMousewheel: (event: any, data: any) => void;
-    tableSize: import("vue").ComputedRef<"" | "default" | "small" | "large">;
+    tableSize: import("vue").ComputedRef<"" | "small" | "default" | "large">;
     emptyBlockStyle: import("vue").ComputedRef<{
         width: string;
         height: string;
@@ -30,16 +30,6 @@ declare function useStyle<T>(props: TableProps<T>, layout: TableLayout<T>, store
         display: string;
         verticalAlign: string;
     };
-    tableInnerStyle: import("vue").ComputedRef<{
-        height: string | number;
-        maxHeight?: undefined;
-    } | {
-        maxHeight: string | number;
-        height?: undefined;
-    } | {
-        height?: undefined;
-        maxHeight?: undefined;
-    }>;
     scrollbarStyle: import("vue").ComputedRef<{
         height: string;
         maxHeight?: undefined;

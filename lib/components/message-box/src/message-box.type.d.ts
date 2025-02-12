@@ -1,19 +1,17 @@
 import type { AppContext, CSSProperties, Component, VNode } from 'vue';
 import type { ComponentSize } from 'element-plus/es/constants';
-declare type MessageType = '' | 'success' | 'warning' | 'info' | 'error';
-export declare type Action = 'confirm' | 'close' | 'cancel';
-export declare type MessageBoxType = '' | 'prompt' | 'alert' | 'confirm';
-export declare type MessageBoxData = MessageBoxInputData & Action;
+type MessageType = '' | 'success' | 'warning' | 'info' | 'error';
+export type Action = 'confirm' | 'close' | 'cancel';
+export type MessageBoxType = '' | 'prompt' | 'alert' | 'confirm';
+export type MessageBoxData = MessageBoxInputData & Action;
 export interface MessageBoxInputData {
     value: string;
     action: Action;
 }
-export interface MessageBoxInputValidator {
-    (value: string): boolean | string;
-}
+export type MessageBoxInputValidator = ((value: string) => boolean | string) | undefined;
 export declare interface MessageBoxState {
     autofocus: boolean;
-    title: string;
+    title: string | undefined;
     message: string;
     type: MessageType;
     icon: string | Component;
@@ -23,7 +21,7 @@ export declare interface MessageBoxState {
     inputValue: string;
     inputPlaceholder: string;
     inputType: string;
-    inputPattern: RegExp;
+    inputPattern: RegExp | null;
     inputValidator: MessageBoxInputValidator;
     inputErrorMessage: string;
     showConfirmButton: boolean;
@@ -48,13 +46,17 @@ export declare interface MessageBoxState {
     validateError: boolean;
     zIndex: number;
 }
-export declare type Callback = ((value: string, action: Action) => any) | ((action: Action) => any);
+export type Callback = ((value: string, action: Action) => any) | ((action: Action) => any);
 /** Options used in MessageBox */
 export interface ElMessageBoxOptions {
     /**
      * auto focus when open message-box
      */
     autofocus?: boolean;
+    /**
+     * reverse button when need change button location
+     */
+    reverseBtn?: boolean;
     /** Callback before MessageBox closes, and it will prevent MessageBox from closing */
     beforeClose?: (action: Action, instance: MessageBoxState, done: () => void) => void;
     /** Custom class name for MessageBox */
@@ -130,7 +132,7 @@ export interface ElMessageBoxOptions {
     /** Custom element to append the message box to */
     appendTo?: HTMLElement | string;
 }
-export declare type ElMessageBoxShortcutMethod = ((message: ElMessageBoxOptions['message'], options?: ElMessageBoxOptions, appContext?: AppContext | null) => Promise<MessageBoxData>) & ((message: ElMessageBoxOptions['message'], title: ElMessageBoxOptions['title'], options?: ElMessageBoxOptions, appContext?: AppContext | null) => Promise<MessageBoxData>);
+export type ElMessageBoxShortcutMethod = ((message: ElMessageBoxOptions['message'], options?: ElMessageBoxOptions, appContext?: AppContext | null) => Promise<MessageBoxData>) & ((message: ElMessageBoxOptions['message'], title: ElMessageBoxOptions['title'], options?: ElMessageBoxOptions, appContext?: AppContext | null) => Promise<MessageBoxData>);
 export interface IElMessageBox {
     _context: AppContext | null;
     /** Show a message box */

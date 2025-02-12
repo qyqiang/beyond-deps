@@ -6,7 +6,7 @@ export declare const drawerProps: {
     readonly modalFade: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly headerAriaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
     readonly appendToBody: BooleanConstructor;
-    readonly appendTo: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string & {}) | (() => string) | ((new (...args: any[]) => string & {}) | (() => string))[], unknown, unknown, "body", boolean>;
+    readonly appendTo: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown, "body", boolean>;
     readonly beforeClose: {
         readonly type: import("vue").PropType<import("element-plus/es/components/dialog").DialogBeforeCloseFn>;
         readonly required: false;
@@ -28,6 +28,9 @@ export declare const drawerProps: {
     };
     readonly modelValue: BooleanConstructor;
     readonly modalClass: StringConstructor;
+    readonly headerClass: StringConstructor;
+    readonly bodyClass: StringConstructor;
+    readonly footerClass: StringConstructor;
     readonly width: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
         readonly required: false;
@@ -40,11 +43,11 @@ export declare const drawerProps: {
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly trapFocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly trapFocus: BooleanConstructor;
     readonly center: BooleanConstructor;
     readonly alignCenter: BooleanConstructor;
     readonly closeIcon: {
-        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
@@ -53,11 +56,12 @@ export declare const drawerProps: {
     readonly overflow: BooleanConstructor;
     readonly fullscreen: BooleanConstructor;
     readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#f2f7f7", boolean>;
+    readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+    readonly headerType: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../../dialog/src/dialog-content").HeaderType) | (() => import("../../dialog/src/dialog-content").HeaderType) | ((new (...args: any[]) => import("../../dialog/src/dialog-content").HeaderType) | (() => import("../../dialog/src/dialog-content").HeaderType))[], unknown, unknown, "", boolean>;
     readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
 };
-export declare type DrawerProps = ExtractPropTypes<typeof drawerProps>;
+export type DrawerProps = ExtractPropTypes<typeof drawerProps>;
 export declare const drawerEmits: {
     open: () => boolean;
     opened: () => boolean;

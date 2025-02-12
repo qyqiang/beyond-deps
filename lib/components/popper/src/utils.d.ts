@@ -42,8 +42,8 @@ export declare const buildPopperOptions: (props: PopperCoreConfigProps, modifier
             fallbackPlacements?: undefined;
         };
     })[];
-    placement: "top" | "right" | "bottom" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end" | "auto" | "auto-start" | "auto-end";
-    strategy: "absolute" | "fixed";
+    placement: "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end";
+    strategy: "fixed" | "absolute";
     onFirstUpdate?: ((arg0: Partial<import("@popperjs/core").State>) => void) | undefined;
 };
 export declare const unwrapMeasurableEl: ($el: MaybeRef<Measurable | undefined | ComponentPublicInstance>) => HTMLElement | undefined;

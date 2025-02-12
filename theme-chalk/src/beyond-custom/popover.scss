@@ -1,0 +1,21 @@
+@use './font.scss' as *;
+
+.menu-popper.el-popover.el-popper {
+  padding: 16px 14px 14px;
+  box-shadow: var(--shadow-300);
+  border-radius: 4px;
+  border: none;
+
+  .sub-wrap {
+    .title {
+      @include heading-heading-md;
+      padding-left: 8px;
+      color: #000;
+    }
+  }
+}
+
+.el-popper.is-light[role='tooltip'] {
+  padding: 4px 8px;
+  @include body-md;
+}

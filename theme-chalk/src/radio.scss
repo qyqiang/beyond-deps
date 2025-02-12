@@ -30,7 +30,7 @@ $radio-font-size: map.merge(
   outline: none;
   font-size: getCssVar('font-size', 'base');
   user-select: none;
-  margin-right: 32px;
+  margin-right: 30px;
   height: map.get($radio-height, 'default');
 
   @each $size in (large, small) {
@@ -122,7 +122,7 @@ $radio-font-size: map.merge(
     @include when(checked) {
       .#{$namespace}-radio__inner {
         border-color: getCssVar('border-color', 'checked');
-        background:getCssVar('color-white');
+        background: getCssVar('color-white');
 
         &::after {
           transform: translate(-50%, -50%) scale(1);
