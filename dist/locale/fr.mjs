@@ -89,6 +89,9 @@ var fr = {
       noData: "Aucune donn\xE9e",
       placeholder: "Choisir"
     },
+    mention: {
+      loading: "Chargement"
+    },
     cascader: {
       noMatch: "Aucune correspondance",
       loading: "Chargement",
