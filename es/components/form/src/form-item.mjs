@@ -1,23 +1,19 @@
-import { defineComponent, useSlots, inject, ref, computed, nextTick, watch, reactive, toRefs, provide, onMounted, onBeforeUnmount, openBlock, createElementBlock, normalizeClass, unref, createVNode, withCtx, createBlock, resolveDynamicComponent, normalizeStyle, renderSlot, createTextVNode, toDisplayString, createCommentVNode, createElementVNode, TransitionGroup } from 'vue';
+import { defineComponent, useSlots, inject, ref, computed, watch, reactive, toRefs, provide, onMounted, onBeforeUnmount, openBlock, createElementBlock, normalizeClass, unref, createVNode, withCtx, createBlock, resolveDynamicComponent, normalizeStyle, renderSlot, createTextVNode, toDisplayString, createCommentVNode, createElementVNode, TransitionGroup, nextTick } from 'vue';
 import AsyncValidator from 'async-validator';
 import { castArray, clone } from 'lodash-unified';
 import { refDebounced } from '@vueuse/core';
-import '../../../utils/index.mjs';
-import '../../../hooks/index.mjs';
-import './hooks/index.mjs';
 import { formItemProps } from './form-item2.mjs';
 import FormLabelWrap from './form-label-wrap.mjs';
 import { formContextKey, formItemContextKey } from './constants.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
+import { getProp } from '../../../utils/objects.mjs';
 import { useFormSize } from './hooks/use-form-common-props.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { useId } from '../../../hooks/use-id/index.mjs';
 import { addUnit } from '../../../utils/dom/style.mjs';
 import { isBoolean } from '../../../utils/types.mjs';
-import { isString, isFunction } from '@vue/shared';
-import { getProp } from '../../../utils/objects.mjs';
+import { isString, isFunction, isArray } from '@vue/shared';
 
-const _hoisted_1 = ["role", "aria-labelledby"];
 const __default__ = defineComponent({
   name: "ElFormItem"
 });
@@ -136,7 +132,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return rules.filter((rule) => {
         if (!rule.trigger || !trigger)
           return true;
-        if (Array.isArray(rule.trigger)) {
+        if (isArray(rule.trigger)) {
           return rule.trigger.includes(trigger);
         } else {
           return rule.trigger === trigger;
@@ -318,7 +314,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             _: 3
           }, 8, ["name"])
         ], 6)
-      ], 10, _hoisted_1);
+      ], 10, ["role", "aria-labelledby"]);
     };
   }
 });

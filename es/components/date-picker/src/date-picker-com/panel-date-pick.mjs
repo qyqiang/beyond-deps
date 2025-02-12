@@ -1,67 +1,24 @@
-import { createElementVNode, defineComponent, useAttrs, useSlots, inject, toRef, ref, computed, nextTick, watch, openBlock, createElementBlock, normalizeClass, unref, renderSlot, Fragment, renderList, toDisplayString, createCommentVNode, createVNode, withDirectives, withCtx, vShow, withKeys, createBlock, createTextVNode } from 'vue';
+import { defineComponent, useAttrs, useSlots, inject, toRef, ref, computed, watch, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, renderSlot, Fragment, renderList, toDisplayString, createCommentVNode, createVNode, withDirectives, withCtx, vShow, withKeys, createBlock, createTextVNode, nextTick } from 'vue';
 import dayjs from 'dayjs';
 import { ElButton } from '../../../button/index.mjs';
-import '../../../../directives/index.mjs';
-import '../../../../hooks/index.mjs';
 import { ElInput } from '../../../input/index.mjs';
 import '../../../time-picker/index.mjs';
 import { ElIcon } from '../../../icon/index.mjs';
-import '../../../../utils/index.mjs';
-import '../../../../constants/index.mjs';
-import '../../../tooltip/index.mjs';
 import { panelDatePickProps } from '../props/panel-date-pick.mjs';
+import { getValidDateOfMonth, getValidDateOfYear } from '../utils.mjs';
 import DateTable from './basic-date-table.mjs';
 import MonthTable from './basic-month-table.mjs';
 import YearTable from './basic-year-table.mjs';
 import _export_sfc from '../../../../_virtual/plugin-vue_export-helper.mjs';
-import { useNamespace } from '../../../../hooks/use-namespace/index.mjs';
-import { useLocale } from '../../../../hooks/use-locale/index.mjs';
 import { TOOLTIP_INJECTION_KEY } from '../../../tooltip/src/constants.mjs';
-import { isArray, isFunction } from '@vue/shared';
 import { extractTimeFormat, extractDateFormat } from '../../../time-picker/src/utils.mjs';
-import { EVENT_CODE } from '../../../../constants/aria.mjs';
 import TimePickPanel from '../../../time-picker/src/time-picker-com/panel-time-pick.mjs';
 import ClickOutside from '../../../../directives/click-outside/index.mjs';
+import { useNamespace } from '../../../../hooks/use-namespace/index.mjs';
+import { useLocale } from '../../../../hooks/use-locale/index.mjs';
+import { isArray, isFunction } from '@vue/shared';
+import { EVENT_CODE } from '../../../../constants/aria.mjs';
 
-const _hoisted_1 = ["onClick"];
-const _hoisted_2 = ["aria-label"];
-const _hoisted_3 = /* @__PURE__ */ createElementVNode("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "17",
-  height: "16",
-  viewBox: "0 0 17 16"
-}, [
-  /* @__PURE__ */ createElementVNode("path", { d: "M7.95949 4.47147L7.01683 3.52881L3.48816 7.05747C3.2382 7.30751 3.09778 7.64659 3.09778 8.00014C3.09778 8.35369 3.2382 8.69277 3.48816 8.94281L7.01683 12.4715L7.95949 11.5288L4.43349 8.00014L7.95949 4.47147Z" }),
-  /* @__PURE__ */ createElementVNode("path", { d: "M12.6259 4.47147L11.6833 3.52881L7.68329 7.52881C7.55831 7.65383 7.4881 7.82337 7.4881 8.00014C7.4881 8.17692 7.55831 8.34646 7.68329 8.47147L11.6833 12.4715L12.6259 11.5288L9.09995 8.00014L12.6259 4.47147Z" })
-], -1);
-const _hoisted_4 = ["aria-label"];
-const _hoisted_5 = /* @__PURE__ */ createElementVNode("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "17",
-  height: "16",
-  viewBox: "0 0 17 16"
-}, [
-  /* @__PURE__ */ createElementVNode("path", { d: "M9.68339 12.4715L6.15473 8.94281C5.90476 8.69277 5.76434 8.35369 5.76434 8.00014C5.76434 7.64659 5.90476 7.30751 6.15473 7.05747L9.68339 3.52881L10.6261 4.47147L7.10006 8.00014L10.6287 11.5288L9.68339 12.4715Z" })
-], -1);
-const _hoisted_6 = ["aria-label"];
-const _hoisted_7 = /* @__PURE__ */ createElementVNode("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "17",
-  height: "16",
-  viewBox: "0 0 17 16"
-}, [
-  /* @__PURE__ */ createElementVNode("path", { d: "M7.70742 12.4715L6.76675 11.5288L10.2927 8.00014L6.76675 4.47147L7.71009 3.52881L11.2334 7.05747C11.4834 7.30751 11.6238 7.64659 11.6238 8.00014C11.6238 8.35369 11.4834 8.69277 11.2334 8.94281L7.70742 12.4715Z" })
-], -1);
-const _hoisted_8 = ["aria-label"];
-const _hoisted_9 = /* @__PURE__ */ createElementVNode("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "17",
-  height: "16",
-  viewBox: "0 0 17 16"
-}, [
-  /* @__PURE__ */ createElementVNode("path", { d: "M13.2334 7.05747L9.70742 3.52881L8.76675 4.47147L12.2927 8.00014L8.76675 11.5288L9.71009 12.4715L13.2334 8.94281C13.4834 8.69277 13.6238 8.35369 13.6238 8.00014C13.6238 7.64659 13.4834 7.30751 13.2334 7.05747Z" }),
-  /* @__PURE__ */ createElementVNode("path", { d: "M9.04055 7.52881L5.04055 3.52881L4.09988 4.47147L7.62588 8.00014L4.09988 11.5288L5.04322 12.4715L9.04322 8.47147C9.16784 8.3461 9.23758 8.17637 9.23708 7.99959C9.23658 7.82281 9.16589 7.65347 9.04055 7.52881Z" })
-], -1);
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "panel-date-pick",
   props: panelDatePickProps,
@@ -161,6 +118,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
       return `${year.value} ${yearTranslation}`;
     });
+    const setNow = () => {
+      emit(dayjs(/* @__PURE__ */ new Date()).locale(lang.value));
+    };
     const handleShortcutClick = (shortcut) => {
       const shortcutValue = isFunction(shortcut.value) ? shortcut.value() : shortcut.value;
       if (shortcutValue) {
@@ -178,19 +138,25 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
     const selectionMode = computed(() => {
       const { type } = props;
-      if (["week", "month", "year", "years", "dates"].includes(type))
+      if (["week", "month", "months", "year", "years", "dates"].includes(type))
         return type;
       return "date";
+    });
+    const isMultipleType = computed(() => {
+      return selectionMode.value === "dates" || selectionMode.value === "months" || selectionMode.value === "years";
     });
     const keyboardMode = computed(() => {
       return selectionMode.value === "date" ? currentView.value : selectionMode.value;
     });
     const hasShortcuts = computed(() => !!shortcuts.length);
-    const handleMonthPick = async (month2) => {
-      innerDate.value = innerDate.value.startOf("month").month(month2);
+    const handleMonthPick = async (month2, keepOpen) => {
       if (selectionMode.value === "month") {
+        innerDate.value = getValidDateOfMonth(innerDate.value.year(), month2, lang.value, disabledDate);
         emit(innerDate.value, false);
+      } else if (selectionMode.value === "months") {
+        emit(month2, keepOpen != null ? keepOpen : true);
       } else {
+        innerDate.value = getValidDateOfMonth(innerDate.value.year(), month2, lang.value, disabledDate);
         currentView.value = "date";
         if (["month", "year", "date", "week"].includes(selectionMode.value)) {
           emit(innerDate.value, true);
@@ -202,12 +168,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
     const handleYearPick = async (year2, keepOpen) => {
       if (selectionMode.value === "year") {
-        innerDate.value = innerDate.value.startOf("year").year(year2);
+        const data = innerDate.value.startOf("year").year(year2);
+        innerDate.value = getValidDateOfYear(data, lang.value, disabledDate);
         emit(innerDate.value, false);
       } else if (selectionMode.value === "years") {
         emit(year2, keepOpen != null ? keepOpen : true);
       } else {
-        innerDate.value = innerDate.value.year(year2);
+        const data = innerDate.value.year(year2);
+        innerDate.value = getValidDateOfYear(data, lang.value, disabledDate);
         currentView.value = "month";
         if (["month", "year", "date", "week"].includes(selectionMode.value)) {
           emit(innerDate.value, true);
@@ -226,9 +194,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const footerVisible = computed(() => {
       const showDateFooter = showTime.value || selectionMode.value === "dates";
       const showYearFooter = selectionMode.value === "years";
+      const showMonthFooter = selectionMode.value === "months";
       const isDateView = currentView.value === "date";
       const isYearView = currentView.value === "year";
-      return showDateFooter && isDateView || showYearFooter && isYearView;
+      const isMonthView = currentView.value === "month";
+      return showDateFooter && isDateView || showYearFooter && isYearView || showMonthFooter && isMonthView;
     });
     const disabledConfirm = computed(() => {
       if (!disabledDate)
@@ -241,7 +211,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return disabledDate(props.parsedValue.toDate());
     });
     const onConfirm = () => {
-      if (selectionMode.value === "dates" || selectionMode.value === "years") {
+      if (isMultipleType.value) {
         emit(props.parsedValue);
       } else {
         let result = props.parsedValue;
@@ -353,13 +323,16 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
       return parseDate;
     };
-    const handleFocusPicker = async () => {
+    const handleFocusPicker = () => {
       var _a;
       if (["week", "month", "year", "date"].includes(selectionMode.value)) {
         (_a = currentViewRef.value) == null ? void 0 : _a.focus();
-        if (selectionMode.value === "week") {
-          handleKeyControl(EVENT_CODE.down);
-        }
+      }
+    };
+    const _handleFocusPicker = () => {
+      handleFocusPicker();
+      if (selectionMode.value === "week") {
+        handleKeyControl(EVENT_CODE.down);
       }
     };
     const handleKeydownTable = (event) => {
@@ -446,6 +419,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       } else if (val === "years") {
         currentView.value = "year";
         return;
+      } else if (val === "months") {
+        currentView.value = "month";
+        return;
       }
       currentView.value = "date";
     }, { immediate: true });
@@ -459,9 +435,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     }, { immediate: true });
     watch(() => props.parsedValue, (val) => {
       if (val) {
-        if (selectionMode.value === "dates" || selectionMode.value === "years")
+        if (isMultipleType.value)
           return;
-        if (Array.isArray(val))
+        if (isArray(val))
           return;
         innerDate.value = val;
       } else {
@@ -471,7 +447,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     contextEmit("set-picker-option", ["isValidValue", isValidValue]);
     contextEmit("set-picker-option", ["formatToString", formatToString]);
     contextEmit("set-picker-option", ["parseUserInput", parseUserInput]);
-    contextEmit("set-picker-option", ["handleFocusPicker", handleFocusPicker]);
+    contextEmit("set-picker-option", ["handleFocusPicker", _handleFocusPicker]);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", {
         class: normalizeClass([
@@ -499,7 +475,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 type: "button",
                 class: normalizeClass(unref(ppNs).e("shortcut")),
                 onClick: ($event) => handleShortcutClick(shortcut)
-              }, toDisplayString(shortcut.text), 11, _hoisted_1);
+              }, toDisplayString(shortcut.text), 11, ["onClick"]);
             }), 128))
           ], 2)) : createCommentVNode("v-if", true),
           createElementVNode("div", {
@@ -517,9 +493,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   "model-value": unref(visibleDate),
                   size: "small",
                   "validate-event": false,
-                  onInput: _cache[0] || (_cache[0] = (val) => userInputDate.value = val),
+                  onInput: (val) => userInputDate.value = val,
                   onChange: handleVisibleDateChange
-                }, null, 8, ["placeholder", "model-value"])
+                }, null, 8, ["placeholder", "model-value", "onInput"])
               ], 2),
               withDirectives((openBlock(), createElementBlock("span", {
                 class: normalizeClass(unref(dpNs).e("editor-wrap"))
@@ -530,9 +506,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   size: "small",
                   "validate-event": false,
                   onFocus: onTimePickerInputFocus,
-                  onInput: _cache[1] || (_cache[1] = (val) => userInputTime.value = val),
+                  onInput: (val) => userInputTime.value = val,
                   onChange: handleVisibleTimeChange
-                }, null, 8, ["placeholder", "model-value"]),
+                }, null, 8, ["placeholder", "model-value", "onInput"]),
                 createVNode(unref(TimePickPanel), {
                   visible: timePickerVisible.value,
                   format: unref(timeFormat),
@@ -556,28 +532,43 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   type: "button",
                   "aria-label": unref(t)(`el.datepicker.prevYear`),
                   class: normalizeClass(["d-arrow-left", unref(ppNs).e("icon-btn")]),
-                  onClick: _cache[2] || (_cache[2] = ($event) => moveByYear(false))
+                  onClick: ($event) => moveByYear(false)
                 }, [
                   createVNode(unref(ElIcon), { size: "16px" }, {
                     default: withCtx(() => [
-                      _hoisted_3
+                      (openBlock(), createElementBlock("svg", {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "17",
+                        height: "16",
+                        viewBox: "0 0 17 16"
+                      }, [
+                        createElementVNode("path", { d: "M7.95949 4.47147L7.01683 3.52881L3.48816 7.05747C3.2382 7.30751 3.09778 7.64659 3.09778 8.00014C3.09778 8.35369 3.2382 8.69277 3.48816 8.94281L7.01683 12.4715L7.95949 11.5288L4.43349 8.00014L7.95949 4.47147Z" }),
+                        createElementVNode("path", { d: "M12.6259 4.47147L11.6833 3.52881L7.68329 7.52881C7.55831 7.65383 7.4881 7.82337 7.4881 8.00014C7.4881 8.17692 7.55831 8.34646 7.68329 8.47147L11.6833 12.4715L12.6259 11.5288L9.09995 8.00014L12.6259 4.47147Z" })
+                      ]))
                     ]),
                     _: 1
                   })
-                ], 10, _hoisted_2),
+                ], 10, ["aria-label", "onClick"]),
                 withDirectives(createElementVNode("button", {
                   type: "button",
                   "aria-label": unref(t)(`el.datepicker.prevMonth`),
                   class: normalizeClass([unref(ppNs).e("icon-btn"), "arrow-left"]),
-                  onClick: _cache[3] || (_cache[3] = ($event) => moveByMonth(false))
+                  onClick: ($event) => moveByMonth(false)
                 }, [
                   createVNode(unref(ElIcon), { size: "16px" }, {
                     default: withCtx(() => [
-                      _hoisted_5
+                      (openBlock(), createElementBlock("svg", {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "17",
+                        height: "16",
+                        viewBox: "0 0 17 16"
+                      }, [
+                        createElementVNode("path", { d: "M9.68339 12.4715L6.15473 8.94281C5.90476 8.69277 5.76434 8.35369 5.76434 8.00014C5.76434 7.64659 5.90476 7.30751 6.15473 7.05747L9.68339 3.52881L10.6261 4.47147L7.10006 8.00014L10.6287 11.5288L9.68339 12.4715Z" })
+                      ]))
                     ]),
                     _: 1
                   })
-                ], 10, _hoisted_4), [
+                ], 10, ["aria-label", "onClick"]), [
                   [vShow, currentView.value === "date"]
                 ])
               ], 2),
@@ -586,9 +577,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 class: normalizeClass(unref(dpNs).e("header-label")),
                 "aria-live": "polite",
                 tabindex: "0",
-                onKeydown: _cache[4] || (_cache[4] = withKeys(($event) => showPicker("year"), ["enter"])),
-                onClick: _cache[5] || (_cache[5] = ($event) => showPicker("year"))
-              }, toDisplayString(unref(yearLabel)), 35),
+                onKeydown: withKeys(($event) => showPicker("year"), ["enter"]),
+                onClick: ($event) => showPicker("year")
+              }, toDisplayString(unref(yearLabel)), 43, ["onKeydown", "onClick"]),
               withDirectives(createElementVNode("span", {
                 role: "button",
                 "aria-live": "polite",
@@ -597,11 +588,43 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   unref(dpNs).e("header-label"),
                   { active: currentView.value === "month" }
                 ]),
-                onKeydown: _cache[6] || (_cache[6] = withKeys(($event) => showPicker("month"), ["enter"])),
-                onClick: _cache[7] || (_cache[7] = ($event) => showPicker("month"))
-              }, toDisplayString(unref(t)(`el.datepicker.month${unref(month) + 1}`)), 35), [
+                onKeydown: withKeys(($event) => showPicker("month"), ["enter"]),
+                onClick: ($event) => showPicker("month")
+              }, toDisplayString(unref(t)(`el.datepicker.month${unref(month) + 1}`)), 43, ["onKeydown", "onClick"]), [
                 [vShow, currentView.value === "date"]
               ]),
+              createElementVNode("span", {
+                class: normalizeClass(unref(dpNs).e("custom-now-btn"))
+              }, [
+                createElementVNode("button", {
+                  type: "button",
+                  class: normalizeClass(unref(ppNs).e("icon-btn"))
+                }, [
+                  createVNode(unref(ElIcon), {
+                    size: "16px",
+                    onClick: setNow
+                  }, {
+                    default: withCtx(() => [
+                      (openBlock(), createElementBlock("svg", {
+                        width: "16",
+                        height: "16",
+                        viewBox: "0 0 16 16",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }, [
+                        createElementVNode("g", { id: "fi-ss-small-undo-alt" }, [
+                          createElementVNode("path", {
+                            id: "Vector",
+                            d: "M11.069 5.88475L5.02766 5.89723L6.20495 4.76619L5.43876 4L3.65061 5.78814C3.44745 5.99137 3.33331 6.26697 3.33331 6.55433C3.33331 6.8417 3.44745 7.1173 3.65061 7.32052L5.43876 9.10867L6.20495 8.34247L5.01157 7.19437H10.7885C10.8364 7.19437 10.8824 7.2134 10.9163 7.24727C10.9501 7.28114 10.9692 7.32708 10.9692 7.37499L10.9163 11.1527C10.9163 11.2006 10.8972 11.2466 10.8634 11.2804C10.8295 11.3143 10.7835 11.3333 10.7356 11.3333H4.05267V12.6667H11C11.3353 12.6667 11.6569 12.5335 11.894 12.2963C12.1311 12.0592 12.2643 11.7376 12.2643 11.4023L12.3333 7.1491C12.3333 6.81377 12.2001 6.49218 11.963 6.25507C11.7259 6.01796 11.4043 5.88475 11.069 5.88475Z",
+                            fill: "#2A3F4D"
+                          })
+                        ])
+                      ]))
+                    ]),
+                    _: 1
+                  })
+                ], 2)
+              ], 2),
               createElementVNode("span", {
                 class: normalizeClass(unref(dpNs).e("next-btn"))
               }, [
@@ -609,30 +632,45 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   type: "button",
                   "aria-label": unref(t)(`el.datepicker.nextMonth`),
                   class: normalizeClass([unref(ppNs).e("icon-btn"), "arrow-right"]),
-                  onClick: _cache[8] || (_cache[8] = ($event) => moveByMonth(true))
+                  onClick: ($event) => moveByMonth(true)
                 }, [
                   createVNode(unref(ElIcon), { size: "16px" }, {
                     default: withCtx(() => [
-                      _hoisted_7
+                      (openBlock(), createElementBlock("svg", {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "17",
+                        height: "16",
+                        viewBox: "0 0 17 16"
+                      }, [
+                        createElementVNode("path", { d: "M7.70742 12.4715L6.76675 11.5288L10.2927 8.00014L6.76675 4.47147L7.71009 3.52881L11.2334 7.05747C11.4834 7.30751 11.6238 7.64659 11.6238 8.00014C11.6238 8.35369 11.4834 8.69277 11.2334 8.94281L7.70742 12.4715Z" })
+                      ]))
                     ]),
                     _: 1
                   })
-                ], 10, _hoisted_6), [
+                ], 10, ["aria-label", "onClick"]), [
                   [vShow, currentView.value === "date"]
                 ]),
                 createElementVNode("button", {
                   type: "button",
                   "aria-label": unref(t)(`el.datepicker.nextYear`),
                   class: normalizeClass([unref(ppNs).e("icon-btn"), "d-arrow-right"]),
-                  onClick: _cache[9] || (_cache[9] = ($event) => moveByYear(true))
+                  onClick: ($event) => moveByYear(true)
                 }, [
                   createVNode(unref(ElIcon), { size: "16px" }, {
                     default: withCtx(() => [
-                      _hoisted_9
+                      (openBlock(), createElementBlock("svg", {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "17",
+                        height: "16",
+                        viewBox: "0 0 17 16"
+                      }, [
+                        createElementVNode("path", { d: "M13.2334 7.05747L9.70742 3.52881L8.76675 4.47147L12.2927 8.00014L8.76675 11.5288L9.71009 12.4715L13.2334 8.94281C13.4834 8.69277 13.6238 8.35369 13.6238 8.00014C13.6238 7.64659 13.4834 7.30751 13.2334 7.05747Z" }),
+                        createElementVNode("path", { d: "M9.04055 7.52881L5.04055 3.52881L4.09988 4.47147L7.62588 8.00014L4.09988 11.5288L5.04322 12.4715L9.04322 8.47147C9.16784 8.3461 9.23758 8.17637 9.23708 7.99959C9.23658 7.82281 9.16589 7.65347 9.04055 7.52881Z" })
+                      ]))
                     ]),
                     _: 1
                   })
-                ], 10, _hoisted_8)
+                ], 10, ["aria-label", "onClick"])
               ], 2)
             ], 2), [
               [vShow, currentView.value !== "time"]
@@ -666,11 +704,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 key: 2,
                 ref_key: "currentViewRef",
                 ref: currentViewRef,
+                "selection-mode": unref(selectionMode),
                 date: innerDate.value,
                 "parsed-value": _ctx.parsedValue,
                 "disabled-date": unref(disabledDate),
                 onPick: handleMonthPick
-              }, null, 8, ["date", "parsed-value", "disabled-date"])) : createCommentVNode("v-if", true)
+              }, null, 8, ["selection-mode", "date", "parsed-value", "disabled-date"])) : createCommentVNode("v-if", true)
             ], 34)
           ], 2)
         ], 2),
@@ -689,7 +728,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             ]),
             _: 1
           }, 8, ["class", "disabled"]), [
-            [vShow, unref(selectionMode) !== "dates" && unref(selectionMode) !== "years"]
+            [vShow, !unref(isMultipleType) && _ctx.showNow]
           ]),
           createVNode(unref(ElButton), {
             plain: "",

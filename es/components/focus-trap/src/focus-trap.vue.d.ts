@@ -4,7 +4,7 @@ declare const _default: import("vue").DefineComponent<{
     trapped: BooleanConstructor;
     focusTrapEl: PropType<HTMLElement>;
     focusStartEl: {
-        type: PropType<HTMLElement | "container" | "first">;
+        type: PropType<"container" | "first" | HTMLElement>;
         default: string;
     };
 }, {
@@ -14,19 +14,19 @@ declare const _default: import("vue").DefineComponent<{
     trapped: BooleanConstructor;
     focusTrapEl: PropType<HTMLElement>;
     focusStartEl: {
-        type: PropType<HTMLElement | "container" | "first">;
+        type: PropType<"container" | "first" | HTMLElement>;
         default: string;
     };
 }>> & {
-    onFocusAfterReleased?: ((...args: any[]) => any) | undefined;
-    onFocusAfterTrapped?: ((...args: any[]) => any) | undefined;
     onFocusin?: ((...args: any[]) => any) | undefined;
     onFocusout?: ((...args: any[]) => any) | undefined;
+    onFocusAfterTrapped?: ((...args: any[]) => any) | undefined;
+    onFocusAfterReleased?: ((...args: any[]) => any) | undefined;
     "onFocusout-prevented"?: ((...args: any[]) => any) | undefined;
     "onRelease-requested"?: ((...args: any[]) => any) | undefined;
 }, {
-    trapped: boolean;
     loop: boolean;
-    focusStartEl: HTMLElement | "container" | "first";
+    trapped: boolean;
+    focusStartEl: HTMLElement | "first" | "container";
 }>;
 export default _default;

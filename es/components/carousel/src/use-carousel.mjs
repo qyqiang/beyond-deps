@@ -1,9 +1,7 @@
 import { getCurrentInstance, useSlots, ref, computed, unref, isVNode, watch, shallowRef, onMounted, onBeforeUnmount, provide } from 'vue';
 import { throttle } from 'lodash-unified';
 import { useResizeObserver } from '@vueuse/core';
-import '../../../utils/index.mjs';
-import '../../../hooks/index.mjs';
-import { carouselContextKey } from './constants.mjs';
+import { CAROUSEL_ITEM_NAME, carouselContextKey } from './constants.mjs';
 import { useOrderedChildren } from '../../../hooks/use-ordered-children/index.mjs';
 import { isString } from '@vue/shared';
 import { debugWarn } from '../../../utils/error.mjs';
@@ -15,7 +13,7 @@ const useCarousel = (props, emit, componentName) => {
     children: items,
     addChild: addItem,
     removeChild: removeItem
-  } = useOrderedChildren(getCurrentInstance(), "ElCarouselItem");
+  } = useOrderedChildren(getCurrentInstance(), CAROUSEL_ITEM_NAME);
   const slots = useSlots();
   const activeIndex = ref(-1);
   const timer = ref(null);
@@ -199,9 +197,8 @@ const useCarousel = (props, emit, componentName) => {
     if (!defaultSlots)
       return null;
     const flatSlots = flattedChildren(defaultSlots);
-    const carouselItemsName = "ElCarouselItem";
     const normalizeSlots = flatSlots.filter((slot) => {
-      return isVNode(slot) && slot.type.name === carouselItemsName;
+      return isVNode(slot) && slot.type.name === CAROUSEL_ITEM_NAME;
     });
     if ((normalizeSlots == null ? void 0 : normalizeSlots.length) === 2 && props.loop && !isCardType.value) {
       isItemsTwoLength.value = true;
@@ -253,6 +250,7 @@ const useCarousel = (props, emit, componentName) => {
     isVertical,
     items,
     loop: props.loop,
+    cardScale: props.cardScale,
     addItem,
     removeItem,
     setActiveItem,

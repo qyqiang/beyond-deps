@@ -1,17 +1,15 @@
 import { placements } from '@popperjs/core';
-import '../../../hooks/index.mjs';
-import '../../../utils/index.mjs';
-import '../../tooltip/index.mjs';
 import { CircleClose } from '@element-plus/icons-vue';
-import '../../tag/index.mjs';
 import { defaultProps } from './useProps.mjs';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { iconPropType } from '../../../utils/vue/icon.mjs';
-import { useTooltipContentProps } from '../../tooltip/src/content.mjs';
+import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';
 import { useSizeProp } from '../../../hooks/use-size/index.mjs';
 import { tagProps } from '../../tag/src/tag2.mjs';
+import { isBoolean, isNumber } from '../../../utils/types.mjs';
 import { useEmptyValuesProps } from '../../../hooks/use-empty-values/index.mjs';
 import { useAriaProps } from '../../../hooks/use-aria/index.mjs';
+import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 
 const SelectProps = buildProps({
   allowCreate: Boolean,
@@ -20,6 +18,10 @@ const SelectProps = buildProps({
     default: "none"
   },
   floatLabel: {
+    type: Boolean,
+    default: true
+  },
+  preStar: {
     type: Boolean,
     default: true
   },
@@ -109,6 +111,14 @@ const SelectProps = buildProps({
     type: Boolean,
     default: true
   },
+  offset: {
+    type: Number,
+    default: 12
+  },
+  showArrow: {
+    type: Boolean,
+    default: true
+  },
   placement: {
     type: definePropType(String),
     values: placements,
@@ -120,6 +130,18 @@ const SelectProps = buildProps({
   },
   tagType: { ...tagProps.type, default: "info" },
   tagEffect: { ...tagProps.effect, default: "light" },
+  tabindex: {
+    type: [String, Number],
+    default: 0
+  },
+  appendTo: String,
+  fitInputWidth: {
+    type: [Boolean, Number],
+    default: true,
+    validator(val) {
+      return isBoolean(val) || isNumber(val);
+    }
+  },
   ...useEmptyValuesProps,
   ...useAriaProps(["ariaLabel"])
 });
@@ -136,6 +158,19 @@ const OptionProps = buildProps({
   selected: Boolean,
   created: Boolean
 });
+const selectEmits = {
+  [UPDATE_MODEL_EVENT]: (val) => true,
+  [CHANGE_EVENT]: (val) => true,
+  "remove-tag": (val) => true,
+  "visible-change": (visible) => true,
+  focus: (evt) => evt instanceof FocusEvent,
+  blur: (evt) => evt instanceof FocusEvent,
+  clear: () => true
+};
+const optionEmits = {
+  hover: (index) => isNumber(index),
+  select: (val, index) => true
+};
 
-export { OptionProps, SelectProps };
+export { OptionProps, SelectProps, optionEmits, selectEmits };
 //# sourceMappingURL=defaults.mjs.map

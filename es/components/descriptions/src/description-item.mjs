@@ -1,5 +1,4 @@
 import { defineComponent } from 'vue';
-import '../../../utils/index.mjs';
 import { buildProps } from '../../../utils/vue/props/runtime.mjs';
 
 const descriptionItemProps = buildProps({
@@ -11,11 +10,19 @@ const descriptionItemProps = buildProps({
     type: Number,
     default: 1
   },
+  rowspan: {
+    type: Number,
+    default: 1
+  },
   width: {
     type: [String, Number],
     default: ""
   },
   minWidth: {
+    type: [String, Number],
+    default: ""
+  },
+  labelWidth: {
     type: [String, Number],
     default: ""
   },

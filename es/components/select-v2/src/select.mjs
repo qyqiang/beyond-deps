@@ -1,18 +1,15 @@
-import { defineComponent, computed, reactive, toRefs, provide, createElementVNode, resolveComponent, resolveDirective, withDirectives, openBlock, createElementBlock, normalizeClass, createVNode, withCtx, withModifiers, toDisplayString, createCommentVNode, renderSlot, Fragment, renderList, normalizeStyle, createTextVNode, createBlock, withKeys, vModelText, vShow, createSlots, normalizeProps, guardReactiveProps } from 'vue';
-import '../../../utils/index.mjs';
-import '../../../directives/index.mjs';
+import { defineComponent, computed, reactive, toRefs, provide, resolveComponent, resolveDirective, withDirectives, openBlock, createElementBlock, normalizeClass, createVNode, withCtx, createElementVNode, withModifiers, toDisplayString, createCommentVNode, renderSlot, Fragment, renderList, normalizeStyle, createTextVNode, createBlock, withKeys, vModelText, vShow, createSlots, normalizeProps, guardReactiveProps } from 'vue';
 import { ElTooltip } from '../../tooltip/index.mjs';
 import { ElTag } from '../../tag/index.mjs';
 import { ElIcon } from '../../icon/index.mjs';
-import '../../../constants/index.mjs';
 import ElSelectMenu from './select-dropdown.mjs';
 import useSelect from './useSelect.mjs';
-import { SelectProps } from './defaults.mjs';
+import { SelectProps, selectEmits } from './defaults.mjs';
 import { selectV2InjectionKey } from './token.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import ClickOutside from '../../../directives/click-outside/index.mjs';
-import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 import { isArray } from '@vue/shared';
+import { useCalcInputWidth } from '../../../hooks/use-calc-input-width/index.mjs';
 
 const _sfc_main = defineComponent({
   name: "ElSelectV2",
@@ -24,15 +21,7 @@ const _sfc_main = defineComponent({
   },
   directives: { ClickOutside },
   props: SelectProps,
-  emits: [
-    UPDATE_MODEL_EVENT,
-    CHANGE_EVENT,
-    "remove-tag",
-    "clear",
-    "visible-change",
-    "focus",
-    "blur"
-  ],
+  emits: selectEmits,
   setup(props, { emit }) {
     const modelValue = computed(() => {
       const { modelValue: rawModelValue, multiple } = props;
@@ -46,46 +35,35 @@ const _sfc_main = defineComponent({
       ...toRefs(props),
       modelValue
     }), emit);
+    const { calculatorRef, inputStyle } = useCalcInputWidth();
     provide(selectV2InjectionKey, {
       props: reactive({
         ...toRefs(props),
         height: API.popupHeight,
         modelValue
       }),
+      expanded: API.expanded,
       tooltipRef: API.tooltipRef,
       onSelect: API.onSelect,
       onHover: API.onHover,
       onKeyboardNavigate: API.onKeyboardNavigate,
       onKeyboardSelect: API.onKeyboardSelect
     });
+    const selectedLabel = computed(() => {
+      if (!props.multiple) {
+        return API.states.selectedLabel;
+      }
+      return API.states.cachedOptions.map((i) => i.label);
+    });
     return {
       ...API,
-      modelValue
+      modelValue,
+      selectedLabel,
+      calculatorRef,
+      inputStyle
     };
   }
 });
-const _hoisted_1 = {
-  key: 0,
-  class: "float-label"
-};
-const _hoisted_2 = ["id", "autocomplete", "aria-expanded", "aria-label", "disabled", "readonly", "name"];
-const _hoisted_3 = ["textContent"];
-const _hoisted_4 = /* @__PURE__ */ createElementVNode("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "12",
-  height: "12",
-  viewBox: "0 0 12 12"
-}, [
-  /* @__PURE__ */ createElementVNode("path", { d: "M5.99992 7.75002C5.86862 7.75024 5.73856 7.72452 5.61723 7.67432C5.4959 7.62413 5.38569 7.55045 5.29292 7.45752L2.64642 4.81052L3.35342 4.10352L5.99992 6.75002L8.64642 4.10352L9.35342 4.81052L6.70692 7.45702C6.6142 7.55004 6.50401 7.62381 6.38267 7.67409C6.26134 7.72438 6.13126 7.75018 5.99992 7.75002Z" })
-], -1);
-const _hoisted_5 = /* @__PURE__ */ createElementVNode("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "12",
-  height: "12",
-  viewBox: "0 0 12 12"
-}, [
-  /* @__PURE__ */ createElementVNode("path", { d: "M9.35349 3.35342L8.64648 2.64642L5.99998 5.29292L3.35348 2.64642L2.64648 3.35342L5.29298 5.99992L2.64648 8.64642L3.35348 9.35342L5.99998 6.70692L8.64648 9.35342L9.35349 8.64642L6.70698 5.99992L9.35349 3.35342Z" })
-], -1);
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_tag = resolveComponent("el-tag");
   const _component_el_tooltip = resolveComponent("el-tooltip");
@@ -95,8 +73,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createElementBlock("div", {
     ref: "selectRef",
     class: normalizeClass([_ctx.nsSelect.b(), _ctx.nsSelect.m(_ctx.selectSize)]),
-    onMouseenter: _cache[15] || (_cache[15] = ($event) => _ctx.states.inputHovering = true),
-    onMouseleave: _cache[16] || (_cache[16] = ($event) => _ctx.states.inputHovering = false)
+    onMouseenter: ($event) => _ctx.states.inputHovering = true,
+    onMouseleave: ($event) => _ctx.states.inputHovering = false
   }, [
     createVNode(_component_el_tooltip, {
       ref: "tooltipRef",
@@ -113,8 +91,11 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       transition: `${_ctx.nsSelect.namespace.value}-zoom-in-top`,
       trigger: "click",
       persistent: _ctx.persistent,
+      "append-to": _ctx.appendTo,
+      "show-arrow": _ctx.showArrow,
+      offset: _ctx.offset,
       onBeforeShow: _ctx.handleMenuEnter,
-      onHide: _cache[14] || (_cache[14] = ($event) => _ctx.states.isBeforeHide = false)
+      onHide: ($event) => _ctx.states.isBeforeHide = false
     }, {
       default: withCtx(() => [
         createElementVNode("div", {
@@ -125,11 +106,15 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
             _ctx.nsSelect.is("hovering", _ctx.states.inputHovering),
             _ctx.nsSelect.is("filterable", _ctx.filterable),
             _ctx.nsSelect.is("disabled", _ctx.selectDisabled),
-            _ctx.nsSelect.is("value", _ctx.hasModelValue)
+            _ctx.nsSelect.is("value", _ctx.hasModelValue),
+            _ctx.preStar && !_ctx.isFocused && !_ctx.hasModelValue ? "pre-star-item" : ""
           ]),
-          onClick: _cache[13] || (_cache[13] = withModifiers((...args) => _ctx.toggleMenu && _ctx.toggleMenu(...args), ["prevent", "stop"]))
+          onClick: withModifiers(_ctx.toggleMenu, ["prevent"])
         }, [
-          _ctx.floatLabel ? (openBlock(), createElementBlock("span", _hoisted_1, toDisplayString(_ctx.placeholder), 1)) : createCommentVNode("v-if", true),
+          _ctx.floatLabel ? (openBlock(), createElementBlock("span", {
+            key: 0,
+            class: "float-label"
+          }, toDisplayString(_ctx.placeholder), 1)) : createCommentVNode("v-if", true),
           _ctx.$slots.prefix ? (openBlock(), createElementBlock("div", {
             key: 1,
             ref: "prefixRef",
@@ -246,8 +231,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 _: 3
               }, 8, ["disabled", "effect", "teleported"])) : createCommentVNode("v-if", true)
             ]) : createCommentVNode("v-if", true),
-            !_ctx.selectDisabled ? (openBlock(), createElementBlock("div", {
-              key: 1,
+            createElementVNode("div", {
               class: normalizeClass([
                 _ctx.nsSelect.e("selected-item"),
                 _ctx.nsSelect.e("input-wrapper"),
@@ -257,9 +241,10 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
               withDirectives(createElementVNode("input", {
                 id: _ctx.inputId,
                 ref: "inputRef",
-                "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.states.inputValue = $event),
+                "onUpdate:modelValue": ($event) => _ctx.states.inputValue = $event,
                 style: normalizeStyle(_ctx.inputStyle),
                 autocomplete: _ctx.autocomplete,
+                tabindex: _ctx.tabindex,
                 "aria-autocomplete": "list",
                 "aria-haspopup": "listbox",
                 autocapitalize: "off",
@@ -272,21 +257,19 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 spellcheck: "false",
                 type: "text",
                 name: _ctx.name,
-                onFocus: _cache[1] || (_cache[1] = (...args) => _ctx.handleFocus && _ctx.handleFocus(...args)),
-                onBlur: _cache[2] || (_cache[2] = (...args) => _ctx.handleBlur && _ctx.handleBlur(...args)),
-                onInput: _cache[3] || (_cache[3] = (...args) => _ctx.onInput && _ctx.onInput(...args)),
-                onCompositionstart: _cache[4] || (_cache[4] = (...args) => _ctx.handleCompositionStart && _ctx.handleCompositionStart(...args)),
-                onCompositionupdate: _cache[5] || (_cache[5] = (...args) => _ctx.handleCompositionUpdate && _ctx.handleCompositionUpdate(...args)),
-                onCompositionend: _cache[6] || (_cache[6] = (...args) => _ctx.handleCompositionEnd && _ctx.handleCompositionEnd(...args)),
+                onInput: _ctx.onInput,
+                onCompositionstart: _ctx.handleCompositionStart,
+                onCompositionupdate: _ctx.handleCompositionUpdate,
+                onCompositionend: _ctx.handleCompositionEnd,
                 onKeydown: [
-                  _cache[7] || (_cache[7] = withKeys(withModifiers(($event) => _ctx.onKeyboardNavigate("backward"), ["stop", "prevent"]), ["up"])),
-                  _cache[8] || (_cache[8] = withKeys(withModifiers(($event) => _ctx.onKeyboardNavigate("forward"), ["stop", "prevent"]), ["down"])),
-                  _cache[9] || (_cache[9] = withKeys(withModifiers((...args) => _ctx.onKeyboardSelect && _ctx.onKeyboardSelect(...args), ["stop", "prevent"]), ["enter"])),
-                  _cache[10] || (_cache[10] = withKeys(withModifiers((...args) => _ctx.handleEsc && _ctx.handleEsc(...args), ["stop", "prevent"]), ["esc"])),
-                  _cache[11] || (_cache[11] = withKeys(withModifiers((...args) => _ctx.handleDel && _ctx.handleDel(...args), ["stop"]), ["delete"]))
+                  withKeys(withModifiers(($event) => _ctx.onKeyboardNavigate("backward"), ["stop", "prevent"]), ["up"]),
+                  withKeys(withModifiers(($event) => _ctx.onKeyboardNavigate("forward"), ["stop", "prevent"]), ["down"]),
+                  withKeys(withModifiers(_ctx.onKeyboardSelect, ["stop", "prevent"]), ["enter"]),
+                  withKeys(withModifiers(_ctx.handleEsc, ["stop", "prevent"]), ["esc"]),
+                  withKeys(withModifiers(_ctx.handleDel, ["stop"]), ["delete"])
                 ],
-                onClick: _cache[12] || (_cache[12] = withModifiers((...args) => _ctx.toggleMenu && _ctx.toggleMenu(...args), ["stop"]))
-              }, null, 46, _hoisted_2), [
+                onClick: withModifiers(_ctx.toggleMenu, ["stop"])
+              }, null, 46, ["id", "onUpdate:modelValue", "autocomplete", "tabindex", "aria-expanded", "aria-label", "disabled", "readonly", "name", "onInput", "onCompositionstart", "onCompositionupdate", "onCompositionend", "onKeydown", "onClick"]), [
                 [vModelText, _ctx.states.inputValue]
               ]),
               _ctx.filterable ? (openBlock(), createElementBlock("span", {
@@ -295,10 +278,10 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 "aria-hidden": "true",
                 class: normalizeClass(_ctx.nsSelect.e("input-calculator")),
                 textContent: toDisplayString(_ctx.states.inputValue)
-              }, null, 10, _hoisted_3)) : createCommentVNode("v-if", true)
-            ], 2)) : createCommentVNode("v-if", true),
+              }, null, 10, ["textContent"])) : createCommentVNode("v-if", true)
+            ], 2),
             _ctx.shouldShowPlaceholder && _ctx.hasModelValue ? (openBlock(), createElementBlock("div", {
-              key: 2,
+              key: 1,
               class: normalizeClass([
                 _ctx.nsSelect.e("selected-item"),
                 _ctx.nsSelect.e("placeholder"),
@@ -322,7 +305,14 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
               class: normalizeClass([_ctx.nsSelect.e("caret"), _ctx.nsInput.e("icon"), _ctx.iconReverse])
             }, {
               default: withCtx(() => [
-                _hoisted_4
+                (openBlock(), createElementBlock("svg", {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "12",
+                  height: "12",
+                  viewBox: "0 0 12 12"
+                }, [
+                  createElementVNode("path", { d: "M5.99992 7.75002C5.86862 7.75024 5.73856 7.72452 5.61723 7.67432C5.4959 7.62413 5.38569 7.55045 5.29292 7.45752L2.64642 4.81052L3.35342 4.10352L5.99992 6.75002L8.64642 4.10352L9.35342 4.81052L6.70692 7.45702C6.6142 7.55004 6.50401 7.62381 6.38267 7.67409C6.26134 7.72438 6.13126 7.75018 5.99992 7.75002Z" })
+                ]))
               ]),
               _: 1
             }, 8, ["class"])), [
@@ -330,21 +320,36 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
             ]) : createCommentVNode("v-if", true),
             _ctx.showClearBtn && _ctx.clearIcon ? (openBlock(), createBlock(_component_el_icon, {
               key: 1,
-              class: normalizeClass([_ctx.nsSelect.e("caret"), _ctx.nsInput.e("icon")]),
+              class: normalizeClass([
+                _ctx.nsSelect.e("caret"),
+                _ctx.nsInput.e("icon"),
+                _ctx.nsSelect.e("clear")
+              ]),
               onClick: withModifiers(_ctx.handleClear, ["prevent", "stop"])
             }, {
               default: withCtx(() => [
-                _hoisted_5
+                (openBlock(), createElementBlock("svg", {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "12",
+                  height: "12",
+                  viewBox: "0 0 12 12"
+                }, [
+                  createElementVNode("path", { d: "M9.35349 3.35342L8.64648 2.64642L5.99998 5.29292L3.35348 2.64642L2.64648 3.35342L5.29298 5.99992L2.64648 8.64642L3.35348 9.35342L5.99998 6.70692L8.64648 9.35342L9.35349 8.64642L6.70698 5.99992L9.35349 3.35342Z" })
+                ]))
               ]),
               _: 1
             }, 8, ["class", "onClick"])) : createCommentVNode("v-if", true),
-            _ctx.validateState && _ctx.validateIcon ? (openBlock(), createBlock(_component_el_icon, {
+            _ctx.validateState && _ctx.validateIcon && _ctx.needStatusIcon ? (openBlock(), createBlock(_component_el_icon, {
               key: 2,
-              class: normalizeClass([_ctx.nsInput.e("icon"), _ctx.nsInput.e("validateIcon")]),
+              class: normalizeClass([
+                _ctx.nsInput.e("icon"),
+                _ctx.nsInput.e("validateIcon"),
+                _ctx.nsInput.is("loading", _ctx.validateState === "validating")
+              ]),
               innerHTML: _ctx.validateIcon
             }, null, 8, ["class", "innerHTML"])) : createCommentVNode("v-if", true)
           ], 2)
-        ], 2)
+        ], 10, ["onClick"])
       ]),
       content: withCtx(() => [
         createVNode(_component_el_select_menu, {
@@ -403,8 +408,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         ]), 1032, ["data", "width", "hovering-index", "scrollbar-always-on"])
       ]),
       _: 3
-    }, 8, ["visible", "teleported", "popper-class", "popper-options", "fallback-placements", "effect", "placement", "transition", "persistent", "onBeforeShow"])
-  ], 34)), [
+    }, 8, ["visible", "teleported", "popper-class", "popper-options", "fallback-placements", "effect", "placement", "transition", "persistent", "append-to", "show-arrow", "offset", "onBeforeShow", "onHide"])
+  ], 42, ["onMouseenter", "onMouseleave"])), [
     [_directive_click_outside, _ctx.handleClickOutside, _ctx.popperRef]
   ]);
 }

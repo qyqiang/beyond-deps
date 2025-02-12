@@ -1,4 +1,3 @@
-import '../../../../utils/index.mjs';
 import Node from './node.mjs';
 import { getNodeKey } from './util.mjs';
 import { hasOwn, isObject } from '@vue/shared';
@@ -44,10 +43,8 @@ class TreeStore {
         let allHidden = true;
         allHidden = !childNodes.some((child) => child.visible);
         if (node.root) {
-          ;
           node.root.visible = allHidden === false;
         } else {
-          ;
           node.visible = allHidden === false;
         }
       }
@@ -55,7 +52,6 @@ class TreeStore {
         return;
       if (node.visible && !node.isLeaf) {
         if (!lazy || node.loaded) {
-          ;
           node.expand();
         }
       }
@@ -65,8 +61,10 @@ class TreeStore {
   setData(newVal) {
     const instanceChanged = newVal !== this.root.data;
     if (instanceChanged) {
+      this.nodesMap = {};
       this.root.setData(newVal);
       this._initDefaultCheckedNodes();
+      this.setCurrentNodeKey(this.currentNodeKey);
     } else {
       this.root.updateChildren();
     }
@@ -300,6 +298,7 @@ class TreeStore {
     }
   }
   setCurrentNodeKey(key, shouldAutoExpandParent = true) {
+    this.currentNodeKey = key;
     if (key === null || key === void 0) {
       this.currentNode && (this.currentNode.isCurrent = false);
       this.currentNode = null;

@@ -1,4 +1,3 @@
-import '../../utils/index.mjs';
 import CheckTag from './src/check-tag.mjs';
 export { checkTagEmits, checkTagProps } from './src/check-tag2.mjs';
 import { withInstall } from '../../utils/vue/install.mjs';

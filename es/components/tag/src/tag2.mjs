@@ -1,12 +1,22 @@
-import '../../../utils/index.mjs';
-import '../../../constants/index.mjs';
 import { buildProps } from '../../../utils/vue/props/runtime.mjs';
 import { componentSizes } from '../../../constants/size.mjs';
 
 const tagProps = buildProps({
   type: {
     type: String,
-    values: ["primary", "success", "info", "warning", "danger"],
+    values: [
+      "primary",
+      "success",
+      "info",
+      "warning",
+      "danger",
+      "gray",
+      "blue",
+      "cyan",
+      "green",
+      "orange",
+      "red"
+    ],
     default: "primary"
   },
   closable: Boolean,

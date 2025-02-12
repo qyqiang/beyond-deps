@@ -1,12 +1,8 @@
-import { NOOP, isString, isObject } from '@vue/shared';
-import '../../../utils/index.mjs';
-import '../../tooltip/index.mjs';
-import '../../../hooks/index.mjs';
-import '../../../constants/index.mjs';
-import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
-import { useTooltipContentProps } from '../../tooltip/src/content.mjs';
-import { useAriaProps } from '../../../hooks/use-aria/index.mjs';
+import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';
 import { UPDATE_MODEL_EVENT, INPUT_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
+import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
+import { NOOP, isString, isObject } from '@vue/shared';
+import { useAriaProps } from '../../../hooks/use-aria/index.mjs';
 
 const autocompleteProps = buildProps({
   valueKey: {

@@ -2,8 +2,6 @@ import { defineComponent, inject, watch, computed, openBlock, createElementBlock
 import { omit } from 'lodash-unified';
 import { ElButton } from '../../button/index.mjs';
 import { ElIcon } from '../../icon/index.mjs';
-import '../../../utils/index.mjs';
-import '../../../hooks/index.mjs';
 import { tourStepProps, tourStepEmits } from './step.mjs';
 import { tourKey } from './helper.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';

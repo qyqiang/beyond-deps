@@ -1,9 +1,7 @@
 import { defineComponent, getCurrentInstance, computed, inject, ref, reactive, watch, provide, onMounted, onBeforeUnmount, h, Fragment, withDirectives, vShow } from 'vue';
 import { useTimeoutFn } from '@vueuse/core';
-import _CollapseTransition from '../../collapse-transition/index.mjs';
+import { ElCollapseTransition } from '../../collapse-transition/index.mjs';
 import { ElTooltip } from '../../tooltip/index.mjs';
-import '../../../utils/index.mjs';
-import '../../../hooks/index.mjs';
 import { ArrowDown, ArrowRight } from '@element-plus/icons-vue';
 import { ElIcon } from '../../icon/index.mjs';
 import useMenu from './use-menu.mjs';
@@ -61,14 +59,12 @@ var SubMenu = defineComponent({
     let timeout;
     const mouseInChild = ref(false);
     const verticalTitleRef = ref();
-    const vPopper = ref(null);
+    const vPopper = ref();
     const currentPlacement = computed(() => mode.value === "horizontal" && isFirstLevel.value ? "bottom-start" : "right-start");
     const subMenuTitleIcon = computed(() => {
       return mode.value === "horizontal" && isFirstLevel.value || mode.value === "vertical" && !rootMenu.props.collapse ? props.expandCloseIcon && props.expandOpenIcon ? opened.value ? props.expandOpenIcon : props.expandCloseIcon : ArrowDown : props.collapseCloseIcon && props.collapseOpenIcon ? opened.value ? props.collapseOpenIcon : props.collapseCloseIcon : ArrowRight;
     });
-    const isFirstLevel = computed(() => {
-      return subMenu.level === 0;
-    });
+    const isFirstLevel = computed(() => subMenu.level === 0);
     const appendToBody = computed(() => {
       const value = props.teleported;
       return value === void 0 ? isFirstLevel.value : value;
@@ -92,20 +88,7 @@ var SubMenu = defineComponent({
       "top-end"
     ]);
     const opened = computed(() => rootMenu.openedMenus.includes(props.index));
-    const active = computed(() => {
-      let isActive = false;
-      Object.values(items.value).forEach((item2) => {
-        if (item2.active) {
-          isActive = true;
-        }
-      });
-      Object.values(subMenus.value).forEach((subItem) => {
-        if (subItem.active) {
-          isActive = true;
-        }
-      });
-      return isActive;
-    });
+    const active = computed(() => Object.values(items.value).some(({ active: active2 }) => active2) || Object.values(subMenus.value).some(({ active: active2 }) => active2));
     const mode = computed(() => rootMenu.props.mode);
     const item = reactive({
       index: props.index,
@@ -133,11 +116,7 @@ var SubMenu = defineComponent({
       var _a, _b, _c;
       return (_c = (_b = (_a = vPopper.value) == null ? void 0 : _a.popperRef) == null ? void 0 : _b.popperInstanceRef) == null ? void 0 : _c.destroy();
     };
-    const handleCollapseToggle = (value) => {
-      if (!value) {
-        doDestroy();
-      }
-    };
+    const handleCollapseToggle = (value) => !value && doDestroy();
     const handleClick = () => {
       if (rootMenu.props.menuTrigger === "hover" && rootMenu.props.mode === "horizontal" || rootMenu.props.collapse && rootMenu.props.mode === "vertical" || props.disabled)
         return;
@@ -149,9 +128,8 @@ var SubMenu = defineComponent({
     };
     const handleMouseenter = (event, showTimeout = subMenuShowTimeout.value) => {
       var _a;
-      if (event.type === "focus") {
+      if (event.type === "focus")
         return;
-      }
       if (rootMenu.props.menuTrigger === "click" && rootMenu.props.mode === "horizontal" || !rootMenu.props.collapse && rootMenu.props.mode === "vertical" || props.disabled) {
         subMenu.mouseInChild.value = true;
         return;
@@ -265,7 +243,7 @@ var SubMenu = defineComponent({
           ref: verticalTitleRef,
           onClick: handleClick
         }, titleTag),
-        h(_CollapseTransition, {}, {
+        h(ElCollapseTransition, {}, {
           default: () => {
             var _a2;
             return withDirectives(h("ul", {

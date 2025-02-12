@@ -1,4 +1,3 @@
-import '../../utils/index.mjs';
 import notify from './src/notify.mjs';
 export { notificationEmits, notificationProps, notificationTypes } from './src/notification2.mjs';
 import { withInstallFunction } from '../../utils/vue/install.mjs';

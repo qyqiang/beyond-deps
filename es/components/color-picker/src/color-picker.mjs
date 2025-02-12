@@ -1,14 +1,9 @@
-import { defineComponent, ref, reactive, computed, nextTick, onMounted, watch, provide, openBlock, createBlock, unref, withCtx, withDirectives, createElementBlock, withKeys, createElementVNode, normalizeClass, createVNode, createCommentVNode, createTextVNode, toDisplayString, mergeProps, normalizeStyle, vShow } from 'vue';
+import { defineComponent, ref, reactive, computed, onMounted, watch, nextTick, provide, openBlock, createBlock, unref, withCtx, withDirectives, createElementBlock, withKeys, createElementVNode, normalizeClass, createVNode, createCommentVNode, createTextVNode, toDisplayString, mergeProps, normalizeStyle, vShow } from 'vue';
 import { debounce } from 'lodash-unified';
 import { ElButton } from '../../button/index.mjs';
 import { ElIcon } from '../../icon/index.mjs';
-import '../../../directives/index.mjs';
 import { ElTooltip } from '../../tooltip/index.mjs';
 import { ElInput } from '../../input/index.mjs';
-import '../../form/index.mjs';
-import '../../../hooks/index.mjs';
-import '../../../constants/index.mjs';
-import '../../../utils/index.mjs';
 import { ArrowDown, Close } from '@element-plus/icons-vue';
 import AlphaSlider from './components/alpha-slider.mjs';
 import HueSlider from './components/hue-slider.mjs';
@@ -17,19 +12,16 @@ import SvPanel from './components/sv-panel.mjs';
 import Color from './utils/color.mjs';
 import { colorPickerProps, colorPickerEmits, colorPickerContextKey } from './color-picker2.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
+import ClickOutside from '../../../directives/click-outside/index.mjs';
 import { useLocale } from '../../../hooks/use-locale/index.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { useFormItem, useFormItemInputId } from '../../form/src/hooks/use-form-item.mjs';
 import { useFormSize, useFormDisabled } from '../../form/src/hooks/use-form-common-props.mjs';
 import { useFocusController } from '../../../hooks/use-focus-controller/index.mjs';
-import { useDeprecated } from '../../../hooks/use-deprecated/index.mjs';
 import { UPDATE_MODEL_EVENT } from '../../../constants/event.mjs';
 import { debugWarn } from '../../../utils/error.mjs';
 import { EVENT_CODE } from '../../../constants/aria.mjs';
-import ClickOutside from '../../../directives/click-outside/index.mjs';
 
-const _hoisted_1 = ["onKeydown"];
-const _hoisted_2 = ["id", "aria-label", "aria-labelledby", "aria-description", "aria-disabled", "tabindex"];
 const __default__ = defineComponent({
   name: "ElColorPicker"
 });
@@ -53,11 +45,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const popper = ref();
     const triggerRef = ref();
     const inputRef = ref();
-    const {
-      isFocused,
-      handleFocus: _handleFocus,
-      handleBlur
-    } = useFocusController(triggerRef, {
+    const { isFocused, handleFocus, handleBlur } = useFocusController(triggerRef, {
+      beforeFocus() {
+        return colorDisabled.value;
+      },
       beforeBlur(event) {
         var _a;
         return (_a = popper.value) == null ? void 0 : _a.isFocusInsideContent(event);
@@ -67,11 +58,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         resetColor();
       }
     });
-    const handleFocus = (event) => {
-      if (colorDisabled.value)
-        return blur();
-      _handleFocus(event);
-    };
     let shouldActiveChange = true;
     const color = reactive(new Color({
       enableAlpha: props.showAlpha,
@@ -91,15 +77,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return !props.modelValue && !showPanelColor.value ? "" : color.value;
     });
     const buttonAriaLabel = computed(() => {
-      return !isLabeledByFormItem.value ? props.label || props.ariaLabel || t("el.colorpicker.defaultLabel") : void 0;
+      return !isLabeledByFormItem.value ? props.ariaLabel || t("el.colorpicker.defaultLabel") : void 0;
     });
-    useDeprecated({
-      from: "label",
-      replacement: "aria-label",
-      version: "2.8.0",
-      scope: "el-color-picker",
-      ref: "https://element-plus.org/en-US/component/color-picker.html"
-    }, computed(() => !!props.label));
     const buttonAriaLabelledby = computed(() => {
       return isLabeledByFormItem.value ? formItem == null ? void 0 : formItem.labelId : void 0;
     });
@@ -146,6 +125,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     function handleTrigger() {
       if (colorDisabled.value)
         return;
+      if (showPicker.value) {
+        resetColor();
+      }
       debounceSetShowPicker(!showPicker.value);
     }
     function handleConfirm() {
@@ -179,14 +161,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
       resetColor();
     }
-    function handleClickOutside(event) {
+    function handleClickOutside() {
       if (!showPicker.value)
         return;
       hide();
-      if (isFocused.value) {
-        const _event = new FocusEvent("focus", event);
-        handleBlur(_event);
-      }
+      isFocused.value && focus();
     }
     function handleEsc(event) {
       event.preventDefault();
@@ -197,6 +176,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     function handleKeyDown(event) {
       switch (event.code) {
         case EVENT_CODE.enter:
+        case EVENT_CODE.numpadEnter:
         case EVENT_CODE.space:
           event.preventDefault();
           event.stopPropagation();
@@ -226,6 +206,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         shouldActiveChange = false;
         color.fromString(newVal);
       }
+    });
+    watch(() => [props.colorFormat, props.showAlpha], () => {
+      color.enableAlpha = props.showAlpha;
+      color.format = props.colorFormat || color.format;
+      color.doOnChange();
+      emit(UPDATE_MODEL_EVENT, color.value);
     });
     watch(() => currentColor.value, (val) => {
       customInput.value = val;
@@ -271,7 +257,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         teleported: _ctx.teleported,
         transition: `${unref(ns).namespace.value}-zoom-in-top`,
         persistent: "",
-        onHide: _cache[2] || (_cache[2] = ($event) => setShowPicker(false))
+        onHide: ($event) => setShowPicker(false)
       }, {
         content: withCtx(() => [
           withDirectives((openBlock(), createElementBlock("div", {
@@ -316,12 +302,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   ref_key: "inputRef",
                   ref: inputRef,
                   modelValue: customInput.value,
-                  "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => customInput.value = $event),
+                  "onUpdate:modelValue": ($event) => customInput.value = $event,
                   "validate-event": false,
                   size: "small",
                   onKeyup: withKeys(handleConfirm, ["enter"]),
                   onBlur: handleConfirm
-                }, null, 8, ["modelValue", "onKeyup"])
+                }, null, 8, ["modelValue", "onUpdate:modelValue", "onKeyup"])
               ], 2),
               createVNode(unref(ElButton), {
                 class: normalizeClass(unref(ns).be("dropdown", "link-btn")),
@@ -346,8 +332,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 _: 1
               }, 8, ["class"])
             ], 2)
-          ], 40, _hoisted_1)), [
-            [unref(ClickOutside), handleClickOutside]
+          ], 40, ["onKeydown"])), [
+            [unref(ClickOutside), handleClickOutside, triggerRef.value]
           ])
         ]),
         default: withCtx(() => [
@@ -364,8 +350,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             "aria-disabled": unref(colorDisabled),
             tabindex: unref(colorDisabled) ? -1 : _ctx.tabindex,
             onKeydown: handleKeyDown,
-            onFocus: handleFocus,
-            onBlur: _cache[1] || (_cache[1] = (...args) => unref(handleBlur) && unref(handleBlur)(...args))
+            onFocus: unref(handleFocus),
+            onBlur: unref(handleBlur)
           }), [
             unref(colorDisabled) ? (openBlock(), createElementBlock("div", {
               key: 0,
@@ -407,10 +393,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 ], 6)
               ], 2)
             ], 2)
-          ], 16, _hoisted_2)
+          ], 16, ["id", "aria-label", "aria-labelledby", "aria-description", "aria-disabled", "tabindex", "onFocus", "onBlur"])
         ]),
         _: 1
-      }, 8, ["visible", "popper-class", "teleported", "transition"]);
+      }, 8, ["visible", "popper-class", "teleported", "transition", "onHide"]);
     };
   }
 });

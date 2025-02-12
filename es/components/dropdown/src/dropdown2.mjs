@@ -1,23 +1,16 @@
-import { defineComponent, getCurrentInstance, ref, computed, watch, onBeforeUnmount, unref, provide, toRef, resolveComponent, openBlock, createElementBlock, normalizeClass, createVNode, createSlots, withCtx, renderSlot, createBlock, mergeProps, createCommentVNode } from 'vue';
+import { defineComponent, getCurrentInstance, ref, computed, watch, onBeforeUnmount, provide, toRef, unref, resolveComponent, openBlock, createElementBlock, normalizeClass, createVNode, createSlots, withCtx, renderSlot, createBlock, mergeProps, createCommentVNode } from 'vue';
 import { ElButton } from '../../button/index.mjs';
 import { ElTooltip } from '../../tooltip/index.mjs';
 import { ElScrollbar } from '../../scrollbar/index.mjs';
 import { ElIcon } from '../../icon/index.mjs';
-import '../../roving-focus-group/index.mjs';
-import '../../slot/index.mjs';
-import '../../form/index.mjs';
-import '../../../utils/index.mjs';
+import ElRovingFocusGroup from '../../roving-focus-group/src/roving-focus-group2.mjs';
 import { ArrowDown } from '@element-plus/icons-vue';
-import '../../../constants/index.mjs';
-import '../../../hooks/index.mjs';
 import { ElCollection, dropdownProps } from './dropdown.mjs';
 import { DROPDOWN_INJECTION_KEY } from './tokens.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
-import ElRovingFocusGroup from '../../roving-focus-group/src/roving-focus-group.mjs';
 import { OnlyChild } from '../../slot/src/only-child.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { useLocale } from '../../../hooks/use-locale/index.mjs';
-import { EVENT_CODE } from '../../../constants/aria.mjs';
 import { addUnit } from '../../../utils/dom/style.mjs';
 import { castArray } from 'lodash-unified';
 import { useId } from '../../../hooks/use-id/index.mjs';
@@ -50,16 +43,13 @@ const _sfc_main = defineComponent({
     const scrollbar = ref(null);
     const currentTabId = ref(null);
     const isUsingKeyboard = ref(false);
-    const triggerKeys = [EVENT_CODE.enter, EVENT_CODE.space, EVENT_CODE.down];
     const wrapStyle = computed(() => ({
       maxHeight: addUnit(props.maxHeight)
     }));
     const dropdownTriggerKls = computed(() => [ns.m(dropdownSize.value)]);
     const trigger = computed(() => castArray(props.trigger));
     const defaultTriggerId = useId().value;
-    const triggerId = computed(() => {
-      return props.id || defaultTriggerId;
-    });
+    const triggerId = computed(() => props.id || defaultTriggerId);
     watch([triggeringElementRef, trigger], ([triggeringElement, trigger2], [prevTriggeringElement]) => {
       var _a, _b, _c;
       if ((_a = prevTriggeringElement == null ? void 0 : prevTriggeringElement.$el) == null ? void 0 : _a.removeEventListener) {
@@ -158,7 +148,6 @@ const _sfc_main = defineComponent({
       dropdownTriggerKls,
       dropdownSize,
       triggerId,
-      triggerKeys,
       currentTabId,
       handleCurrentTabIdChange,
       handlerMainButtonClick,
