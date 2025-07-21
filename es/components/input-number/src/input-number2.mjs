@@ -13,8 +13,8 @@ import { isNumber, isUndefined } from '../../../utils/types.mjs';
 import { debugWarn, throwError } from '../../../utils/error.mjs';
 import { useFormSize, useFormDisabled } from '../../form/src/hooks/use-form-common-props.mjs';
 import { UPDATE_MODEL_EVENT, INPUT_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
+import { EVENT_CODE } from '../../../constants/aria.mjs';
 import { isString } from '@vue/shared';
-import { isFirefox } from '../../../utils/browser.mjs';
 
 const __default__ = defineComponent({
   name: "ElInputNumber"
@@ -100,7 +100,33 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const ensurePrecision = (val, coefficient = 1) => {
       if (!isNumber(val))
         return data.currentValue;
+      if (val >= Number.MAX_SAFE_INTEGER && coefficient === 1) {
+        debugWarn("InputNumber", "The value has reached the maximum safe integer limit.");
+        return val;
+      } else if (val <= Number.MIN_SAFE_INTEGER && coefficient === -1) {
+        debugWarn("InputNumber", "The value has reached the minimum safe integer limit.");
+        return val;
+      }
       return toPrecision(val + props.step * coefficient);
+    };
+    const handleKeydown = (event) => {
+      var _a;
+      const e = event;
+      if (props.disabledScientific && ["e", "E"].includes(e.key)) {
+        e.preventDefault();
+        return;
+      }
+      const keyHandlers = {
+        [EVENT_CODE.up]: () => {
+          e.preventDefault();
+          increase();
+        },
+        [EVENT_CODE.down]: () => {
+          e.preventDefault();
+          decrease();
+        }
+      };
+      (_a = keyHandlers[e.key]) == null ? void 0 : _a.call(keyHandlers);
     };
     const increase = () => {
       if (props.readonly || inputNumberDisabled.value || maxDisabled.value)
@@ -198,7 +224,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const handleBlur = (event) => {
       var _a, _b;
       data.userInput = null;
-      if (isFirefox() && data.currentValue === null && ((_a = input.value) == null ? void 0 : _a.input)) {
+      if (data.currentValue === null && ((_a = input.value) == null ? void 0 : _a.input)) {
         input.value.input.value = "";
       }
       emit("blur", event);
@@ -263,7 +289,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           unref(ns).m(unref(inputNumberSize)),
           unref(ns).is("disabled", unref(inputNumberDisabled)),
           unref(ns).is("without-controls", !_ctx.controls),
-          unref(ns).is("controls-right", unref(controlsAtRight))
+          unref(ns).is("controls-right", unref(controlsAtRight)),
+          unref(ns).is(_ctx.align, !!_ctx.align)
         ]),
         onDragstart: withModifiers(() => {
         }, ["prevent"])
@@ -320,10 +347,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           name: _ctx.name,
           "aria-label": _ctx.ariaLabel,
           "validate-event": false,
-          onKeydown: [
-            withKeys(withModifiers(increase, ["prevent"]), ["up"]),
-            withKeys(withModifiers(decrease, ["prevent"]), ["down"])
-          ],
+          inputmode: _ctx.inputmode,
+          onKeydown: handleKeydown,
           onBlur: handleBlur,
           onFocus: handleFocus,
           onInput: handleInput,
@@ -343,7 +368,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               renderSlot(_ctx.$slots, "suffix")
             ])
           } : void 0
-        ]), 1032, ["id", "step", "model-value", "placeholder", "readonly", "disabled", "size", "max", "min", "name", "aria-label", "onKeydown"])
+        ]), 1032, ["id", "step", "model-value", "placeholder", "readonly", "disabled", "size", "max", "min", "name", "aria-label", "inputmode"])
       ], 42, ["onDragstart"]);
     };
   }

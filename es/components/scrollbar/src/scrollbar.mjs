@@ -11,10 +11,7 @@ const scrollbarProps = buildProps({
     type: [String, Number],
     default: ""
   },
-  native: {
-    type: Boolean,
-    default: false
-  },
+  native: Boolean,
   wrapStyle: {
     type: definePropType([String, Object, Array]),
     default: ""
@@ -50,6 +47,7 @@ const scrollbarProps = buildProps({
   ...useAriaProps(["ariaLabel", "ariaOrientation"])
 });
 const scrollbarEmits = {
+  "end-reached": (direction) => ["left", "right", "top", "bottom"].includes(direction),
   scroll: ({
     scrollTop,
     scrollLeft

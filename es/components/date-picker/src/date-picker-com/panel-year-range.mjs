@@ -1,18 +1,19 @@
-import { defineComponent, ref, inject, computed, useSlots, toRef, watch, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, renderSlot, Fragment, renderList, toDisplayString, createCommentVNode, createVNode, withCtx } from 'vue';
+import { defineComponent, ref, inject, toRef, computed, useSlots, watch, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, renderSlot, Fragment, renderList, toDisplayString, createCommentVNode, createVNode, withCtx, createBlock } from 'vue';
 import dayjs from 'dayjs';
-import { DArrowLeft, DArrowRight } from '@element-plus/icons-vue';
+import ElButton from '../../../button/src/button.mjs';
 import { ElIcon } from '../../../icon/index.mjs';
 import { panelYearRangeProps, panelYearRangeEmits } from '../props/panel-year-range.mjs';
-import { useShortcut } from '../composables/use-shortcut.mjs';
 import { useYearRangeHeader } from '../composables/use-year-range-header.mjs';
-import { isValidRange } from '../utils.mjs';
-import { ROOT_PICKER_INJECTION_KEY } from '../constants.mjs';
+import { useRangePicker } from '../composables/use-range-picker.mjs';
+import { correctlyParseUserInput, isValidRange, getDefaultValue } from '../utils.mjs';
+import { ROOT_PICKER_IS_DEFAULT_FORMAT_INJECTION_KEY } from '../constants.mjs';
 import YearTable from './basic-year-table.mjs';
 import _export_sfc from '../../../../_virtual/plugin-vue_export-helper.mjs';
 import { useLocale } from '../../../../hooks/use-locale/index.mjs';
-import { useNamespace } from '../../../../hooks/use-namespace/index.mjs';
+import { PICKER_BASE_INJECTION_KEY } from '../../../time-picker/src/constants.mjs';
 import { isArray } from '@vue/shared';
 
+const step = 10;
 const unit = "year";
 const __default__ = defineComponent({
   name: "DatePickerYearRange"
@@ -25,9 +26,45 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const props = __props;
     const { lang } = useLocale();
     const leftDate = ref(dayjs().locale(lang.value));
-    const rightDate = ref(leftDate.value.add(10, "year"));
-    const { pickerNs: ppNs } = inject(ROOT_PICKER_INJECTION_KEY);
-    const drpNs = useNamespace("date-range-picker");
+    const rightDate = ref(dayjs().locale(lang.value).add(step, unit));
+    const isDefaultFormat = inject(ROOT_PICKER_IS_DEFAULT_FORMAT_INJECTION_KEY);
+    const pickerBase = inject(PICKER_BASE_INJECTION_KEY);
+    const { shortcuts, disabledDate } = pickerBase.props;
+    const format = toRef(pickerBase.props, "format");
+    const defaultValue = toRef(pickerBase.props, "defaultValue");
+    const {
+      minDate,
+      maxDate,
+      rangeState,
+      ppNs,
+      drpNs,
+      handleChangeRange,
+      handleRangeConfirm,
+      handleShortcutClick,
+      onSelect,
+      onReset
+    } = useRangePicker(props, {
+      defaultValue,
+      leftDate,
+      rightDate,
+      step,
+      unit,
+      onParsedValueChanged
+    });
+    const {
+      leftPrevYear,
+      rightNextYear,
+      leftNextYear,
+      rightPrevYear,
+      leftLabel,
+      rightLabel,
+      leftYear,
+      rightYear
+    } = useYearRangeHeader({
+      unlinkPanels: toRef(props, "unlinkPanels"),
+      leftDate,
+      rightDate
+    });
     const hasShortcuts = computed(() => !!shortcuts.length);
     const panelKls = computed(() => [
       ppNs.b(),
@@ -58,33 +95,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         arrowRightBtn: [ppNs.e("icon-btn"), "d-arrow-right"]
       };
     });
-    const handleShortcutClick = useShortcut(lang);
-    const {
-      leftPrevYear,
-      rightNextYear,
-      leftNextYear,
-      rightPrevYear,
-      leftLabel,
-      rightLabel,
-      leftYear,
-      rightYear
-    } = useYearRangeHeader({
-      unlinkPanels: toRef(props, "unlinkPanels"),
-      leftDate,
-      rightDate
-    });
     const enableYearArrow = computed(() => {
       return props.unlinkPanels && rightYear.value > leftYear.value + 1;
     });
-    const minDate = ref();
-    const maxDate = ref();
-    const rangeState = ref({
-      endDate: null,
-      selecting: false
-    });
-    const handleChangeRange = (val) => {
-      rangeState.value = val;
-    };
     const handleRangePick = (val, close = true) => {
       const minDate_ = val.minDate;
       const maxDate_ = val.maxDate;
@@ -96,69 +109,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       minDate.value = minDate_;
       if (!close)
         return;
-      handleConfirm();
+      handleRangeConfirm();
     };
-    const handleConfirm = (visible = false) => {
-      if (isValidRange([minDate.value, maxDate.value])) {
-        emit("pick", [minDate.value, maxDate.value], visible);
-      }
-    };
-    const onSelect = (selecting) => {
-      rangeState.value.selecting = selecting;
-      if (!selecting) {
-        rangeState.value.endDate = null;
-      }
-    };
-    const pickerBase = inject("EP_PICKER_BASE");
-    const { shortcuts, disabledDate } = pickerBase.props;
-    const format = toRef(pickerBase.props, "format");
-    const defaultValue = toRef(pickerBase.props, "defaultValue");
-    const getDefaultValue = () => {
-      let start;
-      if (isArray(defaultValue.value)) {
-        const left = dayjs(defaultValue.value[0]);
-        let right = dayjs(defaultValue.value[1]);
-        if (!props.unlinkPanels) {
-          right = left.add(10, unit);
-        }
-        return [left, right];
-      } else if (defaultValue.value) {
-        start = dayjs(defaultValue.value);
-      } else {
-        start = dayjs();
-      }
-      start = start.locale(lang.value);
-      return [start, start.add(10, unit)];
-    };
-    watch(() => defaultValue.value, (val) => {
-      if (val) {
-        const defaultArr = getDefaultValue();
-        leftDate.value = defaultArr[0];
-        rightDate.value = defaultArr[1];
-      }
-    }, { immediate: true });
-    watch(() => props.parsedValue, (newVal) => {
-      if (newVal && newVal.length === 2) {
-        minDate.value = newVal[0];
-        maxDate.value = newVal[1];
-        leftDate.value = minDate.value;
-        if (props.unlinkPanels && maxDate.value) {
-          const minDateYear = minDate.value.year();
-          const maxDateYear = maxDate.value.year();
-          rightDate.value = minDateYear === maxDateYear ? maxDate.value.add(10, "year") : maxDate.value;
-        } else {
-          rightDate.value = leftDate.value.add(10, "year");
-        }
-      } else {
-        const defaultArr = getDefaultValue();
-        minDate.value = void 0;
-        maxDate.value = void 0;
-        leftDate.value = defaultArr[0];
-        rightDate.value = defaultArr[1];
-      }
-    }, { immediate: true });
     const parseUserInput = (value) => {
-      return isArray(value) ? value.map((_) => dayjs(_, format.value).locale(lang.value)) : dayjs(value, format.value).locale(lang.value);
+      return correctlyParseUserInput(value, format.value, lang.value, isDefaultFormat);
     };
     const formatToString = (value) => {
       return isArray(value) ? value.map((day) => day.format(format.value)) : value.format(format.value);
@@ -167,13 +121,31 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return isValidRange(date) && (disabledDate ? !disabledDate(date[0].toDate()) && !disabledDate(date[1].toDate()) : true);
     };
     const handleClear = () => {
-      const defaultArr = getDefaultValue();
+      const defaultArr = getDefaultValue(unref(defaultValue), {
+        lang: unref(lang),
+        step,
+        unit,
+        unlinkPanels: props.unlinkPanels
+      });
       leftDate.value = defaultArr[0];
       rightDate.value = defaultArr[1];
-      maxDate.value = void 0;
-      minDate.value = void 0;
       emit("pick", null);
     };
+    function onParsedValueChanged(minDate2, maxDate2) {
+      if (props.unlinkPanels && maxDate2) {
+        const minDateYear = (minDate2 == null ? void 0 : minDate2.year()) || 0;
+        const maxDateYear = maxDate2.year();
+        rightDate.value = minDateYear + step > maxDateYear ? maxDate2.add(step, unit) : maxDate2;
+      } else {
+        rightDate.value = leftDate.value.add(step, unit);
+      }
+    }
+    watch(() => props.visible, (visible) => {
+      if (!visible && rangeState.value.selecting) {
+        onReset(props.parsedValue);
+        onSelect(false);
+      }
+    });
     emit("set-picker-option", ["isValidValue", isValidValue]);
     emit("set-picker-option", ["parseUserInput", parseUserInput]);
     emit("set-picker-option", ["formatToString", formatToString]);
@@ -210,49 +182,74 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               createElementVNode("div", {
                 class: normalizeClass(unref(drpNs).e("header"))
               }, [
-                createElementVNode("button", {
-                  type: "button",
-                  class: normalizeClass(unref(leftPanelKls).arrowLeftBtn),
+                createVNode(ElButton, {
+                  text: "",
+                  class: normalizeClass(["icon-button", unref(leftPanelKls).arrowLeftBtn]),
                   onClick: unref(leftPrevYear)
-                }, [
-                  renderSlot(_ctx.$slots, "prev-year", {}, () => [
-                    createVNode(unref(ElIcon), null, {
-                      default: withCtx(() => [
-                        createVNode(unref(DArrowLeft))
-                      ]),
-                      _: 1
-                    })
-                  ])
-                ], 10, ["onClick"]),
-                _ctx.unlinkPanels ? (openBlock(), createElementBlock("button", {
+                }, {
+                  default: withCtx(() => [
+                    renderSlot(_ctx.$slots, "prev-year", {}, () => [
+                      createVNode(unref(ElIcon), {
+                        size: "16px",
+                        color: "#374957"
+                      }, {
+                        default: withCtx(() => [
+                          (openBlock(), createElementBlock("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "17",
+                            height: "16",
+                            viewBox: "0 0 17 16"
+                          }, [
+                            createElementVNode("path", { d: "M7.95949 4.47147L7.01683 3.52881L3.48816 7.05747C3.2382 7.30751 3.09778 7.64659 3.09778 8.00014C3.09778 8.35369 3.2382 8.69277 3.48816 8.94281L7.01683 12.4715L7.95949 11.5288L4.43349 8.00014L7.95949 4.47147Z" }),
+                            createElementVNode("path", { d: "M12.6259 4.47147L11.6833 3.52881L7.68329 7.52881C7.55831 7.65383 7.4881 7.82337 7.4881 8.00014C7.4881 8.17692 7.55831 8.34646 7.68329 8.47147L11.6833 12.4715L12.6259 11.5288L9.09995 8.00014L12.6259 4.47147Z" })
+                          ]))
+                        ]),
+                        _: 1
+                      })
+                    ])
+                  ]),
+                  _: 3
+                }, 8, ["class", "onClick"]),
+                _ctx.unlinkPanels ? (openBlock(), createBlock(ElButton, {
                   key: 0,
-                  type: "button",
+                  text: "",
+                  class: normalizeClass(["icon-button", unref(leftPanelKls).arrowRightBtn]),
                   disabled: !unref(enableYearArrow),
-                  class: normalizeClass(unref(leftPanelKls).arrowRightBtn),
                   onClick: unref(leftNextYear)
-                }, [
-                  renderSlot(_ctx.$slots, "next-year", {}, () => [
-                    createVNode(unref(ElIcon), null, {
-                      default: withCtx(() => [
-                        createVNode(unref(DArrowRight))
-                      ]),
-                      _: 1
-                    })
-                  ])
-                ], 10, ["disabled", "onClick"])) : createCommentVNode("v-if", true),
+                }, {
+                  default: withCtx(() => [
+                    renderSlot(_ctx.$slots, "next-year", {}, () => [
+                      createVNode(unref(ElIcon), { size: "16px" }, {
+                        default: withCtx(() => [
+                          (openBlock(), createElementBlock("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "17",
+                            height: "16",
+                            viewBox: "0 0 17 16"
+                          }, [
+                            createElementVNode("path", { d: "M13.2334 7.05747L9.70742 3.52881L8.76675 4.47147L12.2927 8.00014L8.76675 11.5288L9.71009 12.4715L13.2334 8.94281C13.4834 8.69277 13.6238 8.35369 13.6238 8.00014C13.6238 7.64659 13.4834 7.30751 13.2334 7.05747Z" }),
+                            createElementVNode("path", { d: "M9.04055 7.52881L5.04055 3.52881L4.09988 4.47147L7.62588 8.00014L4.09988 11.5288L5.04322 12.4715L9.04322 8.47147C9.16784 8.3461 9.23758 8.17637 9.23708 7.99959C9.23658 7.82281 9.16589 7.65347 9.04055 7.52881Z" })
+                          ]))
+                        ]),
+                        _: 1
+                      })
+                    ])
+                  ]),
+                  _: 3
+                }, 8, ["disabled", "class", "onClick"])) : createCommentVNode("v-if", true),
                 createElementVNode("div", null, toDisplayString(unref(leftLabel)), 1)
               ], 2),
               createVNode(YearTable, {
                 "selection-mode": "range",
                 date: leftDate.value,
-                "min-date": minDate.value,
-                "max-date": maxDate.value,
-                "range-state": rangeState.value,
+                "min-date": unref(minDate),
+                "max-date": unref(maxDate),
+                "range-state": unref(rangeState),
                 "disabled-date": unref(disabledDate),
-                onChangerange: handleChangeRange,
+                onChangerange: unref(handleChangeRange),
                 onPick: handleRangePick,
-                onSelect
-              }, null, 8, ["date", "min-date", "max-date", "range-state", "disabled-date"])
+                onSelect: unref(onSelect)
+              }, null, 8, ["date", "min-date", "max-date", "range-state", "disabled-date", "onChangerange", "onSelect"])
             ], 2),
             createElementVNode("div", {
               class: normalizeClass(unref(rightPanelKls).content)
@@ -260,49 +257,74 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               createElementVNode("div", {
                 class: normalizeClass(unref(drpNs).e("header"))
               }, [
-                _ctx.unlinkPanels ? (openBlock(), createElementBlock("button", {
+                _ctx.unlinkPanels ? (openBlock(), createBlock(ElButton, {
                   key: 0,
-                  type: "button",
+                  text: "",
+                  class: normalizeClass(["icon-button", unref(rightPanelKls).arrowLeftBtn]),
                   disabled: !unref(enableYearArrow),
-                  class: normalizeClass(unref(rightPanelKls).arrowLeftBtn),
                   onClick: unref(rightPrevYear)
-                }, [
-                  renderSlot(_ctx.$slots, "prev-year", {}, () => [
-                    createVNode(unref(ElIcon), null, {
-                      default: withCtx(() => [
-                        createVNode(unref(DArrowLeft))
-                      ]),
-                      _: 1
-                    })
-                  ])
-                ], 10, ["disabled", "onClick"])) : createCommentVNode("v-if", true),
-                createElementVNode("button", {
-                  type: "button",
-                  class: normalizeClass(unref(rightPanelKls).arrowRightBtn),
+                }, {
+                  default: withCtx(() => [
+                    renderSlot(_ctx.$slots, "prev-year", {}, () => [
+                      createVNode(unref(ElIcon), {
+                        size: "16px",
+                        color: "#374957"
+                      }, {
+                        default: withCtx(() => [
+                          (openBlock(), createElementBlock("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "17",
+                            height: "16",
+                            viewBox: "0 0 17 16"
+                          }, [
+                            createElementVNode("path", { d: "M7.95949 4.47147L7.01683 3.52881L3.48816 7.05747C3.2382 7.30751 3.09778 7.64659 3.09778 8.00014C3.09778 8.35369 3.2382 8.69277 3.48816 8.94281L7.01683 12.4715L7.95949 11.5288L4.43349 8.00014L7.95949 4.47147Z" }),
+                            createElementVNode("path", { d: "M12.6259 4.47147L11.6833 3.52881L7.68329 7.52881C7.55831 7.65383 7.4881 7.82337 7.4881 8.00014C7.4881 8.17692 7.55831 8.34646 7.68329 8.47147L11.6833 12.4715L12.6259 11.5288L9.09995 8.00014L12.6259 4.47147Z" })
+                          ]))
+                        ]),
+                        _: 1
+                      })
+                    ])
+                  ]),
+                  _: 3
+                }, 8, ["disabled", "class", "onClick"])) : createCommentVNode("v-if", true),
+                createVNode(ElButton, {
+                  text: "",
+                  class: normalizeClass(["icon-button", unref(rightPanelKls).arrowRightBtn]),
                   onClick: unref(rightNextYear)
-                }, [
-                  renderSlot(_ctx.$slots, "next-year", {}, () => [
-                    createVNode(unref(ElIcon), null, {
-                      default: withCtx(() => [
-                        createVNode(unref(DArrowRight))
-                      ]),
-                      _: 1
-                    })
-                  ])
-                ], 10, ["onClick"]),
+                }, {
+                  default: withCtx(() => [
+                    renderSlot(_ctx.$slots, "next-year", {}, () => [
+                      createVNode(unref(ElIcon), { size: "16px" }, {
+                        default: withCtx(() => [
+                          (openBlock(), createElementBlock("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "17",
+                            height: "16",
+                            viewBox: "0 0 17 16"
+                          }, [
+                            createElementVNode("path", { d: "M13.2334 7.05747L9.70742 3.52881L8.76675 4.47147L12.2927 8.00014L8.76675 11.5288L9.71009 12.4715L13.2334 8.94281C13.4834 8.69277 13.6238 8.35369 13.6238 8.00014C13.6238 7.64659 13.4834 7.30751 13.2334 7.05747Z" }),
+                            createElementVNode("path", { d: "M9.04055 7.52881L5.04055 3.52881L4.09988 4.47147L7.62588 8.00014L4.09988 11.5288L5.04322 12.4715L9.04322 8.47147C9.16784 8.3461 9.23758 8.17637 9.23708 7.99959C9.23658 7.82281 9.16589 7.65347 9.04055 7.52881Z" })
+                          ]))
+                        ]),
+                        _: 1
+                      })
+                    ])
+                  ]),
+                  _: 3
+                }, 8, ["class", "onClick"]),
                 createElementVNode("div", null, toDisplayString(unref(rightLabel)), 1)
               ], 2),
               createVNode(YearTable, {
                 "selection-mode": "range",
                 date: rightDate.value,
-                "min-date": minDate.value,
-                "max-date": maxDate.value,
-                "range-state": rangeState.value,
+                "min-date": unref(minDate),
+                "max-date": unref(maxDate),
+                "range-state": unref(rangeState),
                 "disabled-date": unref(disabledDate),
-                onChangerange: handleChangeRange,
+                onChangerange: unref(handleChangeRange),
                 onPick: handleRangePick,
-                onSelect
-              }, null, 8, ["date", "min-date", "max-date", "range-state", "disabled-date"])
+                onSelect: unref(onSelect)
+              }, null, 8, ["date", "min-date", "max-date", "range-state", "disabled-date", "onChangerange", "onSelect"])
             ], 2)
           ], 2)
         ], 2)

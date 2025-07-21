@@ -4,15 +4,15 @@ import { isIOS, isClient, useResizeObserver } from '@vueuse/core';
 import { useLocale } from '../../../hooks/use-locale/index.mjs';
 import { useId } from '../../../hooks/use-id/index.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
-import { useComposition } from '../../../hooks/use-composition/index.mjs';
-import { useFocusController } from '../../../hooks/use-focus-controller/index.mjs';
 import { useFormItem, useFormItemInputId } from '../../form/src/hooks/use-form-item.mjs';
 import { useEmptyValues } from '../../../hooks/use-empty-values/index.mjs';
+import { useComposition } from '../../../hooks/use-composition/index.mjs';
+import { useFocusController } from '../../../hooks/use-focus-controller/index.mjs';
+import { debugWarn } from '../../../utils/error.mjs';
 import { isArray, isFunction, isPlainObject, isObject } from '@vue/shared';
 import { ValidateComponentsMap } from '../../../utils/vue/icon.mjs';
 import { useFormSize } from '../../form/src/hooks/use-form-common-props.mjs';
 import { isUndefined, isNumber } from '../../../utils/types.mjs';
-import { debugWarn } from '../../../utils/error.mjs';
 import { EVENT_CODE } from '../../../constants/aria.mjs';
 import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 import { scrollIntoView } from '../../../utils/dom/scroll.mjs';
@@ -37,17 +37,24 @@ const useSelect = (props, emit) => {
     menuVisibleOnFocus: false,
     isBeforeHide: false
   });
-  const selectRef = ref(null);
-  const selectionRef = ref(null);
-  const tooltipRef = ref(null);
-  const tagTooltipRef = ref(null);
-  const inputRef = ref(null);
-  const prefixRef = ref(null);
-  const suffixRef = ref(null);
-  const menuRef = ref(null);
-  const tagMenuRef = ref(null);
-  const collapseItemRef = ref(null);
-  const scrollbarRef = ref(null);
+  const selectRef = ref();
+  const selectionRef = ref();
+  const tooltipRef = ref();
+  const tagTooltipRef = ref();
+  const inputRef = ref();
+  const prefixRef = ref();
+  const suffixRef = ref();
+  const menuRef = ref();
+  const tagMenuRef = ref();
+  const collapseItemRef = ref();
+  const scrollbarRef = ref();
+  const expanded = ref(false);
+  const hoverOption = ref();
+  const { form, formItem } = useFormItem();
+  const { inputId } = useFormItemInputId(props, {
+    formItemContext: formItem
+  });
+  const { valueOnClear, isEmptyValue } = useEmptyValues(props);
   const {
     isComposing,
     handleCompositionStart,
@@ -56,10 +63,9 @@ const useSelect = (props, emit) => {
   } = useComposition({
     afterComposition: (e) => onInput(e)
   });
+  const selectDisabled = computed(() => props.disabled || !!(form == null ? void 0 : form.disabled));
   const { wrapperRef, isFocused, handleBlur } = useFocusController(inputRef, {
-    beforeFocus() {
-      return selectDisabled.value;
-    },
+    disabled: selectDisabled,
     afterFocus() {
       if (props.automaticDropdown && !expanded.value) {
         expanded.value = true;
@@ -71,18 +77,14 @@ const useSelect = (props, emit) => {
       return ((_a = tooltipRef.value) == null ? void 0 : _a.isFocusInsideContent(event)) || ((_b = tagTooltipRef.value) == null ? void 0 : _b.isFocusInsideContent(event));
     },
     afterBlur() {
+      var _a;
       expanded.value = false;
       states.menuVisibleOnFocus = false;
+      if (props.validateEvent) {
+        (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, "blur").catch((err) => debugWarn(err));
+      }
     }
   });
-  const expanded = ref(false);
-  const hoverOption = ref();
-  const { form, formItem } = useFormItem();
-  const { inputId } = useFormItemInputId(props, {
-    formItemContext: formItem
-  });
-  const { valueOnClear, isEmptyValue } = useEmptyValues(props);
-  const selectDisabled = computed(() => props.disabled || (form == null ? void 0 : form.disabled));
   const hasModelValue = computed(() => {
     return isArray(props.modelValue) ? props.modelValue.length > 0 : !isEmptyValue(props.modelValue);
   });
@@ -94,9 +96,9 @@ const useSelect = (props, emit) => {
     return props.clearable && !selectDisabled.value && states.inputHovering && hasModelValue.value;
   });
   const iconComponent = computed(() => props.remote && props.filterable && !props.remoteShowSuffix ? "" : props.suffixIcon);
-  const iconReverse = computed(() => nsSelect.is("reverse", iconComponent.value && expanded.value));
+  const iconReverse = computed(() => nsSelect.is("reverse", !!(iconComponent.value && expanded.value)));
   const validateState = computed(() => (formItem == null ? void 0 : formItem.validateState) || "");
-  const validateIcon = computed(() => ValidateComponentsMap[validateState.value]);
+  const validateIcon = computed(() => validateState.value && ValidateComponentsMap[validateState.value]);
   const debounce$1 = computed(() => props.remote ? 300 : 0);
   const isRemoteSearchEmpty = computed(() => props.remote && !states.inputValue && states.options.size === 0);
   const emptyText = computed(() => {
@@ -201,7 +203,7 @@ const useSelect = (props, emit) => {
   }, {
     flush: "post"
   });
-  watch(() => states.hoveringIndex, (val) => {
+  watch([() => states.hoveringIndex, optionsArray], ([val]) => {
     if (isNumber(val) && val > -1) {
       hoverOption.value = optionsArray.value[val] || {};
     } else {
@@ -287,7 +289,7 @@ const useSelect = (props, emit) => {
     states.hoveringIndex = optionsArray.value.findIndex((item) => states.selected.some((selected) => getValueKey(selected) === getValueKey(item)));
   };
   const resetSelectionWidth = () => {
-    states.selectionWidth = selectionRef.value.getBoundingClientRect().width;
+    states.selectionWidth = Number.parseFloat(window.getComputedStyle(selectionRef.value).width);
   };
   const resetCollapseItemWidth = () => {
     states.collapseItemWidth = collapseItemRef.value.getBoundingClientRect().width;
@@ -401,7 +403,7 @@ const useSelect = (props, emit) => {
       scrollToOption(option);
     });
   };
-  const getValueIndex = (arr = [], option) => {
+  const getValueIndex = (arr, option) => {
     if (isUndefined(option))
       return -1;
     if (!isObject(option.value))
@@ -443,7 +445,11 @@ const useSelect = (props, emit) => {
   });
   const handleMenuEnter = () => {
     states.isBeforeHide = false;
-    nextTick(() => scrollToOption(states.selected));
+    nextTick(() => {
+      var _a;
+      (_a = scrollbarRef.value) == null ? void 0 : _a.update();
+      scrollToOption(states.selected);
+    });
   };
   const focus = () => {
     var _a;

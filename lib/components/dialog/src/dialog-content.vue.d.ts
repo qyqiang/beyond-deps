@@ -26,6 +26,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
 }, {
     resetPosition: () => void;
+    updatePosition: () => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     close: () => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -54,10 +55,10 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly title: string;
     readonly center: boolean;
     readonly overflow: boolean;
+    readonly ariaLevel: string;
     readonly showClose: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly headerBackgroundColor: string;
     readonly headerType: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => HeaderType) | (() => HeaderType) | ((new (...args: any[]) => HeaderType) | (() => HeaderType))[], unknown, unknown>;
-    readonly ariaLevel: string;
     readonly alignCenter: boolean;
     readonly draggable: boolean;
     readonly fullscreen: boolean;

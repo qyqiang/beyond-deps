@@ -6,7 +6,9 @@ import ElTreeNode from './tree-node.mjs';
 import { useNodeExpandEventBroadcast } from './model/useNodeExpandEventBroadcast.mjs';
 import { useDragNodeHandler } from './model/useDragNode.mjs';
 import { useKeydown } from './model/useKeydown.mjs';
+import { ROOT_TREE_INJECTION_KEY } from './tokens.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
+import { definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { iconPropType } from '../../../utils/vue/icon.mjs';
 import { useLocale } from '../../../hooks/use-locale/index.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
@@ -17,7 +19,7 @@ const _sfc_main = defineComponent({
   components: { ElTreeNode },
   props: {
     data: {
-      type: Array,
+      type: definePropType(Array),
       default: () => []
     },
     emptyText: {
@@ -35,10 +37,11 @@ const _sfc_main = defineComponent({
       default: true
     },
     checkOnClickNode: Boolean,
-    checkDescendants: {
+    checkOnClickLeaf: {
       type: Boolean,
-      default: false
+      default: true
     },
+    checkDescendants: Boolean,
     autoExpandParent: {
       type: Boolean,
       default: true
@@ -46,17 +49,17 @@ const _sfc_main = defineComponent({
     defaultCheckedKeys: Array,
     defaultExpandedKeys: Array,
     currentNodeKey: [String, Number],
-    renderContent: Function,
-    showCheckbox: {
-      type: Boolean,
-      default: false
+    renderContent: {
+      type: definePropType(Function)
     },
-    draggable: {
-      type: Boolean,
-      default: false
+    showCheckbox: Boolean,
+    draggable: Boolean,
+    allowDrag: {
+      type: definePropType(Function)
     },
-    allowDrag: Function,
-    allowDrop: Function,
+    allowDrop: {
+      type: definePropType(Function)
+    },
     props: {
       type: Object,
       default: () => ({
@@ -65,10 +68,7 @@ const _sfc_main = defineComponent({
         disabled: "disabled"
       })
     },
-    lazy: {
-      type: Boolean,
-      default: false
-    },
+    lazy: Boolean,
     highlightCurrent: Boolean,
     load: Function,
     filterNodeMethod: Function,
@@ -135,13 +135,13 @@ const _sfc_main = defineComponent({
       return (!childNodes || childNodes.length === 0 || childNodes.every(({ visible }) => !visible)) && !hasFilteredOptions;
     });
     watch(() => props.currentNodeKey, (newVal) => {
-      store.value.setCurrentNodeKey(newVal);
+      store.value.setCurrentNodeKey(newVal != null ? newVal : null);
     });
     watch(() => props.defaultCheckedKeys, (newVal) => {
-      store.value.setDefaultCheckedKey(newVal);
+      store.value.setDefaultCheckedKey(newVal != null ? newVal : []);
     });
     watch(() => props.defaultExpandedKeys, (newVal) => {
-      store.value.setDefaultExpandedKeys(newVal);
+      store.value.setDefaultExpandedKeys(newVal != null ? newVal : []);
     });
     watch(() => props.data, (newVal) => {
       store.value.setData(newVal);
@@ -219,7 +219,7 @@ const _sfc_main = defineComponent({
         throw new Error("[Tree] nodeKey is required in setCurrentKey");
       handleCurrentChange(store, ctx.emit, () => {
         broadcastExpanded();
-        store.value.setCurrentNodeKey(key, shouldAutoExpandParent);
+        store.value.setCurrentNodeKey(key != null ? key : null, shouldAutoExpandParent);
       });
     };
     const getNode = (data) => {
@@ -246,7 +246,7 @@ const _sfc_main = defineComponent({
         throw new Error("[Tree] nodeKey is required in updateKeyChild");
       store.value.updateChildren(key, data);
     };
-    provide("RootTree", {
+    provide(ROOT_TREE_INJECTION_KEY, {
       ctx,
       props,
       store,

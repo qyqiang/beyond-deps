@@ -11,27 +11,27 @@ $checkbox-height: map.merge($common-component-size, $checkbox-height);
 
 $checkbox-bordered-input-height: () !default;
 $checkbox-bordered-input-height: map.merge(
-  (
-    'large': 14px,
-    'default': 12px,
-    'small': 12px,
-  ),
-  $checkbox-bordered-input-height
+    (
+      'large': 14px,
+      'default': 12px,
+      'small': 12px,
+    ),
+    $checkbox-bordered-input-height
 );
 
 $checkbox-font-size: () !default;
 $checkbox-font-size: map.merge(
-  (
-    'large': 14px,
-    'small': 12px,
-  ),
-  $checkbox-font-size
+    (
+      'large': 14px,
+      'small': 12px,
+    ),
+    $checkbox-font-size
 );
 
 $checkbox-bordered-input-width: () !default;
 $checkbox-bordered-input-width: map.merge(
-  $checkbox-bordered-input-height,
-  $checkbox-bordered-input-width
+    $checkbox-bordered-input-height,
+    $checkbox-bordered-input-width
 );
 
 @include b(checkbox) {
@@ -50,8 +50,8 @@ $checkbox-bordered-input-width: map.merge(
   user-select: none;
   margin-right: 30px;
   height: getCssVarWithDefault(
-    'checkbox-height',
-    map.get($checkbox-height, 'default')
+      'checkbox-height',
+      map.get($checkbox-height, 'default')
   );
 
   @include when(disabled) {
@@ -59,8 +59,7 @@ $checkbox-bordered-input-width: map.merge(
   }
 
   @include when(bordered) {
-    padding: 0 map.get($checkbox-bordered-padding-right, 'default')-$border-width
-      0 map.get($checkbox-bordered-padding-left, 'default')-$border-width;
+    padding: 0 map.get($checkbox-bordered-padding-right, 'default')-$border-width 0 map.get($checkbox-bordered-padding-left, 'default')-$border-width;
     border-radius: getCssVar('border-radius-base');
     border: getCssVar('border');
     box-sizing: border-box;
@@ -75,10 +74,7 @@ $checkbox-bordered-input-width: map.merge(
 
     @each $size in (large, small) {
       &.#{$namespace}-checkbox--#{$size} {
-        padding: 0
-          map.get($checkbox-bordered-padding-right, $size)-$border-width
-          0
-          map.get($checkbox-bordered-padding-left, $size)-$border-width;
+        padding: 0 map.get($checkbox-bordered-padding-right, $size)-$border-width 0 map.get($checkbox-bordered-padding-left, $size)-$border-width;
 
         border-radius: map.get($button-border-radius, $size);
 
@@ -134,7 +130,7 @@ $checkbox-bordered-input-width: map.merge(
         .#{$namespace}-checkbox__inner {
           background-color: getCssVar('checkbox-disabled-checked-input-fill');
           border-color: getCssVar(
-            'checkbox-disabled-checked-input-border-color'
+              'checkbox-disabled-checked-input-border-color'
           );
 
           &::after {
@@ -147,7 +143,7 @@ $checkbox-bordered-input-width: map.merge(
         .#{$namespace}-checkbox__inner {
           background-color: getCssVar('checkbox-disabled-checked-input-fill');
           border-color: getCssVar(
-            'checkbox-disabled-checked-input-border-color'
+              'checkbox-disabled-checked-input-border-color'
           );
 
           &::before {
@@ -158,7 +154,6 @@ $checkbox-bordered-input-width: map.merge(
       }
 
       & + span.#{$namespace}-checkbox__label {
-        color: getCssVar('disabled-text-color');
         cursor: not-allowed;
       }
     }
@@ -169,7 +164,7 @@ $checkbox-bordered-input-width: map.merge(
         border-color: getCssVar('checkbox-checked-input-border-color');
 
         &::after {
-          transform: rotate(45deg) scaleY(1);
+          transform: translate(-45%, -60%) rotate(45deg) scaleY(1);
           border-color: getCssVar('checkbox-checked-icon-color');
         }
       }
@@ -210,7 +205,9 @@ $checkbox-bordered-input-width: map.merge(
     }
   }
   @include e(inner) {
-    display: inline-block;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
     position: relative;
     border: getCssVar('checkbox-input-border');
     border-radius: getCssVar('checkbox-border-radius');
@@ -220,28 +217,28 @@ $checkbox-bordered-input-width: map.merge(
     background-color: getCssVar('checkbox-bg-color');
     z-index: getCssVar('index-normal');
     transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
-      background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
-      outline 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
+    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
+    outline 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
 
     &:hover {
       border-color: getCssVar('checkbox-input-border-color-hover');
     }
 
-    &::after {
-      box-sizing: content-box;
-      content: '';
-      border: 1px solid transparent;
-      border-left: 0;
-      border-top: 0;
-      height: 10px;
-      left: 5px;
-      position: absolute;
-      top: 1px;
-      transform: rotate(45deg) scaleY(0);
-      width: 3px;
-      transition: transform 0.15s ease-in 0.05s;
-      transform-origin: center;
-    }
+    //&::after {
+    //  box-sizing: content-box;
+    //  content: '';
+    //  border: 1px solid transparent;
+    //  border-left: 0;
+    //  border-top: 0;
+    //  height: 10px;
+    //  left: 5px;
+    //  position: absolute;
+    //  top: 1px;
+    //  transform: rotate(45deg) scaleY(0);
+    //  width: 3px;
+    //  transition: transform 0.15s ease-in 0.05s;
+    //  transform-origin: center;
+    //}
   }
 
   @include e(original) {

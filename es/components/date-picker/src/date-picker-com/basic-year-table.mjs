@@ -29,17 +29,17 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const startYear = computed(() => {
       return Math.floor(props.date.year() / 10) * 10;
     });
-    const tableRows = ref([[], [], []]);
+    const tableRows = ref([[], [], [], []]);
     const lastRow = ref();
     const lastColumn = ref();
     const rows = computed(() => {
       var _a;
       const rows2 = tableRows.value;
       const now = dayjs().locale(lang.value).startOf("year");
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 4; i++) {
         const row = rows2[i];
-        for (let j = 0; j < 4; j++) {
-          if (i * 4 + j >= 10) {
+        for (let j = 0; j < 3; j++) {
+          if (i * 3 + j >= 10) {
             break;
           }
           let cell = row[j];
@@ -56,7 +56,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             };
           }
           cell.type = "normal";
-          const index = i * 4 + j + startYear.value;
+          const index = i * 3 + j + startYear.value;
           const calTime = dayjs().year(index);
           const calEndDate = props.rangeState.endDate || props.maxDate || props.rangeState.selecting && props.minDate || null;
           cell.inRange = !!(props.minDate && calTime.isSameOrAfter(props.minDate, "year") && calEndDate && calTime.isSameOrBefore(calEndDate, "year")) || !!(props.minDate && calTime.isSameOrBefore(props.minDate, "year") && calEndDate && calTime.isSameOrAfter(calEndDate, "year"));
@@ -112,7 +112,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         return;
       const column = target.cellIndex;
       const row = target.parentNode.rowIndex;
-      const selectedYear = row * 4 + column + startYear.value;
+      const selectedYear = row * 3 + column + startYear.value;
       const newDate = dayjs().year(selectedYear);
       if (props.selectionMode === "range") {
         if (!props.rangeState.selecting) {

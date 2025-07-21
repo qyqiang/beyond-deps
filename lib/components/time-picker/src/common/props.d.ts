@@ -1,4 +1,4 @@
-import type { Component, ExtractPropTypes } from 'vue';
+import type { Component, ExtractPropTypes, __ExtractPublicPropTypes } from 'vue';
 import type { Options } from '@popperjs/core';
 import type { Dayjs } from 'dayjs';
 import type { Placement } from 'element-plus/es/components/popper';
@@ -13,6 +13,7 @@ export type GetDisabledMinutes = (hour: number, role: string, comparingDate?: Da
 export type GetDisabledSeconds = (hour: number, minute: number, role: string, comparingDate?: Dayjs) => number[];
 export declare const timePickerDefaultProps: {
     readonly showNow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showWeekNumber: BooleanConstructor;
     readonly ariaLabel: StringConstructor;
     readonly emptyValues: ArrayConstructor;
     readonly valueOnClear: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown, undefined, boolean>;
@@ -36,19 +37,19 @@ export declare const timePickerDefaultProps: {
     readonly placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement))[], Placement, unknown, "bottom", boolean>;
     readonly fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Placement[]) | (() => Placement[]) | ((new (...args: any[]) => Placement[]) | (() => Placement[]))[], unknown, unknown, readonly ["bottom", "top", "right", "left"], boolean>;
     readonly disabledHours: {
-        readonly type: import("vue").PropType<import("../props/shared").GetDisabledHours>;
+        readonly type: import("vue").PropType<GetDisabledHours>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
     readonly disabledMinutes: {
-        readonly type: import("vue").PropType<import("../props/shared").GetDisabledMinutes>;
+        readonly type: import("vue").PropType<GetDisabledMinutes>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
     readonly disabledSeconds: {
-        readonly type: import("vue").PropType<import("../props/shared").GetDisabledSeconds>;
+        readonly type: import("vue").PropType<GetDisabledSeconds>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
@@ -90,7 +91,7 @@ export declare const timePickerDefaultProps: {
     readonly disabled: BooleanConstructor;
     readonly placeholder: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<Options>) | (() => Partial<Options>) | ((new (...args: any[]) => Partial<Options>) | (() => Partial<Options>))[], unknown, unknown, () => {}, boolean>;
-    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | string[] | Date | [DateModelType, DateModelType]) | (() => ModelValueType) | ((new (...args: any[]) => string | number | string[] | Date | [DateModelType, DateModelType]) | (() => ModelValueType))[], unknown, unknown, "", boolean>;
+    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => ModelValueType) | ((new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => ModelValueType))[], unknown, unknown, "", boolean>;
     readonly rangeSeparator: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "-", boolean>;
     readonly startPlaceholder: StringConstructor;
     readonly endPlaceholder: StringConstructor;
@@ -109,6 +110,7 @@ export declare const timePickerDefaultProps: {
     readonly isRange: BooleanConstructor;
 };
 export type TimePickerDefaultProps = ExtractPropTypes<typeof timePickerDefaultProps>;
+export type TimePickerDefaultPropsPublic = __ExtractPublicPropTypes<typeof timePickerDefaultProps>;
 export interface PickerOptions {
     isValidValue: (date: DayOrDays) => boolean;
     handleKeydownInput: (event: KeyboardEvent) => void;
@@ -141,6 +143,7 @@ export declare const timePickerRangeTriggerProps: {
     };
     readonly startPlaceholder: StringConstructor;
     readonly endPlaceholder: StringConstructor;
+    readonly disabled: BooleanConstructor;
 };
 /**
  * @deprecated Use `timePickerRangeTriggerProps` instead. This will be removed in future versions.
@@ -166,4 +169,5 @@ export declare const timePickerRngeTriggerProps: {
     };
     readonly startPlaceholder: StringConstructor;
     readonly endPlaceholder: StringConstructor;
+    readonly disabled: BooleanConstructor;
 };

@@ -15,7 +15,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly modalFade: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly headerAriaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
     readonly appendToBody: BooleanConstructor;
-    readonly appendTo: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown, "body", boolean>;
+    readonly appendTo: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown, "body", boolean>;
     readonly beforeClose: {
         readonly type: import("vue").PropType<import("element-plus/es/components/dialog").DialogBeforeCloseFn>;
         readonly required: false;
@@ -88,7 +88,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly modalFade: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly headerAriaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
     readonly appendToBody: BooleanConstructor;
-    readonly appendTo: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown, "body", boolean>;
+    readonly appendTo: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown, "body", boolean>;
     readonly beforeClose: {
         readonly type: import("vue").PropType<import("element-plus/es/components/dialog").DialogBeforeCloseFn>;
         readonly required: false;
@@ -144,8 +144,8 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
 }>> & {
     "onUpdate:modelValue"?: ((value: boolean) => any) | undefined;
-    onClose?: (() => any) | undefined;
     onOpen?: (() => any) | undefined;
+    onClose?: (() => any) | undefined;
     onOpened?: (() => any) | undefined;
     onClosed?: (() => any) | undefined;
     onOpenAutoFocus?: (() => any) | undefined;
@@ -157,11 +157,11 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly overflow: boolean;
     readonly size: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
     readonly modelValue: boolean;
-    readonly appendTo: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>;
+    readonly ariaLevel: string;
+    readonly appendTo: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown>;
     readonly showClose: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly headerBackgroundColor: string;
     readonly headerType: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("../../dialog/src/dialog-content").HeaderType) | (() => import("../../dialog/src/dialog-content").HeaderType) | ((new (...args: any[]) => import("../../dialog/src/dialog-content").HeaderType) | (() => import("../../dialog/src/dialog-content").HeaderType))[], unknown, unknown>;
-    readonly ariaLevel: string;
     readonly alignCenter: boolean;
     readonly draggable: boolean;
     readonly fullscreen: boolean;

@@ -36,7 +36,7 @@
   box-sizing: border-box;
   cursor: pointer;
   font-size: getCssVar('input-tag-font-size');
-  padding: getCssVar('input-tag-padding');
+  padding: 4px 12px;
   width: getCssVar('input-tag-width');
   min-height: getCssVar('input-tag-mini-height');
   line-height: getCssVar('input-tag-line-height');
@@ -58,7 +58,6 @@
 
   @include when(disabled) {
     cursor: not-allowed;
-    pointer-events: none;
     background-color: getCssVar('fill-color', 'light');
     @include mixed-input-border(#{getCssVar('input-tag-disabled-border')});
 

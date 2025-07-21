@@ -1,4 +1,4 @@
-import { defineComponent, markRaw, ref, effectScope, shallowRef, computed, watch, nextTick, onMounted, openBlock, createBlock, unref, withCtx, createVNode, Transition, createElementVNode, normalizeClass, normalizeStyle, withModifiers, createCommentVNode, createElementBlock, Fragment, renderSlot, createTextVNode, toDisplayString, resolveDynamicComponent, renderList, withDirectives, vShow } from 'vue';
+import { defineComponent, markRaw, ref, effectScope, shallowRef, computed, watch, nextTick, onMounted, openBlock, createBlock, unref, withCtx, createVNode, Transition, createElementVNode, normalizeClass, normalizeStyle, withModifiers, createCommentVNode, createElementBlock, Fragment, renderSlot, createTextVNode, toDisplayString, resolveDynamicComponent, renderList } from 'vue';
 import { useEventListener } from '@vueuse/core';
 import { throttle } from 'lodash-unified';
 import ElFocusTrap from '../../focus-trap/src/focus-trap.mjs';
@@ -33,6 +33,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         icon: markRaw(ScaleToOriginal)
       }
     };
+    let stopWheelListener;
+    let prevOverflow = "";
     const { t } = useLocale();
     const ns = useNamespace("image-viewer");
     const { nextZIndex } = useZIndex();
@@ -88,6 +90,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const progress = computed(() => `${activeIndex.value + 1} / ${props.urlList.length}`);
     function hide() {
       unregisterEventListener();
+      stopWheelListener == null ? void 0 : stopWheelListener();
+      document.body.style.overflow = prevOverflow;
       emit("close");
     }
     function registerEventListener() {
@@ -232,6 +236,17 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         hide();
       }
     }
+    function wheelHandler(e) {
+      if (!e.ctrlKey)
+        return;
+      if (e.deltaY < 0) {
+        e.preventDefault();
+        return false;
+      } else if (e.deltaY > 0) {
+        e.preventDefault();
+        return false;
+      }
+    }
     watch(currentImg, () => {
       nextTick(() => {
         const $img = imgRefs.value[0];
@@ -246,6 +261,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     onMounted(() => {
       registerEventListener();
+      stopWheelListener = useEventListener("wheel", wheelHandler, {
+        passive: false
+      });
+      prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
     });
     expose({
       setActiveItem
@@ -318,7 +338,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         })
                       ], 2)
                     ], 64)) : createCommentVNode("v-if", true),
-                    _ctx.showProgress ? (openBlock(), createElementBlock("div", {
+                    _ctx.$slots.progress || _ctx.showProgress ? (openBlock(), createElementBlock("div", {
                       key: 1,
                       class: normalizeClass([unref(ns).e("btn"), unref(ns).e("progress")])
                     }, [
@@ -341,7 +361,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                           prev,
                           next,
                           reset: toggleMode,
-                          activeIndex: activeIndex.value
+                          activeIndex: activeIndex.value,
+                          setActiveItem
                         }, () => [
                           createVNode(unref(ElIcon), {
                             onClick: ($event) => handleActions("zoomOut")
@@ -395,20 +416,20 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       class: normalizeClass(unref(ns).e("canvas"))
                     }, [
                       (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.urlList, (url, i) => {
-                        return withDirectives((openBlock(), createElementBlock("img", {
-                          ref_for: true,
-                          ref: (el) => imgRefs.value[i] = el,
-                          key: url,
-                          src: url,
-                          style: normalizeStyle(unref(imgStyle)),
-                          class: normalizeClass(unref(ns).e("img")),
-                          crossorigin: _ctx.crossorigin,
-                          onLoad: handleImgLoad,
-                          onError: handleImgError,
-                          onMousedown: handleMouseDown
-                        }, null, 46, ["src", "crossorigin"])), [
-                          [vShow, i === activeIndex.value]
-                        ]);
+                        return openBlock(), createElementBlock(Fragment, { key: i }, [
+                          i === activeIndex.value ? (openBlock(), createElementBlock("img", {
+                            key: 0,
+                            ref_for: true,
+                            ref: (el) => imgRefs.value[i] = el,
+                            src: url,
+                            style: normalizeStyle(unref(imgStyle)),
+                            class: normalizeClass(unref(ns).e("img")),
+                            crossorigin: _ctx.crossorigin,
+                            onLoad: handleImgLoad,
+                            onError: handleImgError,
+                            onMousedown: handleMouseDown
+                          }, null, 46, ["src", "crossorigin"])) : createCommentVNode("v-if", true)
+                        ], 64);
                       }), 128))
                     ], 2),
                     renderSlot(_ctx.$slots, "default")

@@ -1,4 +1,4 @@
-import type { CSSProperties, ComputedRef, Ref } from 'vue';
+import type { CSSProperties } from 'vue';
 import type { InputInstance } from 'element-plus/es/components/input';
 import type { TooltipInstance } from 'element-plus/es/components/tooltip';
 import type { MentionOption } from './types';
@@ -22,6 +22,8 @@ declare const __VLS_component: import("vue").DefineComponent<{
     loading: BooleanConstructor;
     popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
     popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => Partial<import("@popperjs/core").Options>, boolean>;
+    inputmode: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined))[], unknown, unknown, undefined, boolean>;
+    name: StringConstructor;
     ariaLabel: StringConstructor;
     id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     size: {
@@ -107,15 +109,17 @@ declare const __VLS_component: import("vue").DefineComponent<{
     autofocus: BooleanConstructor;
     rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
 }, {
-    input: Ref<InputInstance | undefined>;
-    tooltip: Ref<TooltipInstance | undefined>;
-    dropdownVisible: ComputedRef<boolean>;
+    input: import("vue").Ref<InputInstance | undefined>;
+    tooltip: import("vue").Ref<TooltipInstance | undefined>;
+    dropdownVisible: import("vue").ComputedRef<boolean>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    input: (value: string) => void;
     search: (pattern: string, prefix: string) => void;
     select: (option: MentionOption, prefix: string) => void;
     "update:modelValue": (value: string) => void;
     blur: (evt: FocusEvent) => void;
     focus: (evt: FocusEvent) => void;
+    "whole-remove": (pattern: string, prefix: string) => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     options: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => MentionOption[]) | (() => MentionOption[]) | ((new (...args: any[]) => MentionOption[]) | (() => MentionOption[]))[], unknown, unknown, () => never[], boolean>;
     prefix: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | string[]) | (() => string | string[]) | ((new (...args: any[]) => string | string[]) | (() => string | string[]))[], unknown, unknown, string, boolean>;
@@ -135,6 +139,8 @@ declare const __VLS_component: import("vue").DefineComponent<{
     loading: BooleanConstructor;
     popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
     popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => Partial<import("@popperjs/core").Options>, boolean>;
+    inputmode: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined))[], unknown, unknown, undefined, boolean>;
+    name: StringConstructor;
     ariaLabel: StringConstructor;
     id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     size: {
@@ -223,8 +229,10 @@ declare const __VLS_component: import("vue").DefineComponent<{
     "onUpdate:modelValue"?: ((value: string) => any) | undefined;
     onFocus?: ((evt: FocusEvent) => any) | undefined;
     onBlur?: ((evt: FocusEvent) => any) | undefined;
+    onInput?: ((value: string) => any) | undefined;
     onSelect?: ((option: MentionOption, prefix: string) => any) | undefined;
     onSearch?: ((pattern: string, prefix: string) => any) | undefined;
+    "onWhole-remove"?: ((pattern: string, prefix: string) => any) | undefined;
 }, {
     disabled: boolean;
     offset: number;
@@ -235,7 +243,11 @@ declare const __VLS_component: import("vue").DefineComponent<{
     placement: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "top" | "bottom") | (() => "top" | "bottom") | ((new (...args: any[]) => "top" | "bottom") | (() => "top" | "bottom"))[], unknown, unknown>;
     options: MentionOption[];
     tabindex: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
+    prefix: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | string[]) | (() => string | string[]) | ((new (...args: any[]) => string | string[]) | (() => string | string[]))[], unknown, unknown>;
     readonly: boolean;
+    popperOptions: Partial<import("@popperjs/core").Options>;
+    popperClass: string;
+    showArrow: boolean;
     autosize: import("element-plus/es/components/input").InputAutoSize;
     autocomplete: string;
     floatLabel: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
@@ -244,14 +256,11 @@ declare const __VLS_component: import("vue").DefineComponent<{
     validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     inputStyle: import("vue").StyleValue;
     rows: number;
+    inputmode: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined))[], unknown, unknown>;
     clearable: boolean;
     showPassword: boolean;
     showWordLimit: boolean;
     autofocus: boolean;
-    prefix: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | string[]) | (() => string | string[]) | ((new (...args: any[]) => string | string[]) | (() => string | string[]))[], unknown, unknown>;
-    popperOptions: Partial<import("@popperjs/core").Options>;
-    popperClass: string;
-    showArrow: boolean;
     filterOption: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => false | ((pattern: string, option: MentionOption) => boolean)) | (() => false | ((pattern: string, option: MentionOption) => boolean)) | ((new (...args: any[]) => false | ((pattern: string, option: MentionOption) => boolean)) | (() => false | ((pattern: string, option: MentionOption) => boolean)))[], unknown, unknown>;
     whole: boolean;
 }>;

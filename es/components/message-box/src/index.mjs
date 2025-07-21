@@ -66,10 +66,7 @@ const _sfc_main = defineComponent({
     center: Boolean,
     draggable: Boolean,
     overflow: Boolean,
-    roundButton: {
-      default: false,
-      type: Boolean
-    },
+    roundButton: Boolean,
     container: {
       type: String,
       default: "body"
@@ -107,6 +104,7 @@ const _sfc_main = defineComponent({
       dangerouslyUseHTMLString: false,
       distinguishCancelAndClose: false,
       icon: "",
+      closeIcon: "",
       inputPattern: null,
       inputPlaceholder: "",
       inputType: "text",

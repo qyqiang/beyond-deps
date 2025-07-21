@@ -74,6 +74,7 @@ const TypeComponents = {
   CircleCloseFilled
 };
 const TypeComponentsMap = {
+  primary: InfoFilled,
   success: check,
   warning,
   error,

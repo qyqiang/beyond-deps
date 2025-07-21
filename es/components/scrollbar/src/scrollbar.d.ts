@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, StyleValue } from 'vue';
+import type { ExtractPropTypes, StyleValue, __ExtractPublicPropTypes } from 'vue';
 import type Scrollbar from './scrollbar.vue';
 export declare const scrollbarProps: {
     readonly ariaLabel: StringConstructor;
@@ -10,7 +10,7 @@ export declare const scrollbarProps: {
     };
     readonly height: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, "", boolean>;
     readonly maxHeight: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, "", boolean>;
-    readonly native: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly native: BooleanConstructor;
     readonly wrapStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | import("vue").CSSProperties | StyleValue[]) | (() => StyleValue) | ((new (...args: any[]) => string | import("vue").CSSProperties | StyleValue[]) | (() => StyleValue))[], unknown, unknown, "", boolean>;
     readonly wrapClass: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, ArrayConstructor], unknown, unknown, "", boolean>;
     readonly viewClass: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, ArrayConstructor], unknown, unknown, "", boolean>;
@@ -24,11 +24,14 @@ export declare const scrollbarProps: {
     readonly role: StringConstructor;
 };
 export type ScrollbarProps = ExtractPropTypes<typeof scrollbarProps>;
+export type ScrollbarPropsPublic = __ExtractPublicPropTypes<typeof scrollbarProps>;
 export declare const scrollbarEmits: {
+    'end-reached': (direction: ScrollbarDirection) => boolean;
     scroll: ({ scrollTop, scrollLeft, }: {
         scrollTop: number;
         scrollLeft: number;
     }) => boolean;
 };
 export type ScrollbarEmits = typeof scrollbarEmits;
-export type ScrollbarInstance = InstanceType<typeof Scrollbar>;
+export type ScrollbarDirection = 'top' | 'bottom' | 'left' | 'right';
+export type ScrollbarInstance = InstanceType<typeof Scrollbar> & unknown;

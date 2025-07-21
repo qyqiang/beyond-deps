@@ -1,9 +1,9 @@
 import { useSizeProp } from '../../../hooks/use-size/index.mjs';
 import { iconPropType } from '../../../utils/vue/icon.mjs';
 import { mutable } from '../../../utils/typescript.mjs';
-import { useAriaProps } from '../../../hooks/use-aria/index.mjs';
 import { UPDATE_MODEL_EVENT } from '../../../constants/event.mjs';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
+import { useAriaProps } from '../../../hooks/use-aria/index.mjs';
 import { isString } from '@vue/shared';
 
 const inputProps = buildProps({
@@ -94,7 +94,12 @@ const inputProps = buildProps({
     type: Number,
     default: 2
   },
-  ...useAriaProps(["ariaLabel"])
+  ...useAriaProps(["ariaLabel"]),
+  inputmode: {
+    type: definePropType(String),
+    default: void 0
+  },
+  name: String
 });
 const inputEmits = {
   [UPDATE_MODEL_EVENT]: (value) => isString(value),

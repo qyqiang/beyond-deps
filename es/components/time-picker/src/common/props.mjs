@@ -104,7 +104,8 @@ const timePickerDefaultProps = buildProps({
   showNow: {
     type: Boolean,
     default: true
-  }
+  },
+  showWeekNumber: Boolean
 });
 const timePickerRangeTriggerProps = buildProps({
   id: {
@@ -117,7 +118,8 @@ const timePickerRangeTriggerProps = buildProps({
     type: definePropType([Array, String])
   },
   startPlaceholder: String,
-  endPlaceholder: String
+  endPlaceholder: String,
+  disabled: Boolean
 });
 const timePickerRngeTriggerProps = timePickerRangeTriggerProps;
 

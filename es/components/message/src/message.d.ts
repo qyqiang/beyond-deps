@@ -1,7 +1,7 @@
-import type { AppContext, ExtractPropTypes, VNode } from 'vue';
+import type { AppContext, ExtractPropTypes, VNode, __ExtractPublicPropTypes } from 'vue';
 import type { Mutable } from 'element-plus/es/utils';
 import type MessageConstructor from './message.vue';
-export declare const messageTypes: readonly ["success", "info", "warning", "error"];
+export declare const messageTypes: readonly ["primary", "success", "info", "warning", "error"];
 export type messageType = typeof messageTypes[number];
 export interface MessageConfigContext {
     max?: number;
@@ -9,10 +9,10 @@ export interface MessageConfigContext {
     duration?: number;
     offset?: number;
     showClose?: boolean;
+    plain?: boolean;
 }
 export declare const messageDefaults: Mutable<{
     readonly customClass: "";
-    readonly center: false;
     readonly dangerouslyUseHTMLString: false;
     readonly duration: 3000;
     readonly icon: undefined;
@@ -24,6 +24,7 @@ export declare const messageDefaults: Mutable<{
     readonly showClose: false;
     readonly type: "info";
     readonly plain: false;
+    readonly center: false;
     readonly offset: 16;
     readonly zIndex: 0;
     readonly grouping: false;
@@ -33,6 +34,7 @@ export declare const messageDefaults: Mutable<{
 export declare const messageProps: {
     readonly customClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly center: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly alert: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly dangerouslyUseHTMLString: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly duration: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 3000, boolean>;
     readonly icon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown, undefined, boolean>;
@@ -60,7 +62,7 @@ export declare const messageProps: {
         readonly prototype: any;
     })[], unknown, unknown, undefined, boolean>;
     readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-    readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "error" | "success" | "warning" | "info", unknown, "info", boolean>;
+    readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "error" | "primary" | "success" | "warning" | "info", unknown, "info", boolean>;
     readonly plain: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly offset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 16, boolean>;
     readonly zIndex: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -68,11 +70,12 @@ export declare const messageProps: {
     readonly repeatNum: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
 };
 export type MessageProps = ExtractPropTypes<typeof messageProps>;
+export type MessagePropsPublic = __ExtractPublicPropTypes<typeof messageProps>;
 export declare const messageEmits: {
     destroy: () => boolean;
 };
 export type MessageEmits = typeof messageEmits;
-export type MessageInstance = InstanceType<typeof MessageConstructor>;
+export type MessageInstance = InstanceType<typeof MessageConstructor> & unknown;
 export type MessageOptions = Partial<Mutable<Omit<MessageProps, 'id'> & {
     appendTo?: HTMLElement | string;
 }>>;
@@ -96,9 +99,10 @@ export type MessageFn = {
     closeAll(type?: messageType): void;
 };
 export type MessageTypedFn = (options?: MessageParamsWithType, appContext?: null | AppContext) => MessageHandler;
-export interface Message extends MessageFn {
+export type Message = MessageFn & {
+    primary: MessageTypedFn;
     success: MessageTypedFn;
     warning: MessageTypedFn;
     info: MessageTypedFn;
     error: MessageTypedFn;
-}
+};

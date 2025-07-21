@@ -23,6 +23,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const tableRows = ref([
       [],
       [],
+      [],
       []
     ]);
     const lastRow = ref();
@@ -31,9 +32,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       var _a, _b;
       const rows2 = tableRows.value;
       const now = dayjs().locale(lang.value).startOf("month");
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 4; i++) {
         const row = rows2[i];
-        for (let j = 0; j < 4; j++) {
+        for (let j = 0; j < 3; j++) {
           const cell = row[j] || (row[j] = {
             row: i,
             column: j,
@@ -45,7 +46,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             disabled: false
           });
           cell.type = "normal";
-          const index = i * 4 + j;
+          const index = i * 3 + j;
           const calTime = props.date.startOf("year").month(index);
           const calEndDate = props.rangeState.endDate || props.maxDate || props.rangeState.selecting && props.minDate || null;
           cell.inRange = !!(props.minDate && calTime.isSameOrAfter(props.minDate, "month") && calEndDate && calTime.isSameOrBefore(calEndDate, "month")) || !!(props.minDate && calTime.isSameOrBefore(props.minDate, "month") && calEndDate && calTime.isSameOrAfter(calEndDate, "month"));
@@ -75,7 +76,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const year = props.date.year();
       const today = /* @__PURE__ */ new Date();
       const month = cell.text;
-      style.disabled = props.disabledDate ? datesInMonth(year, month, lang.value).every(props.disabledDate) : false;
+      style.disabled = props.disabledDate ? datesInMonth(props.date, year, month, lang.value).every(props.disabledDate) : false;
       style.current = castArray(props.parsedValue).findIndex((date) => dayjs.isDayjs(date) && date.year() === year && date.month() === month) >= 0;
       style.today = today.getFullYear() === year && today.getMonth() === month;
       if (cell.inRange) {
@@ -129,15 +130,15 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         return;
       const column = target.cellIndex;
       const row = target.parentNode.rowIndex;
-      const month = row * 4 + column;
+      const month = row * 3 + column;
       const newDate = props.date.startOf("year").month(month);
       if (props.selectionMode === "months") {
         if (event.type === "keydown") {
           emit("pick", castArray(props.parsedValue), false);
           return;
         }
-        const newMonth = getValidDateOfMonth(props.date.year(), month, lang.value, props.disabledDate);
-        const newValue = hasClass(target, "current") ? castArray(props.parsedValue).filter((d) => (d == null ? void 0 : d.month()) !== newMonth.month()) : castArray(props.parsedValue).concat([dayjs(newMonth)]);
+        const newMonth = getValidDateOfMonth(props.date, props.date.year(), month, lang.value, props.disabledDate);
+        const newValue = hasClass(target, "current") ? castArray(props.parsedValue).filter((d) => (d == null ? void 0 : d.year()) !== newMonth.year() || (d == null ? void 0 : d.month()) !== newMonth.month()) : castArray(props.parsedValue).concat([dayjs(newMonth)]);
         emit("pick", newValue);
       } else if (props.selectionMode === "range") {
         if (!props.rangeState.selecting) {

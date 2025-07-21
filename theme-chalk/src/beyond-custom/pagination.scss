@@ -11,3 +11,21 @@
     font-weight: var(--p-font-weight-semibold);
   }
 }
+
+.el-pagination__jump {
+  & ~ .el-pagination__sizes {
+    margin-left: 20px;
+  }
+
+  .el-input__wrapper {
+    padding: 0;
+  }
+}
+
+.pagination-select-wrap.el-popper.is-light {
+  width: 120px;
+
+  .el-select-dropdown {
+    width: 100%;
+  }
+}

@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, onMounted, watch, openBlock, createBlock, Transition, unref, withCtx, withDirectives, createElementVNode, normalizeClass, normalizeStyle, createCommentVNode, renderSlot, createElementBlock, toDisplayString, createTextVNode, Fragment, withModifiers, createVNode, vShow } from 'vue';
+import { defineComponent, ref, computed, onMounted, watch, openBlock, createBlock, Transition, unref, withCtx, withDirectives, createElementVNode, normalizeClass, normalizeStyle, createCommentVNode, renderSlot, createElementBlock, toDisplayString, createTextVNode, Fragment, withModifiers, createVNode, vShow, nextTick } from 'vue';
 import { useEventListener, useResizeObserver, useTimeoutFn } from '@vueuse/core';
 import { ElBadge } from '../../badge/index.mjs';
 import { ElButton } from '../../button/index.mjs';
@@ -17,9 +17,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   ...__default__,
   props: messageProps,
   emits: messageEmits,
-  setup(__props, { expose }) {
+  setup(__props, { expose, emit }) {
     const props = __props;
     const { Close } = TypeComponents;
+    const isStartTransition = ref(false);
     const { ns, zIndex } = useGlobalComponentSettings("message");
     const { currentZIndex, nextZIndex } = zIndex;
     const messageRef = ref();
@@ -51,6 +52,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     }
     function close() {
       visible.value = false;
+      nextTick(() => {
+        var _a;
+        if (!isStartTransition.value) {
+          (_a = props.onClose) == null ? void 0 : _a.call(props);
+          emit("destroy");
+        }
+      });
     }
     function onLabelClick() {
       if (!props.onLabelClick)
@@ -83,6 +91,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       return openBlock(), createBlock(Transition, {
         name: unref(ns).b("fade"),
+        onBeforeEnter: ($event) => isStartTransition.value = true,
         onBeforeLeave: _ctx.onClose,
         onAfterLeave: ($event) => _ctx.$emit("destroy"),
         persisted: ""
@@ -95,9 +104,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             class: normalizeClass([
               unref(ns).b(),
               { [unref(ns).m(_ctx.type)]: _ctx.type },
-              unref(ns).is("center", _ctx.center),
               unref(ns).is("closable", _ctx.showClose),
               unref(ns).is("plain", _ctx.plain),
+              unref(ns).is("alert", _ctx.alert),
               _ctx.customClass,
               `is-${_ctx.effect}`
             ]),
@@ -139,7 +148,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             ]),
             _ctx.label ? (openBlock(), createBlock(unref(ElButton), {
               key: 2,
-              plain: "",
+              text: "",
               class: normalizeClass(unref(ns).e("labelBtn")),
               onClick: onLabelClick
             }, {
@@ -163,7 +172,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           ])
         ]),
         _: 3
-      }, 8, ["name", "onBeforeLeave", "onAfterLeave"]);
+      }, 8, ["name", "onBeforeEnter", "onBeforeLeave", "onAfterLeave"]);
     };
   }
 });

@@ -1,9 +1,10 @@
+import SelectV2 from './select.vue';
 import type { Option, OptionType } from './select.types';
 import type { Props } from './useProps';
 import type { EmitFn } from 'element-plus/es/utils/vue/typescript';
-import type { ExtractPropTypes } from 'vue';
+import type { ExtractPropTypes, __ExtractPublicPropTypes } from 'vue';
 import type { Options, Placement, PopperEffect } from 'element-plus/es/components/popper';
-export declare const SelectProps: {
+export declare const selectV2Props: {
     readonly ariaLabel: StringConstructor;
     readonly emptyValues: ArrayConstructor;
     readonly valueOnClear: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown, undefined, boolean>;
@@ -27,7 +28,12 @@ export declare const SelectProps: {
     readonly disabled: BooleanConstructor;
     readonly estimatedOptionHeight: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, undefined, boolean>;
     readonly filterable: BooleanConstructor;
-    readonly filterMethod: FunctionConstructor;
+    readonly filterMethod: {
+        readonly type: import("vue").PropType<(query: string) => void>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly height: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 274, boolean>;
     readonly itemHeight: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 34, boolean>;
     readonly id: StringConstructor;
@@ -44,7 +50,12 @@ export declare const SelectProps: {
     readonly name: StringConstructor;
     readonly noDataText: StringConstructor;
     readonly noMatchText: StringConstructor;
-    readonly remoteMethod: FunctionConstructor;
+    readonly remoteMethod: {
+        readonly type: import("vue").PropType<(query: string) => void>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly options: {
         readonly type: import("vue").PropType<OptionType[]>;
@@ -79,7 +90,7 @@ export declare const SelectProps: {
     readonly fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Placement[]) | (() => Placement[]) | ((new (...args: any[]) => Placement[]) | (() => Placement[]))[], unknown, unknown, readonly ["bottom-start", "top-start", "right", "left"], boolean>;
     readonly tagType: {
         readonly default: "info";
-        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "success" | "warning" | "info" | "primary" | "danger", unknown>>;
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "primary" | "success" | "warning" | "info" | "danger", unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         readonly __epPropKey: true;
@@ -92,10 +103,21 @@ export declare const SelectProps: {
         readonly __epPropKey: true;
     };
     readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
-    readonly appendTo: StringConstructor;
+    readonly appendTo: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly fitInputWidth: import("element-plus/es/utils").EpPropFinalized<readonly [BooleanConstructor, NumberConstructor], unknown, number | boolean, true, boolean>;
+    readonly suffixIcon: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
 };
-export declare const OptionProps: {
+export declare const optionV2Props: {
     readonly data: ArrayConstructor;
     readonly disabled: BooleanConstructor;
     readonly hovering: BooleanConstructor;
@@ -110,20 +132,23 @@ export declare const OptionProps: {
     readonly selected: BooleanConstructor;
     readonly created: BooleanConstructor;
 };
-export declare const selectEmits: {
-    "update:modelValue": (val: ISelectV2Props["modelValue"]) => boolean;
-    change: (val: ISelectV2Props["modelValue"]) => boolean;
+export declare const selectV2Emits: {
+    "update:modelValue": (val: SelectV2Props["modelValue"]) => boolean;
+    change: (val: SelectV2Props["modelValue"]) => boolean;
     'remove-tag': (val: unknown) => boolean;
     'visible-change': (visible: boolean) => boolean;
     focus: (evt: FocusEvent) => boolean;
     blur: (evt: FocusEvent) => boolean;
     clear: () => boolean;
 };
-export declare const optionEmits: {
+export declare const optionV2Emits: {
     hover: (index?: number) => index is number;
     select: (val: Option, index?: number) => boolean;
 };
-export type ISelectV2Props = ExtractPropTypes<typeof SelectProps>;
-export type IOptionV2Props = ExtractPropTypes<typeof OptionProps>;
-export type SelectEmitFn = EmitFn<typeof selectEmits>;
-export type OptionEmitFn = EmitFn<typeof optionEmits>;
+export type SelectV2Props = ExtractPropTypes<typeof selectV2Props>;
+export type SelectV2PropsPublic = __ExtractPublicPropTypes<typeof selectV2Props>;
+export type OptionV2Props = ExtractPropTypes<typeof optionV2Props>;
+export type OptionV2PropsPublic = __ExtractPublicPropTypes<typeof optionV2Props>;
+export type SelectV2EmitFn = EmitFn<typeof selectV2Emits>;
+export type OptionV2EmitFn = EmitFn<typeof optionV2Emits>;
+export type SelectV2Instance = InstanceType<typeof SelectV2> & unknown;

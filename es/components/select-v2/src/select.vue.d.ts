@@ -14,7 +14,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string) | (() => import("element-plus/es/element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus/es/element-plus").PopperEffect))[], unknown, unknown, "light", boolean>;
+    readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string) | (() => import("element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus").PopperEffect))[], unknown, unknown, "light", boolean>;
     readonly collapseTags: BooleanConstructor;
     readonly collapseTagsTooltip: BooleanConstructor;
     readonly maxCollapseTags: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
@@ -22,7 +22,12 @@ declare const _default: import("vue").DefineComponent<{
     readonly disabled: BooleanConstructor;
     readonly estimatedOptionHeight: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, undefined, boolean>;
     readonly filterable: BooleanConstructor;
-    readonly filterMethod: FunctionConstructor;
+    readonly filterMethod: {
+        readonly type: import("vue").PropType<(query: string) => void>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly height: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 274, boolean>;
     readonly itemHeight: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 34, boolean>;
     readonly id: StringConstructor;
@@ -39,7 +44,12 @@ declare const _default: import("vue").DefineComponent<{
     readonly name: StringConstructor;
     readonly noDataText: StringConstructor;
     readonly noMatchText: StringConstructor;
-    readonly remoteMethod: FunctionConstructor;
+    readonly remoteMethod: {
+        readonly type: import("vue").PropType<(query: string) => void>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly options: {
         readonly type: import("vue").PropType<import("./select.types").OptionType[]>;
@@ -56,7 +66,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly persistent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-    readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => Partial<import("@popperjs/core").Options>, boolean>;
+    readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("element-plus").Options>) | (() => Partial<import("element-plus").Options>) | ((new (...args: any[]) => Partial<import("element-plus").Options>) | (() => Partial<import("element-plus").Options>))[], unknown, unknown, () => Partial<import("element-plus").Options>, boolean>;
     readonly remote: BooleanConstructor;
     readonly size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -70,11 +80,11 @@ declare const _default: import("vue").DefineComponent<{
     readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly offset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 12, boolean>;
     readonly showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown, "bottom-start", boolean>;
-    readonly fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]) | ((new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]))[], unknown, unknown, readonly ["bottom-start", "top-start", "right", "left"], boolean>;
+    readonly placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("element-plus").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("element-plus").Placement))[], import("element-plus").Placement, unknown, "bottom-start", boolean>;
+    readonly fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("element-plus").Placement[]) | (() => import("element-plus").Placement[]) | ((new (...args: any[]) => import("element-plus").Placement[]) | (() => import("element-plus").Placement[]))[], unknown, unknown, readonly ["bottom-start", "top-start", "right", "left"], boolean>;
     readonly tagType: {
         readonly default: "info";
-        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "success" | "warning" | "info" | "primary" | "danger", unknown>>;
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "primary" | "success" | "warning" | "info" | "danger", unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         readonly __epPropKey: true;
@@ -87,8 +97,19 @@ declare const _default: import("vue").DefineComponent<{
         readonly __epPropKey: true;
     };
     readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
-    readonly appendTo: StringConstructor;
+    readonly appendTo: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly fitInputWidth: import("element-plus/es/utils").EpPropFinalized<readonly [BooleanConstructor, NumberConstructor], unknown, number | boolean, true, boolean>;
+    readonly suffixIcon: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
 }, {
     modelValue: import("vue").ComputedRef<any>;
     selectedLabel: import("vue").ComputedRef<string | string[]>;
@@ -103,10 +124,15 @@ declare const _default: import("vue").DefineComponent<{
     emptyText: import("vue").ComputedRef<string | false | null>;
     popupHeight: import("vue").ComputedRef<number>;
     debounce: import("vue").ComputedRef<0 | 300>;
-    allOptions: import("vue").Ref<import("./select.types").OptionType[]>;
-    filteredOptions: import("vue").Ref<import("./select.types").OptionType[]>;
-    iconComponent: import("vue").ComputedRef<any>;
-    iconReverse: import("vue").ComputedRef<any>;
+    allOptions: import("vue").ComputedRef<import("./select.types").OptionType[]>;
+    filteredOptions: import("vue").Ref<({
+        [x: string]: any;
+    } | {
+        [x: string]: any;
+        created?: boolean | undefined;
+    })[]>;
+    iconComponent: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown> | undefined>;
+    iconReverse: import("vue").ComputedRef<string | undefined>;
     tagStyle: import("vue").ComputedRef<{
         maxWidth: string;
     }>;
@@ -117,35 +143,69 @@ declare const _default: import("vue").DefineComponent<{
     dropdownMenuVisible: import("vue").WritableComputedRef<boolean>;
     hasModelValue: import("vue").ComputedRef<boolean>;
     shouldShowPlaceholder: import("vue").ComputedRef<boolean>;
-    selectDisabled: import("vue").ComputedRef<boolean | undefined>;
-    selectSize: import("vue").ComputedRef<string>;
+    selectDisabled: import("vue").ComputedRef<boolean>;
+    selectSize: import("vue").ComputedRef<"" | "small" | "default" | "large">;
     needStatusIcon: import("vue").ComputedRef<boolean>;
     showClearBtn: import("vue").ComputedRef<boolean>;
     states: import("./select.types").SelectStates;
     isFocused: import("vue").Ref<boolean>;
-    nsSelect: ReturnType<typeof import("element-plus/es/hooks").useNamespace>;
-    nsInput: ReturnType<typeof import("element-plus/es/hooks").useNamespace>;
+    nsSelect: {
+        namespace: import("vue").ComputedRef<string>;
+        b: (blockSuffix?: string) => string;
+        e: (element?: string) => string;
+        m: (modifier?: string) => string;
+        be: (blockSuffix?: string, element?: string) => string;
+        em: (element?: string, modifier?: string) => string;
+        bm: (blockSuffix?: string, modifier?: string) => string;
+        bem: (blockSuffix?: string, element?: string, modifier?: string) => string;
+        is: {
+            (name: string, state: boolean | undefined): string;
+            (name: string): string;
+        };
+        cssVar: (object: Record<string, string>) => Record<string, string>;
+        cssVarName: (name: string) => string;
+        cssVarBlock: (object: Record<string, string>) => Record<string, string>;
+        cssVarBlockName: (name: string) => string;
+    };
+    nsInput: {
+        namespace: import("vue").ComputedRef<string>;
+        b: (blockSuffix?: string) => string;
+        e: (element?: string) => string;
+        m: (modifier?: string) => string;
+        be: (blockSuffix?: string, element?: string) => string;
+        em: (element?: string, modifier?: string) => string;
+        bm: (blockSuffix?: string, modifier?: string) => string;
+        bem: (blockSuffix?: string, element?: string, modifier?: string) => string;
+        is: {
+            (name: string, state: boolean | undefined): string;
+            (name: string): string;
+        };
+        cssVar: (object: Record<string, string>) => Record<string, string>;
+        cssVarName: (name: string) => string;
+        cssVarBlock: (object: Record<string, string>) => Record<string, string>;
+        cssVarBlockName: (name: string) => string;
+    };
     inputRef: import("vue").Ref<HTMLElement | undefined>;
     menuRef: import("vue").Ref<import("./select-dropdown").SelectDropdownInstance | undefined>;
     tagMenuRef: import("vue").Ref<HTMLElement | undefined>;
     tooltipRef: import("vue").Ref<import("element-plus/es/components/tooltip").TooltipInstance | undefined>;
     tagTooltipRef: import("vue").Ref<import("element-plus/es/components/tooltip").TooltipInstance | undefined>;
     selectRef: import("vue").Ref<HTMLElement | undefined>;
-    wrapperRef: import("vue").Ref<HTMLElement | undefined>;
+    wrapperRef: import("vue").ShallowRef<HTMLElement | undefined>;
     selectionRef: import("vue").Ref<HTMLElement | undefined>;
     prefixRef: import("vue").Ref<HTMLElement | undefined>;
     suffixRef: import("vue").Ref<HTMLElement | undefined>;
     collapseItemRef: import("vue").Ref<HTMLElement | undefined>;
     popperRef: import("vue").ComputedRef<HTMLElement | undefined>;
-    validateState: import("vue").ComputedRef<string>;
-    validateIcon: import("vue").ComputedRef<import("vue").Component | undefined>;
+    validateState: import("vue").ComputedRef<"" | "error" | "success" | "validating">;
+    validateIcon: import("vue").ComputedRef<any>;
     showTagList: import("vue").ComputedRef<import("./select.types").Option[]>;
     collapseTagList: import("vue").ComputedRef<import("./select.types").Option[]>;
-    debouncedOnInputChange: () => void;
+    debouncedOnInputChange: import("lodash").DebouncedFunc<() => void>;
     deleteTag: (event: MouseEvent, option: import("./select.types").Option) => void;
-    getLabel: (option: import("./select.types").Option) => string;
-    getValue: (option: import("./select.types").Option) => unknown;
-    getDisabled: (option: import("./select.types").Option) => boolean;
+    getLabel: (option: import("./select.types").Option) => any;
+    getValue: (option: import("./select.types").Option) => any;
+    getDisabled: (option: import("./select.types").Option) => any;
     getValueKey: (item: unknown) => any;
     handleClear: () => void;
     handleClickOutside: (event: Event) => void;
@@ -153,7 +213,7 @@ declare const _default: import("vue").DefineComponent<{
     handleEsc: () => void;
     focus: () => void;
     blur: () => void;
-    handleMenuEnter: () => void;
+    handleMenuEnter: () => Promise<void>;
     handleResize: () => void;
     resetSelectionWidth: () => void;
     updateTooltip: () => void;
@@ -162,7 +222,7 @@ declare const _default: import("vue").DefineComponent<{
     toggleMenu: () => void;
     scrollTo: (index: number) => void;
     onInput: (event: Event) => void;
-    onKeyboardNavigate: (direction: "forward" | "backward", hoveringIndex?: number) => void;
+    onKeyboardNavigate: (direction: "forward" | "backward", hoveringIndex?: number | undefined) => void;
     onKeyboardSelect: () => void;
     onSelect: (option: import("./select.types").Option) => void;
     onHover: (idx?: number) => void;
@@ -170,8 +230,8 @@ declare const _default: import("vue").DefineComponent<{
     handleCompositionEnd: (event: CompositionEvent) => void;
     handleCompositionUpdate: (event: CompositionEvent) => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (val: import("./defaults").ISelectV2Props["modelValue"]) => boolean;
-    change: (val: import("./defaults").ISelectV2Props["modelValue"]) => boolean;
+    "update:modelValue": (val: import("./defaults").SelectV2Props["modelValue"]) => boolean;
+    change: (val: import("./defaults").SelectV2Props["modelValue"]) => boolean;
     'remove-tag': (val: unknown) => boolean;
     'visible-change': (visible: boolean) => boolean;
     focus: (evt: FocusEvent) => boolean;
@@ -193,7 +253,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string) | (() => import("element-plus/es/element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus/es/element-plus").PopperEffect))[], unknown, unknown, "light", boolean>;
+    readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string) | (() => import("element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus").PopperEffect))[], unknown, unknown, "light", boolean>;
     readonly collapseTags: BooleanConstructor;
     readonly collapseTagsTooltip: BooleanConstructor;
     readonly maxCollapseTags: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
@@ -201,7 +261,12 @@ declare const _default: import("vue").DefineComponent<{
     readonly disabled: BooleanConstructor;
     readonly estimatedOptionHeight: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, undefined, boolean>;
     readonly filterable: BooleanConstructor;
-    readonly filterMethod: FunctionConstructor;
+    readonly filterMethod: {
+        readonly type: import("vue").PropType<(query: string) => void>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly height: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 274, boolean>;
     readonly itemHeight: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 34, boolean>;
     readonly id: StringConstructor;
@@ -218,7 +283,12 @@ declare const _default: import("vue").DefineComponent<{
     readonly name: StringConstructor;
     readonly noDataText: StringConstructor;
     readonly noMatchText: StringConstructor;
-    readonly remoteMethod: FunctionConstructor;
+    readonly remoteMethod: {
+        readonly type: import("vue").PropType<(query: string) => void>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly options: {
         readonly type: import("vue").PropType<import("./select.types").OptionType[]>;
@@ -235,7 +305,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly persistent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-    readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => Partial<import("@popperjs/core").Options>, boolean>;
+    readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("element-plus").Options>) | (() => Partial<import("element-plus").Options>) | ((new (...args: any[]) => Partial<import("element-plus").Options>) | (() => Partial<import("element-plus").Options>))[], unknown, unknown, () => Partial<import("element-plus").Options>, boolean>;
     readonly remote: BooleanConstructor;
     readonly size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -249,11 +319,11 @@ declare const _default: import("vue").DefineComponent<{
     readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly offset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 12, boolean>;
     readonly showArrow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown, "bottom-start", boolean>;
-    readonly fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]) | ((new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]))[], unknown, unknown, readonly ["bottom-start", "top-start", "right", "left"], boolean>;
+    readonly placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("element-plus").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("element-plus").Placement))[], import("element-plus").Placement, unknown, "bottom-start", boolean>;
+    readonly fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("element-plus").Placement[]) | (() => import("element-plus").Placement[]) | ((new (...args: any[]) => import("element-plus").Placement[]) | (() => import("element-plus").Placement[]))[], unknown, unknown, readonly ["bottom-start", "top-start", "right", "left"], boolean>;
     readonly tagType: {
         readonly default: "info";
-        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "success" | "warning" | "info" | "primary" | "danger", unknown>>;
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "primary" | "success" | "warning" | "info" | "danger", unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         readonly __epPropKey: true;
@@ -266,8 +336,19 @@ declare const _default: import("vue").DefineComponent<{
         readonly __epPropKey: true;
     };
     readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
-    readonly appendTo: StringConstructor;
+    readonly appendTo: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly fitInputWidth: import("element-plus/es/utils").EpPropFinalized<readonly [BooleanConstructor, NumberConstructor], unknown, number | boolean, true, boolean>;
+    readonly suffixIcon: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
 }>> & {
     "onUpdate:modelValue"?: ((val: any) => any) | undefined;
     onChange?: ((val: any) => any) | undefined;
@@ -283,28 +364,28 @@ declare const _default: import("vue").DefineComponent<{
     readonly multiple: boolean;
     readonly props: import("./useProps").Props;
     readonly loading: boolean;
-    readonly placement: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown>;
-    readonly effect: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string) | (() => import("element-plus/es/element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus/es/element-plus").PopperEffect))[], unknown, unknown>;
+    readonly placement: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("element-plus").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("element-plus").Placement))[], import("element-plus").Placement, unknown>;
+    readonly effect: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string) | (() => import("element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus").PopperEffect))[], unknown, unknown>;
     readonly tabindex: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
     readonly valueOnClear: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown>;
+    readonly fallbackPlacements: import("element-plus").Placement[];
+    readonly popperOptions: Partial<import("element-plus").Options>;
+    readonly popperClass: string;
+    readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly persistent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly showArrow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly autocomplete: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "none" | "both" | "inline" | "list") | (() => "none" | "both" | "inline" | "list") | ((new (...args: any[]) => "none" | "both" | "inline" | "list") | (() => "none" | "both" | "inline" | "list"))[], unknown, unknown>;
     readonly floatLabel: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly clearable: boolean;
-    readonly fallbackPlacements: import("@popperjs/core").Placement[];
-    readonly popperOptions: Partial<import("@popperjs/core").Options>;
-    readonly popperClass: string;
-    readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly persistent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly showArrow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly valueKey: string;
     readonly fitInputWidth: import("element-plus/es/utils").EpPropMergeType<readonly [BooleanConstructor, NumberConstructor], unknown, number | boolean>;
     readonly filterable: boolean;
     readonly collapseTags: boolean;
     readonly maxCollapseTags: number;
     readonly collapseTagsTooltip: boolean;
-    readonly tagType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "success" | "warning" | "info" | "primary" | "danger", unknown>;
+    readonly tagType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "primary" | "success" | "warning" | "info" | "danger", unknown>;
     readonly tagEffect: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "dark" | "light" | "plain", unknown>;
     readonly automaticDropdown: boolean;
     readonly allowCreate: boolean;

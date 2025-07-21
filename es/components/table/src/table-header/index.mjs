@@ -162,7 +162,8 @@ var TableHeader = defineComponent({
         rowspan: column.rowSpan,
         style: getHeaderCellStyle(rowIndex, cellIndex, subColumns, column),
         onClick: ($event) => {
-          if ($event.currentTarget.classList.contains("noclick")) {
+          var _a;
+          if ((_a = $event.currentTarget) == null ? void 0 : _a.classList.contains("noclick")) {
             return;
           }
           handleHeaderClick($event, column);
@@ -200,7 +201,7 @@ var TableHeader = defineComponent({
           column.filterable && h(FilterPanel, {
             store,
             placement: column.filterPlacement || "bottom-start",
-            appendTo: $parent.appendFilterPanelTo,
+            appendTo: $parent == null ? void 0 : $parent.appendFilterPanelTo,
             column,
             upDataColumn: (key, value) => {
               column[key] = value;

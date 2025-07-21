@@ -1,10 +1,11 @@
+import { inputProps } from '../../input/src/input.mjs';
 import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';
-import { UPDATE_MODEL_EVENT, INPUT_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { NOOP, isString, isObject } from '@vue/shared';
-import { useAriaProps } from '../../../hooks/use-aria/index.mjs';
+import { UPDATE_MODEL_EVENT, INPUT_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 
 const autocompleteProps = buildProps({
+  ...inputProps,
   valueKey: {
     type: String,
     default: "value"
@@ -45,33 +46,12 @@ const autocompleteProps = buildProps({
     type: Boolean,
     default: true
   },
-  selectWhenUnmatched: {
-    type: Boolean,
-    default: false
-  },
-  hideLoading: {
-    type: Boolean,
-    default: false
-  },
+  selectWhenUnmatched: Boolean,
+  hideLoading: Boolean,
   teleported: useTooltipContentProps.teleported,
-  highlightFirstItem: {
-    type: Boolean,
-    default: false
-  },
-  fitInputWidth: {
-    type: Boolean,
-    default: false
-  },
-  clearable: {
-    type: Boolean,
-    default: false
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
-  name: String,
-  ...useAriaProps(["ariaLabel"])
+  appendTo: useTooltipContentProps.appendTo,
+  highlightFirstItem: Boolean,
+  fitInputWidth: Boolean
 });
 const autocompleteEmits = {
   [UPDATE_MODEL_EVENT]: (value) => isString(value),

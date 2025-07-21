@@ -6,10 +6,12 @@ import { ArrowDown, ArrowRight } from '@element-plus/icons-vue';
 import { ElIcon } from '../../icon/index.mjs';
 import useMenu from './use-menu.mjs';
 import { useMenuCssVar } from './use-menu-css-var.mjs';
+import { MENU_INJECTION_KEY, SUB_MENU_INJECTION_KEY } from './tokens.mjs';
 import { buildProps } from '../../../utils/vue/props/runtime.mjs';
 import { iconPropType } from '../../../utils/vue/icon.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { throwError } from '../../../utils/error.mjs';
+import { isUndefined } from '../../../utils/types.mjs';
 import { isString } from '@vue/shared';
 
 const subMenuProps = buildProps({
@@ -48,10 +50,10 @@ var SubMenu = defineComponent({
     const { indexPath, parentMenu } = useMenu(instance, computed(() => props.index));
     const nsMenu = useNamespace("menu");
     const nsSubMenu = useNamespace("sub-menu");
-    const rootMenu = inject("rootMenu");
+    const rootMenu = inject(MENU_INJECTION_KEY);
     if (!rootMenu)
       throwError(COMPONENT_NAME, "can not inject root menu");
-    const subMenu = inject(`subMenu:${parentMenu.value.uid}`);
+    const subMenu = inject(`${SUB_MENU_INJECTION_KEY}${parentMenu.value.uid}`);
     if (!subMenu)
       throwError(COMPONENT_NAME, "can not inject sub menu");
     const items = ref({});
@@ -67,7 +69,7 @@ var SubMenu = defineComponent({
     const isFirstLevel = computed(() => subMenu.level === 0);
     const appendToBody = computed(() => {
       const value = props.teleported;
-      return value === void 0 ? isFirstLevel.value : value;
+      return isUndefined(value) ? isFirstLevel.value : value;
     });
     const menuTransitionName = computed(() => rootMenu.props.collapse ? `${nsMenu.namespace.value}-zoom-in-left` : `${nsMenu.namespace.value}-zoom-in-top`);
     const fallbackPlacements = computed(() => mode.value === "horizontal" && isFirstLevel.value ? [
@@ -88,8 +90,9 @@ var SubMenu = defineComponent({
       "top-end"
     ]);
     const opened = computed(() => rootMenu.openedMenus.includes(props.index));
-    const active = computed(() => Object.values(items.value).some(({ active: active2 }) => active2) || Object.values(subMenus.value).some(({ active: active2 }) => active2));
+    const active = computed(() => [...Object.values(items.value), ...Object.values(subMenus.value)].some(({ active: active2 }) => active2));
     const mode = computed(() => rootMenu.props.mode);
+    const persistent = computed(() => rootMenu.props.persistent);
     const item = reactive({
       index: props.index,
       indexPath,
@@ -116,7 +119,11 @@ var SubMenu = defineComponent({
       var _a, _b, _c;
       return (_c = (_b = (_a = vPopper.value) == null ? void 0 : _a.popperRef) == null ? void 0 : _b.popperInstanceRef) == null ? void 0 : _c.destroy();
     };
-    const handleCollapseToggle = (value) => !value && doDestroy();
+    const handleCollapseToggle = (value) => {
+      if (!value) {
+        doDestroy();
+      }
+    };
     const handleClick = () => {
       if (rootMenu.props.menuTrigger === "hover" && rootMenu.props.mode === "horizontal" || rootMenu.props.collapse && rootMenu.props.mode === "vertical" || props.disabled)
         return;
@@ -164,7 +171,7 @@ var SubMenu = defineComponent({
       const removeSubMenu = (item2) => {
         delete subMenus.value[item2.index];
       };
-      provide(`subMenu:${instance.uid}`, {
+      provide(`${SUB_MENU_INJECTION_KEY}${instance.uid}`, {
         addSubMenu,
         removeSubMenu,
         handleMouseleave,
@@ -203,7 +210,7 @@ var SubMenu = defineComponent({
         pure: true,
         offset: subMenuPopperOffset.value,
         showArrow: false,
-        persistent: true,
+        persistent: persistent.value,
         popperClass: subMenuPopperClass.value,
         placement: currentPlacement.value,
         teleported: appendToBody.value,

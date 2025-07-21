@@ -37,10 +37,7 @@ declare const _default: import("vue").DefineComponent<{
     center: BooleanConstructor;
     draggable: BooleanConstructor;
     overflow: BooleanConstructor;
-    roundButton: {
-        default: boolean;
-        type: BooleanConstructor;
-    };
+    roundButton: BooleanConstructor;
     container: {
         type: StringConstructor;
         default: string;
@@ -80,12 +77,30 @@ declare const _default: import("vue").DefineComponent<{
     visible: import("vue").Ref<boolean>;
     hasMessage: import("vue").ComputedRef<boolean>;
     typeClass: import("vue").ComputedRef<{
-        [x: string]: string;
+        [x: string]: any;
     }>;
     contentId: import("vue").Ref<string>;
     inputId: import("vue").Ref<string>;
     btnSize: import("vue").ComputedRef<"small" | "" | "default" | "large">;
-    iconComponent: import("vue").ComputedRef<string | import("vue").FunctionalComponent<any, any> | {
+    iconComponent: import("vue").ComputedRef<any>;
+    confirmButtonClasses: import("vue").ComputedRef<string>;
+    rootRef: import("vue").Ref<HTMLElement | undefined>;
+    focusStartRef: import("vue").Ref<HTMLElement | undefined>;
+    headerRef: import("vue").Ref<HTMLElement | undefined>;
+    inputRef: import("vue").Ref<ComponentPublicInstance | undefined>;
+    confirmRef: import("vue").Ref<ComponentPublicInstance | undefined>;
+    doClose: () => void;
+    handleClose: () => void;
+    onCloseRequested: () => void;
+    handleWrapperClick: () => void;
+    handleInputEnter: (e: KeyboardEvent | Event) => void;
+    handleAction: (action: Action) => void;
+    t: import("element-plus/es/hooks").Translator;
+    autofocus: import("vue").Ref<boolean>;
+    title: import("vue").Ref<string | undefined>;
+    message: import("vue").Ref<string>;
+    type: import("vue").Ref<"" | "error" | "primary" | "success" | "warning" | "info">;
+    icon: import("vue").Ref<string | import("vue").FunctionalComponent<any, any> | {
         new (...args: any[]): any;
         __isFragment?: never;
         __isTeleport?: never;
@@ -206,24 +221,7 @@ declare const _default: import("vue").DefineComponent<{
         beforeRouteUpdate?: import("vue-router").NavigationGuard | undefined;
         beforeRouteLeave?: import("vue-router").NavigationGuard | undefined;
     }>;
-    confirmButtonClasses: import("vue").ComputedRef<string>;
-    rootRef: import("vue").Ref<HTMLElement | undefined>;
-    focusStartRef: import("vue").Ref<HTMLElement | undefined>;
-    headerRef: import("vue").Ref<HTMLElement | undefined>;
-    inputRef: import("vue").Ref<ComponentPublicInstance | undefined>;
-    confirmRef: import("vue").Ref<ComponentPublicInstance | undefined>;
-    doClose: () => void;
-    handleClose: () => void;
-    onCloseRequested: () => void;
-    handleWrapperClick: () => void;
-    handleInputEnter: (e: KeyboardEvent | Event) => void;
-    handleAction: (action: Action) => void;
-    t: import("element-plus/es/hooks").Translator;
-    autofocus: import("vue").Ref<boolean>;
-    title: import("vue").Ref<string | undefined>;
-    message: import("vue").Ref<string>;
-    type: import("vue").Ref<"" | "error" | "success" | "warning" | "info">;
-    icon: import("vue").Ref<string | import("vue").FunctionalComponent<any, any> | {
+    closeIcon: import("vue").Ref<string | import("vue").FunctionalComponent<any, any> | {
         new (...args: any[]): any;
         __isFragment?: never;
         __isTeleport?: never;
@@ -1879,27 +1877,7 @@ declare const _default: import("vue").DefineComponent<{
     inputValue: import("vue").Ref<string>;
     inputPlaceholder: import("vue").Ref<string>;
     inputType: import("vue").Ref<string>;
-    inputPattern: import("vue").Ref<{
-        exec: (string: string) => RegExpExecArray | null;
-        test: (string: string) => boolean;
-        readonly source: string;
-        readonly global: boolean;
-        readonly ignoreCase: boolean;
-        readonly multiline: boolean;
-        lastIndex: number;
-        compile: (pattern: string, flags?: string) => RegExp;
-        readonly flags: string;
-        readonly sticky: boolean;
-        readonly unicode: boolean;
-        readonly dotAll: boolean;
-        [Symbol.match]: (string: string) => RegExpMatchArray | null;
-        [Symbol.replace]: {
-            (string: string, replaceValue: string): string;
-            (string: string, replacer: (substring: string, ...args: any[]) => string): string;
-        };
-        [Symbol.search]: (string: string) => number;
-        [Symbol.split]: (string: string, limit?: number) => string[];
-    } | null>;
+    inputPattern: import("vue").Ref<RegExp | null>;
     inputValidator: import("vue").Ref<import("./message-box.type").MessageBoxInputValidator>;
     inputErrorMessage: import("vue").Ref<string>;
     showConfirmButton: import("vue").Ref<boolean>;
@@ -2199,10 +2177,7 @@ declare const _default: import("vue").DefineComponent<{
     center: BooleanConstructor;
     draggable: BooleanConstructor;
     overflow: BooleanConstructor;
-    roundButton: {
-        default: boolean;
-        type: BooleanConstructor;
-    };
+    roundButton: BooleanConstructor;
     container: {
         type: StringConstructor;
         default: string;

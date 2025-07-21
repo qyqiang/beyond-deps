@@ -1,14 +1,16 @@
-import { defineComponent, inject, toRef, ref, computed, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, renderSlot, Fragment, renderList, toDisplayString, createCommentVNode, createVNode, withCtx } from 'vue';
+import { defineComponent, inject, toRef, ref, computed, watch, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, renderSlot, Fragment, renderList, toDisplayString, createCommentVNode, createVNode, withCtx, createBlock } from 'vue';
 import dayjs from 'dayjs';
+import ElButton from '../../../button/src/button.mjs';
 import { ElIcon } from '../../../icon/index.mjs';
-import { DArrowLeft, DArrowRight } from '@element-plus/icons-vue';
-import { isValidRange, getDefaultValue } from '../utils.mjs';
+import { isValidRange, getDefaultValue, correctlyParseUserInput } from '../utils.mjs';
 import { panelMonthRangeProps, panelMonthRangeEmits } from '../props/panel-month-range.mjs';
 import { useMonthRangeHeader } from '../composables/use-month-range-header.mjs';
 import { useRangePicker } from '../composables/use-range-picker.mjs';
+import { ROOT_PICKER_IS_DEFAULT_FORMAT_INJECTION_KEY } from '../constants.mjs';
 import MonthTable from './basic-month-table.mjs';
 import _export_sfc from '../../../../_virtual/plugin-vue_export-helper.mjs';
 import { useLocale } from '../../../../hooks/use-locale/index.mjs';
+import { PICKER_BASE_INJECTION_KEY } from '../../../time-picker/src/constants.mjs';
 import { isArray } from '@vue/shared';
 
 const unit = "year";
@@ -22,7 +24,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   setup(__props, { emit }) {
     const props = __props;
     const { lang } = useLocale();
-    const pickerBase = inject("EP_PICKER_BASE");
+    const pickerBase = inject(PICKER_BASE_INJECTION_KEY);
+    const isDefaultFormat = inject(ROOT_PICKER_IS_DEFAULT_FORMAT_INJECTION_KEY);
     const { shortcuts, disabledDate } = pickerBase.props;
     const format = toRef(pickerBase.props, "format");
     const defaultValue = toRef(pickerBase.props, "defaultValue");
@@ -37,7 +40,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       handleChangeRange,
       handleRangeConfirm,
       handleShortcutClick,
-      onSelect
+      onSelect,
+      onReset
     } = useRangePicker(props, {
       defaultValue,
       leftDate,
@@ -89,7 +93,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return isArray(value) ? value.map((_) => _.format(format.value)) : value.format(format.value);
     };
     const parseUserInput = (value) => {
-      return isArray(value) ? value.map((_) => dayjs(_, format.value).locale(lang.value)) : dayjs(value, format.value).locale(lang.value);
+      return correctlyParseUserInput(value, format.value, lang.value, isDefaultFormat);
     };
     function onParsedValueChanged(minDate2, maxDate2) {
       if (props.unlinkPanels && maxDate2) {
@@ -100,6 +104,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         rightDate.value = leftDate.value.add(1, unit);
       }
     }
+    watch(() => props.visible, (visible) => {
+      if (!visible && rangeState.value.selecting) {
+        onReset(props.parsedValue);
+        onSelect(false);
+      }
+    });
     emit("set-picker-option", ["isValidValue", isValidRange]);
     emit("set-picker-option", ["formatToString", formatToString]);
     emit("set-picker-option", ["parseUserInput", parseUserInput]);
@@ -142,39 +152,64 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               createElementVNode("div", {
                 class: normalizeClass(unref(drpNs).e("header"))
               }, [
-                createElementVNode("button", {
-                  type: "button",
-                  class: normalizeClass([unref(ppNs).e("icon-btn"), "d-arrow-left"]),
+                createVNode(ElButton, {
+                  text: "",
+                  class: normalizeClass([unref(ppNs).e("icon-btn"), "d-arrow-left icon-button"]),
                   onClick: unref(leftPrevYear)
-                }, [
-                  renderSlot(_ctx.$slots, "prev-year", {}, () => [
-                    createVNode(unref(ElIcon), null, {
-                      default: withCtx(() => [
-                        createVNode(unref(DArrowLeft))
-                      ]),
-                      _: 1
-                    })
-                  ])
-                ], 10, ["onClick"]),
-                _ctx.unlinkPanels ? (openBlock(), createElementBlock("button", {
+                }, {
+                  default: withCtx(() => [
+                    renderSlot(_ctx.$slots, "prev-year", {}, () => [
+                      createVNode(unref(ElIcon), {
+                        size: "16px",
+                        color: "#374957"
+                      }, {
+                        default: withCtx(() => [
+                          (openBlock(), createElementBlock("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "17",
+                            height: "16",
+                            viewBox: "0 0 17 16"
+                          }, [
+                            createElementVNode("path", { d: "M7.95949 4.47147L7.01683 3.52881L3.48816 7.05747C3.2382 7.30751 3.09778 7.64659 3.09778 8.00014C3.09778 8.35369 3.2382 8.69277 3.48816 8.94281L7.01683 12.4715L7.95949 11.5288L4.43349 8.00014L7.95949 4.47147Z" }),
+                            createElementVNode("path", { d: "M12.6259 4.47147L11.6833 3.52881L7.68329 7.52881C7.55831 7.65383 7.4881 7.82337 7.4881 8.00014C7.4881 8.17692 7.55831 8.34646 7.68329 8.47147L11.6833 12.4715L12.6259 11.5288L9.09995 8.00014L12.6259 4.47147Z" })
+                          ]))
+                        ]),
+                        _: 1
+                      })
+                    ])
+                  ]),
+                  _: 3
+                }, 8, ["class", "onClick"]),
+                _ctx.unlinkPanels ? (openBlock(), createBlock(ElButton, {
                   key: 0,
-                  type: "button",
+                  text: "",
                   disabled: !unref(enableYearArrow),
                   class: normalizeClass([[
                     unref(ppNs).e("icon-btn"),
                     { [unref(ppNs).is("disabled")]: !unref(enableYearArrow) }
-                  ], "d-arrow-right"]),
+                  ], "d-arrow-right icon-button"]),
                   onClick: unref(leftNextYear)
-                }, [
-                  renderSlot(_ctx.$slots, "next-year", {}, () => [
-                    createVNode(unref(ElIcon), null, {
-                      default: withCtx(() => [
-                        createVNode(unref(DArrowRight))
-                      ]),
-                      _: 1
-                    })
-                  ])
-                ], 10, ["disabled", "onClick"])) : createCommentVNode("v-if", true),
+                }, {
+                  default: withCtx(() => [
+                    renderSlot(_ctx.$slots, "next-year", {}, () => [
+                      createVNode(unref(ElIcon), { size: "16px" }, {
+                        default: withCtx(() => [
+                          (openBlock(), createElementBlock("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "17",
+                            height: "16",
+                            viewBox: "0 0 17 16"
+                          }, [
+                            createElementVNode("path", { d: "M13.2334 7.05747L9.70742 3.52881L8.76675 4.47147L12.2927 8.00014L8.76675 11.5288L9.71009 12.4715L13.2334 8.94281C13.4834 8.69277 13.6238 8.35369 13.6238 8.00014C13.6238 7.64659 13.4834 7.30751 13.2334 7.05747Z" }),
+                            createElementVNode("path", { d: "M9.04055 7.52881L5.04055 3.52881L4.09988 4.47147L7.62588 8.00014L4.09988 11.5288L5.04322 12.4715L9.04322 8.47147C9.16784 8.3461 9.23758 8.17637 9.23708 7.99959C9.23658 7.82281 9.16589 7.65347 9.04055 7.52881Z" })
+                          ]))
+                        ]),
+                        _: 1
+                      })
+                    ])
+                  ]),
+                  _: 3
+                }, 8, ["disabled", "class", "onClick"])) : createCommentVNode("v-if", true),
                 createElementVNode("div", null, toDisplayString(unref(leftLabel)), 1)
               ], 2),
               createVNode(MonthTable, {
@@ -195,36 +230,61 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               createElementVNode("div", {
                 class: normalizeClass(unref(drpNs).e("header"))
               }, [
-                _ctx.unlinkPanels ? (openBlock(), createElementBlock("button", {
+                _ctx.unlinkPanels ? (openBlock(), createBlock(ElButton, {
                   key: 0,
-                  type: "button",
+                  text: "",
                   disabled: !unref(enableYearArrow),
-                  class: normalizeClass([[unref(ppNs).e("icon-btn"), { "is-disabled": !unref(enableYearArrow) }], "d-arrow-left"]),
+                  class: normalizeClass([[unref(ppNs).e("icon-btn"), { "is-disabled": !unref(enableYearArrow) }], "d-arrow-left icon-button"]),
                   onClick: unref(rightPrevYear)
-                }, [
-                  renderSlot(_ctx.$slots, "prev-year", {}, () => [
-                    createVNode(unref(ElIcon), null, {
-                      default: withCtx(() => [
-                        createVNode(unref(DArrowLeft))
-                      ]),
-                      _: 1
-                    })
-                  ])
-                ], 10, ["disabled", "onClick"])) : createCommentVNode("v-if", true),
-                createElementVNode("button", {
-                  type: "button",
-                  class: normalizeClass([unref(ppNs).e("icon-btn"), "d-arrow-right"]),
+                }, {
+                  default: withCtx(() => [
+                    renderSlot(_ctx.$slots, "prev-year", {}, () => [
+                      createVNode(unref(ElIcon), {
+                        size: "16px",
+                        color: "#374957"
+                      }, {
+                        default: withCtx(() => [
+                          (openBlock(), createElementBlock("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "17",
+                            height: "16",
+                            viewBox: "0 0 17 16"
+                          }, [
+                            createElementVNode("path", { d: "M7.95949 4.47147L7.01683 3.52881L3.48816 7.05747C3.2382 7.30751 3.09778 7.64659 3.09778 8.00014C3.09778 8.35369 3.2382 8.69277 3.48816 8.94281L7.01683 12.4715L7.95949 11.5288L4.43349 8.00014L7.95949 4.47147Z" }),
+                            createElementVNode("path", { d: "M12.6259 4.47147L11.6833 3.52881L7.68329 7.52881C7.55831 7.65383 7.4881 7.82337 7.4881 8.00014C7.4881 8.17692 7.55831 8.34646 7.68329 8.47147L11.6833 12.4715L12.6259 11.5288L9.09995 8.00014L12.6259 4.47147Z" })
+                          ]))
+                        ]),
+                        _: 1
+                      })
+                    ])
+                  ]),
+                  _: 3
+                }, 8, ["disabled", "class", "onClick"])) : createCommentVNode("v-if", true),
+                createVNode(ElButton, {
+                  text: "",
+                  class: normalizeClass([unref(ppNs).e("icon-btn"), "d-arrow-right icon-button"]),
                   onClick: unref(rightNextYear)
-                }, [
-                  renderSlot(_ctx.$slots, "next-year", {}, () => [
-                    createVNode(unref(ElIcon), null, {
-                      default: withCtx(() => [
-                        createVNode(unref(DArrowRight))
-                      ]),
-                      _: 1
-                    })
-                  ])
-                ], 10, ["onClick"]),
+                }, {
+                  default: withCtx(() => [
+                    renderSlot(_ctx.$slots, "next-year", {}, () => [
+                      createVNode(unref(ElIcon), { size: "16px" }, {
+                        default: withCtx(() => [
+                          (openBlock(), createElementBlock("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "17",
+                            height: "16",
+                            viewBox: "0 0 17 16"
+                          }, [
+                            createElementVNode("path", { d: "M13.2334 7.05747L9.70742 3.52881L8.76675 4.47147L12.2927 8.00014L8.76675 11.5288L9.71009 12.4715L13.2334 8.94281C13.4834 8.69277 13.6238 8.35369 13.6238 8.00014C13.6238 7.64659 13.4834 7.30751 13.2334 7.05747Z" }),
+                            createElementVNode("path", { d: "M9.04055 7.52881L5.04055 3.52881L4.09988 4.47147L7.62588 8.00014L4.09988 11.5288L5.04322 12.4715L9.04322 8.47147C9.16784 8.3461 9.23758 8.17637 9.23708 7.99959C9.23658 7.82281 9.16589 7.65347 9.04055 7.52881Z" })
+                          ]))
+                        ]),
+                        _: 1
+                      })
+                    ])
+                  ]),
+                  _: 3
+                }, 8, ["class", "onClick"]),
                 createElementVNode("div", null, toDisplayString(unref(rightLabel)), 1)
               ], 2),
               createVNode(MonthTable, {

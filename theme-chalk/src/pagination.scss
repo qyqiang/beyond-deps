@@ -28,7 +28,7 @@
   }
 
   &:hover {
-    color: getCssVar('pagination-hover-color');
+    background-color: #e7ecef;
   }
 
   &.is-active {
@@ -145,7 +145,7 @@
       box-sizing: border-box;
 
       &.#{$namespace}-input {
-        width: 56px;
+        width: 60px;
       }
 
       .#{$namespace}-input__inner::-webkit-inner-spin-button,

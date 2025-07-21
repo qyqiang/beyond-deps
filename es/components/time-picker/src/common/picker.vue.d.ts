@@ -14,6 +14,7 @@ declare function __VLS_template(): {
         type: string;
         defaultValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => Date | [Date, Date]) | (() => SingleOrRange<Date>) | ((new (...args: any[]) => Date | [Date, Date]) | (() => SingleOrRange<Date>))[], unknown, unknown> | undefined;
         showNow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        showWeekNumber: boolean;
         onMousedown: any;
         onPanelChange: any;
         onCalendarChange: any;
@@ -24,6 +25,7 @@ declare function __VLS_template(): {
 };
 declare const __VLS_component: import("vue").DefineComponent<{
     readonly showNow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showWeekNumber: BooleanConstructor;
     readonly ariaLabel: StringConstructor;
     readonly emptyValues: ArrayConstructor;
     readonly valueOnClear: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown, undefined, boolean>;
@@ -47,19 +49,19 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown, "bottom", boolean>;
     readonly fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]) | ((new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]))[], unknown, unknown, readonly ["bottom", "top", "right", "left"], boolean>;
     readonly disabledHours: {
-        readonly type: import("vue").PropType<import("../props/shared").GetDisabledHours>;
+        readonly type: import("vue").PropType<import("./props").GetDisabledHours>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
     readonly disabledMinutes: {
-        readonly type: import("vue").PropType<import("../props/shared").GetDisabledMinutes>;
+        readonly type: import("vue").PropType<import("./props").GetDisabledMinutes>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
     readonly disabledSeconds: {
-        readonly type: import("vue").PropType<import("../props/shared").GetDisabledSeconds>;
+        readonly type: import("vue").PropType<import("./props").GetDisabledSeconds>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
@@ -101,7 +103,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly disabled: BooleanConstructor;
     readonly placeholder: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<Options>) | (() => Partial<Options>) | ((new (...args: any[]) => Partial<Options>) | (() => Partial<Options>))[], unknown, unknown, () => {}, boolean>;
-    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | string[] | Date | [DateModelType, DateModelType]) | (() => import("./props").ModelValueType) | ((new (...args: any[]) => string | number | string[] | Date | [DateModelType, DateModelType]) | (() => import("./props").ModelValueType))[], unknown, unknown, "", boolean>;
+    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => import("./props").ModelValueType) | ((new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => import("./props").ModelValueType))[], unknown, unknown, "", boolean>;
     readonly rangeSeparator: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "-", boolean>;
     readonly startPlaceholder: StringConstructor;
     readonly endPlaceholder: StringConstructor;
@@ -151,6 +153,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     "visible-change": (...args: any[]) => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     readonly showNow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showWeekNumber: BooleanConstructor;
     readonly ariaLabel: StringConstructor;
     readonly emptyValues: ArrayConstructor;
     readonly valueOnClear: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown, undefined, boolean>;
@@ -174,19 +177,19 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown, "bottom", boolean>;
     readonly fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]) | ((new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]))[], unknown, unknown, readonly ["bottom", "top", "right", "left"], boolean>;
     readonly disabledHours: {
-        readonly type: import("vue").PropType<import("../props/shared").GetDisabledHours>;
+        readonly type: import("vue").PropType<import("./props").GetDisabledHours>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
     readonly disabledMinutes: {
-        readonly type: import("vue").PropType<import("../props/shared").GetDisabledMinutes>;
+        readonly type: import("vue").PropType<import("./props").GetDisabledMinutes>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
     readonly disabledSeconds: {
-        readonly type: import("vue").PropType<import("../props/shared").GetDisabledSeconds>;
+        readonly type: import("vue").PropType<import("./props").GetDisabledSeconds>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
@@ -228,7 +231,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly disabled: BooleanConstructor;
     readonly placeholder: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<Options>) | (() => Partial<Options>) | ((new (...args: any[]) => Partial<Options>) | (() => Partial<Options>))[], unknown, unknown, () => {}, boolean>;
-    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | string[] | Date | [DateModelType, DateModelType]) | (() => import("./props").ModelValueType) | ((new (...args: any[]) => string | number | string[] | Date | [DateModelType, DateModelType]) | (() => import("./props").ModelValueType))[], unknown, unknown, "", boolean>;
+    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => import("./props").ModelValueType) | ((new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => import("./props").ModelValueType))[], unknown, unknown, "", boolean>;
     readonly rangeSeparator: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "-", boolean>;
     readonly startPlaceholder: StringConstructor;
     readonly endPlaceholder: StringConstructor;
@@ -259,21 +262,22 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly disabled: boolean;
     readonly type: string;
     readonly placeholder: string;
-    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | number | string[] | Date | [DateModelType, DateModelType]) | (() => import("./props").ModelValueType) | ((new (...args: any[]) => string | number | string[] | Date | [DateModelType, DateModelType]) | (() => import("./props").ModelValueType))[], unknown, unknown>;
+    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => import("./props").ModelValueType) | ((new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => import("./props").ModelValueType))[], unknown, unknown>;
     readonly placement: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown>;
     readonly tabindex: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | number) | (() => string | number) | ((new (...args: any[]) => string | number) | (() => string | number))[], unknown, unknown>;
     readonly valueOnClear: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown>;
     readonly readonly: boolean;
-    readonly prefixIcon: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>;
-    readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly fallbackPlacements: import("@popperjs/core").Placement[];
     readonly popperOptions: Partial<Options>;
     readonly popperClass: string;
+    readonly prefixIcon: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>;
+    readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly editable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly rangeSeparator: string;
     readonly shortcuts: unknown[];
     readonly showNow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly showWeekNumber: boolean;
     readonly arrowControl: boolean;
     readonly unlinkPanels: boolean;
     readonly isRange: boolean;

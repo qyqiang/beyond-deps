@@ -7,10 +7,10 @@
 }
 
 @include b(date-range-picker) {
-  width: 646px;
+  width: 592px;
 
   &.has-sidebar {
-    width: 756px;
+    width: 716px;
   }
 
   &.has-time .#{$namespace}-picker-panel__body-wrapper {
@@ -33,7 +33,8 @@
   @include e(header) {
     position: relative;
     text-align: center;
-    height: 28px;
+    height: 48px;
+    padding: 6px 0;
 
     [class*='arrow-left'] {
       float: left;
@@ -50,15 +51,40 @@
     }
   }
 
+  @include e(header-label) {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 5px;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    color: getCssVar('text-color', 'regular');
+
+    &:hover {
+      color: getCssVar('datepicker-hover-text-color');
+    }
+    &:focus-visible {
+      outline: none;
+      color: getCssVar('datepicker-hover-text-color');
+    }
+
+    &.active {
+      color: getCssVar('datepicker-active-color');
+    }
+  }
+
   @include e(content) {
     float: left;
     width: 50%;
     box-sizing: border-box;
     margin: 0;
-    padding: 16px;
 
     @include when(left) {
-      border-right: 1px solid getCssVar('datepicker-inner-border-color');
+      padding-right: 16px;
+      border-right: 1px solid var(--color-gray-gray-100)
+    }
+    @include when(right) {
+      padding-left: 16px;
     }
     .#{$namespace}-date-range-picker__header {
       div {

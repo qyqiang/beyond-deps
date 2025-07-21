@@ -1,9 +1,11 @@
-import type { ExtractPropTypes, StyleValue } from 'vue';
+import type { ExtractPropTypes, StyleValue, __ExtractPublicPropTypes } from 'vue';
 export type InputAutoSize = {
     minRows?: number;
     maxRows?: number;
 } | boolean;
 export declare const inputProps: {
+    readonly inputmode: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined))[], unknown, unknown, undefined, boolean>;
+    readonly name: StringConstructor;
     readonly ariaLabel: StringConstructor;
     readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly size: {
@@ -91,6 +93,7 @@ export declare const inputProps: {
     readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
 };
 export type InputProps = ExtractPropTypes<typeof inputProps>;
+export type InputPropsPublic = __ExtractPublicPropTypes<typeof inputProps>;
 export declare const inputEmits: {
     "update:modelValue": (value: string) => boolean;
     input: (value: string) => boolean;

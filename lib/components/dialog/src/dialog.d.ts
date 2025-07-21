@@ -1,10 +1,10 @@
-import type { ExtractPropTypes } from 'vue';
+import type { ExtractPropTypes, __ExtractPublicPropTypes } from 'vue';
 import type Dialog from './dialog.vue';
 type DoneFn = (cancel?: boolean) => void;
 export type DialogBeforeCloseFn = (done: DoneFn) => void;
 export declare const dialogProps: {
     readonly appendToBody: BooleanConstructor;
-    readonly appendTo: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown, "body", boolean>;
+    readonly appendTo: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown, "body", boolean>;
     readonly beforeClose: {
         readonly type: import("vue").PropType<DialogBeforeCloseFn>;
         readonly required: false;
@@ -61,6 +61,7 @@ export declare const dialogProps: {
     readonly ariaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
 };
 export type DialogProps = ExtractPropTypes<typeof dialogProps>;
+export type DialogPropsPublic = __ExtractPublicPropTypes<typeof dialogProps>;
 export declare const dialogEmits: {
     open: () => boolean;
     opened: () => boolean;
@@ -71,5 +72,5 @@ export declare const dialogEmits: {
     closeAutoFocus: () => boolean;
 };
 export type DialogEmits = typeof dialogEmits;
-export type DialogInstance = InstanceType<typeof Dialog>;
+export type DialogInstance = InstanceType<typeof Dialog> & unknown;
 export {};

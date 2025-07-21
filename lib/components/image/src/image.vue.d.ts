@@ -13,6 +13,7 @@ declare function __VLS_template(): {
         next: () => void;
         reset: () => void;
         activeIndex: number;
+        setActiveItem: (index: number) => void;
     }): any;
 };
 declare const __VLS_component: import("vue").DefineComponent<{
@@ -46,7 +47,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly zoomRate: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1.2, boolean>;
     readonly minScale: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0.2, boolean>;
     readonly maxScale: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 7, boolean>;
-    readonly showProgress: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly showProgress: BooleanConstructor;
     readonly crossorigin: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "" | "anonymous" | "use-credentials") | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => "" | "anonymous" | "use-credentials") | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
         readonly required: false;
@@ -93,7 +94,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly zoomRate: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1.2, boolean>;
     readonly minScale: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0.2, boolean>;
     readonly maxScale: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 7, boolean>;
-    readonly showProgress: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly showProgress: BooleanConstructor;
     readonly crossorigin: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "" | "anonymous" | "use-credentials") | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => "" | "anonymous" | "use-credentials") | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
         readonly required: false;
@@ -116,8 +117,8 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly zoomRate: number;
     readonly minScale: number;
     readonly maxScale: number;
-    readonly showProgress: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly hideOnClickModal: boolean;
+    readonly showProgress: boolean;
     readonly previewSrcList: string[];
     readonly previewTeleported: boolean;
 }>;

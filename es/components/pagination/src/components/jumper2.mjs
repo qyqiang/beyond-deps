@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, toDisplayString, createVNode } from 'vue';
+import { defineComponent, ref, computed, openBlock, createElementBlock, normalizeClass, unref, createVNode } from 'vue';
 import { ElInput } from '../../../input/index.mjs';
 import { usePagination } from '../usePagination.mjs';
 import { paginationJumperProps } from './jumper.mjs';
@@ -34,9 +34,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         class: normalizeClass(unref(ns).e("jump")),
         disabled: unref(disabled)
       }, [
-        createElementVNode("span", {
-          class: normalizeClass([unref(ns).e("goto")])
-        }, toDisplayString(unref(t)("el.pagination.goto")), 3),
         createVNode(unref(ElInput), {
           size: _ctx.size,
           class: normalizeClass([unref(ns).e("editor"), unref(ns).is("in-pagination")]),
@@ -45,14 +42,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           disabled: unref(disabled),
           "model-value": unref(innerValue),
           "validate-event": false,
+          "float-label": false,
           "aria-label": unref(t)("el.pagination.page"),
           type: "number",
+          placeholder: "Go To",
           "onUpdate:modelValue": handleInput,
           onChange: handleChange
-        }, null, 8, ["size", "class", "max", "disabled", "model-value", "aria-label"]),
-        createElementVNode("span", {
-          class: normalizeClass([unref(ns).e("classifier")])
-        }, toDisplayString(unref(t)("el.pagination.pageClassifier")), 3)
+        }, null, 8, ["size", "class", "max", "disabled", "model-value", "aria-label"])
       ], 10, ["disabled"]);
     };
   }

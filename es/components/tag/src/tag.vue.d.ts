@@ -3,7 +3,7 @@ declare function __VLS_template(): {
     default?(_: {}): any;
 };
 declare const __VLS_component: import("vue").DefineComponent<{
-    readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "success" | "warning" | "info" | "primary" | "danger", unknown, "primary", boolean>;
+    readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "primary" | "success" | "warning" | "info" | "danger", unknown, "primary", boolean>;
     readonly closable: BooleanConstructor;
     readonly disableTransitions: BooleanConstructor;
     readonly hit: BooleanConstructor;
@@ -20,7 +20,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     click: (evt: MouseEvent) => void;
     close: (evt: MouseEvent) => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "success" | "warning" | "info" | "primary" | "danger", unknown, "primary", boolean>;
+    readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "primary" | "success" | "warning" | "info" | "danger", unknown, "primary", boolean>;
     readonly closable: BooleanConstructor;
     readonly disableTransitions: BooleanConstructor;
     readonly hit: BooleanConstructor;
@@ -38,7 +38,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     onClose?: ((evt: MouseEvent) => any) | undefined;
 }, {
     readonly round: boolean;
-    readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "success" | "warning" | "info" | "primary" | "danger", unknown>;
+    readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "primary" | "success" | "warning" | "info" | "danger", unknown>;
     readonly effect: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "dark" | "light" | "plain", unknown>;
     readonly closable: boolean;
     readonly disableTransitions: boolean;

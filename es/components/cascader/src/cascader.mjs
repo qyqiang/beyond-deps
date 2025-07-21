@@ -43,10 +43,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             const { modifiersData, placement } = state;
             if (["right", "left", "bottom", "top"].includes(placement))
               return;
-            if (!(modifiersData == null ? void 0 : modifiersData.arrow)) {
-              return;
+            if (modifiersData.arrow) {
+              modifiersData.arrow.x = 35;
             }
-            modifiersData.arrow.x = 35;
           },
           requires: ["arrow"]
         }
@@ -85,7 +84,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return attrs.style;
     });
     const isDisabled = computed(() => props.disabled || (form == null ? void 0 : form.disabled));
-    const inputPlaceholder = computed(() => props.placeholder || t("el.cascader.placeholder"));
+    const inputPlaceholder = computed(() => {
+      var _a;
+      return (_a = props.placeholder) != null ? _a : t("el.cascader.placeholder");
+    });
     const currentPlaceholder = computed(() => searchInputValue.value || presentTags.value.length > 0 || isComposing.value ? "" : inputPlaceholder.value);
     const realSize = useFormSize();
     const tagSize = computed(() => realSize.value === "small" ? "small" : "default");
@@ -328,6 +330,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       switch (code) {
         case EVENT_CODE.up:
         case EVENT_CODE.down: {
+          e.preventDefault();
           const distance = code === EVENT_CODE.up ? -1 : 1;
           focusNode(getSibling(target, distance, `.${nsCascader.e("suggestion-item")}[tabindex="-1"]`));
           break;
@@ -493,63 +496,73 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 unref(nsCascader).is("validate", Boolean(unref(validateState)))
               ])
             }, [
-              (openBlock(true), createElementBlock(Fragment, null, renderList(presentTags.value, (tag) => {
-                return openBlock(), createBlock(unref(ElTag), {
-                  key: tag.key,
-                  type: _ctx.tagType,
-                  size: unref(tagSize),
-                  effect: _ctx.tagEffect,
-                  hit: tag.hitState,
-                  closable: tag.closable,
-                  "disable-transitions": "",
-                  onClose: ($event) => deleteTag(tag)
-                }, {
-                  default: withCtx(() => [
-                    tag.isCollapseTag === false ? (openBlock(), createElementBlock("span", { key: 0 }, toDisplayString(tag.text), 1)) : (openBlock(), createBlock(unref(ElTooltip), {
-                      key: 1,
-                      disabled: popperVisible.value || !_ctx.collapseTagsTooltip,
-                      "fallback-placements": ["bottom", "top", "right", "left"],
-                      placement: "bottom",
-                      effect: "light"
-                    }, {
-                      default: withCtx(() => [
-                        createElementVNode("span", null, toDisplayString(tag.text), 1)
-                      ]),
-                      content: withCtx(() => [
-                        createElementVNode("div", {
-                          class: normalizeClass(unref(nsCascader).e("collapse-tags"))
-                        }, [
-                          (openBlock(true), createElementBlock(Fragment, null, renderList(allPresentTags.value.slice(_ctx.maxCollapseTags), (tag2, idx) => {
-                            return openBlock(), createElementBlock("div", {
-                              key: idx,
-                              class: normalizeClass(unref(nsCascader).e("collapse-tag"))
-                            }, [
-                              (openBlock(), createBlock(unref(ElTag), {
-                                key: tag2.key,
-                                class: "in-tooltip",
-                                type: _ctx.tagType,
-                                size: unref(tagSize),
-                                effect: _ctx.tagEffect,
-                                hit: tag2.hitState,
-                                closable: tag2.closable,
-                                "disable-transitions": "",
-                                onClose: ($event) => deleteTag(tag2)
-                              }, {
-                                default: withCtx(() => [
-                                  createElementVNode("span", null, toDisplayString(tag2.text), 1)
-                                ]),
-                                _: 2
-                              }, 1032, ["type", "size", "effect", "hit", "closable", "onClose"]))
-                            ], 2);
-                          }), 128))
-                        ], 2)
-                      ]),
-                      _: 2
-                    }, 1032, ["disabled"]))
-                  ]),
-                  _: 2
-                }, 1032, ["type", "size", "effect", "hit", "closable", "onClose"]);
-              }), 128)),
+              renderSlot(_ctx.$slots, "tag", {
+                data: allPresentTags.value,
+                deleteTag
+              }, () => [
+                (openBlock(true), createElementBlock(Fragment, null, renderList(presentTags.value, (tag) => {
+                  return openBlock(), createBlock(unref(ElTag), {
+                    key: tag.key,
+                    type: _ctx.tagType,
+                    size: unref(tagSize),
+                    effect: _ctx.tagEffect,
+                    hit: tag.hitState,
+                    closable: tag.closable,
+                    "disable-transitions": "",
+                    onClose: ($event) => deleteTag(tag)
+                  }, {
+                    default: withCtx(() => [
+                      tag.isCollapseTag === false ? (openBlock(), createElementBlock("span", { key: 0 }, toDisplayString(tag.text), 1)) : (openBlock(), createBlock(unref(ElTooltip), {
+                        key: 1,
+                        disabled: popperVisible.value || !_ctx.collapseTagsTooltip,
+                        "fallback-placements": ["bottom", "top", "right", "left"],
+                        placement: "bottom",
+                        effect: "light"
+                      }, {
+                        default: withCtx(() => [
+                          createElementVNode("span", null, toDisplayString(tag.text), 1)
+                        ]),
+                        content: withCtx(() => [
+                          createVNode(unref(ElScrollbar), { "max-height": _ctx.maxCollapseTagsTooltipHeight }, {
+                            default: withCtx(() => [
+                              createElementVNode("div", {
+                                class: normalizeClass(unref(nsCascader).e("collapse-tags"))
+                              }, [
+                                (openBlock(true), createElementBlock(Fragment, null, renderList(allPresentTags.value.slice(_ctx.maxCollapseTags), (tag2, idx) => {
+                                  return openBlock(), createElementBlock("div", {
+                                    key: idx,
+                                    class: normalizeClass(unref(nsCascader).e("collapse-tag"))
+                                  }, [
+                                    (openBlock(), createBlock(unref(ElTag), {
+                                      key: tag2.key,
+                                      class: "in-tooltip",
+                                      type: _ctx.tagType,
+                                      size: unref(tagSize),
+                                      effect: _ctx.tagEffect,
+                                      hit: tag2.hitState,
+                                      closable: tag2.closable,
+                                      "disable-transitions": "",
+                                      onClose: ($event) => deleteTag(tag2)
+                                    }, {
+                                      default: withCtx(() => [
+                                        createElementVNode("span", null, toDisplayString(tag2.text), 1)
+                                      ]),
+                                      _: 2
+                                    }, 1032, ["type", "size", "effect", "hit", "closable", "onClose"]))
+                                  ], 2);
+                                }), 128))
+                              ], 2)
+                            ]),
+                            _: 1
+                          }, 8, ["max-height"])
+                        ]),
+                        _: 2
+                      }, 1032, ["disabled"]))
+                    ]),
+                    _: 2
+                  }, 1032, ["type", "size", "effect", "hit", "closable", "onClose"]);
+                }), 128))
+              ]),
               _ctx.filterable && !unref(isDisabled) ? withDirectives((openBlock(), createElementBlock("input", {
                 key: 0,
                 "onUpdate:modelValue": ($event) => searchInputValue.value = $event,
@@ -612,13 +625,15 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   tabindex: -1,
                   onClick: ($event) => handleSuggestionClick(item)
                 }, [
-                  createElementVNode("span", null, toDisplayString(item.text), 1),
-                  item.checked ? (openBlock(), createBlock(unref(ElIcon), { key: 0 }, {
-                    default: withCtx(() => [
-                      createVNode(unref(Check))
-                    ]),
-                    _: 1
-                  })) : createCommentVNode("v-if", true)
+                  renderSlot(_ctx.$slots, "suggestion-item", { item }, () => [
+                    createElementVNode("span", null, toDisplayString(item.text), 1),
+                    item.checked ? (openBlock(), createBlock(unref(ElIcon), { key: 0 }, {
+                      default: withCtx(() => [
+                        createVNode(unref(Check))
+                      ]),
+                      _: 1
+                    })) : createCommentVNode("v-if", true)
+                  ])
                 ], 10, ["onClick"]);
               }), 128)) : renderSlot(_ctx.$slots, "empty", { key: 1 }, () => [
                 createElementVNode("li", {

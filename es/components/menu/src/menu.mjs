@@ -7,6 +7,7 @@ import Menu$1 from './utils/menu-bar.mjs';
 import ElMenuCollapseTransition from './menu-collapse-transition.mjs';
 import SubMenu from './sub-menu.mjs';
 import { useMenuCssVar } from './use-menu-css-var.mjs';
+import { MENU_INJECTION_KEY, SUB_MENU_INJECTION_KEY } from './tokens.mjs';
 import ClickOutside from '../../../directives/click-outside/index.mjs';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { mutable } from '../../../utils/typescript.mjs';
@@ -14,6 +15,7 @@ import { iconPropType } from '../../../utils/vue/icon.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { flattedChildren } from '../../../utils/vue/vnode.mjs';
 import { isString, isArray, isObject } from '@vue/shared';
+import { isUndefined } from '../../../utils/types.mjs';
 
 const menuProps = buildProps({
   mode: {
@@ -69,13 +71,17 @@ const menuProps = buildProps({
   hideTimeout: {
     type: Number,
     default: 300
+  },
+  persistent: {
+    type: Boolean,
+    default: true
   }
 });
 const checkIndexPath = (indexPath) => isArray(indexPath) && indexPath.every((path) => isString(path));
 const menuEmits = {
   close: (index, indexPath) => isString(index) && checkIndexPath(indexPath),
   open: (index, indexPath) => isString(index) && checkIndexPath(indexPath),
-  select: (index, indexPath, item, routerResult) => isString(index) && checkIndexPath(indexPath) && isObject(item) && (routerResult === void 0 || routerResult instanceof Promise)
+  select: (index, indexPath, item, routerResult) => isString(index) && checkIndexPath(indexPath) && isObject(item) && (isUndefined(routerResult) || routerResult instanceof Promise)
 };
 var Menu = defineComponent({
   name: "ElMenu",
@@ -240,7 +246,7 @@ var Menu = defineComponent({
       const removeMenuItem = (item) => {
         delete items.value[item.index];
       };
-      provide("rootMenu", reactive({
+      provide(MENU_INJECTION_KEY, reactive({
         props,
         openedMenus,
         items,
@@ -256,7 +262,7 @@ var Menu = defineComponent({
         handleMenuItemClick,
         handleSubMenuClick
       }));
-      provide(`subMenu:${instance.uid}`, {
+      provide(`${SUB_MENU_INJECTION_KEY}${instance.uid}`, {
         addSubMenu,
         removeSubMenu,
         mouseInChild,
@@ -276,6 +282,7 @@ var Menu = defineComponent({
       expose({
         open,
         close,
+        updateActiveIndex,
         handleResize
       });
     }

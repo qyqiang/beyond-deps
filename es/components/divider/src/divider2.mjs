@@ -33,7 +33,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Divider = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "divider.vue"]]);
+var ElDivider = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "divider.vue"]]);
 
-export { Divider as default };
+export { ElDivider as default };
 //# sourceMappingURL=divider2.mjs.map

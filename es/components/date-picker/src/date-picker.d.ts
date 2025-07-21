@@ -1,12 +1,11 @@
 import { type DateModelType, type SingleOrRange } from 'element-plus/es/components/time-picker';
-import { SelectType } from './props/date-picker';
 declare const _default: import("vue").DefineComponent<{
     readonly type: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => import("./date-picker.type").IDatePickerType) | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => import("./date-picker.type").IDatePickerType))[], unknown, unknown, "date", boolean>;
     readonly typeList: import("element-plus/es/utils").EpPropFinalized<{
-        (arrayLength: number): SelectType[];
-        (...items: SelectType[]): SelectType[];
-        new (arrayLength: number): SelectType[];
-        new (...items: SelectType[]): SelectType[];
+        (arrayLength: number): import("./props/date-picker").SelectType[];
+        (...items: import("./props/date-picker").SelectType[]): import("./props/date-picker").SelectType[];
+        new (arrayLength: number): import("./props/date-picker").SelectType[];
+        new (...items: import("./props/date-picker").SelectType[]): import("./props/date-picker").SelectType[];
         isArray(arg: any): arg is any[];
         readonly prototype: any[];
         from<T>(arrayLike: ArrayLike<T>): T[];
@@ -17,6 +16,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly [Symbol.species]: ArrayConstructor;
     }, unknown, unknown, () => never[], boolean>;
     readonly showNow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showWeekNumber: BooleanConstructor;
     readonly ariaLabel: StringConstructor;
     readonly emptyValues: ArrayConstructor;
     readonly valueOnClear: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown, undefined, boolean>;
@@ -37,22 +37,22 @@ declare const _default: import("vue").DefineComponent<{
     readonly tabindex: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number) | (() => string | number) | ((new (...args: any[]) => string | number) | (() => string | number))[], unknown, unknown, 0, boolean>;
     readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly unlinkPanels: BooleanConstructor;
-    readonly placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown, "bottom", boolean>;
-    readonly fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]) | ((new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]))[], unknown, unknown, readonly ["bottom", "top", "right", "left"], boolean>;
+    readonly placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("element-plus").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("element-plus").Placement))[], import("element-plus").Placement, unknown, "bottom", boolean>;
+    readonly fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("element-plus").Placement[]) | (() => import("element-plus").Placement[]) | ((new (...args: any[]) => import("element-plus").Placement[]) | (() => import("element-plus").Placement[]))[], unknown, unknown, readonly ["bottom", "top", "right", "left"], boolean>;
     readonly disabledHours: {
-        readonly type: import("vue").PropType<import("../../time-picker/src/props/shared").GetDisabledHours>;
+        readonly type: import("vue").PropType<import("element-plus/es/components/time-picker").GetDisabledHours>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
     readonly disabledMinutes: {
-        readonly type: import("vue").PropType<import("../../time-picker/src/props/shared").GetDisabledMinutes>;
+        readonly type: import("vue").PropType<import("element-plus/es/components/time-picker").GetDisabledMinutes>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
     readonly disabledSeconds: {
-        readonly type: import("vue").PropType<import("../../time-picker/src/props/shared").GetDisabledSeconds>;
+        readonly type: import("vue").PropType<import("element-plus/es/components/time-picker").GetDisabledSeconds>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
@@ -92,8 +92,8 @@ declare const _default: import("vue").DefineComponent<{
     readonly readonly: BooleanConstructor;
     readonly disabled: BooleanConstructor;
     readonly placeholder: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-    readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => {}, boolean>;
-    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | string[] | Date | [DateModelType, DateModelType]) | (() => import("element-plus/es/components/time-picker").ModelValueType) | ((new (...args: any[]) => string | number | string[] | Date | [DateModelType, DateModelType]) | (() => import("element-plus/es/components/time-picker").ModelValueType))[], unknown, unknown, "", boolean>;
+    readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("element-plus").Options>) | (() => Partial<import("element-plus").Options>) | ((new (...args: any[]) => Partial<import("element-plus").Options>) | (() => Partial<import("element-plus").Options>))[], unknown, unknown, () => {}, boolean>;
+    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => import("element-plus/es/components/time-picker").ModelValueType) | ((new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => import("element-plus/es/components/time-picker").ModelValueType))[], unknown, unknown, "", boolean>;
     readonly rangeSeparator: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "-", boolean>;
     readonly startPlaceholder: StringConstructor;
     readonly endPlaceholder: StringConstructor;
@@ -113,10 +113,10 @@ declare const _default: import("vue").DefineComponent<{
 }, () => JSX.Element, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     readonly type: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => import("./date-picker.type").IDatePickerType) | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => import("./date-picker.type").IDatePickerType))[], unknown, unknown, "date", boolean>;
     readonly typeList: import("element-plus/es/utils").EpPropFinalized<{
-        (arrayLength: number): SelectType[];
-        (...items: SelectType[]): SelectType[];
-        new (arrayLength: number): SelectType[];
-        new (...items: SelectType[]): SelectType[];
+        (arrayLength: number): import("./props/date-picker").SelectType[];
+        (...items: import("./props/date-picker").SelectType[]): import("./props/date-picker").SelectType[];
+        new (arrayLength: number): import("./props/date-picker").SelectType[];
+        new (...items: import("./props/date-picker").SelectType[]): import("./props/date-picker").SelectType[];
         isArray(arg: any): arg is any[];
         readonly prototype: any[];
         from<T>(arrayLike: ArrayLike<T>): T[];
@@ -127,6 +127,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly [Symbol.species]: ArrayConstructor;
     }, unknown, unknown, () => never[], boolean>;
     readonly showNow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showWeekNumber: BooleanConstructor;
     readonly ariaLabel: StringConstructor;
     readonly emptyValues: ArrayConstructor;
     readonly valueOnClear: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown, undefined, boolean>;
@@ -147,22 +148,22 @@ declare const _default: import("vue").DefineComponent<{
     readonly tabindex: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number) | (() => string | number) | ((new (...args: any[]) => string | number) | (() => string | number))[], unknown, unknown, 0, boolean>;
     readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly unlinkPanels: BooleanConstructor;
-    readonly placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown, "bottom", boolean>;
-    readonly fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]) | ((new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]))[], unknown, unknown, readonly ["bottom", "top", "right", "left"], boolean>;
+    readonly placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("element-plus").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("element-plus").Placement))[], import("element-plus").Placement, unknown, "bottom", boolean>;
+    readonly fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("element-plus").Placement[]) | (() => import("element-plus").Placement[]) | ((new (...args: any[]) => import("element-plus").Placement[]) | (() => import("element-plus").Placement[]))[], unknown, unknown, readonly ["bottom", "top", "right", "left"], boolean>;
     readonly disabledHours: {
-        readonly type: import("vue").PropType<import("../../time-picker/src/props/shared").GetDisabledHours>;
+        readonly type: import("vue").PropType<import("element-plus/es/components/time-picker").GetDisabledHours>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
     readonly disabledMinutes: {
-        readonly type: import("vue").PropType<import("../../time-picker/src/props/shared").GetDisabledMinutes>;
+        readonly type: import("vue").PropType<import("element-plus/es/components/time-picker").GetDisabledMinutes>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
     readonly disabledSeconds: {
-        readonly type: import("vue").PropType<import("../../time-picker/src/props/shared").GetDisabledSeconds>;
+        readonly type: import("vue").PropType<import("element-plus/es/components/time-picker").GetDisabledSeconds>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
@@ -202,8 +203,8 @@ declare const _default: import("vue").DefineComponent<{
     readonly readonly: BooleanConstructor;
     readonly disabled: BooleanConstructor;
     readonly placeholder: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-    readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => {}, boolean>;
-    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | string[] | Date | [DateModelType, DateModelType]) | (() => import("element-plus/es/components/time-picker").ModelValueType) | ((new (...args: any[]) => string | number | string[] | Date | [DateModelType, DateModelType]) | (() => import("element-plus/es/components/time-picker").ModelValueType))[], unknown, unknown, "", boolean>;
+    readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("element-plus").Options>) | (() => Partial<import("element-plus").Options>) | ((new (...args: any[]) => Partial<import("element-plus").Options>) | (() => Partial<import("element-plus").Options>))[], unknown, unknown, () => {}, boolean>;
+    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => import("element-plus/es/components/time-picker").ModelValueType) | ((new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => import("element-plus/es/components/time-picker").ModelValueType))[], unknown, unknown, "", boolean>;
     readonly rangeSeparator: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "-", boolean>;
     readonly startPlaceholder: StringConstructor;
     readonly endPlaceholder: StringConstructor;
@@ -226,24 +227,25 @@ declare const _default: import("vue").DefineComponent<{
     readonly disabled: boolean;
     readonly type: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => import("./date-picker.type").IDatePickerType) | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => import("./date-picker.type").IDatePickerType))[], unknown, unknown>;
     readonly placeholder: string;
-    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | number | string[] | Date | [DateModelType, DateModelType]) | (() => import("element-plus/es/components/time-picker").ModelValueType) | ((new (...args: any[]) => string | number | string[] | Date | [DateModelType, DateModelType]) | (() => import("element-plus/es/components/time-picker").ModelValueType))[], unknown, unknown>;
-    readonly placement: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown>;
+    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => import("element-plus/es/components/time-picker").ModelValueType) | ((new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => import("element-plus/es/components/time-picker").ModelValueType))[], unknown, unknown>;
+    readonly placement: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("element-plus").Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => import("element-plus").Placement))[], import("element-plus").Placement, unknown>;
     readonly tabindex: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | number) | (() => string | number) | ((new (...args: any[]) => string | number) | (() => string | number))[], unknown, unknown>;
     readonly valueOnClear: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown>;
     readonly readonly: boolean;
+    readonly fallbackPlacements: import("element-plus").Placement[];
+    readonly popperOptions: Partial<import("element-plus").Options>;
+    readonly popperClass: string;
     readonly prefixIcon: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly fallbackPlacements: import("@popperjs/core").Placement[];
-    readonly popperOptions: Partial<import("@popperjs/core").Options>;
-    readonly popperClass: string;
     readonly editable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly rangeSeparator: string;
     readonly shortcuts: unknown[];
     readonly showNow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly showWeekNumber: boolean;
     readonly arrowControl: boolean;
     readonly unlinkPanels: boolean;
     readonly isRange: boolean;
-    readonly typeList: SelectType[];
+    readonly typeList: import("./props/date-picker").SelectType[];
 }>;
 export default _default;

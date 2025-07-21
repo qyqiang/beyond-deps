@@ -3,10 +3,15 @@ import { iconPropType } from '../../../utils/vue/icon.mjs';
 import { mutable } from '../../../utils/typescript.mjs';
 import { isClient } from '@vueuse/core';
 
-const messageTypes = ["success", "info", "warning", "error"];
+const messageTypes = [
+  "primary",
+  "success",
+  "info",
+  "warning",
+  "error"
+];
 const messageDefaults = mutable({
   customClass: "",
-  center: false,
   dangerouslyUseHTMLString: false,
   duration: 3e3,
   icon: void 0,
@@ -18,6 +23,7 @@ const messageDefaults = mutable({
   showClose: false,
   type: "info",
   plain: false,
+  center: false,
   offset: 16,
   zIndex: 0,
   grouping: false,
@@ -32,6 +38,10 @@ const messageProps = buildProps({
   center: {
     type: Boolean,
     default: messageDefaults.center
+  },
+  alert: {
+    type: Boolean,
+    default: false
   },
   dangerouslyUseHTMLString: {
     type: Boolean,

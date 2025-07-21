@@ -1,15 +1,17 @@
-import { defineComponent, useAttrs, useSlots, inject, toRef, ref, computed, watch, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, renderSlot, Fragment, renderList, toDisplayString, createCommentVNode, createVNode, withDirectives, withCtx, vShow, withKeys, createBlock, createTextVNode, nextTick } from 'vue';
+import { defineComponent, useAttrs, useSlots, inject, toRef, ref, computed, watch, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, renderSlot, Fragment, renderList, toDisplayString, createCommentVNode, createVNode, withDirectives, withKeys, vShow, withCtx, createBlock, createTextVNode, nextTick } from 'vue';
 import dayjs from 'dayjs';
 import { ElButton } from '../../../button/index.mjs';
 import { ElInput } from '../../../input/index.mjs';
 import '../../../time-picker/index.mjs';
 import { ElIcon } from '../../../icon/index.mjs';
 import { panelDatePickProps } from '../props/panel-date-pick.mjs';
-import { getValidDateOfMonth, getValidDateOfYear } from '../utils.mjs';
+import { getValidDateOfMonth, getValidDateOfYear, correctlyParseUserInput } from '../utils.mjs';
+import { ROOT_PICKER_IS_DEFAULT_FORMAT_INJECTION_KEY } from '../constants.mjs';
 import DateTable from './basic-date-table.mjs';
 import MonthTable from './basic-month-table.mjs';
 import YearTable from './basic-year-table.mjs';
 import _export_sfc from '../../../../_virtual/plugin-vue_export-helper.mjs';
+import { PICKER_BASE_INJECTION_KEY } from '../../../time-picker/src/constants.mjs';
 import { TOOLTIP_INJECTION_KEY } from '../../../tooltip/src/constants.mjs';
 import { extractTimeFormat, extractDateFormat } from '../../../time-picker/src/utils.mjs';
 import TimePickPanel from '../../../time-picker/src/time-picker-com/panel-time-pick.mjs';
@@ -31,7 +33,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const attrs = useAttrs();
     const slots = useSlots();
     const { t, lang } = useLocale();
-    const pickerBase = inject("EP_PICKER_BASE");
+    const pickerBase = inject(PICKER_BASE_INJECTION_KEY);
+    const isDefaultFormat = inject(ROOT_PICKER_IS_DEFAULT_FORMAT_INJECTION_KEY);
     const popper = inject(TOOLTIP_INJECTION_KEY);
     const { shortcuts, disabledDate, cellClassName, defaultTime } = pickerBase.props;
     const defaultValue = toRef(pickerBase.props, "defaultValue");
@@ -151,12 +154,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const hasShortcuts = computed(() => !!shortcuts.length);
     const handleMonthPick = async (month2, keepOpen) => {
       if (selectionMode.value === "month") {
-        innerDate.value = getValidDateOfMonth(innerDate.value.year(), month2, lang.value, disabledDate);
+        innerDate.value = getValidDateOfMonth(innerDate.value, innerDate.value.year(), month2, lang.value, disabledDate);
         emit(innerDate.value, false);
       } else if (selectionMode.value === "months") {
         emit(month2, keepOpen != null ? keepOpen : true);
       } else {
-        innerDate.value = getValidDateOfMonth(innerDate.value.year(), month2, lang.value, disabledDate);
+        innerDate.value = getValidDateOfMonth(innerDate.value, innerDate.value.year(), month2, lang.value, disabledDate);
         currentView.value = "date";
         if (["month", "year", "date", "week"].includes(selectionMode.value)) {
           emit(innerDate.value, true);
@@ -295,7 +298,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
     };
     const handleVisibleDateChange = (value) => {
-      const newDate = dayjs(value, dateFormat.value).locale(lang.value);
+      const newDate = correctlyParseUserInput(value, dateFormat.value, lang.value, isDefaultFormat);
       if (newDate.isValid()) {
         if (disabledDate && disabledDate(newDate.toDate())) {
           return;
@@ -313,7 +316,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return isArray(value) ? value.map((_) => _.format(props.format)) : value.format(props.format);
     };
     const parseUserInput = (value) => {
-      return dayjs(value, props.format).locale(lang.value);
+      return correctlyParseUserInput(value, props.format, lang.value, isDefaultFormat);
     };
     const getDefaultValue = () => {
       const parseDate = dayjs(defaultValue.value).locale(lang.value);
@@ -525,153 +528,180 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 (currentView.value === "year" || currentView.value === "month") && unref(dpNs).e("header--bordered")
               ])
             }, [
-              createElementVNode("span", {
-                class: normalizeClass(unref(dpNs).e("prev-btn"))
-              }, [
-                createElementVNode("button", {
-                  type: "button",
-                  "aria-label": unref(t)(`el.datepicker.prevYear`),
-                  class: normalizeClass(["d-arrow-left", unref(ppNs).e("icon-btn")]),
-                  onClick: ($event) => moveByYear(false)
-                }, [
-                  createVNode(unref(ElIcon), { size: "16px" }, {
-                    default: withCtx(() => [
-                      (openBlock(), createElementBlock("svg", {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "17",
-                        height: "16",
-                        viewBox: "0 0 17 16"
-                      }, [
-                        createElementVNode("path", { d: "M7.95949 4.47147L7.01683 3.52881L3.48816 7.05747C3.2382 7.30751 3.09778 7.64659 3.09778 8.00014C3.09778 8.35369 3.2382 8.69277 3.48816 8.94281L7.01683 12.4715L7.95949 11.5288L4.43349 8.00014L7.95949 4.47147Z" }),
-                        createElementVNode("path", { d: "M12.6259 4.47147L11.6833 3.52881L7.68329 7.52881C7.55831 7.65383 7.4881 7.82337 7.4881 8.00014C7.4881 8.17692 7.55831 8.34646 7.68329 8.47147L11.6833 12.4715L12.6259 11.5288L9.09995 8.00014L12.6259 4.47147Z" })
-                      ]))
-                    ]),
-                    _: 1
-                  })
-                ], 10, ["aria-label", "onClick"]),
-                withDirectives(createElementVNode("button", {
-                  type: "button",
-                  "aria-label": unref(t)(`el.datepicker.prevMonth`),
-                  class: normalizeClass([unref(ppNs).e("icon-btn"), "arrow-left"]),
-                  onClick: ($event) => moveByMonth(false)
-                }, [
-                  createVNode(unref(ElIcon), { size: "16px" }, {
-                    default: withCtx(() => [
-                      (openBlock(), createElementBlock("svg", {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "17",
-                        height: "16",
-                        viewBox: "0 0 17 16"
-                      }, [
-                        createElementVNode("path", { d: "M9.68339 12.4715L6.15473 8.94281C5.90476 8.69277 5.76434 8.35369 5.76434 8.00014C5.76434 7.64659 5.90476 7.30751 6.15473 7.05747L9.68339 3.52881L10.6261 4.47147L7.10006 8.00014L10.6287 11.5288L9.68339 12.4715Z" })
-                      ]))
-                    ]),
-                    _: 1
-                  })
-                ], 10, ["aria-label", "onClick"]), [
+              createElementVNode("div", null, [
+                withDirectives(createElementVNode("div", {
+                  role: "button",
+                  "aria-live": "polite",
+                  tabindex: "0",
+                  class: normalizeClass([
+                    unref(dpNs).e("header-label"),
+                    { active: currentView.value === "month" }
+                  ]),
+                  onKeydown: withKeys(($event) => showPicker("month"), ["enter"]),
+                  onClick: ($event) => showPicker("month")
+                }, toDisplayString(unref(t)(`el.datepicker.month${unref(month) + 1}`)), 43, ["onKeydown", "onClick"]), [
                   [vShow, currentView.value === "date"]
-                ])
-              ], 2),
-              createElementVNode("span", {
-                role: "button",
-                class: normalizeClass(unref(dpNs).e("header-label")),
-                "aria-live": "polite",
-                tabindex: "0",
-                onKeydown: withKeys(($event) => showPicker("year"), ["enter"]),
-                onClick: ($event) => showPicker("year")
-              }, toDisplayString(unref(yearLabel)), 43, ["onKeydown", "onClick"]),
-              withDirectives(createElementVNode("span", {
-                role: "button",
-                "aria-live": "polite",
-                tabindex: "0",
-                class: normalizeClass([
-                  unref(dpNs).e("header-label"),
-                  { active: currentView.value === "month" }
                 ]),
-                onKeydown: withKeys(($event) => showPicker("month"), ["enter"]),
-                onClick: ($event) => showPicker("month")
-              }, toDisplayString(unref(t)(`el.datepicker.month${unref(month) + 1}`)), 43, ["onKeydown", "onClick"]), [
-                [vShow, currentView.value === "date"]
+                createElementVNode("div", {
+                  role: "button",
+                  class: normalizeClass(unref(dpNs).e("header-label")),
+                  "aria-live": "polite",
+                  tabindex: "0",
+                  onKeydown: withKeys(($event) => showPicker("year"), ["enter"]),
+                  onClick: ($event) => showPicker("year")
+                }, toDisplayString(unref(yearLabel)), 43, ["onKeydown", "onClick"])
               ]),
-              createElementVNode("span", {
-                class: normalizeClass(unref(dpNs).e("custom-now-btn"))
-              }, [
-                createElementVNode("button", {
-                  type: "button",
-                  class: normalizeClass(unref(ppNs).e("icon-btn"))
+              createElementVNode("div", null, [
+                createElementVNode("div", {
+                  class: normalizeClass(unref(dpNs).e("custom-now-btn"))
                 }, [
-                  createVNode(unref(ElIcon), {
-                    size: "16px",
-                    onClick: setNow
+                  createVNode(unref(ElButton), {
+                    class: normalizeClass(["icon-button", unref(ppNs).e("icon-btn")]),
+                    text: ""
                   }, {
                     default: withCtx(() => [
-                      (openBlock(), createElementBlock("svg", {
-                        width: "16",
-                        height: "16",
-                        viewBox: "0 0 16 16",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }, [
-                        createElementVNode("g", { id: "fi-ss-small-undo-alt" }, [
-                          createElementVNode("path", {
-                            id: "Vector",
-                            d: "M11.069 5.88475L5.02766 5.89723L6.20495 4.76619L5.43876 4L3.65061 5.78814C3.44745 5.99137 3.33331 6.26697 3.33331 6.55433C3.33331 6.8417 3.44745 7.1173 3.65061 7.32052L5.43876 9.10867L6.20495 8.34247L5.01157 7.19437H10.7885C10.8364 7.19437 10.8824 7.2134 10.9163 7.24727C10.9501 7.28114 10.9692 7.32708 10.9692 7.37499L10.9163 11.1527C10.9163 11.2006 10.8972 11.2466 10.8634 11.2804C10.8295 11.3143 10.7835 11.3333 10.7356 11.3333H4.05267V12.6667H11C11.3353 12.6667 11.6569 12.5335 11.894 12.2963C12.1311 12.0592 12.2643 11.7376 12.2643 11.4023L12.3333 7.1491C12.3333 6.81377 12.2001 6.49218 11.963 6.25507C11.7259 6.01796 11.4043 5.88475 11.069 5.88475Z",
-                            fill: "#2A3F4D"
-                          })
-                        ])
-                      ]))
+                      createVNode(unref(ElIcon), {
+                        size: "16px",
+                        color: "#374957",
+                        onClick: setNow
+                      }, {
+                        default: withCtx(() => [
+                          (openBlock(), createElementBlock("svg", {
+                            width: "16",
+                            height: "16",
+                            viewBox: "0 0 16 16",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }, [
+                            createElementVNode("g", { id: "fi-ss-small-undo-alt" }, [
+                              createElementVNode("path", {
+                                id: "Vector",
+                                d: "M11.069 5.88475L5.02766 5.89723L6.20495 4.76619L5.43876 4L3.65061 5.78814C3.44745 5.99137 3.33331 6.26697 3.33331 6.55433C3.33331 6.8417 3.44745 7.1173 3.65061 7.32052L5.43876 9.10867L6.20495 8.34247L5.01157 7.19437H10.7885C10.8364 7.19437 10.8824 7.2134 10.9163 7.24727C10.9501 7.28114 10.9692 7.32708 10.9692 7.37499L10.9163 11.1527C10.9163 11.2006 10.8972 11.2466 10.8634 11.2804C10.8295 11.3143 10.7835 11.3333 10.7356 11.3333H4.05267V12.6667H11C11.3353 12.6667 11.6569 12.5335 11.894 12.2963C12.1311 12.0592 12.2643 11.7376 12.2643 11.4023L12.3333 7.1491C12.3333 6.81377 12.2001 6.49218 11.963 6.25507C11.7259 6.01796 11.4043 5.88475 11.069 5.88475Z"
+                              })
+                            ])
+                          ]))
+                        ]),
+                        _: 1
+                      })
                     ]),
                     _: 1
-                  })
+                  }, 8, ["class"])
+                ], 2),
+                createElementVNode("div", {
+                  class: normalizeClass(unref(dpNs).e("prev-btn"))
+                }, [
+                  createVNode(unref(ElButton), {
+                    text: "",
+                    "aria-label": unref(t)(`el.datepicker.prevYear`),
+                    class: normalizeClass(["d-arrow-left icon-button", unref(ppNs).e("icon-btn")]),
+                    onClick: ($event) => moveByYear(false)
+                  }, {
+                    default: withCtx(() => [
+                      createVNode(unref(ElIcon), {
+                        size: "16px",
+                        color: "#374957"
+                      }, {
+                        default: withCtx(() => [
+                          (openBlock(), createElementBlock("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "17",
+                            height: "16",
+                            viewBox: "0 0 17 16"
+                          }, [
+                            createElementVNode("path", { d: "M7.95949 4.47147L7.01683 3.52881L3.48816 7.05747C3.2382 7.30751 3.09778 7.64659 3.09778 8.00014C3.09778 8.35369 3.2382 8.69277 3.48816 8.94281L7.01683 12.4715L7.95949 11.5288L4.43349 8.00014L7.95949 4.47147Z" }),
+                            createElementVNode("path", { d: "M12.6259 4.47147L11.6833 3.52881L7.68329 7.52881C7.55831 7.65383 7.4881 7.82337 7.4881 8.00014C7.4881 8.17692 7.55831 8.34646 7.68329 8.47147L11.6833 12.4715L12.6259 11.5288L9.09995 8.00014L12.6259 4.47147Z" })
+                          ]))
+                        ]),
+                        _: 1
+                      })
+                    ]),
+                    _: 1
+                  }, 8, ["aria-label", "class", "onClick"]),
+                  withDirectives(createVNode(unref(ElButton), {
+                    text: "",
+                    "aria-label": unref(t)(`el.datepicker.prevMonth`),
+                    class: normalizeClass([unref(ppNs).e("icon-btn"), "arrow-left icon-button"]),
+                    onClick: ($event) => moveByMonth(false)
+                  }, {
+                    default: withCtx(() => [
+                      createVNode(unref(ElIcon), {
+                        size: "16px",
+                        color: "#374957"
+                      }, {
+                        default: withCtx(() => [
+                          (openBlock(), createElementBlock("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "17",
+                            height: "16",
+                            viewBox: "0 0 17 16"
+                          }, [
+                            createElementVNode("path", { d: "M9.68339 12.4715L6.15473 8.94281C5.90476 8.69277 5.76434 8.35369 5.76434 8.00014C5.76434 7.64659 5.90476 7.30751 6.15473 7.05747L9.68339 3.52881L10.6261 4.47147L7.10006 8.00014L10.6287 11.5288L9.68339 12.4715Z" })
+                          ]))
+                        ]),
+                        _: 1
+                      })
+                    ]),
+                    _: 1
+                  }, 8, ["aria-label", "class", "onClick"]), [
+                    [vShow, currentView.value === "date"]
+                  ])
+                ], 2),
+                createElementVNode("div", {
+                  class: normalizeClass(unref(dpNs).e("next-btn"))
+                }, [
+                  withDirectives(createVNode(unref(ElButton), {
+                    text: "",
+                    "aria-label": unref(t)(`el.datepicker.nextMonth`),
+                    class: normalizeClass([unref(ppNs).e("icon-btn"), "arrow-right icon-button"]),
+                    onClick: ($event) => moveByMonth(true)
+                  }, {
+                    default: withCtx(() => [
+                      createVNode(unref(ElIcon), {
+                        size: "16px",
+                        color: "#374957"
+                      }, {
+                        default: withCtx(() => [
+                          (openBlock(), createElementBlock("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "17",
+                            height: "16",
+                            viewBox: "0 0 17 16"
+                          }, [
+                            createElementVNode("path", { d: "M7.70742 12.4715L6.76675 11.5288L10.2927 8.00014L6.76675 4.47147L7.71009 3.52881L11.2334 7.05747C11.4834 7.30751 11.6238 7.64659 11.6238 8.00014C11.6238 8.35369 11.4834 8.69277 11.2334 8.94281L7.70742 12.4715Z" })
+                          ]))
+                        ]),
+                        _: 1
+                      })
+                    ]),
+                    _: 1
+                  }, 8, ["aria-label", "class", "onClick"]), [
+                    [vShow, currentView.value === "date"]
+                  ]),
+                  createVNode(unref(ElButton), {
+                    text: "",
+                    "aria-label": unref(t)(`el.datepicker.nextYear`),
+                    class: normalizeClass([unref(ppNs).e("icon-btn"), "d-arrow-right icon-button"]),
+                    onClick: ($event) => moveByYear(true)
+                  }, {
+                    default: withCtx(() => [
+                      createVNode(unref(ElIcon), { size: "16px" }, {
+                        default: withCtx(() => [
+                          (openBlock(), createElementBlock("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "17",
+                            height: "16",
+                            viewBox: "0 0 17 16"
+                          }, [
+                            createElementVNode("path", { d: "M13.2334 7.05747L9.70742 3.52881L8.76675 4.47147L12.2927 8.00014L8.76675 11.5288L9.71009 12.4715L13.2334 8.94281C13.4834 8.69277 13.6238 8.35369 13.6238 8.00014C13.6238 7.64659 13.4834 7.30751 13.2334 7.05747Z" }),
+                            createElementVNode("path", { d: "M9.04055 7.52881L5.04055 3.52881L4.09988 4.47147L7.62588 8.00014L4.09988 11.5288L5.04322 12.4715L9.04322 8.47147C9.16784 8.3461 9.23758 8.17637 9.23708 7.99959C9.23658 7.82281 9.16589 7.65347 9.04055 7.52881Z" })
+                          ]))
+                        ]),
+                        _: 1
+                      })
+                    ]),
+                    _: 1
+                  }, 8, ["aria-label", "class", "onClick"])
                 ], 2)
-              ], 2),
-              createElementVNode("span", {
-                class: normalizeClass(unref(dpNs).e("next-btn"))
-              }, [
-                withDirectives(createElementVNode("button", {
-                  type: "button",
-                  "aria-label": unref(t)(`el.datepicker.nextMonth`),
-                  class: normalizeClass([unref(ppNs).e("icon-btn"), "arrow-right"]),
-                  onClick: ($event) => moveByMonth(true)
-                }, [
-                  createVNode(unref(ElIcon), { size: "16px" }, {
-                    default: withCtx(() => [
-                      (openBlock(), createElementBlock("svg", {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "17",
-                        height: "16",
-                        viewBox: "0 0 17 16"
-                      }, [
-                        createElementVNode("path", { d: "M7.70742 12.4715L6.76675 11.5288L10.2927 8.00014L6.76675 4.47147L7.71009 3.52881L11.2334 7.05747C11.4834 7.30751 11.6238 7.64659 11.6238 8.00014C11.6238 8.35369 11.4834 8.69277 11.2334 8.94281L7.70742 12.4715Z" })
-                      ]))
-                    ]),
-                    _: 1
-                  })
-                ], 10, ["aria-label", "onClick"]), [
-                  [vShow, currentView.value === "date"]
-                ]),
-                createElementVNode("button", {
-                  type: "button",
-                  "aria-label": unref(t)(`el.datepicker.nextYear`),
-                  class: normalizeClass([unref(ppNs).e("icon-btn"), "d-arrow-right"]),
-                  onClick: ($event) => moveByYear(true)
-                }, [
-                  createVNode(unref(ElIcon), { size: "16px" }, {
-                    default: withCtx(() => [
-                      (openBlock(), createElementBlock("svg", {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "17",
-                        height: "16",
-                        viewBox: "0 0 17 16"
-                      }, [
-                        createElementVNode("path", { d: "M13.2334 7.05747L9.70742 3.52881L8.76675 4.47147L12.2927 8.00014L8.76675 11.5288L9.71009 12.4715L13.2334 8.94281C13.4834 8.69277 13.6238 8.35369 13.6238 8.00014C13.6238 7.64659 13.4834 7.30751 13.2334 7.05747Z" }),
-                        createElementVNode("path", { d: "M9.04055 7.52881L5.04055 3.52881L4.09988 4.47147L7.62588 8.00014L4.09988 11.5288L5.04322 12.4715L9.04322 8.47147C9.16784 8.3461 9.23758 8.17637 9.23708 7.99959C9.23658 7.82281 9.16589 7.65347 9.04055 7.52881Z" })
-                      ]))
-                    ]),
-                    _: 1
-                  })
-                ], 10, ["aria-label", "onClick"])
-              ], 2)
+              ])
             ], 2), [
               [vShow, currentView.value !== "time"]
             ]),
@@ -688,8 +718,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 "parsed-value": _ctx.parsedValue,
                 "disabled-date": unref(disabledDate),
                 "cell-class-name": unref(cellClassName),
+                "show-week-number": _ctx.showWeekNumber,
                 onPick: handleDatePick
-              }, null, 8, ["selection-mode", "date", "parsed-value", "disabled-date", "cell-class-name"])) : createCommentVNode("v-if", true),
+              }, null, 8, ["selection-mode", "date", "parsed-value", "disabled-date", "cell-class-name", "show-week-number"])) : createCommentVNode("v-if", true),
               currentView.value === "year" ? (openBlock(), createBlock(YearTable, {
                 key: 1,
                 ref_key: "currentViewRef",

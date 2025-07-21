@@ -4,7 +4,7 @@ import { ElTag } from '../../tag/index.mjs';
 import { ElIcon } from '../../icon/index.mjs';
 import ElSelectMenu from './select-dropdown.mjs';
 import useSelect from './useSelect.mjs';
-import { SelectProps, selectEmits } from './defaults.mjs';
+import { selectV2Props, selectV2Emits } from './defaults.mjs';
 import { selectV2InjectionKey } from './token.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import ClickOutside from '../../../directives/click-outside/index.mjs';
@@ -20,8 +20,8 @@ const _sfc_main = defineComponent({
     ElIcon
   },
   directives: { ClickOutside },
-  props: SelectProps,
-  emits: selectEmits,
+  props: selectV2Props,
+  emits: selectV2Emits,
   setup(props, { emit }) {
     const modelValue = computed(() => {
       const { modelValue: rawModelValue, multiple } = props;
@@ -129,7 +129,12 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
               _ctx.nsSelect.is("near", _ctx.multiple && !_ctx.$slots.prefix && !!_ctx.modelValue.length)
             ])
           }, [
-            _ctx.multiple ? renderSlot(_ctx.$slots, "tag", { key: 0 }, () => [
+            _ctx.multiple ? renderSlot(_ctx.$slots, "tag", {
+              key: 0,
+              data: _ctx.states.cachedOptions,
+              deleteTag: _ctx.deleteTag,
+              selectDisabled: _ctx.selectDisabled
+            }, () => [
               (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.showTagList, (item) => {
                 return openBlock(), createElementBlock("div", {
                   key: _ctx.getValueKey(_ctx.getValue(item)),
@@ -167,6 +172,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 "fallback-placements": ["bottom", "top", "right", "left"],
                 effect: _ctx.effect,
                 placement: "bottom",
+                "popper-class": _ctx.popperClass,
                 teleported: _ctx.teleported
               }, {
                 default: withCtx(() => [
@@ -229,7 +235,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                   ], 2)
                 ]),
                 _: 3
-              }, 8, ["disabled", "effect", "teleported"])) : createCommentVNode("v-if", true)
+              }, 8, ["disabled", "effect", "popper-class", "teleported"])) : createCommentVNode("v-if", true)
             ]) : createCommentVNode("v-if", true),
             createElementVNode("div", {
               class: normalizeClass([

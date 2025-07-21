@@ -84,7 +84,8 @@ var defaultProps = {
   allowDragLastColumn: {
     type: Boolean,
     default: true
-  }
+  },
+  preserveExpandedContent: Boolean
 };
 
 export { defaultProps as default };

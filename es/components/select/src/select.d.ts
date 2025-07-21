@@ -1,11 +1,14 @@
+import { EmitFn } from 'element-plus/es/utils';
+import type { ExtractPropTypes, __ExtractPublicPropTypes } from 'vue';
+import type Select from './select.vue';
 import type { Options, Placement, PopperEffect } from 'element-plus/es/components/popper';
-export declare const SelectProps: {
+export declare const selectProps: {
     ariaLabel: StringConstructor;
     emptyValues: ArrayConstructor;
     valueOnClear: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown, undefined, boolean>;
     name: StringConstructor;
     id: StringConstructor;
-    modelValue: import("element-plus/es/utils").EpPropFinalized<(ArrayConstructor | ObjectConstructor | NumberConstructor | StringConstructor | BooleanConstructor)[], unknown, unknown, undefined, boolean>;
+    modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | boolean | Record<string, any> | import("element-plus/es/utils").EpPropMergeType<(ObjectConstructor | BooleanConstructor | NumberConstructor | StringConstructor)[], unknown, unknown>[]) | (() => import("element-plus/es/utils").EpPropMergeType<(ObjectConstructor | BooleanConstructor | NumberConstructor | StringConstructor)[], unknown, unknown> | import("element-plus/es/utils").EpPropMergeType<(ObjectConstructor | BooleanConstructor | NumberConstructor | StringConstructor)[], unknown, unknown>[]) | ((new (...args: any[]) => string | number | boolean | Record<string, any> | import("element-plus/es/utils").EpPropMergeType<(ObjectConstructor | BooleanConstructor | NumberConstructor | StringConstructor)[], unknown, unknown>[]) | (() => import("element-plus/es/utils").EpPropMergeType<(ObjectConstructor | BooleanConstructor | NumberConstructor | StringConstructor)[], unknown, unknown> | import("element-plus/es/utils").EpPropMergeType<(ObjectConstructor | BooleanConstructor | NumberConstructor | StringConstructor)[], unknown, unknown>[]))[], unknown, unknown, undefined, boolean>;
     autocomplete: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
     automaticDropdown: BooleanConstructor;
     size: {
@@ -26,8 +29,18 @@ export declare const SelectProps: {
     loadingText: StringConstructor;
     noMatchText: StringConstructor;
     noDataText: StringConstructor;
-    remoteMethod: FunctionConstructor;
-    filterMethod: FunctionConstructor;
+    remoteMethod: {
+        readonly type: import("vue").PropType<(query: string) => void>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
+    filterMethod: {
+        readonly type: import("vue").PropType<(query: string) => void>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     multiple: BooleanConstructor;
     multipleLimit: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
     placeholder: {
@@ -62,7 +75,7 @@ export declare const SelectProps: {
     labelSuffix: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
     tagType: {
         default: string;
-        type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "success" | "warning" | "info" | "primary" | "danger", unknown>>;
+        type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "primary" | "success" | "warning" | "info" | "danger", unknown>>;
         required: false;
         validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
@@ -81,5 +94,27 @@ export declare const SelectProps: {
     placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement))[], Placement, unknown, string, boolean>;
     fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Placement[]) | (() => Placement[]) | ((new (...args: any[]) => Placement[]) | (() => Placement[]))[], unknown, unknown, string[], boolean>;
     tabindex: import("element-plus/es/utils").EpPropFinalized<(NumberConstructor | StringConstructor)[], unknown, unknown, number, boolean>;
-    appendTo: StringConstructor;
+    appendTo: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
 };
+export declare const selectEmits: {
+    "update:modelValue": (val: SelectProps["modelValue"]) => boolean;
+    change: (val: SelectProps["modelValue"]) => boolean;
+    'popup-scroll': ({ scrollTop, scrollLeft, }: {
+        scrollTop: number;
+        scrollLeft: number;
+    }) => boolean;
+    'remove-tag': (val: unknown) => boolean;
+    'visible-change': (visible: boolean) => boolean;
+    focus: (evt: FocusEvent) => boolean;
+    blur: (evt: FocusEvent) => boolean;
+    clear: () => boolean;
+};
+export type SelectProps = ExtractPropTypes<typeof selectProps>;
+export type SelectPropsPublic = __ExtractPublicPropTypes<typeof selectProps>;
+export type SelectEmits = EmitFn<typeof selectEmits>;
+export type SelectInstance = InstanceType<typeof Select> & unknown;

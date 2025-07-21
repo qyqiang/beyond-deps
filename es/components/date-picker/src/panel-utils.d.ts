@@ -5,35 +5,37 @@ export declare const getPanel: (type: IDatePickerType) => ({
         $data: {};
         $props: Partial<{
             readonly format: string;
-            readonly showNow: import("element-plus/es/utils/index.js").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly showNow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly showWeekNumber: boolean;
         }> & Omit<Readonly<import("vue").ExtractPropTypes<{
             readonly parsedValue: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<(new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | ((new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]))[], unknown, unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | ((new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]))[], unknown, unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
             readonly visible: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<BooleanConstructor, unknown, unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly format: import("element-plus/es/utils/index.js").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+            readonly format: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
             readonly type: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
                 readonly required: true;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
             readonly dateFormat: StringConstructor;
             readonly timeFormat: StringConstructor;
-            readonly showNow: import("element-plus/es/utils/index.js").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly showNow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly showWeekNumber: BooleanConstructor;
         }>> & {
             onPick?: ((...args: any[]) => any) | undefined;
             "onPanel-change"?: ((...args: any[]) => any) | undefined;
             "onSet-picker-option"?: ((...args: any[]) => any) | undefined;
-        } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "format" | "showNow">;
+        } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "format" | "showNow" | "showWeekNumber">;
         $attrs: {
             [x: string]: unknown;
         };
@@ -47,27 +49,28 @@ export declare const getPanel: (type: IDatePickerType) => ({
         $el: any;
         $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
             readonly parsedValue: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<(new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | ((new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]))[], unknown, unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | ((new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]))[], unknown, unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
             readonly visible: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<BooleanConstructor, unknown, unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly format: import("element-plus/es/utils/index.js").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+            readonly format: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
             readonly type: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
                 readonly required: true;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
             readonly dateFormat: StringConstructor;
             readonly timeFormat: StringConstructor;
-            readonly showNow: import("element-plus/es/utils/index.js").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly showNow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly showWeekNumber: BooleanConstructor;
         }>> & {
             onPick?: ((...args: any[]) => any) | undefined;
             "onPanel-change"?: ((...args: any[]) => any) | undefined;
@@ -78,7 +81,8 @@ export declare const getPanel: (type: IDatePickerType) => ({
             "set-picker-option": (...args: any[]) => void;
         }, string, {
             readonly format: string;
-            readonly showNow: import("element-plus/es/utils/index.js").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly showNow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly showWeekNumber: boolean;
         }> & {
             beforeCreate?: (() => void) | (() => void)[];
             created?: (() => void) | (() => void)[];
@@ -101,27 +105,28 @@ export declare const getPanel: (type: IDatePickerType) => ({
         $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions): import("vue").WatchStopHandle;
     } & Readonly<import("vue").ExtractPropTypes<{
         readonly parsedValue: {
-            readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<(new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | ((new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]))[], unknown, unknown>>;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | ((new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]))[], unknown, unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
         readonly visible: {
-            readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<BooleanConstructor, unknown, unknown>>;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        readonly format: import("element-plus/es/utils/index.js").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+        readonly format: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly type: {
-            readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
             readonly required: true;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
         readonly dateFormat: StringConstructor;
         readonly timeFormat: StringConstructor;
-        readonly showNow: import("element-plus/es/utils/index.js").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly showNow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly showWeekNumber: BooleanConstructor;
     }>> & {
         onPick?: ((...args: any[]) => any) | undefined;
         "onPanel-change"?: ((...args: any[]) => any) | undefined;
@@ -132,27 +137,28 @@ export declare const getPanel: (type: IDatePickerType) => ({
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
     readonly parsedValue: {
-        readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<(new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | ((new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]))[], unknown, unknown>>;
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | ((new (...args: any[]) => import("dayjs").Dayjs | import("dayjs").Dayjs[]) | (() => import("dayjs").Dayjs | import("dayjs").Dayjs[]))[], unknown, unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
     readonly visible: {
-        readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<BooleanConstructor, unknown, unknown>>;
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly format: import("element-plus/es/utils/index.js").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+    readonly format: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly type: {
-        readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
         readonly required: true;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
     readonly dateFormat: StringConstructor;
     readonly timeFormat: StringConstructor;
-    readonly showNow: import("element-plus/es/utils/index.js").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showNow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showWeekNumber: BooleanConstructor;
 }>> & {
     onPick?: ((...args: any[]) => any) | undefined;
     "onPanel-change"?: ((...args: any[]) => any) | undefined;
@@ -163,7 +169,8 @@ export declare const getPanel: (type: IDatePickerType) => ({
     "set-picker-option": (...args: any[]) => void;
 }, string, {
     readonly format: string;
-    readonly showNow: import("element-plus/es/utils/index.js").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly showNow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly showWeekNumber: boolean;
 }> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
         sidebar?(_: {
@@ -176,11 +183,12 @@ export declare const getPanel: (type: IDatePickerType) => ({
         $data: {};
         $props: Partial<{
             readonly visible: boolean;
-            readonly showNow: import("element-plus/es/utils/index.js").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly showNow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly showWeekNumber: boolean;
             readonly unlinkPanels: boolean;
         }> & Omit<Readonly<import("vue").ExtractPropTypes<{
-            readonly visible: BooleanConstructor;
             readonly unlinkPanels: BooleanConstructor;
+            readonly visible: BooleanConstructor;
             readonly parsedValue: {
                 readonly type: import("vue").PropType<import("dayjs").Dayjs[]>;
                 readonly required: false;
@@ -188,20 +196,21 @@ export declare const getPanel: (type: IDatePickerType) => ({
                 __epPropKey: true;
             };
             readonly type: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
                 readonly required: true;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
             readonly dateFormat: StringConstructor;
             readonly timeFormat: StringConstructor;
-            readonly showNow: import("element-plus/es/utils/index.js").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly showNow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly showWeekNumber: BooleanConstructor;
         }>> & {
             onPick?: ((...args: any[]) => any) | undefined;
             "onCalendar-change"?: ((...args: any[]) => any) | undefined;
             "onPanel-change"?: ((...args: any[]) => any) | undefined;
             "onSet-picker-option"?: ((...args: any[]) => any) | undefined;
-        } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "visible" | "showNow" | "unlinkPanels">;
+        } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "visible" | "showNow" | "showWeekNumber" | "unlinkPanels">;
         $attrs: {
             [x: string]: unknown;
         };
@@ -214,8 +223,8 @@ export declare const getPanel: (type: IDatePickerType) => ({
         $emit: ((event: "calendar-change", ...args: any[]) => void) & ((event: "panel-change", ...args: any[]) => void) & ((event: "pick", ...args: any[]) => void) & ((event: "set-picker-option", ...args: any[]) => void);
         $el: any;
         $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-            readonly visible: BooleanConstructor;
             readonly unlinkPanels: BooleanConstructor;
+            readonly visible: BooleanConstructor;
             readonly parsedValue: {
                 readonly type: import("vue").PropType<import("dayjs").Dayjs[]>;
                 readonly required: false;
@@ -223,14 +232,15 @@ export declare const getPanel: (type: IDatePickerType) => ({
                 __epPropKey: true;
             };
             readonly type: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
                 readonly required: true;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
             readonly dateFormat: StringConstructor;
             readonly timeFormat: StringConstructor;
-            readonly showNow: import("element-plus/es/utils/index.js").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly showNow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+            readonly showWeekNumber: BooleanConstructor;
         }>> & {
             onPick?: ((...args: any[]) => any) | undefined;
             "onCalendar-change"?: ((...args: any[]) => any) | undefined;
@@ -243,7 +253,8 @@ export declare const getPanel: (type: IDatePickerType) => ({
             "set-picker-option": (...args: any[]) => void;
         }, string, {
             readonly visible: boolean;
-            readonly showNow: import("element-plus/es/utils/index.js").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly showNow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly showWeekNumber: boolean;
             readonly unlinkPanels: boolean;
         }> & {
             beforeCreate?: (() => void) | (() => void)[];
@@ -266,8 +277,8 @@ export declare const getPanel: (type: IDatePickerType) => ({
         $nextTick: typeof import("vue").nextTick;
         $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions): import("vue").WatchStopHandle;
     } & Readonly<import("vue").ExtractPropTypes<{
-        readonly visible: BooleanConstructor;
         readonly unlinkPanels: BooleanConstructor;
+        readonly visible: BooleanConstructor;
         readonly parsedValue: {
             readonly type: import("vue").PropType<import("dayjs").Dayjs[]>;
             readonly required: false;
@@ -275,14 +286,15 @@ export declare const getPanel: (type: IDatePickerType) => ({
             __epPropKey: true;
         };
         readonly type: {
-            readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
             readonly required: true;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
         readonly dateFormat: StringConstructor;
         readonly timeFormat: StringConstructor;
-        readonly showNow: import("element-plus/es/utils/index.js").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly showNow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+        readonly showWeekNumber: BooleanConstructor;
     }>> & {
         onPick?: ((...args: any[]) => any) | undefined;
         "onCalendar-change"?: ((...args: any[]) => any) | undefined;
@@ -293,8 +305,8 @@ export declare const getPanel: (type: IDatePickerType) => ({
     __isTeleport?: never;
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-    readonly visible: BooleanConstructor;
     readonly unlinkPanels: BooleanConstructor;
+    readonly visible: BooleanConstructor;
     readonly parsedValue: {
         readonly type: import("vue").PropType<import("dayjs").Dayjs[]>;
         readonly required: false;
@@ -302,14 +314,15 @@ export declare const getPanel: (type: IDatePickerType) => ({
         __epPropKey: true;
     };
     readonly type: {
-        readonly type: import("vue").PropType<import("element-plus/es/utils/index.js").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | ((new (...args: any[]) => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange") | (() => "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange"))[], "year" | "years" | "month" | "months" | "date" | "dates" | "week" | "datetime" | "datetimerange" | "daterange" | "monthrange" | "yearrange", unknown>>;
         readonly required: true;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
     readonly dateFormat: StringConstructor;
     readonly timeFormat: StringConstructor;
-    readonly showNow: import("element-plus/es/utils/index.js").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showNow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showWeekNumber: BooleanConstructor;
 }>> & {
     onPick?: ((...args: any[]) => any) | undefined;
     "onCalendar-change"?: ((...args: any[]) => any) | undefined;
@@ -322,7 +335,8 @@ export declare const getPanel: (type: IDatePickerType) => ({
     "set-picker-option": (...args: any[]) => void;
 }, string, {
     readonly visible: boolean;
-    readonly showNow: import("element-plus/es/utils/index.js").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly showNow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly showWeekNumber: boolean;
     readonly unlinkPanels: boolean;
 }> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
@@ -343,16 +357,18 @@ export declare const getPanel: (type: IDatePickerType) => ({
         $: import("vue").ComponentInternalInstance;
         $data: {};
         $props: Partial<{
+            readonly visible: boolean;
             readonly unlinkPanels: boolean;
         }> & Omit<Readonly<import("vue").ExtractPropTypes<{
             readonly unlinkPanels: BooleanConstructor;
+            readonly visible: BooleanConstructor;
             readonly parsedValue: {
                 readonly type: import("vue").PropType<import("dayjs").Dayjs[]>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-        }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "unlinkPanels">;
+        }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "visible" | "unlinkPanels">;
         $attrs: {
             [x: string]: unknown;
         };
@@ -366,6 +382,7 @@ export declare const getPanel: (type: IDatePickerType) => ({
         $el: any;
         $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
             readonly unlinkPanels: BooleanConstructor;
+            readonly visible: BooleanConstructor;
             readonly parsedValue: {
                 readonly type: import("vue").PropType<import("dayjs").Dayjs[]>;
                 readonly required: false;
@@ -375,6 +392,7 @@ export declare const getPanel: (type: IDatePickerType) => ({
         }>>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
             [x: string]: (...args: any[]) => void;
         }, string, {
+            readonly visible: boolean;
             readonly unlinkPanels: boolean;
         }> & {
             beforeCreate?: (() => void) | (() => void)[];
@@ -398,6 +416,7 @@ export declare const getPanel: (type: IDatePickerType) => ({
         $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions): import("vue").WatchStopHandle;
     } & Readonly<import("vue").ExtractPropTypes<{
         readonly unlinkPanels: BooleanConstructor;
+        readonly visible: BooleanConstructor;
         readonly parsedValue: {
             readonly type: import("vue").PropType<import("dayjs").Dayjs[]>;
             readonly required: false;
@@ -410,6 +429,7 @@ export declare const getPanel: (type: IDatePickerType) => ({
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
     readonly unlinkPanels: BooleanConstructor;
+    readonly visible: BooleanConstructor;
     readonly parsedValue: {
         readonly type: import("vue").PropType<import("dayjs").Dayjs[]>;
         readonly required: false;
@@ -419,6 +439,7 @@ export declare const getPanel: (type: IDatePickerType) => ({
 }>>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     [x: string]: (...args: any[]) => void;
 }, string, {
+    readonly visible: boolean;
     readonly unlinkPanels: boolean;
 }> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {

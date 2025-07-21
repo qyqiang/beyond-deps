@@ -15,15 +15,16 @@ declare const __VLS_component: import("vue").DefineComponent<{
     };
     readonly max: NumberConstructor;
     readonly tagType: {
-        readonly default: "info";
-        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "success" | "warning" | "info" | "primary" | "danger", unknown>>;
+        readonly default: "gray";
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "primary" | "success" | "warning" | "info" | "danger", unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         readonly __epPropKey: true;
     };
     readonly tagEffect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "dark" | "light" | "plain", unknown, "light", boolean>;
     readonly trigger: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "Enter" | "Space") | (() => "Enter" | "Space") | ((new (...args: any[]) => "Enter" | "Space") | (() => "Enter" | "Space"))[], unknown, unknown, string, boolean>;
-    readonly draggable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly draggable: BooleanConstructor;
+    readonly delimiter: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, RegExpConstructor], unknown, unknown, "", boolean>;
     readonly size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
         readonly required: false;
@@ -51,6 +52,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     };
     readonly placeholder: StringConstructor;
     readonly autocomplete: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "off", boolean>;
+    readonly saveOnBlur: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly ariaLabel: StringConstructor;
 }, {
     focus: () => void;
@@ -62,7 +64,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     input: (value: string) => void;
     blur: (evt: FocusEvent) => void;
     focus: (evt: FocusEvent) => void;
-    "add-tag": (value: string) => void;
+    "add-tag": (value: string | string[]) => void;
     "remove-tag": (value: string) => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     readonly modelValue: {
@@ -73,15 +75,16 @@ declare const __VLS_component: import("vue").DefineComponent<{
     };
     readonly max: NumberConstructor;
     readonly tagType: {
-        readonly default: "info";
-        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "success" | "warning" | "info" | "primary" | "danger", unknown>>;
+        readonly default: "gray";
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "primary" | "success" | "warning" | "info" | "danger", unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         readonly __epPropKey: true;
     };
     readonly tagEffect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "dark" | "light" | "plain", unknown, "light", boolean>;
     readonly trigger: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "Enter" | "Space") | (() => "Enter" | "Space") | ((new (...args: any[]) => "Enter" | "Space") | (() => "Enter" | "Space"))[], unknown, unknown, string, boolean>;
-    readonly draggable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly draggable: BooleanConstructor;
+    readonly delimiter: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, RegExpConstructor], unknown, unknown, "", boolean>;
     readonly size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
         readonly required: false;
@@ -109,6 +112,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     };
     readonly placeholder: StringConstructor;
     readonly autocomplete: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "off", boolean>;
+    readonly saveOnBlur: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly ariaLabel: StringConstructor;
 }>> & {
     "onUpdate:modelValue"?: ((value?: string[] | undefined) => any) | undefined;
@@ -117,7 +121,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     onBlur?: ((evt: FocusEvent) => any) | undefined;
     onInput?: ((value: string) => any) | undefined;
     onClear?: (() => any) | undefined;
-    "onAdd-tag"?: ((value: string) => any) | undefined;
+    "onAdd-tag"?: ((value: string | string[]) => any) | undefined;
     "onRemove-tag"?: ((value: string) => any) | undefined;
 }, {
     readonly disabled: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
@@ -129,9 +133,11 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly clearable: boolean;
     readonly autofocus: boolean;
-    readonly tagType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "success" | "warning" | "info" | "primary" | "danger", unknown>;
+    readonly tagType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "blue" | "cyan" | "gray" | "green" | "orange" | "red" | "primary" | "success" | "warning" | "info" | "danger", unknown>;
     readonly tagEffect: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "dark" | "light" | "plain", unknown>;
-    readonly draggable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly draggable: boolean;
+    readonly delimiter: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, RegExpConstructor], unknown, unknown>;
+    readonly saveOnBlur: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
 }>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
 export default _default;

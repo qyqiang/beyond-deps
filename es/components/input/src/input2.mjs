@@ -1,6 +1,7 @@
-import { defineComponent, useAttrs, useSlots, computed, shallowRef, ref, watch, nextTick, onMounted, toRef, openBlock, createElementBlock, normalizeClass, unref, normalizeStyle, createCommentVNode, Fragment, renderSlot, createElementVNode, createBlock, withCtx, resolveDynamicComponent, mergeProps, toDisplayString, withModifiers } from 'vue';
+import { defineComponent, useAttrs, useSlots, computed, shallowRef, ref, watch, nextTick, onMounted, toRef, openBlock, createElementBlock, normalizeClass, unref, normalizeStyle, createCommentVNode, Fragment, renderSlot, createElementVNode, createBlock, withCtx, resolveDynamicComponent, mergeProps, toDisplayString, withModifiers, createVNode } from 'vue';
 import { useResizeObserver, isClient } from '@vueuse/core';
 import { isNil } from 'lodash-unified';
+import Tooltip from '../../tooltip/src/tooltip2.mjs';
 import { ElIcon } from '../../icon/index.mjs';
 import { calcTextareaHeight } from './utils.mjs';
 import { inputProps, inputEmits } from './input.mjs';
@@ -11,14 +12,15 @@ import { useFormSize, useFormDisabled } from '../../form/src/hooks/use-form-comm
 import { useFocusController } from '../../../hooks/use-focus-controller/index.mjs';
 import { ValidateComponentsMap } from '../../../utils/vue/icon.mjs';
 import { useComposition } from '../../../hooks/use-composition/index.mjs';
+import { UPDATE_MODEL_EVENT, INPUT_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 import { useCursor } from '../../../hooks/use-cursor/index.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { debugWarn } from '../../../utils/error.mjs';
 import { NOOP, isObject } from '@vue/shared';
-import { UPDATE_MODEL_EVENT } from '../../../constants/event.mjs';
 
+const COMPONENT_NAME = "ElInput";
 const __default__ = defineComponent({
-  name: "ElInput",
+  name: COMPONENT_NAME,
   inheritAttrs: false
 });
 const _sfc_main = /* @__PURE__ */ defineComponent({
@@ -65,9 +67,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const textareaCalcStyle = shallowRef(props.inputStyle);
     const _ref = computed(() => input.value || textarea.value);
     const { wrapperRef, isFocused, handleFocus, handleBlur } = useFocusController(_ref, {
-      beforeFocus() {
-        return inputDisabled.value;
-      },
+      disabled: inputDisabled,
       afterBlur() {
         var _a;
         if (props.validateEvent) {
@@ -80,6 +80,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return (_a = elForm == null ? void 0 : elForm.statusIcon) != null ? _a : false;
     });
     const validateState = computed(() => (elFormItem == null ? void 0 : elFormItem.validateState) || "");
+    const validateMsg = computed(() => (elFormItem == null ? void 0 : elFormItem.error) || "");
     const validateIcon = computed(() => validateState.value && ValidateComponentsMap[validateState.value]);
     const containerStyle = computed(() => [
       rawAttrs.style
@@ -91,7 +92,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     ]);
     const nativeInputValue = computed(() => isNil(props.modelValue) ? "" : String(props.modelValue));
     const showClear = computed(() => props.clearable && !inputDisabled.value && !props.readonly && !!nativeInputValue.value && (isFocused.value || hovering.value));
-    const showPwdVisible = computed(() => props.showPassword && !inputDisabled.value && !!nativeInputValue.value && (!!nativeInputValue.value || isFocused.value));
+    const showPwdVisible = computed(() => props.showPassword && !inputDisabled.value && !!nativeInputValue.value);
     const isWordLimitVisible = computed(() => props.showWordLimit && !!props.maxlength && (props.type === "text" || props.type === "textarea") && !inputDisabled.value && !props.readonly && !props.showPassword);
     const textLength = computed(() => nativeInputValue.value.length);
     const inputExceed = computed(() => !!isWordLimitVisible.value && textLength.value > Number(props.maxlength));
@@ -157,8 +158,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const handleInput = async (event) => {
       recordCursor();
       let { value } = event.target;
-      if (props.formatter) {
-        value = props.parser ? props.parser(value) : value;
+      if (props.formatter && props.parser) {
+        value = props.parser(value);
       }
       if (isComposing.value)
         return;
@@ -167,13 +168,17 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         return;
       }
       emit(UPDATE_MODEL_EVENT, value);
-      emit("input", value);
+      emit(INPUT_EVENT, value);
       await nextTick();
       setNativeInputValue();
       setCursor();
     };
     const handleChange = (event) => {
-      emit("change", event.target.value);
+      let { value } = event.target;
+      if (props.formatter && props.parser) {
+        value = props.parser(value);
+      }
+      emit(CHANGE_EVENT, value);
     };
     const {
       isComposing,
@@ -211,9 +216,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
     const clear = () => {
       emit(UPDATE_MODEL_EVENT, "");
-      emit("change", "");
+      emit(CHANGE_EVENT, "");
       emit("clear");
-      emit("input", "");
+      emit(INPUT_EVENT, "");
     };
     watch(() => props.modelValue, () => {
       var _a;
@@ -230,7 +235,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     onMounted(() => {
       if (!props.formatter && props.parser) {
-        debugWarn("ElInput", "If you set the parser, you also need to set the formatter.");
+        debugWarn(COMPONENT_NAME, "If you set the parser, you also need to set the formatter.");
       }
       setNativeInputValue();
       nextTick(resizeTextarea);
@@ -303,6 +308,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               required: "",
               class: unref(nsInput).e("inner")
             }, unref(attrs), {
+              name: _ctx.name,
               minlength: _ctx.minlength,
               maxlength: _ctx.maxlength,
               type: _ctx.showPassword ? passwordVisible.value ? "text" : "password" : _ctx.type,
@@ -316,13 +322,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               form: _ctx.form,
               autofocus: _ctx.autofocus,
               role: _ctx.containerRole,
+              inputmode: _ctx.inputmode,
               onCompositionstart: unref(handleCompositionStart),
               onCompositionupdate: unref(handleCompositionUpdate),
               onCompositionend: unref(handleCompositionEnd),
               onInput: handleInput,
               onChange: handleChange,
               onKeydown: handleKeydown
-            }), null, 16, ["id", "minlength", "maxlength", "type", "disabled", "readonly", "autocomplete", "tabindex", "aria-label", "placeholder", "form", "autofocus", "role", "onCompositionstart", "onCompositionupdate", "onCompositionend"]),
+            }), null, 16, ["id", "name", "minlength", "maxlength", "type", "disabled", "readonly", "autocomplete", "tabindex", "aria-label", "placeholder", "form", "autofocus", "role", "inputmode", "onCompositionstart", "onCompositionupdate", "onCompositionend"]),
             _ctx.floatLabel ? (openBlock(), createElementBlock("span", {
               key: 1,
               class: normalizeClass(["float-label", { "prefix-label": _ctx.$slots.prefix || _ctx.prefixIcon }])
@@ -335,20 +342,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               createElementVNode("span", {
                 class: normalizeClass(unref(nsInput).e("suffix-inner"))
               }, [
-                !unref(showClear) || !unref(showPwdVisible) || !unref(isWordLimitVisible) ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
-                  renderSlot(_ctx.$slots, "suffix"),
-                  _ctx.suffixIcon ? (openBlock(), createBlock(unref(ElIcon), {
-                    key: 0,
-                    class: normalizeClass(unref(nsInput).e("icon"))
-                  }, {
-                    default: withCtx(() => [
-                      (openBlock(), createBlock(resolveDynamicComponent(_ctx.suffixIcon)))
-                    ]),
-                    _: 1
-                  }, 8, ["class"])) : createCommentVNode("v-if", true)
-                ], 64)) : createCommentVNode("v-if", true),
                 unref(showClear) ? (openBlock(), createBlock(unref(ElIcon), {
-                  key: 1,
+                  key: 0,
                   class: normalizeClass([unref(nsInput).e("icon"), unref(nsInput).e("clear")]),
                   onMousedown: withModifiers(unref(NOOP), ["prevent"]),
                   onClick: clear
@@ -365,6 +360,18 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   ]),
                   _: 1
                 }, 8, ["class", "onMousedown"])) : createCommentVNode("v-if", true),
+                (!unref(showClear) || !unref(showPwdVisible) || !unref(isWordLimitVisible)) && !unref(validateState) ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
+                  renderSlot(_ctx.$slots, "suffix"),
+                  _ctx.suffixIcon ? (openBlock(), createBlock(unref(ElIcon), {
+                    key: 0,
+                    class: normalizeClass(unref(nsInput).e("icon"))
+                  }, {
+                    default: withCtx(() => [
+                      (openBlock(), createBlock(resolveDynamicComponent(_ctx.suffixIcon)))
+                    ]),
+                    _: 1
+                  }, 8, ["class"])) : createCommentVNode("v-if", true)
+                ], 64)) : createCommentVNode("v-if", true),
                 unref(showPwdVisible) ? (openBlock(), createBlock(unref(ElIcon), {
                   key: 2,
                   class: normalizeClass([unref(nsInput).e("icon"), unref(nsInput).e("password")]),
@@ -419,7 +426,37 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   innerHTML: unref(validateIcon)
                 }, null, 8, ["class", "innerHTML"])) : createCommentVNode("v-if", true)
               ], 2)
-            ], 2)) : createCommentVNode("v-if", true)
+            ], 2)) : createCommentVNode("v-if", true),
+            unref(validateState) ? (openBlock(), createBlock(Tooltip, {
+              key: 3,
+              content: unref(validateMsg),
+              effect: "light",
+              placement: "top",
+              offset: 4
+            }, {
+              default: withCtx(() => [
+                createVNode(unref(ElIcon), { class: "error-icon" }, {
+                  default: withCtx(() => [
+                    (openBlock(), createElementBlock("svg", {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "12",
+                      height: "12",
+                      viewBox: "0 0 12 12",
+                      fill: "none"
+                    }, [
+                      createElementVNode("path", {
+                        "fill-rule": "evenodd",
+                        "clip-rule": "evenodd",
+                        d: "M12 6C12 9.31371 9.31371 12 6 12C2.68629 12 0 9.31371 0 6C0 2.68629 2.68629 0 6 0C9.31371 0 12 2.68629 12 6ZM6.5 2.5V7H5.5V2.5H6.5ZM6.5 9V8H5.5V9H6.5Z",
+                        fill: "#D91F11"
+                      })
+                    ]))
+                  ]),
+                  _: 1
+                })
+              ]),
+              _: 1
+            }, 8, ["content"])) : createCommentVNode("v-if", true)
           ], 2),
           createCommentVNode(" append slot "),
           _ctx.$slots.append ? (openBlock(), createElementBlock("div", {
@@ -470,13 +507,43 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           }, [
             renderSlot(_ctx.$slots, "textareaSuffix")
           ])) : createCommentVNode("v-if", true),
-          _ctx.floatLabel ? (openBlock(), createElementBlock("span", {
+          unref(validateState) ? (openBlock(), createBlock(Tooltip, {
             key: 2,
+            content: unref(validateMsg),
+            effect: "light",
+            placement: "top",
+            offset: 4
+          }, {
+            default: withCtx(() => [
+              createVNode(unref(ElIcon), { class: "error-icon" }, {
+                default: withCtx(() => [
+                  (openBlock(), createElementBlock("svg", {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    width: "12",
+                    height: "12",
+                    viewBox: "0 0 12 12",
+                    fill: "none"
+                  }, [
+                    createElementVNode("path", {
+                      "fill-rule": "evenodd",
+                      "clip-rule": "evenodd",
+                      d: "M12 6C12 9.31371 9.31371 12 6 12C2.68629 12 0 9.31371 0 6C0 2.68629 2.68629 0 6 0C9.31371 0 12 2.68629 12 6ZM6.5 2.5V7H5.5V2.5H6.5ZM6.5 9V8H5.5V9H6.5Z",
+                      fill: "#D91F11"
+                    })
+                  ]))
+                ]),
+                _: 1
+              })
+            ]),
+            _: 1
+          }, 8, ["content"])) : createCommentVNode("v-if", true),
+          _ctx.floatLabel ? (openBlock(), createElementBlock("span", {
+            key: 3,
             class: normalizeClass(["float-label", { "has-value": !!_ctx.modelValue }]),
             onClick: handleTextareaFocus
           }, toDisplayString(_ctx.placeholder), 3)) : createCommentVNode("v-if", true),
           unref(isWordLimitVisible) ? (openBlock(), createElementBlock("span", {
-            key: 3,
+            key: 4,
             style: normalizeStyle(countStyle.value),
             class: normalizeClass(unref(nsInput).e("count"))
           }, toDisplayString(unref(textLength)) + " / " + toDisplayString(_ctx.maxlength), 7)) : createCommentVNode("v-if", true)

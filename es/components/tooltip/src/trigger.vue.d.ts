@@ -121,8 +121,8 @@ declare const __VLS_component: import("vue").DefineComponent<{
 }>>, {
     readonly disabled: boolean;
     readonly open: boolean;
-    readonly trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "click" | "contextmenu" | "focus" | "hover" | import("./trigger").TooltipTriggerType[]) | (() => import("element-plus/es/utils").Arrayable<import("./trigger").TooltipTriggerType>) | ((new (...args: any[]) => "click" | "contextmenu" | "focus" | "hover" | import("./trigger").TooltipTriggerType[]) | (() => import("element-plus/es/utils").Arrayable<import("./trigger").TooltipTriggerType>))[], unknown, unknown>;
     readonly virtualTriggering: boolean;
+    readonly trigger: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "click" | "contextmenu" | "focus" | "hover" | import("./trigger").TooltipTriggerType[]) | (() => import("element-plus/es/utils").Arrayable<import("./trigger").TooltipTriggerType>) | ((new (...args: any[]) => "click" | "contextmenu" | "focus" | "hover" | import("./trigger").TooltipTriggerType[]) | (() => import("element-plus/es/utils").Arrayable<import("./trigger").TooltipTriggerType>))[], unknown, unknown>;
     readonly triggerKeys: string[];
 }>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;

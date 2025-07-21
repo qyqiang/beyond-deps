@@ -1,6 +1,6 @@
 import { isVNode, createVNode, render } from 'vue';
-import NotificationConstructor from './notification.mjs';
-import { notificationTypes } from './notification2.mjs';
+import NotificationConstructor from './notification2.mjs';
+import { notificationTypes } from './notification.mjs';
 import { isClient } from '@vueuse/core';
 import { isString, isFunction } from '@vue/shared';
 import { isElement, isUndefined } from '../../../utils/types.mjs';
@@ -103,8 +103,17 @@ function closeAll() {
     });
   }
 }
+function updateOffsets(position = "top-right") {
+  var _a, _b, _c;
+  let verticalOffset = ((_b = (_a = notifications[position][0]) == null ? void 0 : _a.vm.props) == null ? void 0 : _b.offset) || 0;
+  for (const { vm } of notifications[position]) {
+    vm.component.props.offset = verticalOffset;
+    verticalOffset += (((_c = vm.el) == null ? void 0 : _c.offsetHeight) || 0) + GAP_SIZE;
+  }
+}
 notify.closeAll = closeAll;
+notify.updateOffsets = updateOffsets;
 notify._context = null;
 
-export { close, closeAll, notify as default };
+export { close, closeAll, notify as default, updateOffsets };
 //# sourceMappingURL=notify.mjs.map

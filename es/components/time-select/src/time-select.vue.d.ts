@@ -5,7 +5,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly modelValue: StringConstructor;
     readonly disabled: BooleanConstructor;
     readonly editable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string) | (() => import("element-plus/es/element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus/es/element-plus").PopperEffect))[], unknown, unknown, "light", boolean>;
+    readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string) | (() => import("element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus").PopperEffect))[], unknown, unknown, "light", boolean>;
     readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -19,7 +19,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly step: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "00:30", boolean>;
     readonly minTime: StringConstructor;
     readonly maxTime: StringConstructor;
-    readonly includeEndTime: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly includeEndTime: BooleanConstructor;
     readonly name: StringConstructor;
     readonly prefixIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown, () => any, boolean>;
     readonly clearIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown, () => any, boolean>;
@@ -45,7 +45,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly modelValue: StringConstructor;
     readonly disabled: BooleanConstructor;
     readonly editable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string) | (() => import("element-plus/es/element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus/es/element-plus").PopperEffect))[], unknown, unknown, "light", boolean>;
+    readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string) | (() => import("element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus").PopperEffect))[], unknown, unknown, "light", boolean>;
     readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -59,7 +59,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly step: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "00:30", boolean>;
     readonly minTime: StringConstructor;
     readonly maxTime: StringConstructor;
-    readonly includeEndTime: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly includeEndTime: BooleanConstructor;
     readonly name: StringConstructor;
     readonly prefixIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown, () => any, boolean>;
     readonly clearIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown, () => any, boolean>;
@@ -73,14 +73,14 @@ declare const _default: import("vue").DefineComponent<{
     readonly disabled: boolean;
     readonly end: string;
     readonly start: string;
-    readonly effect: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string) | (() => import("element-plus/es/element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus/es/element-plus").PopperEffect))[], unknown, unknown>;
+    readonly effect: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string) | (() => import("element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus").PopperEffect))[], unknown, unknown>;
     readonly valueOnClear: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown>;
+    readonly format: string;
     readonly prefixIcon: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>;
     readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly format: string;
     readonly clearIcon: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>;
     readonly editable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly step: string;
-    readonly includeEndTime: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly includeEndTime: boolean;
 }>;
 export default _default;

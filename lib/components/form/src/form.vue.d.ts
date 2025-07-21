@@ -23,12 +23,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly validateOnRuleChange: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly hideRequiredAsterisk: BooleanConstructor;
     readonly scrollToError: BooleanConstructor;
-    readonly scrollIntoViewOptions: {
-        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [ObjectConstructor, BooleanConstructor], unknown, unknown>>;
-        readonly required: false;
-        readonly validator: ((val: unknown) => boolean) | undefined;
-        __epPropKey: true;
-    };
+    readonly scrollIntoViewOptions: import("element-plus/es/utils").EpPropFinalized<readonly [ObjectConstructor, BooleanConstructor], unknown, unknown, true, boolean>;
     readonly size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", unknown>>;
         readonly required: false;
@@ -58,9 +53,13 @@ declare const __VLS_component: import("vue").DefineComponent<{
      */
     scrollToField: (prop: FormItemProp) => void;
     /**
+     * @description Get a field context.
+     */
+    getField: (prop: FormItemProp) => FormItemContext | undefined;
+    /**
      * @description All fields context.
      */
-    fields: FormItemContext[];
+    fields: import("@vue/reactivity").Reactive<FormItemContext[]>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     validate: (prop: FormItemProp, isValid: boolean, message: string) => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -82,12 +81,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly validateOnRuleChange: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly hideRequiredAsterisk: BooleanConstructor;
     readonly scrollToError: BooleanConstructor;
-    readonly scrollIntoViewOptions: {
-        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [ObjectConstructor, BooleanConstructor], unknown, unknown>>;
-        readonly required: false;
-        readonly validator: ((val: unknown) => boolean) | undefined;
-        __epPropKey: true;
-    };
+    readonly scrollIntoViewOptions: import("element-plus/es/utils").EpPropFinalized<readonly [ObjectConstructor, BooleanConstructor], unknown, unknown, true, boolean>;
     readonly size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", unknown>>;
         readonly required: false;
@@ -107,6 +101,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly requireAsteriskPosition: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "left" | "right", unknown>;
     readonly labelSuffix: string;
     readonly validateOnRuleChange: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly scrollIntoViewOptions: import("element-plus/es/utils").EpPropMergeType<readonly [ObjectConstructor, BooleanConstructor], unknown, unknown>;
     readonly statusIcon: boolean;
     readonly hideRequiredAsterisk: boolean;
     readonly scrollToError: boolean;

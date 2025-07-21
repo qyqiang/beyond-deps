@@ -4,7 +4,10 @@
 @include b(picker-panel) {
   color: getCssVar('text-color', 'primary');
   background: getCssVar('bg-color', 'overlay');
-  border-radius: getCssVar('border-radius-base');
+  border-radius: getCssVarWithDefault(
+    ('popper', 'border-radius'),
+    getCssVar('border-radius-base')
+  );
   line-height: 30px;
 
   .#{$namespace}-time-panel {
@@ -25,11 +28,13 @@
   @include e(content) {
     position: relative;
     .date-picker-table-header {
+      border-top: 1px solid var(--color-gray-gray-100);
+
       th {
         padding: 8px 0;
         font-size: 12px;
         line-height: 16px;
-        color: getCssVar('text-color', 'tertiary');
+        color: #7a909e;
         font-weight: 400;
       }
     }
@@ -49,16 +54,16 @@
     width: 100%;
     border: 0;
     background-color: transparent;
-    line-height: 28px;
+    line-height: 30px;
     font-size: 13px;
     color: getCssVar('datepicker-text-color');
-    padding-left: 12px;
     text-align: left;
     outline: none;
     cursor: pointer;
+    padding-left: 16px;
 
     &:hover {
-      color: getCssVar('datepicker-hover-text-color');
+      background-color: var(--color-gray-gray-100);
     }
 
     &.active {
@@ -85,22 +90,6 @@
   }
 
   @include e(icon-btn) {
-    font-size: 12px;
-    color: getCssVar('datepicker-icon-color');
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    outline: none;
-    margin-top: 6px;
-    width: 20px;
-
-    &:hover {
-      color: getCssVar('datepicker-hover-text-color');
-    }
-    &:focus-visible {
-      color: getCssVar('datepicker-hover-text-color');
-    }
-
     @include when(disabled) {
       color: getCssVar('text-color-disabled');
 
@@ -111,6 +100,7 @@
     & .#{$namespace}-icon {
       cursor: pointer;
       font-size: inherit;
+      margin-left: 0 !important;
     }
   }
 
@@ -123,18 +113,18 @@
 .#{$namespace}-picker-panel__sidebar {
   position: absolute;
   top: 0;
+  left: 1px;
   bottom: 0;
   width: 110px;
-  border-right: 1px solid getCssVar('datepicker-inner-border-color');
+  border-right: 1px solid var(--color-gray-gray-100);
   box-sizing: border-box;
   padding-top: 6px;
-  background-color: getCssVar('bg-color', 'overlay');
   overflow: auto;
 }
 
 .#{$namespace}-picker-panel
-  *[slot='sidebar']
-  + .#{$namespace}-picker-panel__body,
+*[slot='sidebar']
++ .#{$namespace}-picker-panel__body,
 .#{$namespace}-picker-panel__sidebar + .#{$namespace}-picker-panel__body {
-  margin-left: 110px;
+  margin-left: 126px;
 }

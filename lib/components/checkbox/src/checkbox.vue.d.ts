@@ -4,19 +4,20 @@ declare function __VLS_template(): {
 declare const __VLS_component: import("vue").DefineComponent<{
     ariaControls: StringConstructor;
     modelValue: {
-        type: (NumberConstructor | StringConstructor | BooleanConstructor)[];
+        type: (BooleanConstructor | NumberConstructor | StringConstructor)[];
         default: undefined;
     };
     label: {
-        type: (ObjectConstructor | NumberConstructor | StringConstructor | BooleanConstructor)[];
+        type: (ObjectConstructor | BooleanConstructor | NumberConstructor | StringConstructor)[];
         default: undefined;
     };
     value: {
-        type: (ObjectConstructor | NumberConstructor | StringConstructor | BooleanConstructor)[];
+        type: (ObjectConstructor | BooleanConstructor | NumberConstructor | StringConstructor)[];
         default: undefined;
     };
     indeterminate: BooleanConstructor;
     disabled: BooleanConstructor;
+    isShow: BooleanConstructor;
     checked: BooleanConstructor;
     name: {
         type: StringConstructor;
@@ -60,19 +61,20 @@ declare const __VLS_component: import("vue").DefineComponent<{
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     ariaControls: StringConstructor;
     modelValue: {
-        type: (NumberConstructor | StringConstructor | BooleanConstructor)[];
+        type: (BooleanConstructor | NumberConstructor | StringConstructor)[];
         default: undefined;
     };
     label: {
-        type: (ObjectConstructor | NumberConstructor | StringConstructor | BooleanConstructor)[];
+        type: (ObjectConstructor | BooleanConstructor | NumberConstructor | StringConstructor)[];
         default: undefined;
     };
     value: {
-        type: (ObjectConstructor | NumberConstructor | StringConstructor | BooleanConstructor)[];
+        type: (ObjectConstructor | BooleanConstructor | NumberConstructor | StringConstructor)[];
         default: undefined;
     };
     indeterminate: BooleanConstructor;
     disabled: BooleanConstructor;
+    isShow: BooleanConstructor;
     checked: BooleanConstructor;
     name: {
         type: StringConstructor;
@@ -123,6 +125,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     modelValue: string | number | boolean;
     validateEvent: boolean;
     indeterminate: boolean;
+    isShow: boolean;
     checked: boolean;
     trueValue: string | number;
     falseValue: string | number;
