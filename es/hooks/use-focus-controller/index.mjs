@@ -1,8 +1,8 @@
 import { getCurrentInstance, shallowRef, ref, unref, watch, onMounted } from 'vue';
 import { useEventListener } from '@vueuse/core';
+import { isElement } from '../../utils/types.mjs';
 import { isFocusable } from '../../utils/dom/aria.mjs';
 import { isFunction } from '@vue/shared';
-import { isElement } from '../../utils/types.mjs';
 
 function useFocusController(target, {
   disabled,
