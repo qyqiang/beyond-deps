@@ -13,6 +13,7 @@ function useInputTag({ props, emit, formItem }) {
   const size = useFormSize();
   const inputRef = shallowRef();
   const inputValue = ref();
+  const tagTooltipRef = ref();
   const tagSize = computed(() => {
     return ["small"].includes(size.value) ? "small" : "default";
   });
@@ -24,6 +25,14 @@ function useInputTag({ props, emit, formItem }) {
   const inputLimit = computed(() => {
     var _a, _b;
     return isUndefined(props.max) ? false : ((_b = (_a = props.modelValue) == null ? void 0 : _a.length) != null ? _b : 0) >= props.max;
+  });
+  const showTagList = computed(() => {
+    var _a;
+    return props.collapseTags ? (_a = props.modelValue) == null ? void 0 : _a.slice(0, props.maxCollapseTags) : props.modelValue;
+  });
+  const collapseTagList = computed(() => {
+    var _a;
+    return props.collapseTags ? (_a = props.modelValue) == null ? void 0 : _a.slice(props.maxCollapseTags) : [];
   });
   const addTagsEmit = (value) => {
     var _a;
@@ -123,6 +132,10 @@ function useInputTag({ props, emit, formItem }) {
   };
   const { wrapperRef, isFocused } = useFocusController(inputRef, {
     disabled,
+    beforeBlur(event) {
+      var _a;
+      return (_a = tagTooltipRef.value) == null ? void 0 : _a.isFocusInsideContent(event);
+    },
     afterBlur() {
       var _a;
       if (props.saveOnBlur) {
@@ -131,7 +144,7 @@ function useInputTag({ props, emit, formItem }) {
         inputValue.value = void 0;
       }
       if (props.validateEvent) {
-        (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, "blur").catch((err) => debugWarn(err));
+        (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, "blur").catch((err) => debugWarn());
       }
     }
   });
@@ -144,12 +157,13 @@ function useInputTag({ props, emit, formItem }) {
   watch(() => props.modelValue, () => {
     var _a;
     if (props.validateEvent) {
-      (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, CHANGE_EVENT).catch((err) => debugWarn(err));
+      (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, CHANGE_EVENT).catch((err) => debugWarn());
     }
   });
   return {
     inputRef,
     wrapperRef,
+    tagTooltipRef,
     isFocused,
     isComposing,
     inputValue,
@@ -159,6 +173,8 @@ function useInputTag({ props, emit, formItem }) {
     closable,
     disabled,
     inputLimit,
+    showTagList,
+    collapseTagList,
     handleDragged,
     handleInput,
     handleKeydown,

@@ -10,10 +10,10 @@ import { useLocale } from '../../../hooks/use-locale/index.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { useFormItem } from '../../form/src/hooks/use-form-item.mjs';
 import { isNumber, isUndefined } from '../../../utils/types.mjs';
-import { debugWarn, throwError } from '../../../utils/error.mjs';
 import { useFormSize, useFormDisabled } from '../../form/src/hooks/use-form-common-props.mjs';
 import { UPDATE_MODEL_EVENT, INPUT_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 import { EVENT_CODE } from '../../../constants/aria.mjs';
+import { throwError, debugWarn } from '../../../utils/error.mjs';
 import { isString } from '@vue/shared';
 
 const __default__ = defineComponent({
@@ -38,9 +38,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const numPrecision = computed(() => {
       const stepPrecision = getPrecision(props.step);
       if (!isUndefined(props.precision)) {
-        if (stepPrecision > props.precision) {
-          debugWarn("InputNumber", "precision should not be less than the decimal places of step");
-        }
+        if (stepPrecision > props.precision) ;
         return props.precision;
       } else {
         return Math.max(getPrecision(props.modelValue), stepPrecision);
@@ -101,10 +99,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       if (!isNumber(val))
         return data.currentValue;
       if (val >= Number.MAX_SAFE_INTEGER && coefficient === 1) {
-        debugWarn("InputNumber", "The value has reached the maximum safe integer limit.");
         return val;
       } else if (val <= Number.MIN_SAFE_INTEGER && coefficient === -1) {
-        debugWarn("InputNumber", "The value has reached the minimum safe integer limit.");
         return val;
       }
       return toPrecision(val + props.step * coefficient);
@@ -192,7 +188,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         emit(CHANGE_EVENT, newVal, oldVal);
       }
       if (props.validateEvent) {
-        (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, "change").catch((err) => debugWarn(err));
+        (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, "change").catch((err) => debugWarn());
       }
       data.currentValue = newVal;
     };
@@ -229,7 +225,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
       emit("blur", event);
       if (props.validateEvent) {
-        (_b = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _b.call(formItem, "blur").catch((err) => debugWarn(err));
+        (_b = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _b.call(formItem, "blur").catch((err) => debugWarn());
       }
     };
     const setCurrentValueToModelValue = () => {
@@ -247,6 +243,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         data.currentValue = newValue;
       }
     }, { immediate: true });
+    watch(() => props.precision, () => {
+      data.currentValue = verifyValue(props.modelValue);
+    });
     onMounted(() => {
       var _a;
       const { min, max, modelValue } = props;

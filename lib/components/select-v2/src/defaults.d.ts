@@ -7,7 +7,7 @@ import type { Options, Placement, PopperEffect } from 'element-plus/es/component
 export declare const selectV2Props: {
     readonly ariaLabel: StringConstructor;
     readonly emptyValues: ArrayConstructor;
-    readonly valueOnClear: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown, undefined, boolean>;
+    readonly valueOnClear: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | boolean | Function) | (() => string | number | boolean | Function | null) | ((new (...args: any[]) => string | number | boolean | Function) | (() => string | number | boolean | Function | null))[], unknown, unknown, undefined, boolean>;
     readonly allowCreate: BooleanConstructor;
     readonly autocomplete: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "none" | "both" | "inline" | "list") | (() => "none" | "both" | "inline" | "list") | ((new (...args: any[]) => "none" | "both" | "inline" | "list") | (() => "none" | "both" | "inline" | "list"))[], unknown, unknown, "none", boolean>;
     readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -39,12 +39,15 @@ export declare const selectV2Props: {
     readonly id: StringConstructor;
     readonly loading: BooleanConstructor;
     readonly loadingText: StringConstructor;
-    readonly modelValue: {
-        readonly type: import("vue").PropType<any>;
-        readonly required: false;
-        readonly validator: ((val: unknown) => boolean) | undefined;
-        __epPropKey: true;
-    };
+    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => any) | (() => any) | {
+        (): any;
+        new (): any;
+        readonly prototype: any;
+    } | ((new (...args: any[]) => any) | (() => any) | {
+        (): any;
+        new (): any;
+        readonly prototype: any;
+    })[], unknown, unknown, undefined, boolean>;
     readonly multiple: BooleanConstructor;
     readonly multipleLimit: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly name: StringConstructor;
@@ -71,7 +74,114 @@ export declare const selectV2Props: {
     };
     readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly persistent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+    readonly popperClass: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]) | (() => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]) | ((new (...args: any[]) => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]) | (() => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
+    readonly popperStyle: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | import("vue").CSSProperties | import("vue").StyleValue[]) | (() => import("vue").StyleValue) | ((new (...args: any[]) => string | import("vue").CSSProperties | import("vue").StyleValue[]) | (() => import("vue").StyleValue))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<Options>) | (() => Partial<Options>) | ((new (...args: any[]) => Partial<Options>) | (() => Partial<Options>))[], unknown, unknown, () => Partial<Options>, boolean>;
     readonly remote: BooleanConstructor;
     readonly size: {

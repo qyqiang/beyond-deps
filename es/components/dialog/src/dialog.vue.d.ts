@@ -22,6 +22,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly closeOnPressEscape: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly lockScroll: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly modal: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly modalPenetrable: BooleanConstructor;
     readonly openDelay: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly closeDelay: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly top: {
@@ -49,16 +50,17 @@ declare const __VLS_component: import("vue").DefineComponent<{
     };
     readonly trapFocus: BooleanConstructor;
     readonly headerAriaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
+    readonly transition: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | import("vue").TransitionProps) | (() => import("./dialog").DialogTransition) | ((new (...args: any[]) => string | import("vue").TransitionProps) | (() => import("./dialog").DialogTransition))[], unknown, unknown, undefined, boolean>;
     readonly center: BooleanConstructor;
-    readonly alignCenter: BooleanConstructor;
+    readonly alignCenter: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
     readonly closeIcon: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly draggable: BooleanConstructor;
-    readonly overflow: BooleanConstructor;
+    readonly draggable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
+    readonly overflow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
     readonly fullscreen: BooleanConstructor;
     readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -93,6 +95,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly closeOnPressEscape: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly lockScroll: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly modal: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly modalPenetrable: BooleanConstructor;
     readonly openDelay: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly closeDelay: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly top: {
@@ -120,16 +123,17 @@ declare const __VLS_component: import("vue").DefineComponent<{
     };
     readonly trapFocus: BooleanConstructor;
     readonly headerAriaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
+    readonly transition: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | import("vue").TransitionProps) | (() => import("./dialog").DialogTransition) | ((new (...args: any[]) => string | import("vue").TransitionProps) | (() => import("./dialog").DialogTransition))[], unknown, unknown, undefined, boolean>;
     readonly center: BooleanConstructor;
-    readonly alignCenter: BooleanConstructor;
+    readonly alignCenter: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
     readonly closeIcon: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly draggable: BooleanConstructor;
-    readonly overflow: BooleanConstructor;
+    readonly draggable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
+    readonly overflow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
     readonly fullscreen: BooleanConstructor;
     readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly headerBackgroundColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -147,15 +151,16 @@ declare const __VLS_component: import("vue").DefineComponent<{
 }, {
     readonly title: string;
     readonly center: boolean;
-    readonly overflow: boolean;
+    readonly overflow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly transition: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | import("vue").TransitionProps) | (() => import("./dialog").DialogTransition) | ((new (...args: any[]) => string | import("vue").TransitionProps) | (() => import("./dialog").DialogTransition))[], unknown, unknown>;
     readonly modelValue: boolean;
     readonly ariaLevel: string;
     readonly appendTo: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown>;
+    readonly alignCenter: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly draggable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly showClose: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly headerBackgroundColor: string;
     readonly headerType: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("./dialog-content.js").HeaderType) | (() => import("./dialog-content.js").HeaderType) | ((new (...args: any[]) => import("./dialog-content.js").HeaderType) | (() => import("./dialog-content.js").HeaderType))[], unknown, unknown>;
-    readonly alignCenter: boolean;
-    readonly draggable: boolean;
     readonly fullscreen: boolean;
     readonly closeOnClickModal: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly closeOnPressEscape: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
@@ -166,6 +171,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly headerAriaLevel: string;
     readonly appendToBody: boolean;
     readonly destroyOnClose: boolean;
+    readonly modalPenetrable: boolean;
     readonly trapFocus: boolean;
 }>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;

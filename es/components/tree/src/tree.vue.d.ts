@@ -506,10 +506,12 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     data: TreeData;
     props: import("./tree.type").TreeOptionProps;
+    draggable: boolean;
     checkStrictly: boolean;
     lazy: boolean;
+    checkOnClickNode: boolean;
+    checkOnClickLeaf: boolean;
     accordion: boolean;
-    draggable: boolean;
     defaultExpandAll: boolean;
     indent: number;
     autoExpandParent: boolean;
@@ -517,8 +519,6 @@ declare const _default: import("vue").DefineComponent<{
     renderAfterExpand: boolean;
     showCheckbox: boolean;
     expandOnClickNode: boolean;
-    checkOnClickNode: boolean;
-    checkOnClickLeaf: boolean;
     highlightCurrent: boolean;
 }>;
 export default _default;

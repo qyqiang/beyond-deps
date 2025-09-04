@@ -1,4 +1,4 @@
-import { defineComponent, computed, useAttrs, ref, onBeforeUnmount, onMounted, openBlock, createBlock, unref, withCtx, createElementVNode, normalizeClass, normalizeStyle, createVNode, createElementBlock, renderSlot, Fragment, renderList, createTextVNode, toDisplayString, mergeProps, withKeys, withModifiers, createSlots } from 'vue';
+import { defineComponent, computed, useAttrs, ref, onBeforeUnmount, onMounted, openBlock, createBlock, unref, withCtx, createElementVNode, normalizeClass, normalizeStyle, createElementBlock, withModifiers, renderSlot, createCommentVNode, createVNode, Fragment, renderList, createTextVNode, toDisplayString, mergeProps, withKeys, createSlots } from 'vue';
 import { pick, debounce } from 'lodash-unified';
 import { onClickOutside } from '@vueuse/core';
 import { Loading } from '@element-plus/icons-vue';
@@ -8,7 +8,7 @@ import { ElTooltip } from '../../tooltip/index.mjs';
 import { ElIcon } from '../../icon/index.mjs';
 import { autocompleteProps, autocompleteEmits } from './autocomplete2.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
-import { inputProps } from '../../input/src/input2.mjs';
+import { inputProps } from '../../input/src/input.mjs';
 import { useFormDisabled } from '../../form/src/hooks/use-form-common-props.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { useId } from '../../../hooks/use-id/index.mjs';
@@ -262,6 +262,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             }),
             role: "region"
           }, [
+            _ctx.$slots.header ? (openBlock(), createElementBlock("div", {
+              key: 0,
+              class: normalizeClass(unref(ns).be("suggestion", "header")),
+              onClick: withModifiers(() => {
+              }, ["stop"])
+            }, [
+              renderSlot(_ctx.$slots, "header")
+            ], 10, ["onClick"])) : createCommentVNode("v-if", true),
             createVNode(unref(ElScrollbar), {
               id: unref(listboxId),
               tag: "ul",
@@ -297,7 +305,15 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 }), 128))
               ]),
               _: 3
-            }, 8, ["id", "wrap-class", "view-class"])
+            }, 8, ["id", "wrap-class", "view-class"]),
+            _ctx.$slots.footer ? (openBlock(), createElementBlock("div", {
+              key: 1,
+              class: normalizeClass(unref(ns).be("suggestion", "footer")),
+              onClick: withModifiers(() => {
+              }, ["stop"])
+            }, [
+              renderSlot(_ctx.$slots, "footer")
+            ], 10, ["onClick"])) : createCommentVNode("v-if", true)
           ], 6)
         ]),
         default: withCtx(() => [

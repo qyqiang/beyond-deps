@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref, reactive, markRaw, watch, nextTick, onMounted, onBeforeUnmount, toRefs, resolveComponent, openBlock, createBlock, Transition, withCtx, withDirectives, createVNode, createElementVNode, normalizeClass, normalizeStyle, withModifiers, createElementBlock, createCommentVNode, toDisplayString, withKeys, renderSlot, resolveDynamicComponent, createTextVNode, vShow } from 'vue';
+import { defineComponent, computed, ref, reactive, markRaw, watch, nextTick, onMounted, onBeforeUnmount, toRefs, resolveComponent, openBlock, createBlock, Transition, withCtx, withDirectives, createVNode, createElementVNode, normalizeClass, normalizeStyle, withModifiers, createElementBlock, createCommentVNode, toDisplayString, withKeys, renderSlot, resolveDynamicComponent, vShow, createTextVNode } from 'vue';
 import { ElButton } from '../../button/index.mjs';
 import { ElInput } from '../../input/index.mjs';
 import { ElOverlay } from '../../overlay/index.mjs';
@@ -184,7 +184,7 @@ const _sfc_main = defineComponent({
     });
     const draggable = computed(() => props.draggable);
     const overflow = computed(() => props.overflow);
-    useDraggable(rootRef, headerRef, draggable, overflow);
+    const { isDragging } = useDraggable(rootRef, headerRef, draggable, overflow);
     onMounted(async () => {
       await nextTick();
       if (props.closeOnHashChange) {
@@ -288,6 +288,7 @@ const _sfc_main = defineComponent({
       focusStartRef,
       headerRef,
       inputRef,
+      isDragging,
       confirmRef,
       doClose,
       handleClose,
@@ -341,6 +342,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                     _ctx.ns.b(),
                     _ctx.customClass,
                     _ctx.ns.is("draggable", _ctx.draggable),
+                    _ctx.ns.is("dragging", _ctx.isDragging),
                     { [_ctx.ns.m("center")]: _ctx.center }
                   ]),
                   style: normalizeStyle(_ctx.customStyle),
@@ -408,13 +410,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                         renderSlot(_ctx.$slots, "default", {}, () => [
                           !_ctx.dangerouslyUseHTMLString ? (openBlock(), createBlock(resolveDynamicComponent(_ctx.showInput ? "label" : "p"), {
                             key: 0,
-                            for: _ctx.showInput ? _ctx.inputId : void 0
-                          }, {
-                            default: withCtx(() => [
-                              createTextVNode(toDisplayString(!_ctx.dangerouslyUseHTMLString ? _ctx.message : ""), 1)
-                            ]),
-                            _: 1
-                          }, 8, ["for"])) : (openBlock(), createBlock(resolveDynamicComponent(_ctx.showInput ? "label" : "p"), {
+                            for: _ctx.showInput ? _ctx.inputId : void 0,
+                            textContent: toDisplayString(_ctx.message)
+                          }, null, 8, ["for", "textContent"])) : (openBlock(), createBlock(resolveDynamicComponent(_ctx.showInput ? "label" : "p"), {
                             key: 1,
                             for: _ctx.showInput ? _ctx.inputId : void 0,
                             innerHTML: _ctx.message

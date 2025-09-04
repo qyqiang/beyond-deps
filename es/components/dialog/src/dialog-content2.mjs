@@ -8,12 +8,21 @@ var HeaderType = /* @__PURE__ */ ((HeaderType2) => {
 })(HeaderType || {});
 const dialogContentProps = buildProps({
   center: Boolean,
-  alignCenter: Boolean,
+  alignCenter: {
+    type: Boolean,
+    default: void 0
+  },
   closeIcon: {
     type: iconPropType
   },
-  draggable: Boolean,
-  overflow: Boolean,
+  draggable: {
+    type: Boolean,
+    default: void 0
+  },
+  overflow: {
+    type: Boolean,
+    default: void 0
+  },
   fullscreen: Boolean,
   headerClass: String,
   bodyClass: String,

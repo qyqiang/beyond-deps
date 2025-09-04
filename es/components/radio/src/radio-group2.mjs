@@ -1,6 +1,7 @@
 import { defineComponent, ref, onMounted, computed, provide, reactive, toRefs, watch, openBlock, createElementBlock, unref, normalizeClass, renderSlot, nextTick } from 'vue';
 import { radioGroupProps, radioGroupEmits } from './radio-group.mjs';
 import { radioGroupKey } from './constants.mjs';
+import { isEqual } from 'lodash-unified';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { useId } from '../../../hooks/use-id/index.mjs';
@@ -43,9 +44,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       changeEvent,
       name
     }));
-    watch(() => props.modelValue, () => {
-      if (props.validateEvent) {
-        formItem == null ? void 0 : formItem.validate("change").catch((err) => debugWarn(err));
+    watch(() => props.modelValue, (newVal, oldValue) => {
+      if (props.validateEvent && !isEqual(newVal, oldValue)) {
+        formItem == null ? void 0 : formItem.validate("change").catch((err) => debugWarn());
       }
     });
     return (_ctx, _cache) => {

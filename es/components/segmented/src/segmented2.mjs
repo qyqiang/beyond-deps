@@ -43,6 +43,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       emit(CHANGE_EVENT, value);
     };
     const aliasProps = computed(() => ({ ...defaultProps, ...props.props }));
+    const intoAny = (item) => item;
     const getValue = (item) => {
       return isObject(item) ? item[aliasProps.value.value] : item;
     };
@@ -116,7 +117,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       var _a;
       updateSelect();
       if (props.validateEvent) {
-        (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, "change").catch((err) => debugWarn(err));
+        (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, "change").catch((err) => debugWarn());
       }
     }, {
       flush: "post"
@@ -155,7 +156,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               createElementVNode("div", {
                 class: normalizeClass(unref(ns).e("item-label"))
               }, [
-                renderSlot(_ctx.$slots, "default", { item }, () => [
+                renderSlot(_ctx.$slots, "default", {
+                  item: intoAny(item)
+                }, () => [
                   createTextVNode(toDisplayString(getLabel(item)), 1)
                 ])
               ], 2)

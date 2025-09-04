@@ -1,4 +1,4 @@
-import { defineComponent, getCurrentInstance, inject, ref, reactive, watch, onMounted, nextTick, h } from 'vue';
+import { defineComponent, getCurrentInstance, inject, ref, reactive, watch, onBeforeUnmount, onMounted, nextTick, h } from 'vue';
 import { ElCheckbox } from '../../../checkbox/index.mjs';
 import { ElButton } from '../../../button/index.mjs';
 import { ElIcon } from '../../../icon/index.mjs';
@@ -51,14 +51,15 @@ var TableHeader = defineComponent({
     const isTableLayoutAuto = (parent == null ? void 0 : parent.props.tableLayout) === "auto";
     const saveIndexSelection = reactive(/* @__PURE__ */ new Map());
     const theadRef = ref();
+    let delayId;
     const updateFixedColumnStyle = () => {
-      setTimeout(() => {
+      delayId = setTimeout(() => {
         if (saveIndexSelection.size > 0) {
           saveIndexSelection.forEach((column, key) => {
             const el = theadRef.value.querySelector(`.${key.replace(/\s/g, ".")}`);
             if (el) {
               const width = el.getBoundingClientRect().width;
-              column.width = width;
+              column.width = width || column.width;
             }
           });
           saveIndexSelection.clear();
@@ -66,6 +67,12 @@ var TableHeader = defineComponent({
       });
     };
     watch(saveIndexSelection, updateFixedColumnStyle);
+    onBeforeUnmount(() => {
+      if (delayId) {
+        clearTimeout(delayId);
+        delayId = void 0;
+      }
+    });
     onMounted(async () => {
       await nextTick();
       await nextTick();

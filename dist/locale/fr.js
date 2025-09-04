@@ -10,13 +10,14 @@
     name: "fr",
     el: {
       breadcrumb: {
-        label: `Fil d'Ariane`
+        label: "Fil d'Ariane"
       },
       colorpicker: {
         confirm: "Confirmer",
         clear: "Effacer",
         defaultLabel: "color picker",
-        description: "La couleur actuelle est {color}. Appuyer sur Entr\xE9e pour s\xE9lectionner une nouvelle couleur."
+        description: "La couleur actuelle est {color}. Appuyer sur Entr\xE9e pour s\xE9lectionner une nouvelle couleur.",
+        alphaLabel: "pick alpha value"
       },
       datepicker: {
         now: "Maintenant",
@@ -51,7 +52,6 @@
         month10: "Octobre",
         month11: "Novembre",
         month12: "D\xE9cembre",
-        week: "Semaine",
         weeks: {
           sun: "Dim",
           mon: "Lun",
@@ -97,6 +97,9 @@
       },
       mention: {
         loading: "Chargement"
+      },
+      dropdown: {
+        toggleDropdown: "Toggle Dropdown"
       },
       cascader: {
         noMatch: "Aucune correspondance",
@@ -151,7 +154,8 @@
       tour: {
         next: "suivant",
         previous: "pr\xE9c\xE9dent",
-        finish: "fin"
+        finish: "fin",
+        close: "Close this dialog"
       },
       tree: {
         emptyText: "Aucune donn\xE9e"

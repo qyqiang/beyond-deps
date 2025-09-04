@@ -14,6 +14,7 @@ import { isArray, isFunction, isObject } from '@vue/shared';
 import { ValidateComponentsMap } from '../../../utils/vue/icon.mjs';
 import { escapeStringRegexp } from '../../../utils/strings.mjs';
 import { useFormSize } from '../../form/src/hooks/use-form-common-props.mjs';
+import { MINIMUM_INPUT_WIDTH } from '../../../constants/form.mjs';
 import { EVENT_CODE } from '../../../constants/aria.mjs';
 import { isUndefined, isNumber } from '../../../utils/types.mjs';
 import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
@@ -79,7 +80,7 @@ const useSelect = (props, emit) => {
       expanded.value = false;
       states.menuVisibleOnFocus = false;
       if (props.validateEvent) {
-        (_a = elFormItem == null ? void 0 : elFormItem.validate) == null ? void 0 : _a.call(elFormItem, "blur").catch((err) => debugWarn(err));
+        (_a = elFormItem == null ? void 0 : elFormItem.validate) == null ? void 0 : _a.call(elFormItem, "blur").catch((err) => debugWarn());
       }
     }
   });
@@ -103,7 +104,7 @@ const useSelect = (props, emit) => {
     return props.multiple ? isArray(props.modelValue) && props.modelValue.length > 0 : !isEmptyValue(props.modelValue);
   });
   const showClearBtn = computed(() => {
-    return props.clearable && !selectDisabled.value && states.inputHovering && hasModelValue.value;
+    return props.clearable && !selectDisabled.value && hasModelValue.value && (isFocused.value || states.inputHovering);
   });
   const iconComponent = computed(() => props.remote && props.filterable ? "" : props.suffixIcon);
   const iconReverse = computed(() => iconComponent.value && nsSelect.is("reverse", expanded.value));
@@ -218,7 +219,8 @@ const useSelect = (props, emit) => {
   };
   const tagStyle = computed(() => {
     const gapWidth = getGapWidth();
-    const maxWidth = collapseItemRef.value && props.maxCollapseTags === 1 ? states.selectionWidth - states.collapseItemWidth - gapWidth : states.selectionWidth;
+    const inputSlotWidth = props.filterable ? gapWidth + MINIMUM_INPUT_WIDTH : 0;
+    const maxWidth = collapseItemRef.value && props.maxCollapseTags === 1 ? states.selectionWidth - states.collapseItemWidth - gapWidth - inputSlotWidth : states.selectionWidth - inputSlotWidth;
     return { maxWidth: `${maxWidth}px` };
   });
   const collapseTagStyle = computed(() => {
@@ -546,7 +548,7 @@ const useSelect = (props, emit) => {
   const handleClickOutside = (event) => {
     expanded.value = false;
     if (isFocused.value) {
-      const _event = new FocusEvent("focus", event);
+      const _event = new FocusEvent("blur", event);
       handleBlur(_event);
     }
   };
@@ -577,6 +579,10 @@ const useSelect = (props, emit) => {
       [aliasProps.value.value]: value,
       [aliasProps.value.label]: value
     };
+  };
+  const getIndex = (option) => {
+    var _a, _b;
+    return (_b = (_a = allOptionsValueMap.value.get(getValue(option))) == null ? void 0 : _a.index) != null ? _b : -1;
   };
   const initStates = (needUpdateSelectedLabel = false) => {
     if (props.multiple) {
@@ -636,7 +642,7 @@ const useSelect = (props, emit) => {
       initStates(true);
     }
     if (!isEqual(val, oldVal) && props.validateEvent) {
-      (_a = elFormItem == null ? void 0 : elFormItem.validate) == null ? void 0 : _a.call(elFormItem, "change").catch((err) => debugWarn(err));
+      (_a = elFormItem == null ? void 0 : elFormItem.validate) == null ? void 0 : _a.call(elFormItem, "change").catch((err) => debugWarn());
     }
   }, {
     deep: true
@@ -669,7 +675,6 @@ const useSelect = (props, emit) => {
         v = get(optionValue, valueKey);
       }
       if (duplicateValue.get(v)) {
-        debugWarn("ElSelectV2", `The option values you provided seem to be duplicated, which may cause some problems, please check.`);
         break;
       } else {
         duplicateValue.set(v, true);
@@ -694,6 +699,7 @@ const useSelect = (props, emit) => {
     popupHeight,
     debounce: debounce$1,
     allOptions,
+    allOptionsValueMap,
     filteredOptions,
     iconComponent,
     iconReverse,
@@ -733,6 +739,7 @@ const useSelect = (props, emit) => {
     getValue,
     getDisabled,
     getValueKey,
+    getIndex,
     handleClear,
     handleClickOutside,
     handleDel,

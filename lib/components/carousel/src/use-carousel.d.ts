@@ -4,6 +4,7 @@ import type { CarouselEmits, CarouselProps } from './carousel';
 export declare const useCarousel: (props: CarouselProps, emit: SetupContext<CarouselEmits>["emit"], componentName: string) => {
     root: import("vue").Ref<HTMLDivElement | undefined>;
     activeIndex: import("vue").Ref<number>;
+    exposeActiveIndex: import("vue").WritableComputedRef<number>;
     arrowDisplay: import("vue").ComputedRef<boolean>;
     hasLabel: import("vue").ComputedRef<boolean>;
     hover: import("vue").Ref<boolean>;

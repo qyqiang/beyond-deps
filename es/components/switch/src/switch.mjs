@@ -62,7 +62,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       var _a;
       input.value.checked = val;
       if (props.validateEvent) {
-        (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, "change").catch((err) => debugWarn(err));
+        (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, "change").catch((err) => debugWarn());
       }
     });
     const handleChange = () => {
@@ -96,7 +96,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             handleChange();
           }
         }).catch((e) => {
-          debugWarn(COMPONENT_NAME, `some error occurred: ${e}`);
         });
       } else if (shouldChange) {
         handleChange();

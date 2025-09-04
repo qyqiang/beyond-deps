@@ -1,7 +1,7 @@
 import type { InjectionKey, VNode } from 'vue';
 import type { default as CascaderNode, CascaderOption, CascaderProps, ExpandTrigger } from './node';
 export type { CascaderNode, CascaderOption, CascaderProps, ExpandTrigger };
-export type CascaderNodeValue = string | number;
+export type CascaderNodeValue = string | number | Record<string, any>;
 export type CascaderNodePathValue = CascaderNodeValue[];
 export type CascaderValue = CascaderNodeValue | CascaderNodePathValue | (CascaderNodeValue | CascaderNodePathValue)[];
 export type CascaderConfig = Required<CascaderProps>;

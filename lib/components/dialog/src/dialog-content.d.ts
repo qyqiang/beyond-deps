@@ -5,15 +5,15 @@ export declare enum HeaderType {
 }
 export declare const dialogContentProps: {
     readonly center: BooleanConstructor;
-    readonly alignCenter: BooleanConstructor;
+    readonly alignCenter: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
     readonly closeIcon: {
         readonly type: PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly draggable: BooleanConstructor;
-    readonly overflow: BooleanConstructor;
+    readonly draggable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
+    readonly overflow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
     readonly fullscreen: BooleanConstructor;
     readonly headerClass: StringConstructor;
     readonly bodyClass: StringConstructor;

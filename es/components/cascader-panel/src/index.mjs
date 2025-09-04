@@ -2,7 +2,7 @@ import { defineComponent, useSlots, ref, computed, provide, reactive, watch, onB
 import { isEqual, flattenDeep, cloneDeep } from 'lodash-unified';
 import ElCascaderMenu from './menu.mjs';
 import Store from './store.mjs';
-import Node from './node.mjs';
+import Node from './node2.mjs';
 import { cascaderPanelProps, cascaderPanelEmits, useCascaderConfig } from './config.mjs';
 import { sortByOriginalOrder, checkNode, getMenuIndex } from './utils.mjs';
 import { CASCADER_PANEL_INJECTION_KEY } from './types.mjs';
@@ -66,10 +66,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const resolve = (dataList) => {
         const _node = node;
         const parent = _node.root ? null : _node;
-        dataList && (store == null ? void 0 : store.appendNodes(dataList, parent));
         _node.loading = false;
         _node.loaded = true;
         _node.childrenData = _node.childrenData || [];
+        dataList && (store == null ? void 0 : store.appendNodes(dataList, parent));
         dataList && (cb == null ? void 0 : cb(dataList));
       };
       cfg.lazyLoad(node, resolve);
@@ -121,13 +121,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       emit("expand-change", []);
     };
     const calculateCheckedValue = () => {
+      var _a;
       const { checkStrictly, multiple } = config.value;
       const oldNodes = checkedNodes.value;
       const newNodes = getCheckedNodes(!checkStrictly);
       const nodes = sortByOriginalOrder(oldNodes, newNodes);
       const values = nodes.map((node) => node.valueByOption);
       checkedNodes.value = nodes;
-      checkedValue.value = multiple ? values : values[0];
+      checkedValue.value = multiple ? values : (_a = values[0]) != null ? _a : null;
     };
     const syncCheckedValue = (loaded = false, forced = false) => {
       const { modelValue } = props;
@@ -149,7 +150,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         const values = multiple ? castArray(modelValue) : [modelValue];
         const nodes = unique(values.map((val) => store == null ? void 0 : store.getNodeByValue(val, leafOnly)));
         syncMenuState(nodes, forced);
-        checkedValue.value = cloneDeep(modelValue);
+        checkedValue.value = cloneDeep(modelValue != null ? modelValue : void 0);
       }
     };
     const syncMenuState = (newCheckedNodes, reserveExpandingState = true) => {

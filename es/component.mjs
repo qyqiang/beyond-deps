@@ -16,6 +16,7 @@ import { ElCheckbox, ElCheckboxButton, ElCheckboxGroup } from './components/chec
 import { ElCol } from './components/col/index.mjs';
 import { ElCollapse, ElCollapseItem } from './components/collapse/index.mjs';
 import { ElCollapseTransition } from './components/collapse-transition/index.mjs';
+import { ElColorPickerPanel } from './components/color-picker-panel/index.mjs';
 import { ElColorPicker } from './components/color-picker/index.mjs';
 import { ElConfigProvider } from './components/config-provider/index.mjs';
 import { ElContainer, ElAside, ElFooter, ElHeader, ElMain } from './components/container/index.mjs';
@@ -103,6 +104,7 @@ var Components = [
   ElCollapse,
   ElCollapseItem,
   ElCollapseTransition,
+  ElColorPickerPanel,
   ElColorPicker,
   ElConfigProvider,
   ElContainer,

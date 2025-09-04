@@ -40,7 +40,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly position: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "top-right" | "top-left" | "bottom-right" | "bottom-left", unknown, "top-right", boolean>;
+    readonly position: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "top-left" | "top-right" | "bottom-left" | "bottom-right", unknown, "top-right", boolean>;
     readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "error" | "primary" | "success" | "warning" | "info", unknown, "", boolean>;
@@ -95,7 +95,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly position: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "top-right" | "top-left" | "bottom-right" | "bottom-left", unknown, "top-right", boolean>;
+    readonly position: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "top-left" | "top-right" | "bottom-left" | "bottom-right", unknown, "top-right", boolean>;
     readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly title: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "error" | "primary" | "success" | "warning" | "info", unknown, "", boolean>;
@@ -111,7 +111,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
 }, {
     readonly label: string;
     readonly title: string;
-    readonly position: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "top-right" | "top-left" | "bottom-right" | "bottom-left", unknown>;
+    readonly position: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "top-left" | "top-right" | "bottom-left" | "bottom-right", unknown>;
     readonly offset: number;
     readonly id: string;
     readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "error" | "primary" | "success" | "warning" | "info", unknown>;
@@ -126,9 +126,9 @@ declare const __VLS_component: import("vue").DefineComponent<{
     }> | (() => import("vue").VNode)))[], unknown, unknown>;
     readonly onClick: () => void;
     readonly duration: number;
+    readonly showClose: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly customClass: string;
     readonly dangerouslyUseHTMLString: boolean;
-    readonly showClose: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly onLabelClick: Function;
 }>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;

@@ -16,6 +16,7 @@ import { isUndefined, isNumber } from '../../../utils/types.mjs';
 import { EVENT_CODE } from '../../../constants/aria.mjs';
 import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 import { scrollIntoView } from '../../../utils/dom/scroll.mjs';
+import { MINIMUM_INPUT_WIDTH } from '../../../constants/form.mjs';
 
 const useSelect = (props, emit) => {
   const { t } = useLocale();
@@ -81,7 +82,7 @@ const useSelect = (props, emit) => {
       expanded.value = false;
       states.menuVisibleOnFocus = false;
       if (props.validateEvent) {
-        (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, "blur").catch((err) => debugWarn(err));
+        (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, "blur").catch((err) => debugWarn());
       }
     }
   });
@@ -92,8 +93,8 @@ const useSelect = (props, emit) => {
     var _a;
     return (_a = form == null ? void 0 : form.statusIcon) != null ? _a : false;
   });
-  const showClose = computed(() => {
-    return props.clearable && !selectDisabled.value && states.inputHovering && hasModelValue.value;
+  const showClearBtn = computed(() => {
+    return props.clearable && !selectDisabled.value && hasModelValue.value && (isFocused.value || states.inputHovering);
   });
   const iconComponent = computed(() => props.remote && props.filterable && !props.remoteShowSuffix ? "" : props.suffixIcon);
   const iconReverse = computed(() => nsSelect.is("reverse", !!(iconComponent.value && expanded.value)));
@@ -177,7 +178,7 @@ const useSelect = (props, emit) => {
     }
     setSelected();
     if (!isEqual(val, oldVal) && props.validateEvent) {
-      formItem == null ? void 0 : formItem.validate("change").catch((err) => debugWarn(err));
+      formItem == null ? void 0 : formItem.validate("change").catch((err) => debugWarn());
     }
   }, {
     flush: "post",
@@ -267,6 +268,7 @@ const useSelect = (props, emit) => {
       const isEqualValue = isObjectValue ? get(cachedOption.value, props.valueKey) === get(value, props.valueKey) : cachedOption.value === value;
       if (isEqualValue) {
         option = {
+          index: optionsArray.value.filter((opt) => !opt.created).indexOf(cachedOption),
           value,
           currentLabel: cachedOption.currentLabel,
           get isDisabled() {
@@ -280,6 +282,7 @@ const useSelect = (props, emit) => {
       return option;
     const label = isObjectValue ? value.label : value != null ? value : "";
     const newOption = {
+      index: -1,
       value,
       currentLabel: label
     };
@@ -473,7 +476,7 @@ const useSelect = (props, emit) => {
   const handleClickOutside = (event) => {
     expanded.value = false;
     if (isFocused.value) {
-      const _event = new FocusEvent("focus", event);
+      const _event = new FocusEvent("blur", event);
       nextTick(() => handleBlur(_event));
     }
   };
@@ -555,7 +558,8 @@ const useSelect = (props, emit) => {
   };
   const tagStyle = computed(() => {
     const gapWidth = getGapWidth();
-    const maxWidth = collapseItemRef.value && props.maxCollapseTags === 1 ? states.selectionWidth - states.collapseItemWidth - gapWidth : states.selectionWidth;
+    const inputSlotWidth = props.filterable ? gapWidth + MINIMUM_INPUT_WIDTH : 0;
+    const maxWidth = collapseItemRef.value && props.maxCollapseTags === 1 ? states.selectionWidth - states.collapseItemWidth - gapWidth - inputSlotWidth : states.selectionWidth - inputSlotWidth;
     return { maxWidth: `${maxWidth}px` };
   });
   const collapseTagStyle = computed(() => {
@@ -565,10 +569,18 @@ const useSelect = (props, emit) => {
     emit("popup-scroll", data);
   };
   useResizeObserver(selectionRef, resetSelectionWidth);
-  useResizeObserver(menuRef, updateTooltip);
   useResizeObserver(wrapperRef, updateTooltip);
   useResizeObserver(tagMenuRef, updateTagTooltip);
   useResizeObserver(collapseItemRef, resetCollapseItemWidth);
+  let stop;
+  watch(() => dropdownMenuVisible.value, (newVal) => {
+    if (newVal) {
+      stop = useResizeObserver(menuRef, updateTooltip).stop;
+    } else {
+      stop == null ? void 0 : stop();
+      stop = void 0;
+    }
+  });
   onMounted(() => {
     setSelected();
   });
@@ -598,7 +610,7 @@ const useSelect = (props, emit) => {
     currentPlaceholder,
     mouseEnterEventName,
     needStatusIcon,
-    showClose,
+    showClearBtn,
     iconComponent,
     iconReverse,
     validateState,
@@ -628,6 +640,7 @@ const useSelect = (props, emit) => {
     showTagList,
     collapseTagList,
     popupScroll,
+    getOption,
     tagStyle,
     collapseTagStyle,
     popperRef,

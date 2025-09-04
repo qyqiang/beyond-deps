@@ -1,5 +1,5 @@
 import type { VNode } from 'vue';
-export type CascaderNodeValue = string | number;
+export type CascaderNodeValue = string | number | Record<string, any>;
 export type CascaderNodePathValue = CascaderNodeValue[];
 export type CascaderValue = CascaderNodeValue | CascaderNodePathValue | (CascaderNodeValue | CascaderNodePathValue)[];
 export type CascaderConfig = Required<CascaderProps>;
@@ -33,6 +33,9 @@ export interface CascaderProps {
     disabled?: string | isDisabled;
     leaf?: string | isLeaf;
     hoverThreshold?: number;
+    checkOnClickNode?: boolean;
+    checkOnClickLeaf?: boolean;
+    showPrefix?: boolean;
 }
 export type Nullable<T> = null | T;
 type ChildrenData = CascaderOption[] | undefined;

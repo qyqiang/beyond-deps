@@ -88,6 +88,7 @@ declare const _default: import("vue").DefineComponent<{
     focusStartRef: import("vue").Ref<HTMLElement | undefined>;
     headerRef: import("vue").Ref<HTMLElement | undefined>;
     inputRef: import("vue").Ref<ComponentPublicInstance | undefined>;
+    isDragging: import("vue").Ref<boolean>;
     confirmRef: import("vue").Ref<ComponentPublicInstance | undefined>;
     doClose: () => void;
     handleClose: () => void;
@@ -2197,9 +2198,9 @@ declare const _default: import("vue").DefineComponent<{
     center: boolean;
     overflow: boolean;
     container: string;
+    draggable: boolean;
     showClose: boolean;
     headerBackgroundColor: string;
-    draggable: boolean;
     closeOnClickModal: boolean;
     closeOnPressEscape: boolean;
     lockScroll: boolean;

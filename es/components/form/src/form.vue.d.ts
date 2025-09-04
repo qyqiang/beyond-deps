@@ -23,7 +23,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly validateOnRuleChange: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly hideRequiredAsterisk: BooleanConstructor;
     readonly scrollToError: BooleanConstructor;
-    readonly scrollIntoViewOptions: import("element-plus/es/utils").EpPropFinalized<readonly [ObjectConstructor, BooleanConstructor], unknown, unknown, true, boolean>;
+    readonly scrollIntoViewOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => boolean | ScrollIntoViewOptions) | (() => boolean | ScrollIntoViewOptions) | ((new (...args: any[]) => boolean | ScrollIntoViewOptions) | (() => boolean | ScrollIntoViewOptions))[], unknown, unknown, true, boolean>;
     readonly size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", unknown>>;
         readonly required: false;
@@ -81,7 +81,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly validateOnRuleChange: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly hideRequiredAsterisk: BooleanConstructor;
     readonly scrollToError: BooleanConstructor;
-    readonly scrollIntoViewOptions: import("element-plus/es/utils").EpPropFinalized<readonly [ObjectConstructor, BooleanConstructor], unknown, unknown, true, boolean>;
+    readonly scrollIntoViewOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => boolean | ScrollIntoViewOptions) | (() => boolean | ScrollIntoViewOptions) | ((new (...args: any[]) => boolean | ScrollIntoViewOptions) | (() => boolean | ScrollIntoViewOptions))[], unknown, unknown, true, boolean>;
     readonly size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", unknown>>;
         readonly required: false;
@@ -101,7 +101,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly requireAsteriskPosition: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "left" | "right", unknown>;
     readonly labelSuffix: string;
     readonly validateOnRuleChange: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly scrollIntoViewOptions: import("element-plus/es/utils").EpPropMergeType<readonly [ObjectConstructor, BooleanConstructor], unknown, unknown>;
+    readonly scrollIntoViewOptions: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => boolean | ScrollIntoViewOptions) | (() => boolean | ScrollIntoViewOptions) | ((new (...args: any[]) => boolean | ScrollIntoViewOptions) | (() => boolean | ScrollIntoViewOptions))[], unknown, unknown>;
     readonly statusIcon: boolean;
     readonly hideRequiredAsterisk: boolean;
     readonly scrollToError: boolean;

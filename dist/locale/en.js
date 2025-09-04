@@ -52,7 +52,6 @@
         month10: "October",
         month11: "November",
         month12: "December",
-        week: "week",
         weeks: {
           sun: "Sun",
           mon: "Mon",
@@ -155,7 +154,8 @@
       tour: {
         next: "Next",
         previous: "Previous",
-        finish: "Finish"
+        finish: "Finish",
+        close: "Close this dialog"
       },
       tree: {
         emptyText: "No Data"

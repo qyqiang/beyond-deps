@@ -48,6 +48,7 @@ export declare const useSelect: (props: SelectProps, emit: SelectEmits) => {
         cachedOptions: Map<import("element-plus/es/utils").EpPropMergeType<(ObjectConstructor | BooleanConstructor | NumberConstructor | StringConstructor)[], unknown, unknown>, OptionPublicInstance> & Omit<Map<import("element-plus/es/utils").EpPropMergeType<(ObjectConstructor | BooleanConstructor | NumberConstructor | StringConstructor)[], unknown, unknown>, OptionPublicInstance>, keyof Map<any, any>>;
         optionValues: OptionValue[];
         selected: {
+            index: number;
             value: OptionValue;
             currentLabel: OptionPublicInstance["currentLabel"];
             isDisabled?: OptionPublicInstance["isDisabled"] | undefined;
@@ -72,7 +73,7 @@ export declare const useSelect: (props: SelectProps, emit: SelectEmits) => {
     debouncedOnInputChange: import("lodash").DebouncedFunc<() => void>;
     onInput: (event: Event) => void;
     deletePrevTag: (e: KeyboardEvent) => void;
-    deleteTag: (event: MouseEvent, tag: OptionPublicInstance | OptionBasic) => void;
+    deleteTag: (event: MouseEvent, tag: OptionBasic) => void;
     deleteSelected: (event: Event) => void;
     handleOptionSelect: (option: OptionPublicInstance) => void;
     scrollToOption: (option: OptionPublicInstance | OptionPublicInstance[] | SelectStates["selected"]) => void;
@@ -81,7 +82,7 @@ export declare const useSelect: (props: SelectProps, emit: SelectEmits) => {
     currentPlaceholder: import("vue").ComputedRef<string>;
     mouseEnterEventName: import("vue").ComputedRef<"mouseenter" | null>;
     needStatusIcon: import("vue").ComputedRef<boolean>;
-    showClose: import("vue").ComputedRef<boolean>;
+    showClearBtn: import("vue").ComputedRef<boolean>;
     iconComponent: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | Component) & {}) | (() => string | Component) | ((new (...args: any[]) => (string | Component) & {}) | (() => string | Component))[], unknown, unknown> | undefined>;
     iconReverse: import("vue").ComputedRef<string>;
     validateState: import("vue").ComputedRef<"" | "error" | "success" | "validating">;
@@ -109,11 +110,13 @@ export declare const useSelect: (props: SelectProps, emit: SelectEmits) => {
     navigateOptions: (direction: "prev" | "next") => void;
     dropdownMenuVisible: import("vue").WritableComputedRef<boolean>;
     showTagList: import("vue").ComputedRef<{
+        index: number;
         value: OptionValue;
         currentLabel: OptionPublicInstance["currentLabel"];
         isDisabled?: OptionPublicInstance["isDisabled"] | undefined;
     }[]>;
     collapseTagList: import("vue").ComputedRef<{
+        index: number;
         value: OptionValue;
         currentLabel: OptionPublicInstance["currentLabel"];
         isDisabled?: OptionPublicInstance["isDisabled"] | undefined;
@@ -122,6 +125,16 @@ export declare const useSelect: (props: SelectProps, emit: SelectEmits) => {
         scrollTop: number;
         scrollLeft: number;
     }) => void;
+    getOption: (value: OptionValue) => {
+        index: number;
+        value: import("element-plus/es/utils").EpPropMergeType<(ObjectConstructor | BooleanConstructor | NumberConstructor | StringConstructor)[], unknown, unknown>;
+        currentLabel: any;
+    } | {
+        index: number;
+        value: import("element-plus/es/utils").EpPropMergeType<(ObjectConstructor | BooleanConstructor | NumberConstructor | StringConstructor)[], unknown, unknown>;
+        currentLabel: string | number | boolean;
+        readonly isDisabled: boolean;
+    };
     tagStyle: import("vue").ComputedRef<{
         maxWidth: string;
     }>;

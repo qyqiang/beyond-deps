@@ -1,7 +1,8 @@
-import { defineComponent, useSlots, computed, ref, openBlock, createBlock, unref, withCtx, createVNode, Transition, withDirectives, createElementVNode, mergeProps, withModifiers, normalizeClass, createElementBlock, renderSlot, toDisplayString, createCommentVNode, vShow } from 'vue';
+import { defineComponent, useSlots, computed, ref, openBlock, createBlock, unref, withCtx, createVNode, Transition, withDirectives, normalizeClass, createCommentVNode, createElementVNode, mergeProps, withModifiers, createElementBlock, renderSlot, toDisplayString, vShow } from 'vue';
 import { ElOverlay } from '../../overlay/index.mjs';
 import ElFocusTrap from '../../focus-trap/src/focus-trap.mjs';
 import { ElTeleport } from '../../teleport/index.mjs';
+import { ElSplitter, ElSplitterPanel } from '../../splitter/index.mjs';
 import { ElIcon } from '../../icon/index.mjs';
 import { drawerProps, drawerEmits } from './drawer.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
@@ -88,85 +89,108 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     onReleaseRequested: unref(onCloseRequested)
                   }, {
                     default: withCtx(() => [
-                      createElementVNode("div", mergeProps({
-                        ref_key: "drawerRef",
-                        ref: drawerRef,
-                        "aria-modal": "true",
-                        "aria-label": _ctx.title || void 0,
-                        "aria-labelledby": !_ctx.title ? unref(titleId) : void 0,
-                        "aria-describedby": unref(bodyId)
-                      }, _ctx.$attrs, {
-                        class: [unref(ns).b(), _ctx.direction, unref(visible) && "open"],
-                        style: unref(isHorizontal) ? "width: " + unref(drawerSize) : "height: " + unref(drawerSize),
-                        role: "dialog",
-                        onClick: withModifiers(() => {
-                        }, ["stop"])
-                      }), [
-                        createElementVNode("span", {
-                          ref_key: "focusStartRef",
-                          ref: focusStartRef,
-                          class: normalizeClass(unref(ns).e("sr-focus")),
-                          tabindex: "-1"
-                        }, null, 2),
-                        _ctx.withHeader ? (openBlock(), createElementBlock("header", {
-                          key: 0,
-                          class: normalizeClass([unref(ns).e("header"), _ctx.headerClass])
-                        }, [
-                          !_ctx.$slots.title ? renderSlot(_ctx.$slots, "header", {
+                      createVNode(unref(ElSplitter), {
+                        class: normalizeClass(unref(ns).b("splitter")),
+                        layout: unref(isHorizontal) ? "horizontal" : "vertical"
+                      }, {
+                        default: withCtx(() => [
+                          ["rtl", "btt"].includes(_ctx.direction) ? (openBlock(), createBlock(unref(ElSplitterPanel), {
                             key: 0,
-                            close: unref(handleClose),
-                            titleId: unref(titleId),
-                            titleClass: unref(ns).e("title")
-                          }, () => [
-                            !_ctx.$slots.title ? (openBlock(), createElementBlock("span", {
-                              key: 0,
-                              id: unref(titleId),
-                              role: "heading",
-                              "aria-level": _ctx.headerAriaLevel,
-                              class: normalizeClass(unref(ns).e("title"))
-                            }, toDisplayString(_ctx.title), 11, ["id", "aria-level"])) : createCommentVNode("v-if", true)
-                          ]) : renderSlot(_ctx.$slots, "title", { key: 1 }, () => [
-                            createCommentVNode(" DEPRECATED SLOT ")
-                          ]),
-                          _ctx.showClose ? (openBlock(), createElementBlock("button", {
-                            key: 2,
-                            "aria-label": unref(t)("el.drawer.close"),
-                            class: normalizeClass(unref(ns).e("close-btn")),
-                            type: "button",
-                            onClick: unref(handleClose)
-                          }, [
-                            createVNode(unref(ElIcon), {
-                              class: normalizeClass(unref(ns).e("close")),
-                              size: "16px"
-                            }, {
-                              default: withCtx(() => [
-                                (openBlock(), createElementBlock("svg", {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "12",
-                                  height: "12",
-                                  viewBox: "0 0 12 12"
+                            onClick: unref(onModalClick)
+                          }, null, 8, ["onClick"])) : createCommentVNode("v-if", true),
+                          createVNode(unref(ElSplitterPanel), {
+                            resizable: _ctx.resizable,
+                            size: unref(drawerSize)
+                          }, {
+                            default: withCtx(() => [
+                              createElementVNode("div", mergeProps({
+                                ref_key: "drawerRef",
+                                ref: drawerRef,
+                                "aria-modal": "true",
+                                "aria-label": _ctx.title || void 0,
+                                "aria-labelledby": !_ctx.title ? unref(titleId) : void 0,
+                                "aria-describedby": unref(bodyId)
+                              }, _ctx.$attrs, {
+                                class: [unref(ns).b(), _ctx.direction, unref(visible) && "open"],
+                                role: "dialog",
+                                style: unref(isHorizontal) ? "width: " + unref(drawerSize) : "height: " + unref(drawerSize),
+                                onClick: withModifiers(() => {
+                                }, ["stop"])
+                              }), [
+                                createElementVNode("span", {
+                                  ref_key: "focusStartRef",
+                                  ref: focusStartRef,
+                                  class: normalizeClass(unref(ns).e("sr-focus")),
+                                  tabindex: "-1"
+                                }, null, 2),
+                                _ctx.withHeader ? (openBlock(), createElementBlock("header", {
+                                  key: 0,
+                                  class: normalizeClass([unref(ns).e("header"), _ctx.headerClass])
                                 }, [
-                                  createElementVNode("path", { d: "M11 1.87969L10.1203 1L6 5.12072L1.87969 1L1 1.87969L5.12072 6L1 10.1203L1.87969 11L6 6.87928L10.1203 11L11 10.1203L6.87928 6L11 1.87969Z" })
-                                ]))
-                              ]),
-                              _: 1
-                            }, 8, ["class"])
-                          ], 10, ["aria-label", "onClick"])) : createCommentVNode("v-if", true)
-                        ], 2)) : createCommentVNode("v-if", true),
-                        unref(rendered) ? (openBlock(), createElementBlock("div", {
-                          key: 1,
-                          id: unref(bodyId),
-                          class: normalizeClass([unref(ns).e("body"), _ctx.bodyClass])
-                        }, [
-                          renderSlot(_ctx.$slots, "default")
-                        ], 10, ["id"])) : createCommentVNode("v-if", true),
-                        _ctx.$slots.footer ? (openBlock(), createElementBlock("div", {
-                          key: 2,
-                          class: normalizeClass([unref(ns).e("footer"), _ctx.footerClass])
-                        }, [
-                          renderSlot(_ctx.$slots, "footer")
-                        ], 2)) : createCommentVNode("v-if", true)
-                      ], 16, ["aria-label", "aria-labelledby", "aria-describedby", "onClick"])
+                                  !_ctx.$slots.title ? renderSlot(_ctx.$slots, "header", {
+                                    key: 0,
+                                    close: unref(handleClose),
+                                    titleId: unref(titleId),
+                                    titleClass: unref(ns).e("title")
+                                  }, () => [
+                                    createElementVNode("span", {
+                                      id: unref(titleId),
+                                      role: "heading",
+                                      "aria-level": _ctx.headerAriaLevel,
+                                      class: normalizeClass(unref(ns).e("title"))
+                                    }, toDisplayString(_ctx.title), 11, ["id", "aria-level"])
+                                  ]) : renderSlot(_ctx.$slots, "title", { key: 1 }, () => [
+                                    createCommentVNode(" DEPRECATED SLOT ")
+                                  ]),
+                                  _ctx.showClose ? (openBlock(), createElementBlock("button", {
+                                    key: 2,
+                                    "aria-label": unref(t)("el.drawer.close"),
+                                    class: normalizeClass(unref(ns).e("close-btn")),
+                                    type: "button",
+                                    onClick: unref(handleClose)
+                                  }, [
+                                    createVNode(unref(ElIcon), {
+                                      class: normalizeClass(unref(ns).e("close")),
+                                      size: "16px"
+                                    }, {
+                                      default: withCtx(() => [
+                                        (openBlock(), createElementBlock("svg", {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "12",
+                                          height: "12",
+                                          viewBox: "0 0 12 12"
+                                        }, [
+                                          createElementVNode("path", { d: "M11 1.87969L10.1203 1L6 5.12072L1.87969 1L1 1.87969L5.12072 6L1 10.1203L1.87969 11L6 6.87928L10.1203 11L11 10.1203L6.87928 6L11 1.87969Z" })
+                                        ]))
+                                      ]),
+                                      _: 1
+                                    }, 8, ["class"])
+                                  ], 10, ["aria-label", "onClick"])) : createCommentVNode("v-if", true)
+                                ], 2)) : createCommentVNode("v-if", true),
+                                unref(rendered) ? (openBlock(), createElementBlock("div", {
+                                  key: 1,
+                                  id: unref(bodyId),
+                                  class: normalizeClass([unref(ns).e("body"), _ctx.bodyClass])
+                                }, [
+                                  renderSlot(_ctx.$slots, "default")
+                                ], 10, ["id"])) : createCommentVNode("v-if", true),
+                                _ctx.$slots.footer ? (openBlock(), createElementBlock("div", {
+                                  key: 2,
+                                  class: normalizeClass([unref(ns).e("footer"), _ctx.footerClass])
+                                }, [
+                                  renderSlot(_ctx.$slots, "footer")
+                                ], 2)) : createCommentVNode("v-if", true)
+                              ], 16, ["aria-label", "aria-labelledby", "aria-describedby", "onClick"])
+                            ]),
+                            _: 3
+                          }, 8, ["resizable", "size"]),
+                          ["ltr", "ttb"].includes(_ctx.direction) ? (openBlock(), createBlock(unref(ElSplitterPanel), {
+                            key: 1,
+                            onClick: unref(onModalClick)
+                          }, null, 8, ["onClick"])) : createCommentVNode("v-if", true)
+                        ]),
+                        _: 3
+                      }, 8, ["class", "layout"])
                     ]),
                     _: 3
                   }, 8, ["trapped", "focus-trap-el", "focus-start-el", "onFocusAfterTrapped", "onFocusAfterReleased", "onFocusoutPrevented", "onReleaseRequested"])

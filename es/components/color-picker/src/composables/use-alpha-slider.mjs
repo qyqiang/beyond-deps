@@ -1,7 +1,7 @@
 import { getCurrentInstance, shallowRef, computed, ref, onMounted, watch } from 'vue';
 import { draggable } from '../utils/draggable.mjs';
-import { getClientXY } from '../../../../utils/dom/position.mjs';
 import { useLocale } from '../../../../hooks/use-locale/index.mjs';
+import { getClientXY } from '../../../../utils/dom/position.mjs';
 import { EVENT_CODE } from '../../../../constants/aria.mjs';
 import { useNamespace } from '../../../../hooks/use-namespace/index.mjs';
 import { addUnit } from '../../../../utils/dom/style.mjs';

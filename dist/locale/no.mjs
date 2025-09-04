@@ -89,11 +89,11 @@ var no = {
       noData: "Ingen data",
       placeholder: "Velg"
     },
-    dropdown: {
-      toggleDropdown: "Vis/skjul nedtrekksmeny"
-    },
     mention: {
       loading: "Laster"
+    },
+    dropdown: {
+      toggleDropdown: "Vis/skjul nedtrekksmeny"
     },
     cascader: {
       noMatch: "Ingen treff",
@@ -148,7 +148,8 @@ var no = {
     tour: {
       next: "Neste",
       previous: "Forrige",
-      finish: "Avslutt omvisning"
+      finish: "Avslutt omvisning",
+      close: "Close this dialog"
     },
     tree: {
       emptyText: "Ingen data"

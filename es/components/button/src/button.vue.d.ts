@@ -22,7 +22,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly loading: BooleanConstructor;
     readonly loadingIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown, () => any, boolean>;
     readonly plain: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
-    readonly text: BooleanConstructor;
+    readonly text: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
     readonly link: BooleanConstructor;
     readonly bg: BooleanConstructor;
     readonly autofocus: BooleanConstructor;
@@ -64,7 +64,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly loading: BooleanConstructor;
     readonly loadingIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown, () => any, boolean>;
     readonly plain: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
-    readonly text: BooleanConstructor;
+    readonly text: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
     readonly link: BooleanConstructor;
     readonly bg: BooleanConstructor;
     readonly autofocus: BooleanConstructor;
@@ -79,7 +79,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
 }, {
     readonly link: boolean;
     readonly circle: boolean;
-    readonly text: boolean;
+    readonly text: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly disabled: boolean;
     readonly round: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly dark: boolean;

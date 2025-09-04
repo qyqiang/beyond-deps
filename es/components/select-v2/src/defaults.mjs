@@ -3,7 +3,7 @@ import { CircleClose, ArrowDown } from '@element-plus/icons-vue';
 import { defaultProps } from './useProps.mjs';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { iconPropType } from '../../../utils/vue/icon.mjs';
-import { useTooltipContentProps } from '../../tooltip/src/content.mjs';
+import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';
 import { useSizeProp } from '../../../hooks/use-size/index.mjs';
 import { tagProps } from '../../tag/src/tag.mjs';
 import { isBoolean, isNumber } from '../../../utils/types.mjs';
@@ -63,7 +63,8 @@ const selectV2Props = buildProps({
   loading: Boolean,
   loadingText: String,
   modelValue: {
-    type: definePropType([Array, String, Number, Boolean, Object])
+    type: definePropType([Array, String, Number, Boolean, Object]),
+    default: void 0
   },
   multiple: Boolean,
   multipleLimit: {
@@ -92,10 +93,8 @@ const selectV2Props = buildProps({
     type: Boolean,
     default: true
   },
-  popperClass: {
-    type: String,
-    default: ""
-  },
+  popperClass: useTooltipContentProps.popperClass,
+  popperStyle: useTooltipContentProps.popperStyle,
   popperOptions: {
     type: definePropType(Object),
     default: () => ({})

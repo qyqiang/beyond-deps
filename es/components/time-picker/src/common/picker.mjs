@@ -73,7 +73,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         handleChange();
         pickerVisible.value = false;
         hasJustTabExitedInput = false;
-        props.validateEvent && (formItem == null ? void 0 : formItem.validate("blur").catch((err) => debugWarn(err)));
+        props.validateEvent && (formItem == null ? void 0 : formItem.validate("blur").catch((err) => debugWarn()));
       }
     });
     const rangeInputKls = computed(() => [
@@ -109,7 +109,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       if (isClear || !valueEquals(val, valueOnOpen.value)) {
         emit(CHANGE_EVENT, val);
         isClear && (valueOnOpen.value = val);
-        props.validateEvent && (formItem == null ? void 0 : formItem.validate("change").catch((err) => debugWarn(err)));
+        props.validateEvent && (formItem == null ? void 0 : formItem.validate("change").catch((err) => debugWarn()));
       }
     };
     const emitInput = (input) => {

@@ -19,13 +19,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const { t } = useLocale();
     const { dialogRef, headerRef, bodyId, ns, style } = inject(dialogInjectionKey);
     const { focusTrapRef } = inject(FOCUS_TRAP_INJECTION_KEY);
-    const dialogKls = computed(() => [
-      ns.b(),
-      ns.is("fullscreen", props.fullscreen),
-      ns.is("draggable", props.draggable),
-      ns.is("align-center", props.alignCenter),
-      { [ns.m("center")]: props.center }
-    ]);
     const composedDialogRef = composeRefs(focusTrapRef, dialogRef);
     const headerBgColor = computed(() => {
       if (props.headerBackgroundColor)
@@ -36,9 +29,17 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         return "var(--color-yellow-yellow-100)";
       return void 0;
     });
-    const draggable = computed(() => props.draggable);
-    const overflow = computed(() => props.overflow);
-    const { resetPosition, updatePosition } = useDraggable(dialogRef, headerRef, draggable, overflow);
+    const draggable = computed(() => !!props.draggable);
+    const overflow = computed(() => !!props.overflow);
+    const { resetPosition, updatePosition, isDragging } = useDraggable(dialogRef, headerRef, draggable, overflow);
+    const dialogKls = computed(() => [
+      ns.b(),
+      ns.is("fullscreen", props.fullscreen),
+      ns.is("draggable", draggable.value),
+      ns.is("dragging", isDragging.value),
+      ns.is("align-center", !!props.alignCenter),
+      { [ns.m("center")]: props.center }
+    ]);
     expose({
       resetPosition,
       updatePosition

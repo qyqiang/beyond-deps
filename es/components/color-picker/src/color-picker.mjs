@@ -141,7 +141,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       emit(UPDATE_MODEL_EVENT, value);
       emit(CHANGE_EVENT, value);
       if (props.validateEvent) {
-        formItem == null ? void 0 : formItem.validate("change").catch((err) => debugWarn(err));
+        formItem == null ? void 0 : formItem.validate("change").catch((err) => debugWarn());
       }
       debounceSetShowPicker(false);
       nextTick(() => {
@@ -160,7 +160,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       emit(UPDATE_MODEL_EVENT, valueOnClear.value);
       emit(CHANGE_EVENT, valueOnClear.value);
       if (props.modelValue !== valueOnClear.value && props.validateEvent) {
-        formItem == null ? void 0 : formItem.validate("change").catch((err) => debugWarn(err));
+        formItem == null ? void 0 : formItem.validate("change").catch((err) => debugWarn());
       }
       resetColor();
     }
