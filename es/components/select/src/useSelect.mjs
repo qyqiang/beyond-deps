@@ -1,6 +1,6 @@
 import { reactive, ref, computed, watch, watchEffect, nextTick, onMounted } from 'vue';
-import { castArray, isEqual, get, debounce, findLastIndex } from 'lodash-unified';
-import { isIOS, isClient, useResizeObserver } from '@vueuse/core';
+import { castArray, isEqual, get, findLastIndex, isNil } from 'lodash-unified';
+import { isIOS, isClient, useDebounceFn, useResizeObserver } from '@vueuse/core';
 import { useLocale } from '../../../hooks/use-locale/index.mjs';
 import { useId } from '../../../hooks/use-id/index.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
@@ -12,7 +12,8 @@ import { debugWarn } from '../../../utils/error.mjs';
 import { isArray, isFunction, isPlainObject, isObject } from '@vue/shared';
 import { ValidateComponentsMap } from '../../../utils/vue/icon.mjs';
 import { useFormSize } from '../../form/src/hooks/use-form-common-props.mjs';
-import { isUndefined, isNumber } from '../../../utils/types.mjs';
+import { isEmpty, isUndefined, isNumber } from '../../../utils/types.mjs';
+import { getEventCode } from '../../../utils/dom/event.mjs';
 import { EVENT_CODE } from '../../../constants/aria.mjs';
 import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 import { scrollIntoView } from '../../../utils/dom/scroll.mjs';
@@ -51,6 +52,7 @@ const useSelect = (props, emit) => {
   const scrollbarRef = ref();
   const expanded = ref(false);
   const hoverOption = ref();
+  const debouncing = ref(false);
   const { form, formItem } = useFormItem();
   const { inputId } = useFormItemInputId(props, {
     formItemContext: formItem
@@ -100,7 +102,7 @@ const useSelect = (props, emit) => {
   const iconReverse = computed(() => nsSelect.is("reverse", !!(iconComponent.value && expanded.value)));
   const validateState = computed(() => (formItem == null ? void 0 : formItem.validateState) || "");
   const validateIcon = computed(() => validateState.value && ValidateComponentsMap[validateState.value]);
-  const debounce$1 = computed(() => props.remote ? 300 : 0);
+  const debounce = computed(() => props.remote ? props.debounce : 0);
   const isRemoteSearchEmpty = computed(() => props.remote && !states.inputValue && states.options.size === 0);
   const emptyText = computed(() => {
     if (props.loading) {
@@ -150,7 +152,7 @@ const useSelect = (props, emit) => {
   const collapseTagSize = computed(() => ["small"].includes(selectSize.value) ? "small" : "default");
   const dropdownMenuVisible = computed({
     get() {
-      return expanded.value && !isRemoteSearchEmpty.value;
+      return expanded.value && (props.loading || !isRemoteSearchEmpty.value) && (!debouncing.value || !isEmpty(states.previousQuery));
     },
     set(val) {
       expanded.value = val;
@@ -314,14 +316,16 @@ const useSelect = (props, emit) => {
   const onInput = (event) => {
     states.inputValue = event.target.value;
     if (props.remote) {
+      debouncing.value = true;
       debouncedOnInputChange();
     } else {
       return onInputChange();
     }
   };
-  const debouncedOnInputChange = debounce(() => {
+  const debouncedOnInputChange = useDebounceFn(() => {
     onInputChange();
-  }, debounce$1.value);
+    debouncing.value = false;
+  }, debounce);
   const emitChange = (val) => {
     if (!isEqual(props.modelValue, val)) {
       emit(CHANGE_EVENT, val);
@@ -332,9 +336,10 @@ const useSelect = (props, emit) => {
     return option && !option.disabled && !option.states.groupDisabled;
   });
   const deletePrevTag = (e) => {
+    const code = getEventCode(e);
     if (!props.multiple)
       return;
-    if (e.code === EVENT_CODE.delete)
+    if (code === EVENT_CODE.delete)
       return;
     if (e.target.value.length <= 0) {
       const value = castArray(props.modelValue).slice();
@@ -395,7 +400,7 @@ const useSelect = (props, emit) => {
         states.inputValue = "";
       }
     } else {
-      emit(UPDATE_MODEL_EVENT, option.value);
+      !isEqual(props.modelValue, option.value) && emit(UPDATE_MODEL_EVENT, option.value);
       emitChange(option.value);
       expanded.value = false;
     }
@@ -419,7 +424,7 @@ const useSelect = (props, emit) => {
     var _a, _b, _c, _d, _e;
     const targetOption = isArray(option) ? option[0] : option;
     let target = null;
-    if (targetOption == null ? void 0 : targetOption.value) {
+    if (!isNil(targetOption == null ? void 0 : targetOption.value)) {
       const options = optionsArray.value.filter((item) => item.value === targetOption.value);
       if (options.length > 0) {
         target = options[0].$el;

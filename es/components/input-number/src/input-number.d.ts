@@ -1,7 +1,7 @@
 import type { ExtractPropTypes, __ExtractPublicPropTypes } from 'vue';
 import type InputNumber from './input-number.vue';
 export declare const inputNumberProps: {
-    readonly inputmode: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined))[], unknown, unknown, undefined, boolean>;
+    readonly inputmode: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown, undefined, boolean>;
     readonly align: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "center" | "left" | "right") | (() => "center" | "left" | "right") | ((new (...args: any[]) => "center" | "left" | "right") | (() => "center" | "left" | "right"))[], unknown, unknown, "center", boolean>;
     readonly disabledScientific: BooleanConstructor;
     readonly ariaLabel: StringConstructor;

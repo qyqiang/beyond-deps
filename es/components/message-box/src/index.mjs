@@ -270,7 +270,7 @@ const _sfc_main = defineComponent({
       }
     };
     if (props.lockScroll) {
-      useLockscreen(visible);
+      useLockscreen(visible, { ns });
     }
     return {
       ...toRefs(state),

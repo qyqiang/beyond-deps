@@ -1,6 +1,6 @@
 import { defineComponent, inject, toRef, ref, computed, watch, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, renderSlot, Fragment, renderList, toDisplayString, createCommentVNode, createVNode, withCtx, createBlock } from 'vue';
 import dayjs from 'dayjs';
-import ElButton from '../../../button/src/button.mjs';
+import ElButton from '../../../button/src/button2.mjs';
 import { ElIcon } from '../../../icon/index.mjs';
 import { isValidRange, getDefaultValue, correctlyParseUserInput } from '../utils.mjs';
 import { panelMonthRangeProps, panelMonthRangeEmits } from '../props/panel-month-range.mjs';
@@ -81,13 +81,17 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       handleRangeConfirm();
     };
     const handleClear = () => {
+      let valueOnClear = null;
+      if (pickerBase == null ? void 0 : pickerBase.emptyValues) {
+        valueOnClear = pickerBase.emptyValues.valueOnClear.value;
+      }
       leftDate.value = getDefaultValue(unref(defaultValue), {
         lang: unref(lang),
         unit: "year",
         unlinkPanels: props.unlinkPanels
       })[0];
       rightDate.value = leftDate.value.add(1, "year");
-      emit("pick", null);
+      emit("pick", valueOnClear);
     };
     const formatToString = (value) => {
       return isArray(value) ? value.map((_) => _.format(format.value)) : value.format(format.value);
@@ -186,7 +190,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   disabled: !unref(enableYearArrow),
                   class: normalizeClass([[
                     unref(ppNs).e("icon-btn"),
-                    { [unref(ppNs).is("disabled")]: !unref(enableYearArrow) }
+                    unref(ppNs).is("disabled", !unref(enableYearArrow))
                   ], "d-arrow-right icon-button"]),
                   onClick: unref(leftNextYear)
                 }, {

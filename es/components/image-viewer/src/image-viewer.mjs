@@ -28,6 +28,10 @@ const imageViewerProps = buildProps({
     type: Number,
     default: 1.2
   },
+  scale: {
+    type: Number,
+    default: 1
+  },
   minScale: {
     type: Number,
     default: 0.2
@@ -43,6 +47,7 @@ const imageViewerProps = buildProps({
 });
 const imageViewerEmits = {
   close: () => true,
+  error: (evt) => evt instanceof Event,
   switch: (index) => isNumber(index),
   rotate: (deg) => isNumber(deg)
 };

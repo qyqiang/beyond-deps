@@ -14,12 +14,14 @@ import _export_sfc from '../../../../_virtual/plugin-vue_export-helper.mjs';
 import { PICKER_BASE_INJECTION_KEY } from '../../../time-picker/src/constants.mjs';
 import { TOOLTIP_INJECTION_KEY } from '../../../tooltip/src/constants.mjs';
 import { extractTimeFormat, extractDateFormat } from '../../../time-picker/src/utils.mjs';
+import { extractFirst } from '../../../../utils/arrays.mjs';
 import TimePickPanel from '../../../time-picker/src/time-picker-com/panel-time-pick.mjs';
 import ClickOutside from '../../../../directives/click-outside/index.mjs';
 import { useNamespace } from '../../../../hooks/use-namespace/index.mjs';
 import { useLocale } from '../../../../hooks/use-locale/index.mjs';
 import { isArray, isFunction } from '@vue/shared';
 import { EVENT_CODE } from '../../../../constants/aria.mjs';
+import { getEventCode } from '../../../../utils/dom/event.mjs';
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "panel-date-pick",
@@ -80,9 +82,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       isShortcut = false;
     };
     const handleDatePick = async (value, keepOpen) => {
-      if (selectionMode.value === "date") {
-        value = value;
-        let newDate = props.parsedValue ? props.parsedValue.year(value.year()).month(value.month()).date(value.date()) : value;
+      if (selectionMode.value === "date" && dayjs.isDayjs(value)) {
+        const parsedDateValue = extractFirst(props.parsedValue);
+        let newDate = parsedDateValue ? parsedDateValue.year(value.year()).month(value.month()).date(value.date()) : value;
         if (!checkDateWithinRange(newDate)) {
           newDate = selectableRange.value[0][0].year(value.year()).month(value.month()).date(value.date());
         }
@@ -217,7 +219,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       if (isMultipleType.value) {
         emit(props.parsedValue);
       } else {
-        let result = props.parsedValue;
+        let result = extractFirst(props.parsedValue);
         if (!result) {
           const defaultTimeD2 = dayjs(defaultTime).locale(lang.value);
           const defaultValueD = getDefaultValue();
@@ -252,14 +254,16 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         return userInputTime.value;
       if (!props.parsedValue && !defaultValue.value)
         return;
-      return (props.parsedValue || innerDate.value).format(timeFormat.value);
+      const dateValue = extractFirst(props.parsedValue) || innerDate.value;
+      return dateValue.format(timeFormat.value);
     });
     const visibleDate = computed(() => {
       if (userInputDate.value)
         return userInputDate.value;
       if (!props.parsedValue && !defaultValue.value)
         return;
-      return (props.parsedValue || innerDate.value).format(dateFormat.value);
+      const dateValue = extractFirst(props.parsedValue) || innerDate.value;
+      return dateValue.format(dateFormat.value);
     });
     const timePickerVisible = ref(false);
     const onTimePickerInputFocus = () => {
@@ -280,7 +284,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
     const handleTimePick = (value, visible, first) => {
       const { hour, minute, second } = getUnits(value);
-      const newDate = props.parsedValue ? props.parsedValue.hour(hour).minute(minute).second(second) : value;
+      const parsedDateValue = extractFirst(props.parsedValue);
+      const newDate = parsedDateValue ? parsedDateValue.hour(hour).minute(minute).second(second) : value;
       innerDate.value = newDate;
       emit(innerDate.value, true);
       if (!first) {
@@ -312,9 +317,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const isValidValue = (date) => {
       return dayjs.isDayjs(date) && date.isValid() && (disabledDate ? !disabledDate(date.toDate()) : true);
     };
-    const formatToString = (value) => {
-      return isArray(value) ? value.map((_) => _.format(props.format)) : value.format(props.format);
-    };
     const parseUserInput = (value) => {
       return correctlyParseUserInput(value, props.format, lang.value, isDefaultFormat);
     };
@@ -339,7 +341,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
     };
     const handleKeydownTable = (event) => {
-      const { code } = event;
+      const code = getEventCode(event);
       const validCode = [
         EVENT_CODE.up,
         EVENT_CODE.down,
@@ -448,7 +450,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
     }, { immediate: true });
     contextEmit("set-picker-option", ["isValidValue", isValidValue]);
-    contextEmit("set-picker-option", ["formatToString", formatToString]);
     contextEmit("set-picker-option", ["parseUserInput", parseUserInput]);
     contextEmit("set-picker-option", ["handleFocusPicker", _handleFocusPicker]);
     return (_ctx, _cache) => {
@@ -525,7 +526,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             withDirectives(createElementVNode("div", {
               class: normalizeClass([
                 unref(dpNs).e("header"),
-                (currentView.value === "year" || currentView.value === "month") && unref(dpNs).e("header--bordered")
+                (currentView.value === "year" || currentView.value === "month") && unref(dpNs).em("header", "bordered")
               ])
             }, [
               createElementVNode("div", null, [

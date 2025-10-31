@@ -54,6 +54,13 @@ const timeSelectProps = buildProps({
     type: definePropType([String, Object]),
     default: () => CircleClose
   },
+  popperClass: {
+    type: String,
+    default: ""
+  },
+  popperStyle: {
+    type: definePropType([String, Object])
+  },
   ...useEmptyValuesProps
 });
 

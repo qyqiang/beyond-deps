@@ -1,6 +1,6 @@
 import { defineComponent, ref, inject, toRef, computed, useSlots, watch, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, renderSlot, Fragment, renderList, toDisplayString, createCommentVNode, createVNode, withCtx, createBlock } from 'vue';
 import dayjs from 'dayjs';
-import ElButton from '../../../button/src/button.mjs';
+import ElButton from '../../../button/src/button2.mjs';
 import { ElIcon } from '../../../icon/index.mjs';
 import { panelYearRangeProps, panelYearRangeEmits } from '../props/panel-year-range.mjs';
 import { useYearRangeHeader } from '../composables/use-year-range-header.mjs';
@@ -79,7 +79,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         arrowLeftBtn: [ppNs.e("icon-btn"), "d-arrow-left"],
         arrowRightBtn: [
           ppNs.e("icon-btn"),
-          { [ppNs.is("disabled")]: !enableYearArrow.value },
+          ppNs.is("disabled", !enableYearArrow.value),
           "d-arrow-right"
         ]
       };
@@ -89,7 +89,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         content: [ppNs.e("content"), drpNs.e("content"), "is-right"],
         arrowLeftBtn: [
           ppNs.e("icon-btn"),
-          { "is-disabled": !enableYearArrow.value },
+          ppNs.is("disabled", !enableYearArrow.value),
           "d-arrow-left"
         ],
         arrowRightBtn: [ppNs.e("icon-btn"), "d-arrow-right"]
@@ -121,6 +121,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return isValidRange(date) && (disabledDate ? !disabledDate(date[0].toDate()) && !disabledDate(date[1].toDate()) : true);
     };
     const handleClear = () => {
+      let valueOnClear = null;
+      if (pickerBase == null ? void 0 : pickerBase.emptyValues) {
+        valueOnClear = pickerBase.emptyValues.valueOnClear.value;
+      }
       const defaultArr = getDefaultValue(unref(defaultValue), {
         lang: unref(lang),
         step,
@@ -129,7 +133,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       });
       leftDate.value = defaultArr[0];
       rightDate.value = defaultArr[1];
-      emit("pick", null);
+      emit("pick", valueOnClear);
     };
     function onParsedValueChanged(minDate2, maxDate2) {
       if (props.unlinkPanels && maxDate2) {

@@ -1,4 +1,4 @@
-import { Component } from 'vue';
+import type { Component } from 'vue';
 import type { TooltipInstance } from 'element-plus/es/components/tooltip';
 import type { ScrollbarInstance } from 'element-plus/es/components/scrollbar';
 import type { SelectEmits, SelectProps } from './select';
@@ -70,7 +70,7 @@ export declare const useSelect: (props: SelectProps, emit: SelectEmits) => {
     filteredOptionsCount: import("vue").ComputedRef<number>;
     updateTooltip: () => void;
     updateTagTooltip: () => void;
-    debouncedOnInputChange: import("lodash").DebouncedFunc<() => void>;
+    debouncedOnInputChange: import("@vueuse/shared").PromisifyFn<() => void>;
     onInput: (event: Event) => void;
     deletePrevTag: (e: KeyboardEvent) => void;
     deleteTag: (event: MouseEvent, tag: OptionBasic) => void;

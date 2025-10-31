@@ -14,7 +14,7 @@ export declare const tabPaneProps: {
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly closable: BooleanConstructor;
+    readonly closable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
     readonly disabled: BooleanConstructor;
     readonly lazy: BooleanConstructor;
 };

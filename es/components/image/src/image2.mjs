@@ -197,6 +197,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             "max-scale": _ctx.maxScale,
             "show-progress": _ctx.showProgress,
             "url-list": _ctx.previewSrcList,
+            scale: _ctx.scale,
             crossorigin: _ctx.crossorigin,
             "hide-on-click-modal": _ctx.hideOnClickModal,
             teleported: _ctx.previewTeleported,
@@ -219,8 +220,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               fn: withCtx((progress) => [
                 renderSlot(_ctx.$slots, "progress", normalizeProps(guardReactiveProps(progress)))
               ])
+            } : void 0,
+            _ctx.$slots["viewer-error"] ? {
+              name: "viewer-error",
+              fn: withCtx((viewerError) => [
+                renderSlot(_ctx.$slots, "viewer-error", normalizeProps(guardReactiveProps(viewerError)))
+              ])
             } : void 0
-          ]), 1032, ["z-index", "initial-index", "infinite", "zoom-rate", "min-scale", "max-scale", "show-progress", "url-list", "crossorigin", "hide-on-click-modal", "teleported", "close-on-press-escape"])) : createCommentVNode("v-if", true)
+          ]), 1032, ["z-index", "initial-index", "infinite", "zoom-rate", "min-scale", "max-scale", "show-progress", "url-list", "scale", "crossorigin", "hide-on-click-modal", "teleported", "close-on-press-escape"])) : createCommentVNode("v-if", true)
         ], 64)) : createCommentVNode("v-if", true)
       ], 16);
     };

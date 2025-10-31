@@ -93,7 +93,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const isSelectedCell = (cell) => {
       const year = props.date.year();
       const month = cell.text;
-      return castArray(props.date).findIndex((date) => date.year() === year && date.month() === month) >= 0;
+      return castArray(props.date).some((date) => date.year() === year && date.month() === month);
     };
     const handleMouseMove = (event) => {
       var _a;

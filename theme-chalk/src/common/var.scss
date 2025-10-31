@@ -64,15 +64,15 @@ $color-filled: map.get($colors, 'filled', 'base') !default;
   $mix-color: $color-white
 ) {
   $colors: map.deep-merge(
-    (
-      $type: (
-        '#{$mode}-#{$number}':
+      (
+        $type: (
+          '#{$mode}-#{$number}':
           roundColor(
-            color.mix(
-              $mix-color,
-              map.get($colors, $type, 'base'),
-              math.percentage(math.div($number, 10))
-            )
+              color.mix(
+                  $mix-color,
+                  map.get($colors, $type, 'base'),
+                  math.percentage(math.div($number, 10))
+              )
           ),
         ),
       ),
@@ -359,7 +359,7 @@ $radio: map.merge(
       'input-width': 16px,
       'input-border-radius': getCssVar('border-radius-circle'),
       'input-bg-color': getCssVar('fill-color', 'blank'),
-      'input-border': 1px solid getCssVar('border-color', 'checked'),
+      'input-border': 1px solid var(--color-cloudy-gray-500),
       'input-border-color': getCssVar('border-color'),
       'input-border-color-hover': getCssVar('text-color-primary'),
     ),
@@ -444,10 +444,10 @@ $select: map.merge(
 $select-option: () !default;
 $select-option: map.merge(
     (
-      'text-color': var(--color-text-text-primary),
+      'text-color': var(--color-text-primary),
       'disabled-color': getCssVar('text-color-placeholder'),
       'height': 40px,
-      'hover-background': var(--color-gray-gray-50),
+      'hover-background': var(--color-gray-50),
       'selected-text-color': getCssVar('color-primary'),
     ),
     $select-option
@@ -732,12 +732,12 @@ $cascader-search-input-margin-left: map.merge(
 
 $cascader-dropdown: () !default;
 $cascader-dropdown: map.merge(
-  (
-    'header-padding': 10px,
-    'footer-padding': 10px,
-    'border': 1px solid getCssVar('border-color-light'),
-  ),
-  $cascader-dropdown
+    (
+      'header-padding': 10px,
+      'footer-padding': 10px,
+      'border': 1px solid getCssVar('border-color-light'),
+    ),
+    $cascader-dropdown
 );
 
 //statistic
@@ -1065,7 +1065,7 @@ $pagination: map.merge(
       'bg-color': getCssVar('fill-color', 'blank'),
       'border-radius': 8px,
       'button-color': var(--color-icon-primary),
-      'text-color': var(--color-text-text-primary),
+      'text-color': var(--color-text-primary),
       'button-width': 32px,
       'button-height': 32px,
       'button-disabled-color': getCssVar('text-color-placeholder'),
@@ -1115,7 +1115,7 @@ $popover: map.merge(
 $popper: () !default;
 $popper: map.merge(
     (
-      'border-radius': var(--radius-raidus-100),
+      'border-radius': 4px,
     ),
     $popper
 );
@@ -1222,8 +1222,7 @@ $dropdown: map.merge(
 $drawer: () !default;
 $drawer: map.merge(
     (
-      'bg-color':
-      var(#{getCssVarName('dialog', 'bg-color')}, #{getCssVar('bg-color')}),
+      'bg-color':getCssVar('bg-color'),
       'padding-primary': 24px 32px,
     ),
     $drawer
@@ -1278,11 +1277,11 @@ $slider: map.merge(
 $menu: () !default;
 $menu: map.merge(
     (
-      'active-color': var(--color-text-text-primary),
+      'active-color': var(--color-text-primary),
       'text-color': getCssVar('text-color-primary'),
       'hover-text-color': getCssVar('color-primary'),
       'bg-color': getCssVar('fill-color', 'blank'),
-      'hover-bg-color': var(--color-gray-gray-200),
+      'hover-bg-color': var(--color-gray-200),
       'item-height': 32px,
       'sub-item-height': calc(#{getCssVar('menu-item-height')} - 6px),
       'horizontal-height': 60px,

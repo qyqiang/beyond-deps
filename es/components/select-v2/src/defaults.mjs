@@ -100,6 +100,10 @@ const selectV2Props = buildProps({
     default: () => ({})
   },
   remote: Boolean,
+  debounce: {
+    type: Number,
+    default: 300
+  },
   size: useSizeProp,
   props: {
     type: definePropType(Object),
@@ -118,10 +122,7 @@ const selectV2Props = buildProps({
     type: Number,
     default: 12
   },
-  showArrow: {
-    type: Boolean,
-    default: true
-  },
+  showArrow: Boolean,
   placement: {
     type: definePropType(String),
     values: placements,

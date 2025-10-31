@@ -46,6 +46,7 @@ const _sfc_main = defineComponent({
   ],
   setup(props, { emit, slots }) {
     const instance = getCurrentInstance();
+    const originalWarnHandler = instance.appContext.config.warnHandler;
     instance.appContext.config.warnHandler = (...args) => {
       if (!args[0] || args[0].includes('Slot "default" invoked outside of the render function')) {
         return;
@@ -104,13 +105,13 @@ const _sfc_main = defineComponent({
     };
     watch(() => {
       var _a;
-      const slotsContent = (_a = slots.default) == null ? void 0 : _a.call(slots);
-      return slotsContent;
-    }, (newSlot) => {
-      if (props.persistent) {
+      return [(_a = slots.default) == null ? void 0 : _a.call(slots), modelValue.value];
+    }, () => {
+      var _a;
+      if (props.persistent || API.states.options.size > 0) {
         return;
       }
-      manuallyRenderSlots(newSlot);
+      manuallyRenderSlots((_a = slots.default) == null ? void 0 : _a.call(slots));
     }, {
       immediate: true
     });
@@ -131,7 +132,7 @@ const _sfc_main = defineComponent({
       return API.states.selected.map((i) => i.currentLabel);
     });
     onBeforeUnmount(() => {
-      instance.appContext.config.warnHandler = void 0;
+      instance.appContext.config.warnHandler = originalWarnHandler;
     });
     return {
       ...API,

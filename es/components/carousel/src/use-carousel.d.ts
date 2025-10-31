@@ -35,6 +35,6 @@ export declare const useCarousel: (props: CarouselProps, emit: SetupContext<Caro
     ItemsSorter: import("vue").DefineComponent<{}, () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }> | null, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
-    throttledArrowClick: import("lodash").DebouncedFunc<(index: number) => void>;
-    throttledIndicatorHover: import("lodash").DebouncedFunc<(index: number) => void>;
+    throttledArrowClick: import("lodash").DebouncedFuncLeading<(index: number) => void>;
+    throttledIndicatorHover: import("lodash").DebouncedFuncLeading<(index: number) => void>;
 };

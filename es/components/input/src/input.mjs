@@ -22,6 +22,10 @@ const inputProps = buildProps({
     ]),
     default: ""
   },
+  modelModifiers: {
+    type: definePropType(Object),
+    default: () => ({})
+  },
   maxlength: {
     type: [String, Number]
   },
@@ -72,6 +76,11 @@ const inputProps = buildProps({
   },
   showPassword: Boolean,
   showWordLimit: Boolean,
+  wordLimitPosition: {
+    type: String,
+    values: ["inside", "outside"],
+    default: "inside"
+  },
   suffixIcon: {
     type: iconPropType
   },

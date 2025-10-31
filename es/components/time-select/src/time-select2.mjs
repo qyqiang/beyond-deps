@@ -98,6 +98,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         filterable: _ctx.editable,
         "empty-values": _ctx.emptyValues,
         "value-on-clear": _ctx.valueOnClear,
+        "popper-class": _ctx.popperClass,
+        "popper-style": _ctx.popperStyle,
         "onUpdate:modelValue": (event) => _ctx.$emit(unref(UPDATE_MODEL_EVENT), event),
         onChange: (event) => _ctx.$emit(unref(CHANGE_EVENT), event),
         onBlur: (event) => _ctx.$emit("blur", event),
@@ -126,7 +128,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           }), 128))
         ]),
         _: 1
-      }, 8, ["model-value", "disabled", "clearable", "clear-icon", "size", "effect", "placeholder", "filterable", "empty-values", "value-on-clear", "onUpdate:modelValue", "onChange", "onBlur", "onFocus", "onClear"]);
+      }, 8, ["model-value", "disabled", "clearable", "clear-icon", "size", "effect", "placeholder", "filterable", "empty-values", "value-on-clear", "popper-class", "popper-style", "onUpdate:modelValue", "onChange", "onBlur", "onFocus", "onClear"]);
     };
   }
 });

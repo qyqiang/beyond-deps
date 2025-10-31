@@ -1,7 +1,9 @@
 import { shallowRef, ref, computed, watch } from 'vue';
+import { isAndroid } from '../../../../utils/browser.mjs';
 import { useFormDisabled, useFormSize } from '../../../form/src/hooks/use-form-common-props.mjs';
 import { isUndefined } from '../../../../utils/types.mjs';
 import { INPUT_EVENT, UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../../constants/event.mjs';
+import { getEventCode } from '../../../../utils/dom/event.mjs';
 import { EVENT_CODE } from '../../../../constants/aria.mjs';
 import { useFocusController } from '../../../../hooks/use-focus-controller/index.mjs';
 import { debugWarn } from '../../../../utils/error.mjs';
@@ -70,7 +72,8 @@ function useInputTag({ props, emit, formItem }) {
     var _a;
     if (isComposing.value)
       return;
-    switch (event.code) {
+    const code = getEventCode(event);
+    switch (code) {
       case props.trigger:
         event.preventDefault();
         event.stopPropagation();
@@ -92,6 +95,20 @@ function useInputTag({ props, emit, formItem }) {
         break;
     }
   };
+  const handleKeyup = (event) => {
+    if (isComposing.value || !isAndroid())
+      return;
+    const code = getEventCode(event);
+    switch (code) {
+      case EVENT_CODE.space:
+        if (props.trigger === EVENT_CODE.space) {
+          event.preventDefault();
+          event.stopPropagation();
+          handleAddTag();
+        }
+        break;
+    }
+  };
   const handleAddTag = () => {
     var _a;
     const value = (_a = inputValue.value) == null ? void 0 : _a.trim();
@@ -105,7 +122,7 @@ function useInputTag({ props, emit, formItem }) {
     const [item] = value.splice(index, 1);
     emit(UPDATE_MODEL_EVENT, value);
     emit(CHANGE_EVENT, value);
-    emit("remove-tag", item);
+    emit("remove-tag", item, index);
   };
   const handleClear = () => {
     inputValue.value = void 0;
@@ -121,6 +138,7 @@ function useInputTag({ props, emit, formItem }) {
     value.splice(dropIndex + step, 0, draggedItem);
     emit(UPDATE_MODEL_EVENT, value);
     emit(CHANGE_EVENT, value);
+    emit("drag-tag", draggingIndex, dropIndex + step, draggedItem);
   };
   const focus = () => {
     var _a;
@@ -178,6 +196,7 @@ function useInputTag({ props, emit, formItem }) {
     handleDragged,
     handleInput,
     handleKeydown,
+    handleKeyup,
     handleAddTag,
     handleRemoveTag,
     handleClear,

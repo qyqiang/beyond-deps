@@ -1,6 +1,6 @@
 import { reactive, ref, computed, nextTick, watch, watchEffect, onMounted } from 'vue';
-import { debounce, get, findLastIndex, isEqual } from 'lodash-unified';
-import { useResizeObserver } from '@vueuse/core';
+import { get, isEqual, findLastIndex } from 'lodash-unified';
+import { useDebounceFn, useResizeObserver } from '@vueuse/core';
 import { useAllowCreate } from './useAllowCreate.mjs';
 import { useProps } from './useProps.mjs';
 import { useLocale } from '../../../hooks/use-locale/index.mjs';
@@ -15,8 +15,9 @@ import { ValidateComponentsMap } from '../../../utils/vue/icon.mjs';
 import { escapeStringRegexp } from '../../../utils/strings.mjs';
 import { useFormSize } from '../../form/src/hooks/use-form-common-props.mjs';
 import { MINIMUM_INPUT_WIDTH } from '../../../constants/form.mjs';
+import { isEmpty, isUndefined, isNumber } from '../../../utils/types.mjs';
+import { getEventCode } from '../../../utils/dom/event.mjs';
 import { EVENT_CODE } from '../../../constants/aria.mjs';
-import { isUndefined, isNumber } from '../../../utils/types.mjs';
 import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 
 const useSelect = (props, emit) => {
@@ -44,6 +45,7 @@ const useSelect = (props, emit) => {
     isBeforeHide: false
   });
   const popperSize = ref(-1);
+  const debouncing = ref(false);
   const selectRef = ref();
   const selectionRef = ref();
   const tooltipRef = ref();
@@ -114,13 +116,12 @@ const useSelect = (props, emit) => {
       return;
     return ValidateComponentsMap[validateState.value];
   });
-  const debounce$1 = computed(() => props.remote ? 300 : 0);
+  const debounce = computed(() => props.remote ? props.debounce : 0);
+  const isRemoteSearchEmpty = computed(() => props.remote && !states.inputValue && !hasOptions.value);
   const emptyText = computed(() => {
     if (props.loading) {
       return props.loadingText || t("el.select.loading");
     } else {
-      if (props.remote && !states.inputValue && !hasOptions.value)
-        return false;
       if (props.filterable && states.inputValue && hasOptions.value && filteredOptions.value.length === 0) {
         return props.noMatchText || t("el.select.noMatch");
       }
@@ -258,7 +259,7 @@ const useSelect = (props, emit) => {
   });
   const dropdownMenuVisible = computed({
     get() {
-      return expanded.value && emptyText.value !== false;
+      return expanded.value && (props.loading || !isRemoteSearchEmpty.value) && (!debouncing.value || !isEmpty(states.previousQuery));
     },
     set(val) {
       expanded.value = val;
@@ -300,7 +301,10 @@ const useSelect = (props, emit) => {
       handleQueryChange(states.inputValue);
     });
   };
-  const debouncedOnInputChange = debounce(onInputChange, debounce$1.value);
+  const debouncedOnInputChange = useDebounceFn(() => {
+    onInputChange();
+    debouncing.value = false;
+  }, debounce);
   const handleQueryChange = (val) => {
     if (states.previousQuery === val || isComposing.value) {
       return;
@@ -380,9 +384,10 @@ const useSelect = (props, emit) => {
     (_b = (_a = tagTooltipRef.value) == null ? void 0 : _a.updatePopper) == null ? void 0 : _b.call(_a);
   };
   const onSelect = (option) => {
+    const optionValue = getValue(option);
     if (props.multiple) {
       let selectedOptions = props.modelValue.slice();
-      const index = getValueIndex(selectedOptions, getValue(option));
+      const index = getValueIndex(selectedOptions, optionValue);
       if (index > -1) {
         selectedOptions = [
           ...selectedOptions.slice(0, index),
@@ -391,7 +396,7 @@ const useSelect = (props, emit) => {
         states.cachedOptions.splice(index, 1);
         removeNewOption(option);
       } else if (props.multipleLimit <= 0 || selectedOptions.length < props.multipleLimit) {
-        selectedOptions = [...selectedOptions, getValue(option)];
+        selectedOptions = [...selectedOptions, optionValue];
         states.cachedOptions.push(option);
         selectNewOption(option);
       }
@@ -404,7 +409,7 @@ const useSelect = (props, emit) => {
       }
     } else {
       states.selectedLabel = getLabel(option);
-      update(getValue(option));
+      !isEqual(props.modelValue, optionValue) && update(optionValue);
       expanded.value = false;
       selectNewOption(option);
       if (!option.created) {
@@ -454,9 +459,10 @@ const useSelect = (props, emit) => {
   };
   const getLastNotDisabledIndex = (value) => findLastIndex(value, (it) => !states.cachedOptions.some((option) => getValue(option) === it && getDisabled(option)));
   const handleDel = (e) => {
+    const code = getEventCode(e);
     if (!props.multiple)
       return;
-    if (e.code === EVENT_CODE.delete)
+    if (code === EVENT_CODE.delete)
       return;
     if (states.inputValue.length === 0) {
       e.preventDefault();
@@ -540,6 +546,7 @@ const useSelect = (props, emit) => {
   const onInput = (event) => {
     states.inputValue = event.target.value;
     if (props.remote) {
+      debouncing.value = true;
       debouncedOnInputChange();
     } else {
       return onInputChange();
@@ -697,7 +704,7 @@ const useSelect = (props, emit) => {
     expanded,
     emptyText,
     popupHeight,
-    debounce: debounce$1,
+    debounce,
     allOptions,
     allOptionsValueMap,
     filteredOptions,

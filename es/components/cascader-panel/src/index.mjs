@@ -2,7 +2,7 @@ import { defineComponent, useSlots, ref, computed, provide, reactive, watch, onB
 import { isEqual, flattenDeep, cloneDeep } from 'lodash-unified';
 import ElCascaderMenu from './menu.mjs';
 import Store from './store.mjs';
-import Node from './node2.mjs';
+import Node from './node.mjs';
 import { cascaderPanelProps, cascaderPanelEmits, useCascaderConfig } from './config.mjs';
 import { sortByOriginalOrder, checkNode, getMenuIndex } from './utils.mjs';
 import { CASCADER_PANEL_INJECTION_KEY } from './types.mjs';
@@ -14,6 +14,7 @@ import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 import { isEmpty } from '../../../utils/types.mjs';
 import { isClient } from '@vueuse/core';
+import { getEventCode } from '../../../utils/dom/event.mjs';
 import { EVENT_CODE } from '../../../constants/aria.mjs';
 
 const __default__ = defineComponent({
@@ -32,6 +33,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const slots = useSlots();
     let store;
     const initialLoaded = ref(true);
+    const initialLoadedOnce = ref(false);
     const menuList = ref([]);
     const checkedValue = ref();
     const menus = ref([]);
@@ -71,8 +73,18 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         _node.childrenData = _node.childrenData || [];
         dataList && (store == null ? void 0 : store.appendNodes(dataList, parent));
         dataList && (cb == null ? void 0 : cb(dataList));
+        if (node.level === 0) {
+          initialLoadedOnce.value = true;
+        }
       };
-      cfg.lazyLoad(node, resolve);
+      const reject = () => {
+        node.loading = false;
+        node.loaded = false;
+        if (node.level === 0) {
+          initialLoaded.value = true;
+        }
+      };
+      cfg.lazyLoad(node, resolve, reject);
     };
     const expandNode = (node, silent) => {
       var _a;
@@ -99,7 +111,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       node.doCheck(checked);
       calculateCheckedValue();
       emitClose && !multiple && !checkStrictly && emit("close");
-      !emitClose && !multiple && !checkStrictly && expandParentNode(node);
+      !emitClose && !multiple && expandParentNode(node);
     };
     const expandParentNode = (node) => {
       if (!node)
@@ -183,7 +195,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
     const handleKeyDown = (e) => {
       const target = e.target;
-      const { code } = e;
+      const code = getEventCode(e);
       switch (code) {
         case EVENT_CODE.up:
         case EVENT_CODE.down: {
@@ -245,6 +257,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         emit(CHANGE_EVENT, val);
       }
     });
+    const loadLazyRootNodes = () => {
+      if (initialLoadedOnce.value)
+        return;
+      initStore();
+    };
     onBeforeUpdate(() => menuList.value = []);
     onMounted(() => !isEmpty(props.modelValue) && syncCheckedValue());
     expose({
@@ -257,7 +274,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       getCheckedNodes,
       clearCheckedNodes,
       calculateCheckedValue,
-      scrollToExpandingNode
+      scrollToExpandingNode,
+      loadLazyRootNodes
     });
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", {

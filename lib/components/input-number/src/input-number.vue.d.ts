@@ -5,7 +5,7 @@ declare function __VLS_template(): {
     suffix?(_: {}): any;
 };
 declare const __VLS_component: import("vue").DefineComponent<{
-    readonly inputmode: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined))[], unknown, unknown, undefined, boolean>;
+    readonly inputmode: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown, undefined, boolean>;
     readonly align: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "center" | "left" | "right") | (() => "center" | "left" | "right") | ((new (...args: any[]) => "center" | "left" | "right") | (() => "center" | "left" | "right"))[], unknown, unknown, "center", boolean>;
     readonly disabledScientific: BooleanConstructor;
     readonly ariaLabel: StringConstructor;
@@ -46,13 +46,13 @@ declare const __VLS_component: import("vue").DefineComponent<{
     /** @description remove focus the input component */
     blur: () => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    focus: (e: FocusEvent) => void;
     "update:modelValue": (val: number | undefined) => void;
     change: (cur: number | undefined, prev: number | undefined) => void;
     input: (val: number | null | undefined) => void;
     blur: (e: FocusEvent) => void;
-    focus: (e: FocusEvent) => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    readonly inputmode: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined))[], unknown, unknown, undefined, boolean>;
+    readonly inputmode: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown, undefined, boolean>;
     readonly align: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "center" | "left" | "right") | (() => "center" | "left" | "right") | ((new (...args: any[]) => "center" | "left" | "right") | (() => "center" | "left" | "right"))[], unknown, unknown, "center", boolean>;
     readonly disabledScientific: BooleanConstructor;
     readonly ariaLabel: StringConstructor;
@@ -101,7 +101,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly min: number;
     readonly max: number;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly inputmode: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "email" | "tel" | "url" | "numeric" | "decimal" | undefined))[], unknown, unknown>;
+    readonly inputmode: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown>;
     readonly align: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "center" | "left" | "right") | (() => "center" | "left" | "right") | ((new (...args: any[]) => "center" | "left" | "right") | (() => "center" | "left" | "right"))[], unknown, unknown>;
     readonly step: number;
     readonly controls: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;

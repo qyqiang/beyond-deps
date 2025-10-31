@@ -20,6 +20,13 @@ export declare const popconfirmProps: {
     readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly persistent: BooleanConstructor;
     readonly width: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 150, boolean>;
+    readonly virtualTriggering: BooleanConstructor;
+    readonly virtualRef: {
+        readonly type: import("vue").PropType<import("element-plus").Measurable>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
 };
 export declare const popconfirmEmits: {
     /**

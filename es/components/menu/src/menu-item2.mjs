@@ -78,6 +78,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           placement: "right",
           "fallback-placements": ["left"],
           persistent: unref(rootMenu).props.persistent,
+          "focus-on-target": "",
           disabled: true
         }, {
           content: withCtx(() => [

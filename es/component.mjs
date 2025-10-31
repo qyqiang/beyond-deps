@@ -65,7 +65,6 @@ import { ElTimePicker } from './components/time-picker/index.mjs';
 import { ElTimeSelect } from './components/time-select/index.mjs';
 import { ElTimeline, ElTimelineItem } from './components/timeline/index.mjs';
 import { ElTooltip } from './components/tooltip/index.mjs';
-import { ElTooltipV2 } from './components/tooltip-v2/index.mjs';
 import { ElTransfer } from './components/transfer/index.mjs';
 import { ElTree } from './components/tree/index.mjs';
 import { ElTreeSelect } from './components/tree-select/index.mjs';
@@ -173,7 +172,6 @@ var Components = [
   ElTimeline,
   ElTimelineItem,
   ElTooltip,
-  ElTooltipV2,
   ElTransfer,
   ElTree,
   ElTreeSelect,

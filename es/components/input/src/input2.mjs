@@ -1,10 +1,10 @@
 import { defineComponent, useAttrs, useSlots, computed, shallowRef, ref, watch, nextTick, onMounted, toRef, openBlock, createElementBlock, normalizeClass, unref, normalizeStyle, createCommentVNode, Fragment, renderSlot, createElementVNode, createBlock, withCtx, resolveDynamicComponent, mergeProps, toDisplayString, withModifiers, createVNode } from 'vue';
+import { ElIcon } from '../../icon/index.mjs';
+import Tooltip from '../../tooltip/src/tooltip.mjs';
 import { useResizeObserver, isClient } from '@vueuse/core';
 import { isNil } from 'lodash-unified';
-import Tooltip from '../../tooltip/src/tooltip2.mjs';
-import { ElIcon } from '../../icon/index.mjs';
-import { calcTextareaHeight } from './utils.mjs';
 import { inputProps, inputEmits } from './input.mjs';
+import { looseToNumber, calcTextareaHeight } from './utils.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import { useAttrs as useAttrs$1 } from '../../../hooks/use-attrs/index.mjs';
 import { useFormItem, useFormItemInputId } from '../../form/src/hooks/use-form-item.mjs';
@@ -12,7 +12,7 @@ import { useFormSize, useFormDisabled } from '../../form/src/hooks/use-form-comm
 import { useFocusController } from '../../../hooks/use-focus-controller/index.mjs';
 import { ValidateComponentsMap } from '../../../utils/vue/icon.mjs';
 import { useComposition } from '../../../hooks/use-composition/index.mjs';
-import { UPDATE_MODEL_EVENT, INPUT_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
+import { INPUT_EVENT, UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 import { useCursor } from '../../../hooks/use-cursor/index.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { debugWarn } from '../../../utils/error.mjs';
@@ -51,6 +51,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       nsInput.is("focus", isFocused.value),
       props.preStar && !isFocused.value && !textLength.value ? "pre-star-item" : ""
     ]);
+    const teatareaStar = computed(() => props.preStar && !isFocused.value && !textLength.value && !validateState.value);
     const { form: elForm, formItem: elFormItem } = useFormItem();
     const { inputId } = useFormItemInputId(props, {
       formItemContext: elFormItem
@@ -97,6 +98,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const textLength = computed(() => nativeInputValue.value.length);
     const inputExceed = computed(() => !!isWordLimitVisible.value && textLength.value > Number(props.maxlength));
     const suffixVisible = computed(() => !!slots.suffix || !!props.suffixIcon || showClear.value || props.showPassword || isWordLimitVisible.value || !!validateState.value && needStatusIcon.value);
+    const hasModelModifiers = computed(() => !!Object.keys(props.modelModifiers).length);
     const [recordCursor, setCursor] = useCursor(input);
     useResizeObserver(textarea, (entries) => {
       onceInitSizeTextarea();
@@ -155,30 +157,53 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         return;
       input2.value = formatterValue;
     };
-    const handleInput = async (event) => {
-      recordCursor();
-      let { value } = event.target;
+    const formatValue = (value) => {
+      const { trim, number } = props.modelModifiers;
+      if (trim) {
+        value = value.trim();
+      }
+      if (number) {
+        value = `${looseToNumber(value)}`;
+      }
       if (props.formatter && props.parser) {
         value = props.parser(value);
       }
+      return value;
+    };
+    const handleInput = async (event) => {
       if (isComposing.value)
         return;
-      if (value === nativeInputValue.value) {
-        setNativeInputValue();
+      const { lazy } = props.modelModifiers;
+      let { value } = event.target;
+      if (lazy) {
+        emit(INPUT_EVENT, value);
         return;
       }
+      value = formatValue(value);
+      if (String(value) === nativeInputValue.value) {
+        if (props.formatter) {
+          setNativeInputValue();
+        }
+        return;
+      }
+      recordCursor();
       emit(UPDATE_MODEL_EVENT, value);
       emit(INPUT_EVENT, value);
       await nextTick();
-      setNativeInputValue();
+      if (props.formatter && props.parser || !hasModelModifiers.value) {
+        setNativeInputValue();
+      }
       setCursor();
     };
-    const handleChange = (event) => {
+    const handleChange = async (event) => {
       let { value } = event.target;
-      if (props.formatter && props.parser) {
-        value = props.parser(value);
+      value = formatValue(value);
+      if (props.modelModifiers.lazy) {
+        emit(UPDATE_MODEL_EVENT, value);
       }
       emit(CHANGE_EVENT, value);
+      await nextTick();
+      setNativeInputValue();
     };
     const {
       isComposing,
@@ -187,9 +212,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       handleCompositionEnd
     } = useComposition({ emit, afterComposition: handleInput });
     const handlePasswordVisible = () => {
-      recordCursor();
       passwordVisible.value = !passwordVisible.value;
-      setTimeout(setCursor);
     };
     const focus = () => {
       var _a;
@@ -227,7 +250,23 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         (_a = elFormItem == null ? void 0 : elFormItem.validate) == null ? void 0 : _a.call(elFormItem, "change").catch((err) => debugWarn());
       }
     });
-    watch(nativeInputValue, () => setNativeInputValue());
+    watch(nativeInputValue, (newValue) => {
+      if (!_ref.value) {
+        return;
+      }
+      const { trim, number } = props.modelModifiers;
+      const elValue = _ref.value.value;
+      const displayValue = (number || props.type === "number") && !/^0\d/.test(elValue) ? `${looseToNumber(elValue)}` : elValue;
+      if (displayValue === newValue) {
+        return;
+      }
+      if (document.activeElement === _ref.value && _ref.value.type !== "range") {
+        if (trim && displayValue.trim() === newValue) {
+          return;
+        }
+      }
+      setNativeInputValue();
+    });
     watch(() => props.type, async () => {
       await nextTick();
       setNativeInputValue();
@@ -373,7 +412,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 unref(showPwdVisible) ? (openBlock(), createBlock(unref(ElIcon), {
                   key: 2,
                   class: normalizeClass([unref(nsInput).e("icon"), unref(nsInput).e("password")]),
-                  onClick: handlePasswordVisible
+                  onClick: handlePasswordVisible,
+                  onMousedown: withModifiers(unref(NOOP), ["prevent"]),
+                  onMouseup: withModifiers(unref(NOOP), ["prevent"])
                 }, {
                   default: withCtx(() => [
                     passwordVisible.value ? (openBlock(), createElementBlock("svg", {
@@ -405,10 +446,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     ]))
                   ]),
                   _: 1
-                }, 8, ["class"])) : createCommentVNode("v-if", true),
+                }, 8, ["class", "onMousedown", "onMouseup"])) : createCommentVNode("v-if", true),
                 unref(isWordLimitVisible) ? (openBlock(), createElementBlock("span", {
                   key: 3,
-                  class: normalizeClass(unref(nsInput).e("count"))
+                  class: normalizeClass([
+                    unref(nsInput).e("count"),
+                    unref(nsInput).is("outside", _ctx.wordLimitPosition === "outside")
+                  ])
                 }, [
                   createElementVNode("span", {
                     class: normalizeClass(unref(nsInput).e("count-inner"))
@@ -493,20 +537,24 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             onChange: handleChange,
             onKeydown: handleKeydown
           }), null, 16, ["id", "minlength", "maxlength", "tabindex", "disabled", "readonly", "autocomplete", "aria-label", "placeholder", "form", "autofocus", "rows", "role", "onCompositionstart", "onCompositionupdate", "onCompositionend", "onFocus", "onBlur"]),
-          _ctx.$slots.textareaPrefix ? (openBlock(), createElementBlock("span", {
+          unref(teatareaStar) ? (openBlock(), createElementBlock("span", {
             key: 0,
+            class: "pre-star-item"
+          }, "*")) : createCommentVNode("v-if", true),
+          _ctx.$slots.textareaPrefix ? (openBlock(), createElementBlock("span", {
+            key: 1,
             class: "textarea-prefix"
           }, [
             renderSlot(_ctx.$slots, "textareaPrefix")
           ])) : createCommentVNode("v-if", true),
           _ctx.$slots.textareaSuffix ? (openBlock(), createElementBlock("span", {
-            key: 1,
+            key: 2,
             class: "textarea-suffix"
           }, [
             renderSlot(_ctx.$slots, "textareaSuffix")
           ])) : createCommentVNode("v-if", true),
           unref(validateState) ? (openBlock(), createBlock(Tooltip, {
-            key: 2,
+            key: 3,
             content: unref(validateMsg),
             effect: "light",
             placement: "top",
@@ -536,14 +584,17 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             _: 1
           }, 8, ["content"])) : createCommentVNode("v-if", true),
           _ctx.floatLabel ? (openBlock(), createElementBlock("span", {
-            key: 3,
+            key: 4,
             class: normalizeClass(["float-label", { "has-value": !!_ctx.modelValue }]),
             onClick: handleTextareaFocus
           }, toDisplayString(_ctx.placeholder), 3)) : createCommentVNode("v-if", true),
           unref(isWordLimitVisible) ? (openBlock(), createElementBlock("span", {
-            key: 4,
+            key: 5,
             style: normalizeStyle(countStyle.value),
-            class: normalizeClass(unref(nsInput).e("count"))
+            class: normalizeClass([
+              unref(nsInput).e("count"),
+              unref(nsInput).is("outside", _ctx.wordLimitPosition === "outside")
+            ])
           }, toDisplayString(unref(textLength)) + " / " + toDisplayString(_ctx.maxlength), 7)) : createCommentVNode("v-if", true)
         ], 64))
       ], 38);

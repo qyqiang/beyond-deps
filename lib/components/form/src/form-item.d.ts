@@ -2,12 +2,12 @@ import type { ExtractPropTypes, __ExtractPublicPropTypes } from 'vue';
 import type { Arrayable } from 'element-plus/es/utils';
 import type { FormItemRule } from './types';
 export declare const formItemValidateStates: readonly ["", "error", "validating", "success"];
-export type FormItemValidateState = typeof formItemValidateStates[number];
+export type FormItemValidateState = (typeof formItemValidateStates)[number];
 export type FormItemProp = Arrayable<string>;
 export declare const formItemProps: {
     readonly label: StringConstructor;
     readonly labelWidth: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, "", boolean>;
-    readonly labelPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "top" | "left" | "right", unknown, "", boolean>;
+    readonly labelPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "left" | "right" | "top", unknown, "", boolean>;
     readonly prop: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | string[]) | (() => FormItemProp) | ((new (...args: any[]) => string | string[]) | (() => FormItemProp))[], unknown, unknown>>;
         readonly required: false;

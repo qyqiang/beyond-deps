@@ -1,4 +1,4 @@
-import Color from './utils/color';
+import Color from 'element-plus/es/components/color-picker-panel/src/utils/color';
 declare function show(): void;
 declare function hide(): void;
 declare function focus(): void;
@@ -19,7 +19,114 @@ declare const _default: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+    readonly popperClass: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]) | (() => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]) | ((new (...args: any[]) => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]) | (() => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
+    readonly popperStyle: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | import("vue").CSSProperties | import("vue").StyleValue[]) | (() => import("vue").StyleValue) | ((new (...args: any[]) => string | import("vue").CSSProperties | import("vue").StyleValue[]) | (() => import("vue").StyleValue))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
     readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly appendTo: {
@@ -57,10 +164,10 @@ declare const _default: import("vue").DefineComponent<{
      */
     blur: typeof blur;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    focus: (evt: FocusEvent) => void;
     "update:modelValue": (val: string | null) => void;
     change: (val: string | null) => void;
     blur: (evt: FocusEvent) => void;
-    focus: (evt: FocusEvent) => void;
     activeChange: (val: string | null) => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     readonly ariaLabel: StringConstructor;
@@ -78,7 +185,114 @@ declare const _default: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+    readonly popperClass: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]) | (() => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]) | ((new (...args: any[]) => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]) | (() => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
+    readonly popperStyle: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | import("vue").CSSProperties | import("vue").StyleValue[]) | (() => import("vue").StyleValue) | ((new (...args: any[]) => string | import("vue").CSSProperties | import("vue").StyleValue[]) | (() => import("vue").StyleValue))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
     readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly appendTo: {
@@ -102,10 +316,9 @@ declare const _default: import("vue").DefineComponent<{
     onActiveChange?: ((val: string | null) => any) | undefined;
 }, {
     readonly disabled: boolean;
-    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string) | (() => string | null) | ((new (...args: any[]) => string) | (() => string | null))[], unknown, unknown>;
     readonly tabindex: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
+    readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string) | (() => string | null) | ((new (...args: any[]) => string) | (() => string | null))[], unknown, unknown>;
     readonly valueOnClear: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | number | boolean | Function) | (() => string | number | boolean | Function | null) | ((new (...args: any[]) => string | number | boolean | Function) | (() => string | number | boolean | Function | null))[], unknown, unknown>;
-    readonly popperClass: string;
     readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly persistent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;

@@ -262,6 +262,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         if (type === "min") {
           minTimePickerVisible.value = true;
           minDate.value = (minDate.value || leftDate.value).hour(parsedValueD.hour()).minute(parsedValueD.minute()).second(parsedValueD.second());
+          leftDate.value = minDate.value;
         } else {
           maxTimePickerVisible.value = true;
           maxDate.value = (maxDate.value || rightDate.value).hour(parsedValueD.hour()).minute(parsedValueD.minute()).second(parsedValueD.second());
@@ -284,6 +285,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           minDate.value = maxDate.value;
         }
       }
+      handleRangeConfirm(true);
     };
     const handleMinTimePick = (value, visible, first) => {
       if (timeUserInput.value.min)
@@ -299,6 +301,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         maxDate.value = minDate.value;
         rightDate.value = value;
       }
+      handleRangeConfirm(true);
     };
     const handleMaxTimePick = (value, visible, first) => {
       if (timeUserInput.value.max)
@@ -313,8 +316,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       if (maxDate.value && maxDate.value.isBefore(minDate.value)) {
         minDate.value = maxDate.value;
       }
+      handleRangeConfirm(true);
     };
     const handleClear = () => {
+      let valueOnClear = null;
+      if (pickerBase == null ? void 0 : pickerBase.emptyValues) {
+        valueOnClear = pickerBase.emptyValues.valueOnClear.value;
+      }
       leftDate.value = getDefaultValue(unref(defaultValue), {
         lang: unref(lang),
         unit: "month",
@@ -323,7 +331,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       rightDate.value = leftDate.value.add(1, "month");
       maxDate.value = void 0;
       minDate.value = void 0;
-      emit("pick", null);
+      handleRangeConfirm(true);
+      emit("pick", valueOnClear);
     };
     const formatToString = (value) => {
       return isArray(value) ? value.map((_) => _.format(format.value)) : value.format(format.value);
@@ -347,8 +356,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     }
     emit("set-picker-option", ["isValidValue", isValidValue]);
     emit("set-picker-option", ["parseUserInput", parseUserInput]);
-    emit("set-picker-option", ["formatToString", formatToString]);
     emit("set-picker-option", ["handleClear", handleClear]);
+    emit("set-picker-option", ["formatToString", formatToString]);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", {
         class: normalizeClass([

@@ -1,6 +1,6 @@
 import type { PopperEffect } from 'element-plus/es/components/popper';
 import type TimeSelect from './time-select.vue';
-import type { Component, ExtractPropTypes, __ExtractPublicPropTypes } from 'vue';
+import type { CSSProperties, Component, ExtractPropTypes, __ExtractPublicPropTypes } from 'vue';
 export declare const timeSelectProps: {
     readonly emptyValues: ArrayConstructor;
     readonly valueOnClear: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | boolean | Function) | (() => string | number | boolean | Function | null) | ((new (...args: any[]) => string | number | boolean | Function) | (() => string | number | boolean | Function | null))[], unknown, unknown, undefined, boolean>;
@@ -41,6 +41,13 @@ export declare const timeSelectProps: {
     readonly name: StringConstructor;
     readonly prefixIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | Component) & {}) | (() => string | Component) | ((new (...args: any[]) => (string | Component) & {}) | (() => string | Component))[], unknown, unknown, () => any, boolean>;
     readonly clearIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | Component) & {}) | (() => string | Component) | ((new (...args: any[]) => (string | Component) & {}) | (() => string | Component))[], unknown, unknown, () => any, boolean>;
+    readonly popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+    readonly popperStyle: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | CSSProperties) | (() => string | CSSProperties) | ((new (...args: any[]) => string | CSSProperties) | (() => string | CSSProperties))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
 };
 export type TimeSelectProps = ExtractPropTypes<typeof timeSelectProps>;
 export type TimeSelectPropsPublic = __ExtractPublicPropTypes<typeof timeSelectProps>;

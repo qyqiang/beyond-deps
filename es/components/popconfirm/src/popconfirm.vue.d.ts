@@ -25,6 +25,13 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly persistent: BooleanConstructor;
     readonly width: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 150, boolean>;
+    readonly virtualTriggering: BooleanConstructor;
+    readonly virtualRef: {
+        readonly type: import("vue").PropType<import("element-plus").Measurable>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
 }, {
     popperRef: import("vue").ComputedRef<import("element-plus").PopperInstance | undefined>;
     hide: () => void;
@@ -51,6 +58,13 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly persistent: BooleanConstructor;
     readonly width: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 150, boolean>;
+    readonly virtualTriggering: BooleanConstructor;
+    readonly virtualRef: {
+        readonly type: import("vue").PropType<import("element-plus").Measurable>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
 }>> & {
     onConfirm?: ((e: MouseEvent) => any) | undefined;
     onCancel?: ((e: MouseEvent) => any) | undefined;
@@ -59,6 +73,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly icon: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>;
     readonly effect: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string) | (() => import("element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus").PopperEffect))[], unknown, unknown>;
     readonly hideAfter: number;
+    readonly virtualTriggering: boolean;
     readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly persistent: boolean;
     readonly iconColor: string;

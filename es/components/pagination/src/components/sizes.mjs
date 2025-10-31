@@ -49,6 +49,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           class: "pagination-select",
           "model-value": innerPageSize.value,
           disabled: _ctx.disabled,
+          "popper-style": _ctx.popperStyle,
           "popper-class": unref(popperClassComputed),
           size: _ctx.size,
           teleported: _ctx.teleported,
@@ -68,7 +69,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             }), 128))
           ]),
           _: 1
-        }, 8, ["model-value", "disabled", "popper-class", "size", "teleported", "append-to"])
+        }, 8, ["model-value", "disabled", "popper-style", "popper-class", "size", "teleported", "append-to"])
       ], 2);
     };
   }

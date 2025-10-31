@@ -77,8 +77,8 @@ declare const __VLS_component: import("vue").DefineComponent<{
     afterEnter: () => void;
     afterLeave: () => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    open: () => void;
     "update:modelValue": (value: boolean) => void;
+    open: () => void;
     close: () => void;
     opened: () => void;
     closed: () => void;
@@ -183,9 +183,9 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly destroyOnClose: boolean;
     readonly modalPenetrable: boolean;
     readonly trapFocus: boolean;
-    readonly resizable: boolean;
     readonly withHeader: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly modalFade: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly resizable: boolean;
 }>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
 export default _default;

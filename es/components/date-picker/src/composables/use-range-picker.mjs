@@ -1,5 +1,6 @@
 import { getCurrentInstance, inject, ref, unref, watch } from 'vue';
 import dayjs from 'dayjs';
+import { isEqual } from 'lodash-unified';
 import { isValidRange, getDefaultValue } from '../utils.mjs';
 import { ROOT_PICKER_INJECTION_KEY } from '../constants.mjs';
 import { useShortcut } from './use-shortcut.mjs';
@@ -90,7 +91,18 @@ const useRangePicker = (props, {
       restoreDefault();
     }
   }, { immediate: true });
-  watch(() => props.parsedValue, onReset, { immediate: true });
+  watch(() => props.parsedValue, (parsedValue) => {
+    if (!(parsedValue == null ? void 0 : parsedValue.length) || !isEqual(parsedValue, [minDate.value, maxDate.value])) {
+      onReset(parsedValue);
+    }
+  }, {
+    immediate: true
+  });
+  watch(() => props.visible, () => {
+    if (props.visible) {
+      onReset(props.parsedValue);
+    }
+  }, { immediate: true });
   return {
     minDate,
     maxDate,

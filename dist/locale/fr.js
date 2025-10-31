@@ -17,7 +17,13 @@
         clear: "Effacer",
         defaultLabel: "color picker",
         description: "La couleur actuelle est {color}. Appuyer sur Entr\xE9e pour s\xE9lectionner une nouvelle couleur.",
-        alphaLabel: "pick alpha value"
+        alphaLabel: "Choisir la valeur alpha",
+        alphaDescription: "alpha {alpha}, current color is {color}",
+        hueLabel: "pick hue value",
+        hueDescription: "hue {hue}, current color is {color}",
+        svLabel: "pick saturation and brightness value",
+        svDescription: "saturation {saturation}, brightness {brightness}, current color is {color}",
+        predefineDescription: "select {value} as the color"
       },
       datepicker: {
         now: "Maintenant",
@@ -99,7 +105,7 @@
         loading: "Chargement"
       },
       dropdown: {
-        toggleDropdown: "Toggle Dropdown"
+        toggleDropdown: "Basculer la liste d\xE9roulante"
       },
       cascader: {
         noMatch: "Aucune correspondance",
@@ -155,7 +161,7 @@
         next: "suivant",
         previous: "pr\xE9c\xE9dent",
         finish: "fin",
-        close: "Close this dialog"
+        close: "Fermer la bo\xEEte de dialogue"
       },
       tree: {
         emptyText: "Aucune donn\xE9e"

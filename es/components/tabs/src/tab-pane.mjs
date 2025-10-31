@@ -23,7 +23,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const ns = useNamespace("tab-pane");
     const paneRef = ref();
     const index = ref();
-    const isClosable = computed(() => props.closable || tabsRoot.props.closable);
+    const isClosable = computed(() => {
+      var _a;
+      return (_a = props.closable) != null ? _a : tabsRoot.props.closable;
+    });
     const active = eagerComputed(() => {
       var _a;
       return tabsRoot.currentName.value === ((_a = props.name) != null ? _a : index.value);

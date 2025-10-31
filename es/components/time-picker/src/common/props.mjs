@@ -7,6 +7,10 @@ import { useEmptyValuesProps } from '../../../../hooks/use-empty-values/index.mj
 import { useAriaProps } from '../../../../hooks/use-aria/index.mjs';
 
 const timePickerDefaultProps = buildProps({
+  automaticDropdown: {
+    type: Boolean,
+    default: true
+  },
   id: {
     type: definePropType([Array, String])
   },

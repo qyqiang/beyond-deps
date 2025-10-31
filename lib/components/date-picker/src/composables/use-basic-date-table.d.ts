@@ -160,7 +160,7 @@ export declare const useBasicDateTable: (props: BasicDateTableProps, emit: Setup
             isSameOrAfter: (date?: dayjs.ConfigType, unit?: dayjs.OpUnitType) => boolean;
             isSameOrBefore: (date?: dayjs.ConfigType, unit?: dayjs.OpUnitType) => boolean;
         } | undefined;
-        type?: ("normal" | "week" | "today" | "prev-month" | "next-month") | undefined;
+        type?: ("week" | "normal" | "today" | "prev-month" | "next-month") | undefined;
     }[][]>;
     tbodyRef: import("vue").Ref<HTMLElement | undefined>;
     currentCellRef: import("vue").Ref<HTMLElement | undefined>;

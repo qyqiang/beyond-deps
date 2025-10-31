@@ -1,5 +1,5 @@
-import TableLayout from '../table-layout';
 import type { ComponentInternalInstance, PropType, Ref } from 'vue';
+import type TableLayout from '../table-layout';
 import type { DefaultRow, Sort } from '../table/defaults';
 import type { Store } from '../store';
 export interface TableHeader extends ComponentInternalInstance {

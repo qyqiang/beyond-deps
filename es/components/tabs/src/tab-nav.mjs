@@ -1,13 +1,16 @@
 import { defineComponent, inject, ref, shallowRef, computed, watch, onMounted, onUpdated, triggerRef, createVNode, nextTick } from 'vue';
-import { useDocumentVisibility, useWindowFocus, useResizeObserver } from '@vueuse/core';
+import { useDocumentVisibility, useWindowFocus, useElementSize, useResizeObserver } from '@vueuse/core';
 import { ElIcon } from '../../icon/index.mjs';
 import { ArrowLeft, ArrowRight } from '@element-plus/icons-vue';
-import TabBar from './tab-bar2.mjs';
+import useWheel from '../../virtual-list/src/hooks/use-wheel.mjs';
+import { clamp } from 'lodash-unified';
+import TabBar from './tab-bar.mjs';
 import { tabsRootContextKey } from './constants.mjs';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { mutable } from '../../../utils/typescript.mjs';
 import { throwError } from '../../../utils/error.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
+import { getEventCode } from '../../../utils/dom/event.mjs';
 import { EVENT_CODE } from '../../../constants/aria.mjs';
 import { capitalize } from '../../../utils/strings.mjs';
 
@@ -57,12 +60,37 @@ const TabNav = defineComponent({
     const isFocus = ref(false);
     const focusable = ref(true);
     const tracker = shallowRef();
-    const sizeName = computed(() => ["top", "bottom"].includes(rootTabs.props.tabPosition) ? "width" : "height");
+    const isHorizontal = computed(() => ["top", "bottom"].includes(rootTabs.props.tabPosition));
+    const sizeName = computed(() => isHorizontal.value ? "width" : "height");
     const navStyle = computed(() => {
       const dir = sizeName.value === "width" ? "X" : "Y";
       return {
         transform: `translate${dir}(-${navOffset.value}px)`
       };
+    });
+    const {
+      width: navContainerWidth,
+      height: navContainerHeight
+    } = useElementSize(navScroll$);
+    const {
+      width: navWidth,
+      height: navHeight
+    } = useElementSize(nav$, {
+      width: 0,
+      height: 0
+    }, {
+      box: "border-box"
+    });
+    const navContainerSize = computed(() => isHorizontal.value ? navContainerWidth.value : navContainerHeight.value);
+    const navSize = computed(() => isHorizontal.value ? navWidth.value : navHeight.value);
+    const {
+      onWheel
+    } = useWheel({
+      atStartEdge: computed(() => navOffset.value <= 0),
+      atEndEdge: computed(() => navSize.value - navOffset.value <= navContainerSize.value),
+      layout: computed(() => isHorizontal.value ? "horizontal" : "vertical")
+    }, (offset) => {
+      navOffset.value = clamp(navOffset.value + offset, 0, navSize.value - navContainerSize.value);
     });
     const scrollPrev = () => {
       if (!navScroll$.value)
@@ -77,12 +105,12 @@ const TabNav = defineComponent({
     const scrollNext = () => {
       if (!navScroll$.value || !nav$.value)
         return;
-      const navSize = nav$.value[`offset${capitalize(sizeName.value)}`];
+      const navSize2 = nav$.value[`offset${capitalize(sizeName.value)}`];
       const containerSize = navScroll$.value[`offset${capitalize(sizeName.value)}`];
       const currentOffset = navOffset.value;
-      if (navSize - currentOffset <= containerSize)
+      if (navSize2 - currentOffset <= containerSize)
         return;
-      const newOffset = navSize - currentOffset > containerSize * 2 ? currentOffset + containerSize : navSize - containerSize;
+      const newOffset = navSize2 - currentOffset > containerSize * 2 ? currentOffset + containerSize : navSize2 - containerSize;
       navOffset.value = newOffset;
     };
     const scrollToActiveTab = async () => {
@@ -94,13 +122,12 @@ const TabNav = defineComponent({
       if (!activeTab)
         return;
       const navScroll = navScroll$.value;
-      const isHorizontal = ["top", "bottom"].includes(rootTabs.props.tabPosition);
       const activeTabBounding = activeTab.getBoundingClientRect();
       const navScrollBounding = navScroll.getBoundingClientRect();
-      const maxOffset = isHorizontal ? nav.offsetWidth - navScrollBounding.width : nav.offsetHeight - navScrollBounding.height;
+      const maxOffset = isHorizontal.value ? nav.offsetWidth - navScrollBounding.width : nav.offsetHeight - navScrollBounding.height;
       const currentOffset = navOffset.value;
       let newOffset = currentOffset;
-      if (isHorizontal) {
+      if (isHorizontal.value) {
         if (activeTabBounding.left < navScrollBounding.left) {
           newOffset = currentOffset - (navScrollBounding.left - activeTabBounding.left);
         }
@@ -123,15 +150,15 @@ const TabNav = defineComponent({
       if (!nav$.value || !navScroll$.value)
         return;
       props.stretch && ((_a = tabBarRef.value) == null ? void 0 : _a.update());
-      const navSize = nav$.value[`offset${capitalize(sizeName.value)}`];
+      const navSize2 = nav$.value[`offset${capitalize(sizeName.value)}`];
       const containerSize = navScroll$.value[`offset${capitalize(sizeName.value)}`];
       const currentOffset = navOffset.value;
-      if (containerSize < navSize) {
+      if (containerSize < navSize2) {
         scrollable.value = scrollable.value || {};
         scrollable.value.prev = currentOffset;
-        scrollable.value.next = currentOffset + containerSize < navSize;
-        if (navSize - currentOffset < containerSize) {
-          navOffset.value = navSize - containerSize;
+        scrollable.value.next = currentOffset + containerSize < navSize2;
+        if (navSize2 - currentOffset < containerSize) {
+          navOffset.value = navSize2 - containerSize;
         }
       } else {
         scrollable.value = false;
@@ -141,8 +168,9 @@ const TabNav = defineComponent({
       }
     };
     const changeTab = (event) => {
+      const code = getEventCode(event);
       let step = 0;
-      switch (event.code) {
+      switch (code) {
         case EVENT_CODE.left:
         case EVENT_CODE.up:
           step = -1;
@@ -225,7 +253,7 @@ const TabNav = defineComponent({
         const uid = pane.uid;
         const disabled = pane.props.disabled;
         const tabName = (_b = (_a = pane.props.name) != null ? _a : pane.index) != null ? _b : `${index}`;
-        const closable = !disabled && (pane.isClosable || props.editable);
+        const closable = !disabled && (pane.isClosable || pane.props.closable !== false && props.editable);
         pane.index = `${index}`;
         const btnClose = closable ? createVNode(ElIcon, {
           "class": "is-icon-close",
@@ -260,7 +288,8 @@ const TabNav = defineComponent({
             emit("tabClick", pane, tabName, ev);
           },
           "onKeydown": (ev) => {
-            if (closable && (ev.code === EVENT_CODE.delete || ev.code === EVENT_CODE.backspace)) {
+            const code = getEventCode(ev);
+            if (closable && (code === EVENT_CODE.delete || code === EVENT_CODE.backspace)) {
               emit("tabRemove", pane, ev);
             }
           }
@@ -278,7 +307,8 @@ const TabNav = defineComponent({
         "ref": nav$,
         "style": navStyle.value,
         "role": "tablist",
-        "onKeydown": changeTab
+        "onKeydown": changeTab,
+        "onWheel": onWheel
       }, [...[!props.type ? createVNode(TabBar, {
         "ref": tabBarRef,
         "tabs": [...props.panes],

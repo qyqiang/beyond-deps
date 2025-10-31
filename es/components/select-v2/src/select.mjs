@@ -10,6 +10,7 @@ import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import ClickOutside from '../../../directives/click-outside/index.mjs';
 import { isArray } from '@vue/shared';
 import { useCalcInputWidth } from '../../../hooks/use-calc-input-width/index.mjs';
+import { useId } from '../../../hooks/use-id/index.mjs';
 import { BORDER_HORIZONTAL_WIDTH } from '../../../constants/form.mjs';
 
 const _sfc_main = defineComponent({
@@ -37,6 +38,7 @@ const _sfc_main = defineComponent({
       modelValue
     }), emit);
     const { calculatorRef, inputStyle } = useCalcInputWidth();
+    const contentId = useId();
     provide(selectV2InjectionKey, {
       props: reactive({
         ...toRefs(props),
@@ -45,6 +47,7 @@ const _sfc_main = defineComponent({
       }),
       expanded: API.expanded,
       tooltipRef: API.tooltipRef,
+      contentId,
       onSelect: API.onSelect,
       onHover: API.onHover,
       onKeyboardNavigate: API.onKeyboardNavigate,
@@ -54,7 +57,7 @@ const _sfc_main = defineComponent({
       if (!props.multiple) {
         return API.states.selectedLabel;
       }
-      return API.states.cachedOptions.map((i) => i.label);
+      return API.states.cachedOptions.map((i) => API.getLabel(i));
     });
     return {
       ...API,
@@ -62,6 +65,7 @@ const _sfc_main = defineComponent({
       selectedLabel,
       calculatorRef,
       inputStyle,
+      contentId,
       BORDER_HORIZONTAL_WIDTH
     };
   }
@@ -259,7 +263,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                   style: normalizeStyle(_ctx.inputStyle),
                   autocomplete: _ctx.autocomplete,
                   tabindex: _ctx.tabindex,
-                  "aria-autocomplete": "list",
+                  "aria-autocomplete": "none",
                   "aria-haspopup": "listbox",
                   autocapitalize: "off",
                   "aria-expanded": _ctx.expanded,
@@ -267,6 +271,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                   class: normalizeClass([_ctx.nsSelect.e("input"), _ctx.nsSelect.is(_ctx.selectSize)]),
                   disabled: _ctx.selectDisabled,
                   role: "combobox",
+                  "aria-controls": _ctx.contentId,
+                  "aria-activedescendant": _ctx.states.hoveringIndex >= 0 ? `${_ctx.contentId}-${_ctx.states.hoveringIndex}` : "",
                   readonly: !_ctx.filterable,
                   spellcheck: "false",
                   type: "text",
@@ -283,7 +289,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                     withKeys(withModifiers(_ctx.handleDel, ["stop"]), ["delete"])
                   ],
                   onClick: withModifiers(_ctx.toggleMenu, ["stop"])
-                }, null, 46, ["id", "onUpdate:modelValue", "autocomplete", "tabindex", "aria-expanded", "aria-label", "disabled", "readonly", "name", "onInput", "onCompositionstart", "onCompositionupdate", "onCompositionend", "onKeydown", "onClick"]), [
+                }, null, 46, ["id", "onUpdate:modelValue", "autocomplete", "tabindex", "aria-expanded", "aria-label", "disabled", "aria-controls", "aria-activedescendant", "readonly", "name", "onInput", "onCompositionstart", "onCompositionupdate", "onCompositionend", "onKeydown", "onClick"]), [
                   [vModelText, _ctx.states.inputValue]
                 ]),
                 _ctx.filterable ? (openBlock(), createElementBlock("span", {
@@ -369,11 +375,13 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       }),
       content: withCtx(() => [
         createVNode(_component_el_select_menu, {
+          id: _ctx.contentId,
           ref: "menuRef",
           data: _ctx.filteredOptions,
           width: _ctx.popperSize - _ctx.BORDER_HORIZONTAL_WIDTH,
           "hovering-index": _ctx.states.hoveringIndex,
-          "scrollbar-always-on": _ctx.scrollbarAlwaysOn
+          "scrollbar-always-on": _ctx.scrollbarAlwaysOn,
+          "aria-label": _ctx.ariaLabel
         }, createSlots({
           default: withCtx((scope) => [
             renderSlot(_ctx.$slots, "default", normalizeProps(guardReactiveProps(scope)))
@@ -425,7 +433,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
               ], 10, ["onClick"])
             ])
           } : void 0
-        ]), 1032, ["data", "width", "hovering-index", "scrollbar-always-on"])
+        ]), 1032, ["id", "data", "width", "hovering-index", "scrollbar-always-on", "aria-label"])
       ]),
       _: 3
     }, 8, ["visible", "teleported", "popper-class", "popper-style", "popper-options", "fallback-placements", "effect", "placement", "transition", "persistent", "append-to", "show-arrow", "offset", "onBeforeShow", "onHide"])

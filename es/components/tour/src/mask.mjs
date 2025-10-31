@@ -1,4 +1,5 @@
 import { defineComponent, inject, computed, toRef, openBlock, createElementBlock, mergeProps, unref, createElementVNode, normalizeClass, normalizeStyle, createCommentVNode } from 'vue';
+import { useWindowSize } from '@vueuse/core';
 import { maskProps } from './mask2.mjs';
 import { tourKey } from './helper.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
@@ -28,9 +29,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         topLeft: `${baseInfo} ${v},${-v}`
       };
     });
+    const { width: windowWidth, height: windowHeight } = useWindowSize();
     const path = computed(() => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
+      const width = windowWidth.value;
+      const height = windowHeight.value;
       const info = roundInfo.value;
       const _path = `M${width},0 L0,0 L0,${height} L${width},${height} L${width},0 Z`;
       const _radius = radius.value;

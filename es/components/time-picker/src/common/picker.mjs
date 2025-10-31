@@ -19,6 +19,7 @@ import { useFocusController } from '../../../../hooks/use-focus-controller/index
 import { debugWarn } from '../../../../utils/error.mjs';
 import { isArray, NOOP } from '@vue/shared';
 import { useFormSize } from '../../../form/src/hooks/use-form-common-props.mjs';
+import { getEventCode } from '../../../../utils/dom/event.mjs';
 import { EVENT_CODE } from '../../../../constants/aria.mjs';
 
 const __default__ = defineComponent({
@@ -47,7 +48,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const nsRange = useNamespace("range");
     const { form, formItem } = useFormItem();
     const elPopperOptions = inject(PICKER_POPPER_OPTIONS_INJECTION_KEY, {});
-    const { valueOnClear } = useEmptyValues(props, null);
+    const emptyValues = useEmptyValues(props, null);
     const refPopper = ref();
     const inputRef = ref();
     const pickerVisible = ref(false);
@@ -63,6 +64,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         return props.readonly;
       },
       afterFocus() {
+        if (!props.automaticDropdown)
+          return;
         pickerVisible.value = true;
       },
       beforeBlur(event) {
@@ -200,9 +203,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return dayOrDays;
     });
     const displayValue = computed(() => {
-      if (!pickerOptions.value.panelReady)
-        return "";
-      const formattedValue = formatDayjsToString(parsedValue.value);
+      const formattedValue = formatToString(parsedValue.value);
       if (isArray(userInput.value)) {
         return [
           userInput.value[0] || formattedValue && formattedValue[0] || "",
@@ -235,9 +236,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         if (pickerOptions.value.handleClear) {
           pickerOptions.value.handleClear();
         } else {
-          emitInput(valueOnClear.value);
+          emitInput(emptyValues.valueOnClear.value);
         }
-        emitChange(valueOnClear.value, true);
+        emitChange(emptyValues.valueOnClear.value, true);
         showClose.value = false;
         onHide();
       }
@@ -251,7 +252,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       var _a;
       if (props.readonly || pickerDisabled.value)
         return;
-      if (((_a = event.target) == null ? void 0 : _a.tagName) !== "INPUT" || isFocused.value) {
+      if (((_a = event.target) == null ? void 0 : _a.tagName) !== "INPUT" || isFocused.value || !props.automaticDropdown) {
         pickerVisible.value = true;
       }
     };
@@ -269,7 +270,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       var _a;
       if (props.readonly || pickerDisabled.value)
         return;
-      if (((_a = event.touches[0].target) == null ? void 0 : _a.tagName) !== "INPUT" || isFocused.value) {
+      if (((_a = event.touches[0].target) == null ? void 0 : _a.tagName) !== "INPUT" || isFocused.value || !props.automaticDropdown) {
         pickerVisible.value = true;
       }
     };
@@ -303,8 +304,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }
       }
       if (userInput.value === "") {
-        emitInput(valueOnClear.value);
-        emitChange(valueOnClear.value, true);
+        emitInput(emptyValues.valueOnClear.value);
+        emitChange(emptyValues.valueOnClear.value, true);
         userInput.value = null;
       }
     };
@@ -313,10 +314,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         return null;
       return pickerOptions.value.parseUserInput(value);
     };
-    const formatDayjsToString = (value) => {
+    const formatToString = (value) => {
       if (!value)
         return null;
-      return pickerOptions.value.formatToString(value);
+      const res = isArray(value) ? value.map((_) => _.format(props.format)) : value.format(props.format);
+      return res;
     };
     const isValidValue = (value) => {
       return pickerOptions.value.isValidValue(value);
@@ -324,7 +326,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const handleKeydownInput = async (event) => {
       if (props.readonly || pickerDisabled.value)
         return;
-      const { code } = event;
+      const code = getEventCode(event);
       emitKeydown(event);
       if (code === EVENT_CODE.esc) {
         if (pickerVisible.value === true) {
@@ -353,10 +355,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         return;
       }
       if (code === EVENT_CODE.enter || code === EVENT_CODE.numpadEnter) {
-        if (userInput.value === null || userInput.value === "" || isValidValue(parseUserInputToDayjs(displayValue.value))) {
+        if (!pickerVisible.value) {
+          pickerVisible.value = true;
+        } else if (userInput.value === null || userInput.value === "" || isValidValue(parseUserInputToDayjs(displayValue.value))) {
           handleChange();
           pickerVisible.value = false;
         }
+        event.preventDefault();
         event.stopPropagation();
         return;
       }
@@ -397,7 +402,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const parsedVal = unref(parsedValue);
       if (value && value.isValid()) {
         userInput.value = [
-          formatDayjsToString(value),
+          formatToString(value),
           ((_a = displayValue.value) == null ? void 0 : _a[1]) || null
         ];
         const newValue = [value, parsedVal && (parsedVal[1] || null)];
@@ -415,7 +420,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       if (value && value.isValid()) {
         userInput.value = [
           ((_a = unref(displayValue)) == null ? void 0 : _a[0]) || null,
-          formatDayjsToString(value)
+          formatToString(value)
         ];
         const newValue = [parsedVal && parsedVal[0], value];
         if (isValidValue(newValue)) {
@@ -444,7 +449,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       (_a = inputRef.value) == null ? void 0 : _a.blur();
     };
     provide(PICKER_BASE_INJECTION_KEY, {
-      props
+      props,
+      emptyValues
     });
     expose({
       focus,

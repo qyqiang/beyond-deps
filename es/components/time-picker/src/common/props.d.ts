@@ -4,7 +4,7 @@ import type { Dayjs } from 'dayjs';
 import type { Placement } from 'element-plus/es/components/popper';
 export type SingleOrRange<T> = T | [T, T];
 export type DateModelType = number | string | Date;
-export type ModelValueType = SingleOrRange<DateModelType> | string[];
+export type ModelValueType = DateModelType | number[] | string[] | Date[];
 export type DayOrDays = SingleOrRange<Dayjs>;
 export type DateOrDates = SingleOrRange<Date>;
 export type UserInput = SingleOrRange<string | null>;
@@ -34,7 +34,7 @@ export declare const timePickerDefaultProps: {
     readonly tabindex: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number) | (() => string | number) | ((new (...args: any[]) => string | number) | (() => string | number))[], unknown, unknown, 0, boolean>;
     readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly unlinkPanels: BooleanConstructor;
-    readonly placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement) | ((new (...args: any[]) => "top" | "bottom" | "left" | "right" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement))[], Placement, unknown, "bottom", boolean>;
+    readonly placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement) | ((new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement))[], Placement, unknown, "bottom", boolean>;
     readonly fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Placement[]) | (() => Placement[]) | ((new (...args: any[]) => Placement[]) | (() => Placement[]))[], unknown, unknown, readonly ["bottom", "top", "right", "left"], boolean>;
     readonly disabledHours: {
         readonly type: import("vue").PropType<GetDisabledHours>;
@@ -54,6 +54,7 @@ export declare const timePickerDefaultProps: {
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
+    readonly automaticDropdown: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly id: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | [string, string]) | (() => SingleOrRange<string>) | ((new (...args: any[]) => string | [string, string]) | (() => SingleOrRange<string>))[], unknown, unknown>>;
         readonly required: false;
@@ -91,7 +92,7 @@ export declare const timePickerDefaultProps: {
     readonly disabled: BooleanConstructor;
     readonly placeholder: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<Options>) | (() => Partial<Options>) | ((new (...args: any[]) => Partial<Options>) | (() => Partial<Options>))[], unknown, unknown, () => {}, boolean>;
-    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => ModelValueType) | ((new (...args: any[]) => string | number | Date | string[] | [DateModelType, DateModelType]) | (() => ModelValueType))[], unknown, unknown, "", boolean>;
+    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | Date | string[] | number[] | Date[]) | (() => ModelValueType) | ((new (...args: any[]) => string | number | Date | string[] | number[] | Date[]) | (() => ModelValueType))[], unknown, unknown, "", boolean>;
     readonly rangeSeparator: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "-", boolean>;
     readonly startPlaceholder: StringConstructor;
     readonly endPlaceholder: StringConstructor;
@@ -115,7 +116,6 @@ export interface PickerOptions {
     isValidValue: (date: DayOrDays) => boolean;
     handleKeydownInput: (event: KeyboardEvent) => void;
     parseUserInput: (value: UserInput) => DayOrDays;
-    formatToString: (value: DayOrDays) => UserInput;
     getRangeAvailableTime: (date: DayOrDays) => DayOrDays;
     getDefaultValue: () => DayOrDays;
     panelReady: boolean;

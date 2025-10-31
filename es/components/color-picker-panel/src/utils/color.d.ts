@@ -21,6 +21,7 @@ export default class Color {
     get(prop: string): any;
     toRgb(): import("@ctrl/tinycolor").Numberify<import("@ctrl/tinycolor").RGBA>;
     fromString(value: string): void;
+    clear(): void;
     compare(color: this): boolean;
     doOnChange(): void;
 }

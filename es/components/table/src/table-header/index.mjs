@@ -1,12 +1,11 @@
 import { defineComponent, getCurrentInstance, inject, ref, reactive, watch, onBeforeUnmount, onMounted, nextTick, h } from 'vue';
-import { ElCheckbox } from '../../../checkbox/index.mjs';
-import { ElButton } from '../../../button/index.mjs';
 import { ElIcon } from '../../../icon/index.mjs';
-import { Bottom } from '@element-plus/icons-vue';
+import { ElCheckbox } from '../../../checkbox/index.mjs';
 import FilterPanel from '../filter-panel.mjs';
 import useLayoutObserver from '../layout-observer.mjs';
 import { TABLE_INJECTION_KEY } from '../tokens.mjs';
 import useEvent from './event-helper.mjs';
+import FilterIcon from './filter-icon.mjs';
 import useStyle from './style.helper.mjs';
 import useUtils from './utils-helper.mjs';
 import { useNamespace } from '../../../../hooks/use-namespace/index.mjs';
@@ -149,7 +148,7 @@ var TableHeader = defineComponent({
     let rowSpan = 1;
     return h("thead", {
       ref: "theadRef",
-      class: { [ns.is("group")]: isGroup }
+      class: ns.is("group", isGroup)
     }, columnRows.map((subColumns, rowIndex) => h("tr", {
       class: getHeaderRowClass(rowIndex),
       key: rowIndex,
@@ -193,16 +192,11 @@ var TableHeader = defineComponent({
             _self: $parent
           }) : column.label,
           column.sortable && h("span", {
+            class: "icon-wrap",
             onClick: ($event) => handleSortClick($event, column)
           }, [
-            h(ElButton, {
-              class: "sort-caret-custom",
-              type: "text",
-              size: "small"
-            }, {
-              default: () => h(ElIcon, { class: "icon-arrow" }, {
-                default: () => h(Bottom)
-              })
+            h(ElIcon, { class: "icon-arrow" }, {
+              default: () => h(FilterIcon)
             })
           ]),
           column.filterable && h(FilterPanel, {

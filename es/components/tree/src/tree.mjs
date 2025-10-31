@@ -1,5 +1,4 @@
-import { defineComponent, inject, ref, computed, watch, provide, getCurrentInstance, resolveComponent, openBlock, createElementBlock, normalizeClass, Fragment, renderList, createBlock, renderSlot, createElementVNode, toDisplayString, createCommentVNode, withDirectives, vShow } from 'vue';
-import { selectKey } from '../../select/src/token.mjs';
+import { defineComponent, ref, getCurrentInstance, computed, watch, provide, resolveComponent, openBlock, createElementBlock, normalizeClass, Fragment, renderList, createBlock, renderSlot, createElementVNode, toDisplayString, createCommentVNode, withDirectives, vShow } from 'vue';
 import TreeStore from './model/tree-store.mjs';
 import { getNodeKey, handleCurrentChange } from './model/util.mjs';
 import ElTreeNode from './tree-node.mjs';
@@ -8,6 +7,7 @@ import { useDragNodeHandler } from './model/useDragNode.mjs';
 import { useKeydown } from './model/useKeydown.mjs';
 import { ROOT_TREE_INJECTION_KEY } from './tokens.mjs';
 import { isEqual } from 'lodash-unified';
+import { treeEmits } from './tree2.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import { definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { iconPropType } from '../../../utils/vue/icon.mjs';
@@ -82,25 +82,10 @@ const _sfc_main = defineComponent({
       type: iconPropType
     }
   },
-  emits: [
-    "check-change",
-    "current-change",
-    "node-click",
-    "node-contextmenu",
-    "node-collapse",
-    "node-expand",
-    "check",
-    "node-drag-start",
-    "node-drag-end",
-    "node-drop",
-    "node-drag-leave",
-    "node-drag-enter",
-    "node-drag-over"
-  ],
+  emits: treeEmits,
   setup(props, ctx) {
     const { t } = useLocale();
     const ns = useNamespace("tree");
-    const selectInfo = inject(selectKey, null);
     const store = ref(new TreeStore({
       key: props.nodeKey,
       data: props.data,
@@ -130,10 +115,20 @@ const _sfc_main = defineComponent({
       store
     });
     useKeydown({ el$ }, store);
+    const instance = getCurrentInstance();
+    const isSelectTree = computed(() => {
+      let parent = instance == null ? void 0 : instance.parent;
+      while (parent) {
+        if (parent.type.name === "ElTreeSelect") {
+          return true;
+        }
+        parent = parent.parent;
+      }
+      return false;
+    });
     const isEmpty = computed(() => {
       const { childNodes } = root.value;
-      const hasFilteredOptions = selectInfo ? selectInfo.hasFilteredOptions !== 0 : false;
-      return (!childNodes || childNodes.length === 0 || childNodes.every(({ visible }) => !visible)) && !hasFilteredOptions;
+      return (!childNodes || childNodes.length === 0 || childNodes.every(({ visible }) => !visible)) && !isSelectTree.value;
     });
     watch(() => props.currentNodeKey, (newVal) => {
       store.value.setCurrentNodeKey(newVal != null ? newVal : null);
@@ -217,12 +212,12 @@ const _sfc_main = defineComponent({
         store.value.setUserCurrentNode(node, shouldAutoExpandParent);
       });
     };
-    const setCurrentKey = (key, shouldAutoExpandParent = true) => {
+    const setCurrentKey = (key = null, shouldAutoExpandParent = true) => {
       if (!props.nodeKey)
         throw new Error("[Tree] nodeKey is required in setCurrentKey");
       handleCurrentChange(store, ctx.emit, () => {
         broadcastExpanded();
-        store.value.setCurrentNodeKey(key != null ? key : null, shouldAutoExpandParent);
+        store.value.setCurrentNodeKey(key, shouldAutoExpandParent);
       });
     };
     const getNode = (data) => {
@@ -240,9 +235,9 @@ const _sfc_main = defineComponent({
     const insertAfter = (data, refNode) => {
       store.value.insertAfter(data, refNode);
     };
-    const handleNodeExpand = (nodeData, node, instance) => {
+    const handleNodeExpand = (nodeData, node, instance2) => {
       broadcastExpanded(node);
-      ctx.emit("node-expand", nodeData, node, instance);
+      ctx.emit("node-expand", nodeData, node, instance2);
     };
     const updateKeyChildren = (key, data) => {
       if (!props.nodeKey)
@@ -255,7 +250,7 @@ const _sfc_main = defineComponent({
       store,
       root,
       currentNode,
-      instance: getCurrentInstance()
+      instance
     });
     provide(formItemContextKey, void 0);
     return {

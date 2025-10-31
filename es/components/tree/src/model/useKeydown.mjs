@@ -1,6 +1,7 @@
 import { onMounted, onUpdated } from 'vue';
 import { useEventListener } from '@vueuse/core';
 import { useNamespace } from '../../../../hooks/use-namespace/index.mjs';
+import { getEventCode } from '../../../../utils/dom/event.mjs';
 import { EVENT_CODE } from '../../../../constants/aria.mjs';
 
 function useKeydown({ el$ }, store) {
@@ -23,7 +24,7 @@ function useKeydown({ el$ }, store) {
     const currentItem = ev.target;
     if (!currentItem.className.includes(ns.b("node")))
       return;
-    const code = ev.code;
+    const code = getEventCode(ev);
     const treeItems = Array.from(el$.value.querySelectorAll(`.${ns.is("focusable")}[role=treeitem]`));
     const currentIndex = treeItems.indexOf(currentItem);
     let nextIndex;

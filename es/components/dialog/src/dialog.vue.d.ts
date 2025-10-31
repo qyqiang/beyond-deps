@@ -74,8 +74,8 @@ declare const __VLS_component: import("vue").DefineComponent<{
     resetPosition: () => void;
     handleClose: () => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    open: () => void;
     "update:modelValue": (value: boolean) => void;
+    open: () => void;
     close: () => void;
     opened: () => void;
     closed: () => void;

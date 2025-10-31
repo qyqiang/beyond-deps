@@ -1,4 +1,4 @@
-import type { ComputedRef, ExtractPropTypes, InjectionKey, __ExtractPublicPropTypes } from 'vue';
+import type { ExtractPropTypes, __ExtractPublicPropTypes } from 'vue';
 import type ColorPicker from './color-picker.vue';
 export declare const colorPickerProps: {
     readonly ariaLabel: StringConstructor;
@@ -16,7 +16,114 @@ export declare const colorPickerProps: {
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+    readonly popperClass: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]) | (() => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]) | ((new (...args: any[]) => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]) | (() => string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | (string | {
+            [x: string]: boolean;
+        } | any)[])[])[])[])[])[])[])[])[])[])[]))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
+    readonly popperStyle: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | import("vue").CSSProperties | import("vue").StyleValue[]) | (() => import("vue").StyleValue) | ((new (...args: any[]) => string | import("vue").CSSProperties | import("vue").StyleValue[]) | (() => import("vue").StyleValue))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
     readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly appendTo: {
@@ -44,7 +151,3 @@ export type ColorPickerProps = ExtractPropTypes<typeof colorPickerProps>;
 export type ColorPickerPropsPublic = __ExtractPublicPropTypes<typeof colorPickerProps>;
 export type ColorPickerEmits = typeof colorPickerEmits;
 export type ColorPickerInstance = InstanceType<typeof ColorPicker> & unknown;
-export interface ColorPickerContext {
-    currentColor: ComputedRef<string>;
-}
-export declare const colorPickerContextKey: InjectionKey<ColorPickerContext>;

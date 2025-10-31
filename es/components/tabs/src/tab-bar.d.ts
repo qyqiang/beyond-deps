@@ -9,9 +9,9 @@ export declare const tabBarProps: {
         props: {
             readonly label: string;
             readonly disabled: boolean;
-            readonly closable: boolean;
             readonly lazy: boolean;
             readonly name?: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown> | undefined;
+            readonly closable?: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown> | undefined;
             readonly tabPaneClass?: string | undefined;
         };
         paneName: TabPaneName | undefined;
@@ -26,9 +26,9 @@ export declare const tabBarProps: {
         props: {
             readonly label: string;
             readonly disabled: boolean;
-            readonly closable: boolean;
             readonly lazy: boolean;
             readonly name?: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown> | undefined;
+            readonly closable?: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown> | undefined;
             readonly tabPaneClass?: string | undefined;
         };
         paneName: TabPaneName | undefined;
@@ -43,9 +43,9 @@ export declare const tabBarProps: {
         props: {
             readonly label: string;
             readonly disabled: boolean;
-            readonly closable: boolean;
             readonly lazy: boolean;
             readonly name?: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown> | undefined;
+            readonly closable?: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown> | undefined;
             readonly tabPaneClass?: string | undefined;
         };
         paneName: TabPaneName | undefined;
@@ -60,9 +60,9 @@ export declare const tabBarProps: {
         props: {
             readonly label: string;
             readonly disabled: boolean;
-            readonly closable: boolean;
             readonly lazy: boolean;
             readonly name?: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown> | undefined;
+            readonly closable?: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown> | undefined;
             readonly tabPaneClass?: string | undefined;
         };
         paneName: TabPaneName | undefined;

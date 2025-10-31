@@ -1,7 +1,7 @@
 import { placements } from '@popperjs/core';
 import { CircleClose, ArrowDown } from '@element-plus/icons-vue';
 import { defaultProps } from '../../select-v2/src/useProps.mjs';
-import { scrollbarEmits } from '../../scrollbar/src/scrollbar2.mjs';
+import { scrollbarEmits } from '../../scrollbar/src/scrollbar.mjs';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { useSizeProp } from '../../../hooks/use-size/index.mjs';
 import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';
@@ -51,6 +51,10 @@ const selectProps = buildProps({
     default: () => ({})
   },
   remote: Boolean,
+  debounce: {
+    type: Number,
+    default: 300
+  },
   loadingText: String,
   noMatchText: String,
   noDataText: String,
@@ -116,10 +120,7 @@ const selectProps = buildProps({
     default: true
   },
   remoteShowSuffix: Boolean,
-  showArrow: {
-    type: Boolean,
-    default: true
-  },
+  showArrow: Boolean,
   offset: {
     type: Number,
     default: 12
