@@ -14,7 +14,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const ns = useNamespace("divider");
     const dividerStyle = computed(() => {
       return ns.cssVar({
-        "border-style": props.borderStyle
+        "border-style": props.borderStyle,
+        margin: props.margin
       });
     });
     return (_ctx, _cache) => {

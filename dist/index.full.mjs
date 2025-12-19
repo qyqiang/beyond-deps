@@ -33402,6 +33402,10 @@ const dividerProps = buildProps({
   borderStyle: {
     type: definePropType(String),
     default: "solid"
+  },
+  margin: {
+    type: definePropType(String),
+    default: "8px 0"
   }
 });
 
@@ -33416,7 +33420,8 @@ const _sfc_main$1l = /* @__PURE__ */ defineComponent({
     const ns = useNamespace("divider");
     const dividerStyle = computed(() => {
       return ns.cssVar({
-        "border-style": props.borderStyle
+        "border-style": props.borderStyle,
+        margin: props.margin
       });
     });
     return (_ctx, _cache) => {
@@ -34139,8 +34144,7 @@ const dropdownProps = buildProps({
     default: true
   },
   showArrow: {
-    type: Boolean,
-    default: true
+    type: Boolean
   },
   showTimeout: {
     type: Number,

@@ -14,6 +14,10 @@ const dividerProps = buildProps({
   borderStyle: {
     type: definePropType(String),
     default: "solid"
+  },
+  margin: {
+    type: definePropType(String),
+    default: "8px 0"
   }
 });
 

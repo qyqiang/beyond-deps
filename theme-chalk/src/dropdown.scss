@@ -56,12 +56,7 @@ $dropdown-divider-width: 1px !default;
 
   @include e(popper) {
     @include set-component-css-var('dropdown', $dropdown);
-
     // using attributes selector to override
-
-    .#{$namespace}-dropdown-menu {
-      border: none;
-    }
 
     #{& + '-selfdefine'} {
       outline: none;
@@ -147,7 +142,7 @@ $dropdown-menu-padding-vertical: map.merge(
   margin: 0;
   background-color: getCssVar('bg-color', 'overlay');
   border: none;
-  border-radius: getCssVar('border-radius-base');
+  border-radius: getCssVar('border-radius-custom');
   box-shadow: none;
   list-style: none;
 
@@ -156,17 +151,15 @@ $dropdown-menu-padding-vertical: map.merge(
     align-items: center;
     white-space: nowrap;
     list-style: none;
-    line-height: map.get($dropdown-item-line-height, 'default');
     padding: map.get($dropdown-item-padding, 'default');
     margin: 0;
     font-size: getCssVar('font-size', 'base');
-    color: getCssVar('text-color', 'regular');
+    color: var(--color-gray-990);
     cursor: pointer;
     outline: none;
     &:not(.is-disabled):hover,
     &:not(.is-disabled):focus {
-      background-color: getCssVar('dropdown-menuItem-hover-fill');
-      color: getCssVar('dropdown-menuItem-hover-color');
+      background-color: var(--color-gray-50);
     }
 
     i {

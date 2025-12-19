@@ -33406,6 +33406,10 @@
     borderStyle: {
       type: definePropType(String),
       default: "solid"
+    },
+    margin: {
+      type: definePropType(String),
+      default: "8px 0"
     }
   });
 
@@ -33420,7 +33424,8 @@
       const ns = useNamespace("divider");
       const dividerStyle = vue.computed(() => {
         return ns.cssVar({
-          "border-style": props.borderStyle
+          "border-style": props.borderStyle,
+          margin: props.margin
         });
       });
       return (_ctx, _cache) => {
@@ -34143,8 +34148,7 @@
       default: true
     },
     showArrow: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     showTimeout: {
       type: Number,

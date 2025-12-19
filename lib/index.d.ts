@@ -2943,13 +2943,16 @@ declare const __VLS_component_40: DefineComponent<{
     readonly direction: EpPropFinalized<StringConstructor, "horizontal" | "vertical", unknown, "horizontal", boolean>;
     readonly contentPosition: EpPropFinalized<StringConstructor, "center" | "left" | "right", unknown, "center", boolean>;
     readonly borderStyle: EpPropFinalized<(new (...args: any[]) => string) | (() => string) | ((new (...args: any[]) => string) | (() => string))[], unknown, unknown, "solid", boolean>;
+    readonly margin: EpPropFinalized<(new (...args: any[]) => string) | (() => string) | ((new (...args: any[]) => string) | (() => string))[], unknown, unknown, "8px 0", boolean>;
 }, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, Record<string, any>, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{
     readonly direction: EpPropFinalized<StringConstructor, "horizontal" | "vertical", unknown, "horizontal", boolean>;
     readonly contentPosition: EpPropFinalized<StringConstructor, "center" | "left" | "right", unknown, "center", boolean>;
     readonly borderStyle: EpPropFinalized<(new (...args: any[]) => string) | (() => string) | ((new (...args: any[]) => string) | (() => string))[], unknown, unknown, "solid", boolean>;
+    readonly margin: EpPropFinalized<(new (...args: any[]) => string) | (() => string) | ((new (...args: any[]) => string) | (() => string))[], unknown, unknown, "8px 0", boolean>;
 }>>, {
     readonly direction: EpPropMergeType<StringConstructor, "horizontal" | "vertical", unknown>;
     readonly borderStyle: string;
+    readonly margin: string;
     readonly contentPosition: EpPropMergeType<StringConstructor, "center" | "left" | "right", unknown>;
 }>;
 declare const __VLS_component_41: DefineComponent<{
@@ -14075,7 +14078,12 @@ declare const _default_45: DefineComponent<{
     readonly splitButton: BooleanConstructor;
     readonly hideOnClick: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly loop: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly showArrow: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showArrow: {
+        readonly type: PropType<EpPropMergeType<BooleanConstructor, unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly showTimeout: EpPropFinalized<NumberConstructor, unknown, unknown, 150, boolean>;
     readonly hideTimeout: EpPropFinalized<NumberConstructor, unknown, unknown, 150, boolean>;
     readonly tabindex: EpPropFinalized<(new (...args: any[]) => string | number) | (() => string | number) | ((new (...args: any[]) => string | number) | (() => string | number))[], unknown, unknown, 0, boolean>;
@@ -14265,7 +14273,12 @@ declare const _default_45: DefineComponent<{
     readonly splitButton: BooleanConstructor;
     readonly hideOnClick: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly loop: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly showArrow: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showArrow: {
+        readonly type: PropType<EpPropMergeType<BooleanConstructor, unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly showTimeout: EpPropFinalized<NumberConstructor, unknown, unknown, 150, boolean>;
     readonly hideTimeout: EpPropFinalized<NumberConstructor, unknown, unknown, 150, boolean>;
     readonly tabindex: EpPropFinalized<(new (...args: any[]) => string | number) | (() => string | number) | ((new (...args: any[]) => string | number) | (() => string | number))[], unknown, unknown, 0, boolean>;
@@ -14407,7 +14420,6 @@ declare const _default_45: DefineComponent<{
     readonly triggerKeys: string[];
     readonly teleported: EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly persistent: EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly showArrow: EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly hideOnClick: EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly showTimeout: number;
     readonly hideTimeout: number;
@@ -18756,6 +18768,7 @@ export declare const dividerProps: {
     readonly direction: EpPropFinalized<StringConstructor, "horizontal" | "vertical", unknown, "horizontal", boolean>;
     readonly contentPosition: EpPropFinalized<StringConstructor, "center" | "left" | "right", unknown, "center", boolean>;
     readonly borderStyle: EpPropFinalized<(new (...args: any[]) => string) | (() => string) | ((new (...args: any[]) => string) | (() => string))[], unknown, unknown, "solid", boolean>;
+    readonly margin: EpPropFinalized<(new (...args: any[]) => string) | (() => string) | ((new (...args: any[]) => string) | (() => string))[], unknown, unknown, "8px 0", boolean>;
 };
 export declare type DividerPropsPublic = __ExtractPublicPropTypes<typeof dividerProps>;
 declare type DoneFn = (cancel?: boolean) => void;
@@ -18907,7 +18920,12 @@ export declare const dropdownProps: {
     readonly splitButton: BooleanConstructor;
     readonly hideOnClick: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly loop: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly showArrow: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showArrow: {
+        readonly type: PropType<EpPropMergeType<BooleanConstructor, unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly showTimeout: EpPropFinalized<NumberConstructor, unknown, unknown, 150, boolean>;
     readonly hideTimeout: EpPropFinalized<NumberConstructor, unknown, unknown, 150, boolean>;
     readonly tabindex: EpPropFinalized<(new (...args: any[]) => string | number) | (() => string | number) | ((new (...args: any[]) => string | number) | (() => string | number))[], unknown, unknown, 0, boolean>;
@@ -21958,6 +21976,7 @@ export declare const makeInstaller: (components?: Plugin_2[]) => {
     install: (app: App, options?: ConfigProviderContext) => void;
 };
 export declare const makeList: (total: number, method?: () => number[]) => boolean[];
+export declare type Margin = CSSStyleDeclaration["margin"];
 export declare type Measurable = {
     getBoundingClientRect: () => DOMRect;
 };

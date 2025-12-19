@@ -1,5 +1,5 @@
-import { useTooltipTriggerProps } from '../../tooltip/src/trigger.mjs';
-import { roleTypes } from '../../popper/src/popper.mjs';
+import { useTooltipTriggerProps } from '../../tooltip/src/trigger2.mjs';
+import { roleTypes } from '../../popper/src/popper2.mjs';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { EVENT_CODE } from '../../../constants/aria.mjs';
 import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';
@@ -48,8 +48,7 @@ const dropdownProps = buildProps({
     default: true
   },
   showArrow: {
-    type: Boolean,
-    default: true
+    type: Boolean
   },
   showTimeout: {
     type: Number,
