@@ -4214,6 +4214,10 @@
     "type": "boolean",
     "description": "whether Select is disabled, default: false.\n\n[Docs](https://element-plus.org/en-US/component/select.html#select-attributes)"
   },
+  "el-select/add-item": {
+    "type": "boolean",
+    "description": "whether Select need add new item"
+  },
   "el-select/value-key": {
     "type": "string",
     "description": "unique identity key name for value, required when value is an object, default: value.\n\n[Docs](https://element-plus.org/en-US/component/select.html#select-attributes)"

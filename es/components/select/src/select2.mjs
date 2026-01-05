@@ -6,7 +6,7 @@ import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs
 import { useSizeProp } from '../../../hooks/use-size/index.mjs';
 import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';
 import { iconPropType } from '../../../utils/vue/icon.mjs';
-import { tagProps } from '../../tag/src/tag.mjs';
+import { tagProps } from '../../tag/src/tag2.mjs';
 import { useEmptyValuesProps } from '../../../hooks/use-empty-values/index.mjs';
 import { useAriaProps } from '../../../hooks/use-aria/index.mjs';
 import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
@@ -35,6 +35,7 @@ const selectProps = buildProps({
     default: "light"
   },
   disabled: Boolean,
+  addItem: Boolean,
   clearable: Boolean,
   filterable: Boolean,
   allowCreate: Boolean,
@@ -81,10 +82,8 @@ const selectProps = buildProps({
     type: Boolean,
     default: true
   },
-  preStar: {
-    type: Boolean,
-    default: false
-  },
+  preStar: Boolean,
+  addShowTip: String,
   valueKey: {
     type: String,
     default: "value"
@@ -104,7 +103,10 @@ const selectProps = buildProps({
     type: iconPropType,
     default: CircleClose
   },
-  fitInputWidth: Boolean,
+  fitInputWidth: {
+    type: Boolean,
+    default: true
+  },
   suffixIcon: {
     type: iconPropType,
     default: ArrowDown
@@ -123,7 +125,7 @@ const selectProps = buildProps({
   showArrow: Boolean,
   offset: {
     type: Number,
-    default: 12
+    default: 4
   },
   placement: {
     type: definePropType(String),

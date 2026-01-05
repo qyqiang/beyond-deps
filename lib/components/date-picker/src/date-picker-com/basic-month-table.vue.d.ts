@@ -1,6 +1,9 @@
 import dayjs from 'dayjs';
 declare const _default: import("vue").DefineComponent<{
     selectionMode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, string, unknown, string, boolean>;
+    cycle: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
+    settDefaultDate: StringConstructor;
+    cycleType: StringConstructor;
     disabledDate: {
         readonly type: import("vue").PropType<import("../props/shared").DisabledDateType>;
         readonly required: false;
@@ -46,6 +49,9 @@ declare const _default: import("vue").DefineComponent<{
     changerange: (...args: any[]) => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     selectionMode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, string, unknown, string, boolean>;
+    cycle: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
+    settDefaultDate: StringConstructor;
+    cycleType: StringConstructor;
     disabledDate: {
         readonly type: import("vue").PropType<import("../props/shared").DisabledDateType>;
         readonly required: false;
@@ -85,6 +91,7 @@ declare const _default: import("vue").DefineComponent<{
     onPick?: ((...args: any[]) => any) | undefined;
     onChangerange?: ((...args: any[]) => any) | undefined;
 }, {
+    cycle: number;
     rangeState: import("../props/shared").RangeState;
     selectionMode: string;
 }>;

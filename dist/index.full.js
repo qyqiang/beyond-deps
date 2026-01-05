@@ -16358,6 +16358,7 @@
   var Tooltip = /* @__PURE__ */ _export_sfc(_sfc_main$2j, [["__file", "tooltip.vue"]]);
 
   const inputProps = buildProps({
+    isHoverSuffix: Boolean,
     id: {
       type: String,
       default: void 0
@@ -16626,8 +16627,9 @@
         return (_a = elForm == null ? void 0 : elForm.statusIcon) != null ? _a : false;
       });
       const validateState = vue.computed(() => (elFormItem == null ? void 0 : elFormItem.validateState) || "");
-      const validateMsg = vue.computed(() => (elFormItem == null ? void 0 : elFormItem.error) || "");
+      const validateMsg = vue.computed(() => (elFormItem == null ? void 0 : elFormItem.validateMessage) || "");
       const validateIcon = vue.computed(() => validateState.value && ValidateComponentsMap[validateState.value]);
+      const validateError = vue.computed(() => validateState.value === "error");
       const containerStyle = vue.computed(() => [
         rawAttrs.style
       ]);
@@ -16912,9 +16914,12 @@
                 onChange: handleChange,
                 onKeydown: handleKeydown
               }), null, 16, ["id", "name", "minlength", "maxlength", "type", "disabled", "readonly", "autocomplete", "tabindex", "aria-label", "placeholder", "form", "autofocus", "role", "inputmode", "onCompositionstart", "onCompositionupdate", "onCompositionend"]),
-              _ctx.floatLabel ? (vue.openBlock(), vue.createElementBlock("span", {
+              _ctx.floatLabel && _ctx.placeholder ? (vue.openBlock(), vue.createElementBlock("span", {
                 key: 1,
-                class: vue.normalizeClass(["float-label", { "prefix-label": _ctx.$slots.prefix || _ctx.prefixIcon }])
+                class: vue.normalizeClass(["float-label", {
+                  "prefix-label": _ctx.$slots.prefix || _ctx.prefixIcon,
+                  "has-value": !vue.unref(isEmpty)(_ctx.modelValue)
+                }])
               }, vue.toDisplayString(_ctx.placeholder), 3)) : vue.createCommentVNode("v-if", true),
               vue.createCommentVNode(" suffix slot "),
               vue.unref(suffixVisible) ? (vue.openBlock(), vue.createElementBlock("span", {
@@ -16943,9 +16948,9 @@
                     _: 1
                   }, 8, ["class", "onMousedown"])) : vue.createCommentVNode("v-if", true),
                   (!vue.unref(showClear) || !vue.unref(showPwdVisible) || !vue.unref(isWordLimitVisible)) && !vue.unref(validateState) ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 1 }, [
-                    vue.renderSlot(_ctx.$slots, "suffix"),
+                    _ctx.isHoverSuffix && hovering.value || !_ctx.isHoverSuffix ? vue.renderSlot(_ctx.$slots, "suffix", { key: 0 }) : vue.createCommentVNode("v-if", true),
                     _ctx.suffixIcon ? (vue.openBlock(), vue.createBlock(vue.unref(ElIcon), {
-                      key: 0,
+                      key: 1,
                       class: vue.normalizeClass(vue.unref(nsInput).e("icon"))
                     }, {
                       default: vue.withCtx(() => [
@@ -17014,7 +17019,7 @@
                   }, null, 8, ["class", "innerHTML"])) : vue.createCommentVNode("v-if", true)
                 ], 2)
               ], 2)) : vue.createCommentVNode("v-if", true),
-              vue.unref(validateState) ? (vue.openBlock(), vue.createBlock(Tooltip, {
+              vue.unref(validateError) ? (vue.openBlock(), vue.createBlock(Tooltip, {
                 key: 3,
                 content: vue.unref(validateMsg),
                 effect: "light",
@@ -17098,7 +17103,7 @@
             }, [
               vue.renderSlot(_ctx.$slots, "textareaSuffix")
             ])) : vue.createCommentVNode("v-if", true),
-            vue.unref(validateState) ? (vue.openBlock(), vue.createBlock(Tooltip, {
+            vue.unref(validateError) ? (vue.openBlock(), vue.createBlock(Tooltip, {
               key: 3,
               content: vue.unref(validateMsg),
               effect: "light",
@@ -17128,9 +17133,9 @@
               ]),
               _: 1
             }, 8, ["content"])) : vue.createCommentVNode("v-if", true),
-            _ctx.floatLabel ? (vue.openBlock(), vue.createElementBlock("span", {
+            _ctx.floatLabel && _ctx.placeholder ? (vue.openBlock(), vue.createElementBlock("span", {
               key: 4,
-              class: vue.normalizeClass(["float-label", { "has-value": !!_ctx.modelValue }]),
+              class: vue.normalizeClass(["float-label", { "has-value": !vue.unref(isEmpty)(_ctx.modelValue) }]),
               onClick: handleTextareaFocus
             }, vue.toDisplayString(_ctx.placeholder), 3)) : vue.createCommentVNode("v-if", true),
             vue.unref(isWordLimitVisible) ? (vue.openBlock(), vue.createElementBlock("span", {
@@ -17317,7 +17322,7 @@
                 onMousedown: clickThumbHandler
               }, null, 38)
             ], 42, ["onClick"]), [
-              [vue.vShow, _ctx.always || visible.value]
+              [vue.vShow, _ctx.always || visible.value || vue.unref(bar).key === "horizontal"]
             ])
           ]),
           _: 1
@@ -17710,6 +17715,14 @@
       type: Boolean,
       default: true
     },
+    isHoverSuffix: {
+      type: Boolean,
+      default: false
+    },
+    isClear: {
+      type: Boolean,
+      default: true
+    },
     selectWhenUnmatched: Boolean,
     hideLoading: Boolean,
     teleported: useTooltipContentProps.teleported,
@@ -17719,6 +17732,14 @@
     loopNavigation: {
       type: Boolean,
       default: true
+    },
+    minValue: {
+      type: Number,
+      default: 0
+    },
+    needNoDataTip: {
+      type: Boolean,
+      default: false
     }
   });
   const autocompleteEmits = {
@@ -17750,6 +17771,7 @@
       const regionRef = vue.ref();
       const popperRef = vue.ref();
       const listboxRef = vue.ref();
+      const isSelect = vue.ref(false);
       let readonly = false;
       let ignoreFocusEvent = false;
       const suggestions = vue.ref([]);
@@ -17758,10 +17780,11 @@
       const activated = vue.ref(false);
       const suggestionDisabled = vue.ref(false);
       const loading = vue.ref(false);
+      const emptyTip = vue.ref("No result match");
       const listboxId = useId();
       const styles = vue.computed(() => rawAttrs.style);
       const suggestionVisible = vue.computed(() => {
-        const isValidData = suggestions.value.length > 0;
+        const isValidData = props.minValue > 0 || props.needNoDataTip ? isArray$1(suggestions.value) : suggestions.value.length > 0;
         return (isValidData || loading.value) && activated.value;
       });
       const suggestionLoading = vue.computed(() => !props.hideLoading && loading.value);
@@ -17782,6 +17805,7 @@
       const getData = async (queryString) => {
         if (suggestionDisabled.value)
           return;
+        loading.value = true;
         const cb = (suggestionList) => {
           loading.value = false;
           if (suggestionDisabled.value)
@@ -17789,11 +17813,13 @@
           if (isArray$1(suggestionList)) {
             suggestions.value = suggestionList;
             highlightedIndex.value = props.highlightFirstItem ? 0 : -1;
+            if (suggestionList.length === 0) {
+              emptyTip.value = `No result match`;
+            }
           } else {
             throwError(COMPONENT_NAME$i, "autocomplete suggestions must be an array");
           }
         };
-        loading.value = true;
         if (isArray$1(props.fetchSuggestions)) {
           cb(props.fetchSuggestions);
         } else {
@@ -17808,7 +17834,15 @@
         const valuePresented = !!value;
         emit(INPUT_EVENT, value);
         emit(UPDATE_MODEL_EVENT, value);
+        emptyTip.value = "";
+        if (value.length < props.minValue) {
+          emptyTip.value = `Type ${props.minValue} characters to start search.`;
+          suggestionDisabled.value = true;
+          suggestions.value = [];
+          return;
+        }
         suggestionDisabled.value = false;
+        isSelect.value = false;
         activated.value || (activated.value = valuePresented);
         if (!props.triggerOnFocus && !value) {
           suggestionDisabled.value = true;
@@ -17829,13 +17863,12 @@
         emit(CHANGE_EVENT, value);
       };
       const handleFocus = (evt) => {
-        var _a;
+        const str = String(props.modelValue) ? String(props.modelValue) : "";
         if (!ignoreFocusEvent) {
           activated.value = true;
           emit("focus", evt);
-          const queryString = (_a = props.modelValue) != null ? _a : "";
-          if (props.triggerOnFocus && !readonly) {
-            debouncedGetData(String(queryString));
+          if (props.triggerOnFocus && !readonly && str.length >= props.minValue) {
+            debouncedGetData(str);
           }
         } else {
           ignoreFocusEvent = false;
@@ -17847,6 +17880,9 @@
           if ((_a = popperRef.value) == null ? void 0 : _a.isFocusInsideContent()) {
             ignoreFocusEvent = true;
             return;
+          }
+          if (!isSelect.value && props.isClear) {
+            emit(UPDATE_MODEL_EVENT, "");
           }
           activated.value && close();
           emit("blur", evt);
@@ -17863,7 +17899,7 @@
           return;
         }
         if (suggestionVisible.value && highlightedIndex.value >= 0 && highlightedIndex.value < suggestions.value.length) {
-          handleSelect(suggestions.value[highlightedIndex.value]);
+          await handleSelect(suggestions.value[highlightedIndex.value]);
         } else {
           if (props.selectWhenUnmatched) {
             emit("select", { value: props.modelValue });
@@ -17897,6 +17933,7 @@
         emit(UPDATE_MODEL_EVENT, item[props.valueKey]);
         emit("select", item);
         suggestions.value = [];
+        isSelect.value = true;
         highlightedIndex.value = -1;
       };
       const highlight = (index) => {
@@ -18002,6 +18039,7 @@
         inputRef,
         popperRef,
         suggestions,
+        emptyTip,
         handleSelect,
         handleKeyEnter,
         focus,
@@ -18023,6 +18061,16 @@
           "append-to": _ctx.appendTo,
           "gpu-acceleration": false,
           pure: "",
+          "popper-options": {
+            modifiers: [
+              {
+                name: "offset",
+                options: {
+                  offset: [0, 4]
+                }
+              }
+            ]
+          },
           "manual-mode": "",
           effect: "light",
           trigger: "click",
@@ -18070,20 +18118,25 @@
                         _: 1
                       }, 8, ["class"])
                     ])
-                  ])) : (vue.openBlock(true), vue.createElementBlock(vue.Fragment, { key: 1 }, vue.renderList(suggestions.value, (item, index) => {
-                    return vue.openBlock(), vue.createElementBlock("li", {
-                      id: `${vue.unref(listboxId)}-item-${index}`,
-                      key: index,
-                      class: vue.normalizeClass({ highlighted: highlightedIndex.value === index }),
-                      role: "option",
-                      "aria-selected": highlightedIndex.value === index,
-                      onClick: ($event) => handleSelect(item)
-                    }, [
-                      vue.renderSlot(_ctx.$slots, "default", { item }, () => [
-                        vue.createTextVNode(vue.toDisplayString(item[_ctx.valueKey]), 1)
-                      ])
-                    ], 10, ["id", "aria-selected", "onClick"]);
-                  }), 128))
+                  ])) : (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 1 }, [
+                    suggestions.value.length > 0 ? (vue.openBlock(true), vue.createElementBlock(vue.Fragment, { key: 0 }, vue.renderList(suggestions.value, (item, index) => {
+                      return vue.openBlock(), vue.createElementBlock("li", {
+                        id: `${vue.unref(listboxId)}-item-${index}`,
+                        key: index,
+                        class: vue.normalizeClass({ highlighted: highlightedIndex.value === index }),
+                        role: "option",
+                        "aria-selected": highlightedIndex.value === index,
+                        onClick: ($event) => handleSelect(item)
+                      }, [
+                        vue.renderSlot(_ctx.$slots, "default", { item }, () => [
+                          vue.createTextVNode(vue.toDisplayString(item[_ctx.valueKey]), 1)
+                        ])
+                      ], 10, ["id", "aria-selected", "onClick"]);
+                    }), 128)) : (vue.openBlock(), vue.createElementBlock("li", {
+                      key: 1,
+                      class: "no-data"
+                    }, vue.toDisplayString(emptyTip.value), 1))
+                  ], 64))
                 ]),
                 _: 3
               }, 8, ["id", "wrap-class", "view-class"]),
@@ -18110,7 +18163,8 @@
             }, [
               vue.createVNode(vue.unref(ElInput), vue.mergeProps({
                 ref_key: "inputRef",
-                ref: inputRef
+                ref: inputRef,
+                "is-hover-suffix": _ctx.isHoverSuffix
               }, vue.mergeProps(vue.unref(passInputProps), _ctx.$attrs), {
                 "model-value": _ctx.modelValue,
                 "pre-star": _ctx.preStar,
@@ -18149,7 +18203,7 @@
                     vue.renderSlot(_ctx.$slots, "suffix")
                   ])
                 } : void 0
-              ]), 1040, ["model-value", "pre-star", "disabled"])
+              ]), 1040, ["is-hover-suffix", "model-value", "pre-star", "disabled"])
             ], 14, ["aria-expanded", "aria-owns"])
           ]),
           _: 3
@@ -20328,6 +20382,20 @@
     name: {
       type: definePropType([Array, String])
     },
+    cycle: {
+      type: Number,
+      default: 0
+    },
+    settDefaultDate: String,
+    cycleType: String,
+    isOk: {
+      type: Boolean,
+      default: true
+    },
+    isFooter: {
+      type: Boolean,
+      default: false
+    },
     popperClass: {
       type: String,
       default: ""
@@ -21023,12 +21091,14 @@
           onHide
         }), {
           default: vue.withCtx(() => [
-            _ctx.$slots.open ? (vue.openBlock(), vue.createElementBlock("span", {
+            _ctx.$slots.open ? (vue.openBlock(), vue.createElementBlock("div", {
               key: 0,
-              onClick: vue.unref(handleFocus)
+              ref_key: "inputRef",
+              ref: inputRef,
+              onClick: handleOpen
             }, [
               vue.renderSlot(_ctx.$slots, "open")
-            ], 8, ["onClick"])) : (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 1 }, [
+            ], 512)) : (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 1 }, [
               !vue.unref(isRangeInput) ? (vue.openBlock(), vue.createBlock(vue.unref(ElInput), {
                 key: 0,
                 id: _ctx.id,
@@ -21160,6 +21230,9 @@
               timeFormat: _ctx.timeFormat,
               unlinkPanels: _ctx.unlinkPanels,
               type: _ctx.type,
+              cycle: _ctx.cycle,
+              settDefaultDate: _ctx.settDefaultDate,
+              cycleType: _ctx.cycleType,
               defaultValue: _ctx.defaultValue,
               showNow: _ctx.showNow,
               showWeekNumber: _ctx.showWeekNumber,
@@ -28609,6 +28682,12 @@
     "range"
   ];
   const datePickerSharedProps = buildProps({
+    cycle: {
+      type: Number,
+      default: 0
+    },
+    settDefaultDate: String,
+    cycleType: String,
     disabledDate: {
       type: definePropType(Function)
     },
@@ -28990,8 +29069,28 @@
     };
     const handleRangePick = (newDate) => {
       if (!props.rangeState.selecting || !props.minDate) {
-        emit("pick", { minDate: newDate, maxDate: null });
-        emit("select", true);
+        if (props.cycleType === "week") {
+          const offsetWeek = newDate.day();
+          newDate = newDate.subtract(offsetWeek, "days");
+          const maxDate = newDate.add(props.cycle - 1, "days");
+          emit("pick", { minDate: newDate, maxDate }, false);
+          emit("select", false);
+        } else if (props.cycleType === "custom" && props.settDefaultDate) {
+          const defaultDate = dayjs(props.settDefaultDate);
+          const defaultDay = defaultDate.unix();
+          const newDay = newDate.unix();
+          const limitDay = (newDay - defaultDay) / (60 * 60 * 24);
+          const flag = limitDay > 0;
+          const v1 = limitDay % (props.cycle * 7);
+          const date = newDate.add(flag ? props.cycle * 7 - Math.abs(v1) : Math.abs(v1), "days");
+          const v3 = v1 !== 0 ? date.subtract(props.cycle * 7, "days") : newDate;
+          const maxDate = v3.add(props.cycle * 7 - 1, "days");
+          emit("pick", { minDate: v3, maxDate }, false);
+          emit("select", false);
+        } else {
+          emit("pick", { minDate: newDate, maxDate: null });
+          emit("select", true);
+        }
       } else {
         if (newDate >= props.minDate) {
           emit("pick", { minDate: props.minDate, maxDate: newDate });
@@ -29331,7 +29430,7 @@
         const today = /* @__PURE__ */ new Date();
         const month = cell.text;
         style.disabled = props.disabledDate ? datesInMonth(props.date, year, month, lang.value).every(props.disabledDate) : false;
-        style.current = castArray(props.parsedValue).findIndex((date) => dayjs.isDayjs(date) && date.year() === year && date.month() === month) >= 0;
+        style.current = castArray(props.parsedValue).some((date) => dayjs.isDayjs(date) && date.year() === year && date.month() === month);
         style.today = today.getFullYear() === year && today.getMonth() === month;
         if (cell.inRange) {
           style["in-range"] = true;
@@ -30670,10 +30769,13 @@
       const props = __props;
       const pickerBase = vue.inject(PICKER_BASE_INJECTION_KEY);
       const isDefaultFormat = vue.inject(ROOT_PICKER_IS_DEFAULT_FORMAT_INJECTION_KEY);
-      const { disabledDate, cellClassName, defaultTime, clearable } = pickerBase.props;
+      const { disabledDate, cellClassName, defaultTime, clearable, isFooter, isOk } = pickerBase.props;
       const format = vue.toRef(pickerBase.props, "format");
       const shortcuts = vue.toRef(pickerBase.props, "shortcuts");
       const defaultValue = vue.toRef(pickerBase.props, "defaultValue");
+      const cycle = vue.toRef(pickerBase.props, "cycle");
+      const settDefaultDate = vue.toRef(pickerBase.props, "settDefaultDate");
+      const cycleType = vue.toRef(pickerBase.props, "cycleType");
       const { lang } = useLocale();
       const leftDate = vue.ref(dayjs().locale(lang.value));
       const rightDate = vue.ref(dayjs().locale(lang.value).add(1, unit$2));
@@ -30840,11 +30942,17 @@
         }
         return emitDayjs;
       };
+      const getSelectingDate = vue.inject("getSelectingDate", {
+        getSelectingDate: void 0
+      });
       const handleRangePick = (val, close = true) => {
         const min_ = val.minDate;
         const max_ = val.maxDate;
         const minDate_ = formatEmit(min_, 0);
         const maxDate_ = formatEmit(max_, 1);
+        if (typeof getSelectingDate.getSelectingDate === "function") {
+          getSelectingDate.getSelectingDate(val);
+        }
         if (maxDate.value === maxDate_ && minDate.value === minDate_) {
           return;
         }
@@ -31242,13 +31350,16 @@
                   "min-date": vue.unref(minDate),
                   "max-date": vue.unref(maxDate),
                   "range-state": vue.unref(rangeState),
+                  cycle: vue.unref(cycle),
+                  "sett-default-date": vue.unref(settDefaultDate),
+                  "cycle-type": vue.unref(cycleType),
                   "disabled-date": vue.unref(disabledDate),
                   "cell-class-name": vue.unref(cellClassName),
                   "show-week-number": _ctx.showWeekNumber,
                   onChangerange: vue.unref(handleChangeRange),
                   onPick: handleRangePick,
                   onSelect: vue.unref(onSelect)
-                }, null, 8, ["date", "min-date", "max-date", "range-state", "disabled-date", "cell-class-name", "show-week-number", "onChangerange", "onSelect"])) : vue.createCommentVNode("v-if", true),
+                }, null, 8, ["date", "min-date", "max-date", "range-state", "cycle", "sett-default-date", "cycle-type", "disabled-date", "cell-class-name", "show-week-number", "onChangerange", "onSelect"])) : vue.createCommentVNode("v-if", true),
                 vue.unref(leftCurrentView) === "year" ? (vue.openBlock(), vue.createBlock(YearTable, {
                   key: 1,
                   ref_key: "leftCurrentViewRef",
@@ -31384,13 +31495,16 @@
                   "min-date": vue.unref(minDate),
                   "max-date": vue.unref(maxDate),
                   "range-state": vue.unref(rangeState),
+                  cycle: vue.unref(cycle),
+                  "sett-default-date": vue.unref(settDefaultDate),
+                  "cycle-type": vue.unref(cycleType),
                   "disabled-date": vue.unref(disabledDate),
                   "cell-class-name": vue.unref(cellClassName),
                   "show-week-number": _ctx.showWeekNumber,
                   onChangerange: vue.unref(handleChangeRange),
                   onPick: handleRangePick,
                   onSelect: vue.unref(onSelect)
-                }, null, 8, ["date", "min-date", "max-date", "range-state", "disabled-date", "cell-class-name", "show-week-number", "onChangerange", "onSelect"])) : vue.createCommentVNode("v-if", true),
+                }, null, 8, ["date", "min-date", "max-date", "range-state", "cycle", "sett-default-date", "cycle-type", "disabled-date", "cell-class-name", "show-week-number", "onChangerange", "onSelect"])) : vue.createCommentVNode("v-if", true),
                 vue.unref(rightCurrentView) === "year" ? (vue.openBlock(), vue.createBlock(YearTable, {
                   key: 1,
                   ref_key: "rightCurrentViewRef",
@@ -31414,7 +31528,7 @@
               ], 2)
             ], 2)
           ], 2),
-          vue.unref(showTime) ? (vue.openBlock(), vue.createElementBlock("div", {
+          vue.unref(showTime) || ["week", "custom"].includes(vue.unref(cycleType)) || vue.unref(isFooter) ? (vue.openBlock(), vue.createElementBlock("div", {
             key: 0,
             class: vue.normalizeClass(vue.unref(ppNs).e("footer"))
           }, [
@@ -31430,7 +31544,8 @@
               ]),
               _: 1
             }, 8, ["class"])) : vue.createCommentVNode("v-if", true),
-            vue.createVNode(vue.unref(ElButton), {
+            vue.unref(isOk) ? (vue.openBlock(), vue.createBlock(vue.unref(ElButton), {
+              key: 1,
               plain: "",
               size: "small",
               class: vue.normalizeClass(vue.unref(ppNs).e("link-btn")),
@@ -31441,7 +31556,7 @@
                 vue.createTextVNode(vue.toDisplayString(vue.unref(t)("el.datepicker.confirm")), 1)
               ]),
               _: 1
-            }, 8, ["class", "disabled", "onClick"])
+            }, 8, ["class", "disabled", "onClick"])) : vue.createCommentVNode("v-if", true)
           ], 2)) : vue.createCommentVNode("v-if", true)
         ], 2);
       };
@@ -32243,6 +32358,7 @@
         selectType.value = value;
       };
       const commonPicker = vue.ref();
+      const selectingDate = vue.ref();
       const refProps = {
         selectType,
         focus: () => {
@@ -32260,8 +32376,15 @@
         handleClose: () => {
           var _a;
           (_a = commonPicker.value) == null ? void 0 : _a.handleClose();
-        }
+        },
+        selectingDate
       };
+      const getSelectingDate = (val) => {
+        selectingDate.value = val;
+      };
+      vue.provide("getSelectingDate", {
+        getSelectingDate
+      });
       expose(refProps);
       const onModelValueUpdated = (val) => {
         emit(UPDATE_MODEL_EVENT, val);
@@ -33674,7 +33797,7 @@
                               _ctx.showClose ? (vue.openBlock(), vue.createElementBlock("button", {
                                 key: 2,
                                 "aria-label": vue.unref(t)("el.drawer.close"),
-                                class: vue.normalizeClass(vue.unref(ns).e("close-btn")),
+                                class: vue.normalizeClass(["icon-button", vue.unref(ns).e("close-btn")]),
                                 type: "button",
                                 onClick: vue.unref(handleClose)
                               }, [
@@ -36811,7 +36934,7 @@
     underline: {
       type: [Boolean, String],
       values: [true, false, "always", "never", "hover"],
-      default: void 0
+      default: "always"
     },
     disabled: Boolean,
     href: { type: String, default: "" },
@@ -39127,6 +39250,7 @@
       default: "light"
     },
     disabled: Boolean,
+    addItem: Boolean,
     clearable: Boolean,
     filterable: Boolean,
     allowCreate: Boolean,
@@ -39173,10 +39297,8 @@
       type: Boolean,
       default: true
     },
-    preStar: {
-      type: Boolean,
-      default: false
-    },
+    preStar: Boolean,
+    addShowTip: String,
     valueKey: {
       type: String,
       default: "value"
@@ -39196,7 +39318,10 @@
       type: iconPropType,
       default: circle_close_default
     },
-    fitInputWidth: Boolean,
+    fitInputWidth: {
+      type: Boolean,
+      default: true
+    },
     suffixIcon: {
       type: iconPropType,
       default: arrow_down_default
@@ -39215,7 +39340,7 @@
     showArrow: Boolean,
     offset: {
       type: Number,
-      default: 12
+      default: 4
     },
     placement: {
       type: definePropType(String),
@@ -39351,6 +39476,7 @@
       UPDATE_MODEL_EVENT,
       CHANGE_EVENT,
       "remove-tag",
+      "add-item",
       "clear",
       "visible-change",
       "focus",
@@ -39394,6 +39520,9 @@
           }
           return acc;
         }, []);
+      };
+      const handleAddSelect = () => {
+        emit("add-item", API.states.inputValue);
       };
       const manuallyRenderSlots = (vnodes) => {
         const children = flattedChildren(vnodes || []);
@@ -39453,7 +39582,9 @@
         selectedLabel,
         calculatorRef,
         inputStyle,
+        handleAddSelect,
         getLabel,
+        isEmpty,
         getValue,
         getOptions,
         getDisabled,
@@ -39517,7 +39648,10 @@
             }, [
               _ctx.floatLabel ? (vue.openBlock(), vue.createElementBlock("span", {
                 key: 0,
-                class: vue.normalizeClass(["float-label", { "prefix-label": _ctx.$slots.prefix }])
+                class: vue.normalizeClass(["float-label", {
+                  "prefix-label": _ctx.$slots.prefix,
+                  "select-visible": _ctx.dropdownMenuVisible || !_ctx.isEmpty(_ctx.states.inputValue)
+                }])
               }, vue.toDisplayString(_ctx.placeholder), 3)) : vue.createCommentVNode("v-if", true),
               _ctx.$slots.prefix ? (vue.openBlock(), vue.createElementBlock("div", {
                 key: 1,
@@ -39694,7 +39828,7 @@
                     textContent: vue.toDisplayString(_ctx.states.inputValue)
                   }, null, 10, ["textContent"])) : vue.createCommentVNode("v-if", true)
                 ], 2),
-                (_ctx.multiple ? !_ctx.hasModelValue : !_ctx.floatLabel || _ctx.shouldShowPlaceholder && _ctx.hasModelValue) ? (vue.openBlock(), vue.createElementBlock("div", {
+                !_ctx.floatLabel || _ctx.shouldShowPlaceholder && _ctx.hasModelValue ? (vue.openBlock(), vue.createElementBlock("div", {
                   key: 1,
                   class: vue.normalizeClass([
                     _ctx.nsSelect.e("selected-item"),
@@ -39791,8 +39925,12 @@
                 onScroll: _ctx.popupScroll
               }, {
                 default: vue.withCtx(() => [
-                  _ctx.showNewOption ? (vue.openBlock(), vue.createBlock(_component_el_option, {
+                  _ctx.addShowTip && _ctx.filterable && !_ctx.emptyText ? (vue.openBlock(), vue.createElementBlock("div", {
                     key: 0,
+                    class: "select-add-tip"
+                  }, vue.toDisplayString(_ctx.addShowTip), 1)) : vue.createCommentVNode("v-if", true),
+                  _ctx.showNewOption ? (vue.openBlock(), vue.createBlock(_component_el_option, {
+                    key: 1,
                     value: _ctx.states.inputValue,
                     created: true
                   }, null, 8, ["value"])) : vue.createCommentVNode("v-if", true),
@@ -39837,7 +39975,37 @@
                 class: vue.normalizeClass(_ctx.nsSelect.be("dropdown", "empty"))
               }, [
                 vue.renderSlot(_ctx.$slots, "empty", {}, () => [
-                  vue.createElementVNode("span", null, vue.toDisplayString(_ctx.emptyText), 1)
+                  !_ctx.addItem ? (vue.openBlock(), vue.createElementBlock("span", { key: 0 }, vue.toDisplayString(_ctx.emptyText), 1)) : (vue.openBlock(), vue.createElementBlock("div", {
+                    key: 1,
+                    class: "el-select-dropdown__item add-item",
+                    onClick: _ctx.handleAddSelect
+                  }, [
+                    vue.createVNode(_component_el_icon, { color: "#4f566" }, {
+                      default: vue.withCtx(() => [
+                        (vue.openBlock(), vue.createElementBlock("svg", {
+                          width: "12",
+                          height: "12",
+                          viewBox: "0 0 12 12",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }, [
+                          vue.createElementVNode("g", { "clip-path": "url(#clip0_743_39597)" }, [
+                            vue.createElementVNode("path", { d: "M12 5.25H6.75V0H5.25V5.25H0V6.75H5.25V12H6.75V6.75H12V5.25Z" })
+                          ]),
+                          vue.createElementVNode("defs", null, [
+                            vue.createElementVNode("clipPath", { id: "clip0_743_39597" }, [
+                              vue.createElementVNode("rect", {
+                                width: "12",
+                                height: "12",
+                                fill: "white"
+                              })
+                            ])
+                          ])
+                        ]))
+                      ]),
+                      _: 1
+                    }),
+                    vue.createElementVNode("span", { class: "tip" }, vue.toDisplayString(_ctx.states.inputValue), 1)
+                  ], 8, ["onClick"]))
                 ])
               ], 2)) : vue.createCommentVNode("v-if", true),
               _ctx.$slots.footer ? (vue.openBlock(), vue.createElementBlock("div", {
@@ -49207,7 +49375,7 @@
     const dragState = vue.ref();
     const handleMouseDown = (event, column) => {
       var _a, _b;
-      if (!isClient)
+      if (!isClient || !column.resizable)
         return;
       if (column.children && column.children.length > 0)
         return;
@@ -51289,11 +51457,7 @@
         ], 2)), [
           [vue.vShow, !_ctx.isEmpty],
           [_directive_mousewheel, _ctx.handleHeaderFooterMousewheel]
-        ]) : vue.createCommentVNode("v-if", true),
-        _ctx.border || _ctx.isGroup ? (vue.openBlock(), vue.createElementBlock("div", {
-          key: 2,
-          class: vue.normalizeClass(_ctx.ns.e("border-left-patch"))
-        }, null, 2)) : vue.createCommentVNode("v-if", true)
+        ]) : vue.createCommentVNode("v-if", true)
       ], 2),
       vue.withDirectives(vue.createElementVNode("div", {
         ref: "resizeProxy",

@@ -16,6 +16,7 @@ import ClickOutside from '../../../directives/click-outside/index.mjs';
 import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 import { isArray, isObject } from '@vue/shared';
 import { useCalcInputWidth } from '../../../hooks/use-calc-input-width/index.mjs';
+import { isEmpty } from '../../../utils/types.mjs';
 import { flattedChildren } from '../../../utils/vue/vnode.mjs';
 
 const COMPONENT_NAME = "ElSelect";
@@ -38,6 +39,7 @@ const _sfc_main = defineComponent({
     UPDATE_MODEL_EVENT,
     CHANGE_EVENT,
     "remove-tag",
+    "add-item",
     "clear",
     "visible-change",
     "focus",
@@ -81,6 +83,9 @@ const _sfc_main = defineComponent({
         }
         return acc;
       }, []);
+    };
+    const handleAddSelect = () => {
+      emit("add-item", API.states.inputValue);
     };
     const manuallyRenderSlots = (vnodes) => {
       const children = flattedChildren(vnodes || []);
@@ -140,7 +145,9 @@ const _sfc_main = defineComponent({
       selectedLabel,
       calculatorRef,
       inputStyle,
+      handleAddSelect,
       getLabel,
+      isEmpty,
       getValue,
       getOptions,
       getDisabled,
@@ -204,7 +211,10 @@ function _sfc_render(_ctx, _cache) {
           }, [
             _ctx.floatLabel ? (openBlock(), createElementBlock("span", {
               key: 0,
-              class: normalizeClass(["float-label", { "prefix-label": _ctx.$slots.prefix }])
+              class: normalizeClass(["float-label", {
+                "prefix-label": _ctx.$slots.prefix,
+                "select-visible": _ctx.dropdownMenuVisible || !_ctx.isEmpty(_ctx.states.inputValue)
+              }])
             }, toDisplayString(_ctx.placeholder), 3)) : createCommentVNode("v-if", true),
             _ctx.$slots.prefix ? (openBlock(), createElementBlock("div", {
               key: 1,
@@ -381,7 +391,7 @@ function _sfc_render(_ctx, _cache) {
                   textContent: toDisplayString(_ctx.states.inputValue)
                 }, null, 10, ["textContent"])) : createCommentVNode("v-if", true)
               ], 2),
-              (_ctx.multiple ? !_ctx.hasModelValue : !_ctx.floatLabel || _ctx.shouldShowPlaceholder && _ctx.hasModelValue) ? (openBlock(), createElementBlock("div", {
+              !_ctx.floatLabel || _ctx.shouldShowPlaceholder && _ctx.hasModelValue ? (openBlock(), createElementBlock("div", {
                 key: 1,
                 class: normalizeClass([
                   _ctx.nsSelect.e("selected-item"),
@@ -478,8 +488,12 @@ function _sfc_render(_ctx, _cache) {
               onScroll: _ctx.popupScroll
             }, {
               default: withCtx(() => [
-                _ctx.showNewOption ? (openBlock(), createBlock(_component_el_option, {
+                _ctx.addShowTip && _ctx.filterable && !_ctx.emptyText ? (openBlock(), createElementBlock("div", {
                   key: 0,
+                  class: "select-add-tip"
+                }, toDisplayString(_ctx.addShowTip), 1)) : createCommentVNode("v-if", true),
+                _ctx.showNewOption ? (openBlock(), createBlock(_component_el_option, {
+                  key: 1,
                   value: _ctx.states.inputValue,
                   created: true
                 }, null, 8, ["value"])) : createCommentVNode("v-if", true),
@@ -524,7 +538,37 @@ function _sfc_render(_ctx, _cache) {
               class: normalizeClass(_ctx.nsSelect.be("dropdown", "empty"))
             }, [
               renderSlot(_ctx.$slots, "empty", {}, () => [
-                createElementVNode("span", null, toDisplayString(_ctx.emptyText), 1)
+                !_ctx.addItem ? (openBlock(), createElementBlock("span", { key: 0 }, toDisplayString(_ctx.emptyText), 1)) : (openBlock(), createElementBlock("div", {
+                  key: 1,
+                  class: "el-select-dropdown__item add-item",
+                  onClick: _ctx.handleAddSelect
+                }, [
+                  createVNode(_component_el_icon, { color: "#4f566" }, {
+                    default: withCtx(() => [
+                      (openBlock(), createElementBlock("svg", {
+                        width: "12",
+                        height: "12",
+                        viewBox: "0 0 12 12",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }, [
+                        createElementVNode("g", { "clip-path": "url(#clip0_743_39597)" }, [
+                          createElementVNode("path", { d: "M12 5.25H6.75V0H5.25V5.25H0V6.75H5.25V12H6.75V6.75H12V5.25Z" })
+                        ]),
+                        createElementVNode("defs", null, [
+                          createElementVNode("clipPath", { id: "clip0_743_39597" }, [
+                            createElementVNode("rect", {
+                              width: "12",
+                              height: "12",
+                              fill: "white"
+                            })
+                          ])
+                        ])
+                      ]))
+                    ]),
+                    _: 1
+                  }),
+                  createElementVNode("span", { class: "tip" }, toDisplayString(_ctx.states.inputValue), 1)
+                ], 8, ["onClick"]))
               ])
             ], 2)) : createCommentVNode("v-if", true),
             _ctx.$slots.footer ? (openBlock(), createElementBlock("div", {

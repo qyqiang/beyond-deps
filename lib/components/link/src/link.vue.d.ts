@@ -4,7 +4,7 @@ declare function __VLS_template(): {
 };
 declare const __VLS_component: import("vue").DefineComponent<{
     readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "default" | "primary" | "success" | "warning" | "info" | "danger", unknown, undefined, boolean>;
-    readonly underline: import("element-plus/es/utils").EpPropFinalized<readonly [BooleanConstructor, StringConstructor], boolean | "always" | "never" | "hover", unknown, undefined, boolean>;
+    readonly underline: import("element-plus/es/utils").EpPropFinalized<readonly [BooleanConstructor, StringConstructor], boolean | "always" | "never" | "hover", unknown, "always", boolean>;
     readonly disabled: BooleanConstructor;
     readonly href: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly target: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string) | (() => string) | ((new (...args: any[]) => string) | (() => string))[], unknown, unknown, "_self", boolean>;
@@ -18,7 +18,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     click: (evt: MouseEvent) => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "default" | "primary" | "success" | "warning" | "info" | "danger", unknown, undefined, boolean>;
-    readonly underline: import("element-plus/es/utils").EpPropFinalized<readonly [BooleanConstructor, StringConstructor], boolean | "always" | "never" | "hover", unknown, undefined, boolean>;
+    readonly underline: import("element-plus/es/utils").EpPropFinalized<readonly [BooleanConstructor, StringConstructor], boolean | "always" | "never" | "hover", unknown, "always", boolean>;
     readonly disabled: BooleanConstructor;
     readonly href: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly target: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string) | (() => string) | ((new (...args: any[]) => string) | (() => string))[], unknown, unknown, "_self", boolean>;

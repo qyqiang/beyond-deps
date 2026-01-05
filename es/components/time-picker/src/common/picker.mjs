@@ -490,12 +490,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         onHide
       }), {
         default: withCtx(() => [
-          _ctx.$slots.open ? (openBlock(), createElementBlock("span", {
+          _ctx.$slots.open ? (openBlock(), createElementBlock("div", {
             key: 0,
-            onClick: unref(handleFocus)
+            ref_key: "inputRef",
+            ref: inputRef,
+            onClick: handleOpen
           }, [
             renderSlot(_ctx.$slots, "open")
-          ], 8, ["onClick"])) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
+          ], 512)) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
             !unref(isRangeInput) ? (openBlock(), createBlock(unref(ElInput), {
               key: 0,
               id: _ctx.id,
@@ -627,6 +629,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             timeFormat: _ctx.timeFormat,
             unlinkPanels: _ctx.unlinkPanels,
             type: _ctx.type,
+            cycle: _ctx.cycle,
+            settDefaultDate: _ctx.settDefaultDate,
+            cycleType: _ctx.cycleType,
             defaultValue: _ctx.defaultValue,
             showNow: _ctx.showNow,
             showWeekNumber: _ctx.showWeekNumber,

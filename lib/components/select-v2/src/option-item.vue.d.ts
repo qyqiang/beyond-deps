@@ -58,7 +58,7 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     readonly disabled: boolean;
     readonly created: boolean;
-    readonly selected: boolean;
     readonly hovering: boolean;
+    readonly selected: boolean;
 }>;
 export default _default;

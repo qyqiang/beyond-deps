@@ -20,6 +20,6 @@ declare const _default: import("vue").DefineComponent<{}, {
     minWidth: import("vue").Ref<string>;
     popperClass: import("vue").ComputedRef<string>;
     isMultiple: import("vue").ComputedRef<boolean>;
-    isFitInputWidth: import("vue").ComputedRef<boolean>;
+    isFitInputWidth: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>>;
 }, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
 export default _default;

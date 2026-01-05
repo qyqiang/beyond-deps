@@ -1322,6 +1322,7 @@
     "attributes": [
       "model-value",
       "multiple",
+      "add-item",
       "options",
       "[props]",
       "disabled",
@@ -1375,6 +1376,7 @@
       "change",
       "visible-change",
       "remove-tag",
+      "add-item",
       "clear",
       "blur",
       "focus",

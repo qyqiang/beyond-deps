@@ -35,10 +35,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const props = __props;
     const pickerBase = inject(PICKER_BASE_INJECTION_KEY);
     const isDefaultFormat = inject(ROOT_PICKER_IS_DEFAULT_FORMAT_INJECTION_KEY);
-    const { disabledDate, cellClassName, defaultTime, clearable } = pickerBase.props;
+    const { disabledDate, cellClassName, defaultTime, clearable, isFooter, isOk } = pickerBase.props;
     const format = toRef(pickerBase.props, "format");
     const shortcuts = toRef(pickerBase.props, "shortcuts");
     const defaultValue = toRef(pickerBase.props, "defaultValue");
+    const cycle = toRef(pickerBase.props, "cycle");
+    const settDefaultDate = toRef(pickerBase.props, "settDefaultDate");
+    const cycleType = toRef(pickerBase.props, "cycleType");
     const { lang } = useLocale();
     const leftDate = ref(dayjs().locale(lang.value));
     const rightDate = ref(dayjs().locale(lang.value).add(1, unit));
@@ -205,11 +208,17 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
       return emitDayjs;
     };
+    const getSelectingDate = inject("getSelectingDate", {
+      getSelectingDate: void 0
+    });
     const handleRangePick = (val, close = true) => {
       const min_ = val.minDate;
       const max_ = val.maxDate;
       const minDate_ = formatEmit(min_, 0);
       const maxDate_ = formatEmit(max_, 1);
+      if (typeof getSelectingDate.getSelectingDate === "function") {
+        getSelectingDate.getSelectingDate(val);
+      }
       if (maxDate.value === maxDate_ && minDate.value === minDate_) {
         return;
       }
@@ -607,13 +616,16 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 "min-date": unref(minDate),
                 "max-date": unref(maxDate),
                 "range-state": unref(rangeState),
+                cycle: unref(cycle),
+                "sett-default-date": unref(settDefaultDate),
+                "cycle-type": unref(cycleType),
                 "disabled-date": unref(disabledDate),
                 "cell-class-name": unref(cellClassName),
                 "show-week-number": _ctx.showWeekNumber,
                 onChangerange: unref(handleChangeRange),
                 onPick: handleRangePick,
                 onSelect: unref(onSelect)
-              }, null, 8, ["date", "min-date", "max-date", "range-state", "disabled-date", "cell-class-name", "show-week-number", "onChangerange", "onSelect"])) : createCommentVNode("v-if", true),
+              }, null, 8, ["date", "min-date", "max-date", "range-state", "cycle", "sett-default-date", "cycle-type", "disabled-date", "cell-class-name", "show-week-number", "onChangerange", "onSelect"])) : createCommentVNode("v-if", true),
               unref(leftCurrentView) === "year" ? (openBlock(), createBlock(YearTable, {
                 key: 1,
                 ref_key: "leftCurrentViewRef",
@@ -749,13 +761,16 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 "min-date": unref(minDate),
                 "max-date": unref(maxDate),
                 "range-state": unref(rangeState),
+                cycle: unref(cycle),
+                "sett-default-date": unref(settDefaultDate),
+                "cycle-type": unref(cycleType),
                 "disabled-date": unref(disabledDate),
                 "cell-class-name": unref(cellClassName),
                 "show-week-number": _ctx.showWeekNumber,
                 onChangerange: unref(handleChangeRange),
                 onPick: handleRangePick,
                 onSelect: unref(onSelect)
-              }, null, 8, ["date", "min-date", "max-date", "range-state", "disabled-date", "cell-class-name", "show-week-number", "onChangerange", "onSelect"])) : createCommentVNode("v-if", true),
+              }, null, 8, ["date", "min-date", "max-date", "range-state", "cycle", "sett-default-date", "cycle-type", "disabled-date", "cell-class-name", "show-week-number", "onChangerange", "onSelect"])) : createCommentVNode("v-if", true),
               unref(rightCurrentView) === "year" ? (openBlock(), createBlock(YearTable, {
                 key: 1,
                 ref_key: "rightCurrentViewRef",
@@ -779,7 +794,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             ], 2)
           ], 2)
         ], 2),
-        unref(showTime) ? (openBlock(), createElementBlock("div", {
+        unref(showTime) || ["week", "custom"].includes(unref(cycleType)) || unref(isFooter) ? (openBlock(), createElementBlock("div", {
           key: 0,
           class: normalizeClass(unref(ppNs).e("footer"))
         }, [
@@ -795,7 +810,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             ]),
             _: 1
           }, 8, ["class"])) : createCommentVNode("v-if", true),
-          createVNode(unref(ElButton), {
+          unref(isOk) ? (openBlock(), createBlock(unref(ElButton), {
+            key: 1,
             plain: "",
             size: "small",
             class: normalizeClass(unref(ppNs).e("link-btn")),
@@ -806,7 +822,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               createTextVNode(toDisplayString(unref(t)("el.datepicker.confirm")), 1)
             ]),
             _: 1
-          }, 8, ["class", "disabled", "onClick"])
+          }, 8, ["class", "disabled", "onClick"])) : createCommentVNode("v-if", true)
         ], 2)) : createCommentVNode("v-if", true)
       ], 2);
     };

@@ -130,6 +130,8 @@ declare const __VLS_component: import("vue").DefineComponent<{
         __epPropKey: true;
     };
     readonly triggerOnFocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly isHoverSuffix: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly isClear: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly selectWhenUnmatched: BooleanConstructor;
     readonly hideLoading: BooleanConstructor;
     readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -142,6 +144,8 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly highlightFirstItem: BooleanConstructor;
     readonly fitInputWidth: BooleanConstructor;
     readonly loopNavigation: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly minValue: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
+    readonly needNoDataTip: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly inputmode: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown, undefined, boolean>;
     readonly name: StringConstructor;
     readonly ariaLabel: StringConstructor;
@@ -249,6 +253,8 @@ declare const __VLS_component: import("vue").DefineComponent<{
     /** @description fetch suggestions result */
     suggestions: import("vue").Ref<Record<string, any>[]>;
     /** @description triggers when a suggestion is clicked */
+    /** @description empty-tip */
+    emptyTip: import("vue").Ref<string>;
     handleSelect: (item: any) => Promise<void>;
     /** @description handle keyboard enter event */
     handleKeyEnter: () => Promise<void>;
@@ -386,6 +392,8 @@ declare const __VLS_component: import("vue").DefineComponent<{
         __epPropKey: true;
     };
     readonly triggerOnFocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly isHoverSuffix: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly isClear: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly selectWhenUnmatched: BooleanConstructor;
     readonly hideLoading: BooleanConstructor;
     readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -398,6 +406,8 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly highlightFirstItem: BooleanConstructor;
     readonly fitInputWidth: BooleanConstructor;
     readonly loopNavigation: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly minValue: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
+    readonly needNoDataTip: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly inputmode: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown, undefined, boolean>;
     readonly name: StringConstructor;
     readonly ariaLabel: StringConstructor;
@@ -519,6 +529,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly inputStyle: StyleValue;
     readonly rows: number;
     readonly inputmode: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown>;
+    readonly isHoverSuffix: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly clearable: boolean;
     readonly showPassword: boolean;
     readonly showWordLimit: boolean;
@@ -527,7 +538,10 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly debounce: number;
     readonly fetchSuggestions: import("./autocomplete").AutocompleteFetchSuggestions;
     readonly triggerOnFocus: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly isClear: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly loopNavigation: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly minValue: number;
+    readonly needNoDataTip: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly selectWhenUnmatched: boolean;
     readonly hideLoading: boolean;
     readonly highlightFirstItem: boolean;

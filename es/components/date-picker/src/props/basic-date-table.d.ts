@@ -9,6 +9,9 @@ export declare const basicDateTableProps: {
     };
     readonly showWeekNumber: BooleanConstructor;
     readonly selectionMode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, string, unknown, string, boolean>;
+    readonly cycle: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
+    readonly settDefaultDate: StringConstructor;
+    readonly cycleType: StringConstructor;
     readonly disabledDate: {
         readonly type: import("vue").PropType<import("./shared").DisabledDateType>;
         readonly required: false;

@@ -16354,6 +16354,7 @@ const _sfc_main$2j = /* @__PURE__ */ defineComponent({
 var Tooltip = /* @__PURE__ */ _export_sfc(_sfc_main$2j, [["__file", "tooltip.vue"]]);
 
 const inputProps = buildProps({
+  isHoverSuffix: Boolean,
   id: {
     type: String,
     default: void 0
@@ -16622,8 +16623,9 @@ const _sfc_main$2i = /* @__PURE__ */ defineComponent({
       return (_a = elForm == null ? void 0 : elForm.statusIcon) != null ? _a : false;
     });
     const validateState = computed(() => (elFormItem == null ? void 0 : elFormItem.validateState) || "");
-    const validateMsg = computed(() => (elFormItem == null ? void 0 : elFormItem.error) || "");
+    const validateMsg = computed(() => (elFormItem == null ? void 0 : elFormItem.validateMessage) || "");
     const validateIcon = computed(() => validateState.value && ValidateComponentsMap[validateState.value]);
+    const validateError = computed(() => validateState.value === "error");
     const containerStyle = computed(() => [
       rawAttrs.style
     ]);
@@ -16908,9 +16910,12 @@ const _sfc_main$2i = /* @__PURE__ */ defineComponent({
               onChange: handleChange,
               onKeydown: handleKeydown
             }), null, 16, ["id", "name", "minlength", "maxlength", "type", "disabled", "readonly", "autocomplete", "tabindex", "aria-label", "placeholder", "form", "autofocus", "role", "inputmode", "onCompositionstart", "onCompositionupdate", "onCompositionend"]),
-            _ctx.floatLabel ? (openBlock(), createElementBlock("span", {
+            _ctx.floatLabel && _ctx.placeholder ? (openBlock(), createElementBlock("span", {
               key: 1,
-              class: normalizeClass(["float-label", { "prefix-label": _ctx.$slots.prefix || _ctx.prefixIcon }])
+              class: normalizeClass(["float-label", {
+                "prefix-label": _ctx.$slots.prefix || _ctx.prefixIcon,
+                "has-value": !unref(isEmpty)(_ctx.modelValue)
+              }])
             }, toDisplayString(_ctx.placeholder), 3)) : createCommentVNode("v-if", true),
             createCommentVNode(" suffix slot "),
             unref(suffixVisible) ? (openBlock(), createElementBlock("span", {
@@ -16939,9 +16944,9 @@ const _sfc_main$2i = /* @__PURE__ */ defineComponent({
                   _: 1
                 }, 8, ["class", "onMousedown"])) : createCommentVNode("v-if", true),
                 (!unref(showClear) || !unref(showPwdVisible) || !unref(isWordLimitVisible)) && !unref(validateState) ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-                  renderSlot(_ctx.$slots, "suffix"),
+                  _ctx.isHoverSuffix && hovering.value || !_ctx.isHoverSuffix ? renderSlot(_ctx.$slots, "suffix", { key: 0 }) : createCommentVNode("v-if", true),
                   _ctx.suffixIcon ? (openBlock(), createBlock(unref(ElIcon), {
-                    key: 0,
+                    key: 1,
                     class: normalizeClass(unref(nsInput).e("icon"))
                   }, {
                     default: withCtx(() => [
@@ -17010,7 +17015,7 @@ const _sfc_main$2i = /* @__PURE__ */ defineComponent({
                 }, null, 8, ["class", "innerHTML"])) : createCommentVNode("v-if", true)
               ], 2)
             ], 2)) : createCommentVNode("v-if", true),
-            unref(validateState) ? (openBlock(), createBlock(Tooltip, {
+            unref(validateError) ? (openBlock(), createBlock(Tooltip, {
               key: 3,
               content: unref(validateMsg),
               effect: "light",
@@ -17094,7 +17099,7 @@ const _sfc_main$2i = /* @__PURE__ */ defineComponent({
           }, [
             renderSlot(_ctx.$slots, "textareaSuffix")
           ])) : createCommentVNode("v-if", true),
-          unref(validateState) ? (openBlock(), createBlock(Tooltip, {
+          unref(validateError) ? (openBlock(), createBlock(Tooltip, {
             key: 3,
             content: unref(validateMsg),
             effect: "light",
@@ -17124,9 +17129,9 @@ const _sfc_main$2i = /* @__PURE__ */ defineComponent({
             ]),
             _: 1
           }, 8, ["content"])) : createCommentVNode("v-if", true),
-          _ctx.floatLabel ? (openBlock(), createElementBlock("span", {
+          _ctx.floatLabel && _ctx.placeholder ? (openBlock(), createElementBlock("span", {
             key: 4,
-            class: normalizeClass(["float-label", { "has-value": !!_ctx.modelValue }]),
+            class: normalizeClass(["float-label", { "has-value": !unref(isEmpty)(_ctx.modelValue) }]),
             onClick: handleTextareaFocus
           }, toDisplayString(_ctx.placeholder), 3)) : createCommentVNode("v-if", true),
           unref(isWordLimitVisible) ? (openBlock(), createElementBlock("span", {
@@ -17313,7 +17318,7 @@ const _sfc_main$2h = /* @__PURE__ */ defineComponent({
               onMousedown: clickThumbHandler
             }, null, 38)
           ], 42, ["onClick"]), [
-            [vShow, _ctx.always || visible.value]
+            [vShow, _ctx.always || visible.value || unref(bar).key === "horizontal"]
           ])
         ]),
         _: 1
@@ -17706,6 +17711,14 @@ const autocompleteProps = buildProps({
     type: Boolean,
     default: true
   },
+  isHoverSuffix: {
+    type: Boolean,
+    default: false
+  },
+  isClear: {
+    type: Boolean,
+    default: true
+  },
   selectWhenUnmatched: Boolean,
   hideLoading: Boolean,
   teleported: useTooltipContentProps.teleported,
@@ -17715,6 +17728,14 @@ const autocompleteProps = buildProps({
   loopNavigation: {
     type: Boolean,
     default: true
+  },
+  minValue: {
+    type: Number,
+    default: 0
+  },
+  needNoDataTip: {
+    type: Boolean,
+    default: false
   }
 });
 const autocompleteEmits = {
@@ -17746,6 +17767,7 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
     const regionRef = ref();
     const popperRef = ref();
     const listboxRef = ref();
+    const isSelect = ref(false);
     let readonly = false;
     let ignoreFocusEvent = false;
     const suggestions = ref([]);
@@ -17754,10 +17776,11 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
     const activated = ref(false);
     const suggestionDisabled = ref(false);
     const loading = ref(false);
+    const emptyTip = ref("No result match");
     const listboxId = useId();
     const styles = computed(() => rawAttrs.style);
     const suggestionVisible = computed(() => {
-      const isValidData = suggestions.value.length > 0;
+      const isValidData = props.minValue > 0 || props.needNoDataTip ? isArray$1(suggestions.value) : suggestions.value.length > 0;
       return (isValidData || loading.value) && activated.value;
     });
     const suggestionLoading = computed(() => !props.hideLoading && loading.value);
@@ -17778,6 +17801,7 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
     const getData = async (queryString) => {
       if (suggestionDisabled.value)
         return;
+      loading.value = true;
       const cb = (suggestionList) => {
         loading.value = false;
         if (suggestionDisabled.value)
@@ -17785,11 +17809,13 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
         if (isArray$1(suggestionList)) {
           suggestions.value = suggestionList;
           highlightedIndex.value = props.highlightFirstItem ? 0 : -1;
+          if (suggestionList.length === 0) {
+            emptyTip.value = `No result match`;
+          }
         } else {
           throwError(COMPONENT_NAME$i, "autocomplete suggestions must be an array");
         }
       };
-      loading.value = true;
       if (isArray$1(props.fetchSuggestions)) {
         cb(props.fetchSuggestions);
       } else {
@@ -17804,7 +17830,15 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
       const valuePresented = !!value;
       emit(INPUT_EVENT, value);
       emit(UPDATE_MODEL_EVENT, value);
+      emptyTip.value = "";
+      if (value.length < props.minValue) {
+        emptyTip.value = `Type ${props.minValue} characters to start search.`;
+        suggestionDisabled.value = true;
+        suggestions.value = [];
+        return;
+      }
       suggestionDisabled.value = false;
+      isSelect.value = false;
       activated.value || (activated.value = valuePresented);
       if (!props.triggerOnFocus && !value) {
         suggestionDisabled.value = true;
@@ -17825,13 +17859,12 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
       emit(CHANGE_EVENT, value);
     };
     const handleFocus = (evt) => {
-      var _a;
+      const str = String(props.modelValue) ? String(props.modelValue) : "";
       if (!ignoreFocusEvent) {
         activated.value = true;
         emit("focus", evt);
-        const queryString = (_a = props.modelValue) != null ? _a : "";
-        if (props.triggerOnFocus && !readonly) {
-          debouncedGetData(String(queryString));
+        if (props.triggerOnFocus && !readonly && str.length >= props.minValue) {
+          debouncedGetData(str);
         }
       } else {
         ignoreFocusEvent = false;
@@ -17843,6 +17876,9 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
         if ((_a = popperRef.value) == null ? void 0 : _a.isFocusInsideContent()) {
           ignoreFocusEvent = true;
           return;
+        }
+        if (!isSelect.value && props.isClear) {
+          emit(UPDATE_MODEL_EVENT, "");
         }
         activated.value && close();
         emit("blur", evt);
@@ -17859,7 +17895,7 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
         return;
       }
       if (suggestionVisible.value && highlightedIndex.value >= 0 && highlightedIndex.value < suggestions.value.length) {
-        handleSelect(suggestions.value[highlightedIndex.value]);
+        await handleSelect(suggestions.value[highlightedIndex.value]);
       } else {
         if (props.selectWhenUnmatched) {
           emit("select", { value: props.modelValue });
@@ -17893,6 +17929,7 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
       emit(UPDATE_MODEL_EVENT, item[props.valueKey]);
       emit("select", item);
       suggestions.value = [];
+      isSelect.value = true;
       highlightedIndex.value = -1;
     };
     const highlight = (index) => {
@@ -17998,6 +18035,7 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
       inputRef,
       popperRef,
       suggestions,
+      emptyTip,
       handleSelect,
       handleKeyEnter,
       focus,
@@ -18019,6 +18057,16 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
         "append-to": _ctx.appendTo,
         "gpu-acceleration": false,
         pure: "",
+        "popper-options": {
+          modifiers: [
+            {
+              name: "offset",
+              options: {
+                offset: [0, 4]
+              }
+            }
+          ]
+        },
         "manual-mode": "",
         effect: "light",
         trigger: "click",
@@ -18066,20 +18114,25 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
                       _: 1
                     }, 8, ["class"])
                   ])
-                ])) : (openBlock(true), createElementBlock(Fragment, { key: 1 }, renderList(suggestions.value, (item, index) => {
-                  return openBlock(), createElementBlock("li", {
-                    id: `${unref(listboxId)}-item-${index}`,
-                    key: index,
-                    class: normalizeClass({ highlighted: highlightedIndex.value === index }),
-                    role: "option",
-                    "aria-selected": highlightedIndex.value === index,
-                    onClick: ($event) => handleSelect(item)
-                  }, [
-                    renderSlot(_ctx.$slots, "default", { item }, () => [
-                      createTextVNode(toDisplayString(item[_ctx.valueKey]), 1)
-                    ])
-                  ], 10, ["id", "aria-selected", "onClick"]);
-                }), 128))
+                ])) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
+                  suggestions.value.length > 0 ? (openBlock(true), createElementBlock(Fragment, { key: 0 }, renderList(suggestions.value, (item, index) => {
+                    return openBlock(), createElementBlock("li", {
+                      id: `${unref(listboxId)}-item-${index}`,
+                      key: index,
+                      class: normalizeClass({ highlighted: highlightedIndex.value === index }),
+                      role: "option",
+                      "aria-selected": highlightedIndex.value === index,
+                      onClick: ($event) => handleSelect(item)
+                    }, [
+                      renderSlot(_ctx.$slots, "default", { item }, () => [
+                        createTextVNode(toDisplayString(item[_ctx.valueKey]), 1)
+                      ])
+                    ], 10, ["id", "aria-selected", "onClick"]);
+                  }), 128)) : (openBlock(), createElementBlock("li", {
+                    key: 1,
+                    class: "no-data"
+                  }, toDisplayString(emptyTip.value), 1))
+                ], 64))
               ]),
               _: 3
             }, 8, ["id", "wrap-class", "view-class"]),
@@ -18106,7 +18159,8 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
           }, [
             createVNode(unref(ElInput), mergeProps({
               ref_key: "inputRef",
-              ref: inputRef
+              ref: inputRef,
+              "is-hover-suffix": _ctx.isHoverSuffix
             }, mergeProps(unref(passInputProps), _ctx.$attrs), {
               "model-value": _ctx.modelValue,
               "pre-star": _ctx.preStar,
@@ -18145,7 +18199,7 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
                   renderSlot(_ctx.$slots, "suffix")
                 ])
               } : void 0
-            ]), 1040, ["model-value", "pre-star", "disabled"])
+            ]), 1040, ["is-hover-suffix", "model-value", "pre-star", "disabled"])
           ], 14, ["aria-expanded", "aria-owns"])
         ]),
         _: 3
@@ -20324,6 +20378,20 @@ const timePickerDefaultProps = buildProps({
   name: {
     type: definePropType([Array, String])
   },
+  cycle: {
+    type: Number,
+    default: 0
+  },
+  settDefaultDate: String,
+  cycleType: String,
+  isOk: {
+    type: Boolean,
+    default: true
+  },
+  isFooter: {
+    type: Boolean,
+    default: false
+  },
   popperClass: {
     type: String,
     default: ""
@@ -21019,12 +21087,14 @@ const _sfc_main$25 = /* @__PURE__ */ defineComponent({
         onHide
       }), {
         default: withCtx(() => [
-          _ctx.$slots.open ? (openBlock(), createElementBlock("span", {
+          _ctx.$slots.open ? (openBlock(), createElementBlock("div", {
             key: 0,
-            onClick: unref(handleFocus)
+            ref_key: "inputRef",
+            ref: inputRef,
+            onClick: handleOpen
           }, [
             renderSlot(_ctx.$slots, "open")
-          ], 8, ["onClick"])) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
+          ], 512)) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
             !unref(isRangeInput) ? (openBlock(), createBlock(unref(ElInput), {
               key: 0,
               id: _ctx.id,
@@ -21156,6 +21226,9 @@ const _sfc_main$25 = /* @__PURE__ */ defineComponent({
             timeFormat: _ctx.timeFormat,
             unlinkPanels: _ctx.unlinkPanels,
             type: _ctx.type,
+            cycle: _ctx.cycle,
+            settDefaultDate: _ctx.settDefaultDate,
+            cycleType: _ctx.cycleType,
             defaultValue: _ctx.defaultValue,
             showNow: _ctx.showNow,
             showWeekNumber: _ctx.showWeekNumber,
@@ -28605,6 +28678,12 @@ const selectionModes = [
   "range"
 ];
 const datePickerSharedProps = buildProps({
+  cycle: {
+    type: Number,
+    default: 0
+  },
+  settDefaultDate: String,
+  cycleType: String,
   disabledDate: {
     type: definePropType(Function)
   },
@@ -28986,8 +29065,28 @@ const useBasicDateTable = (props, emit) => {
   };
   const handleRangePick = (newDate) => {
     if (!props.rangeState.selecting || !props.minDate) {
-      emit("pick", { minDate: newDate, maxDate: null });
-      emit("select", true);
+      if (props.cycleType === "week") {
+        const offsetWeek = newDate.day();
+        newDate = newDate.subtract(offsetWeek, "days");
+        const maxDate = newDate.add(props.cycle - 1, "days");
+        emit("pick", { minDate: newDate, maxDate }, false);
+        emit("select", false);
+      } else if (props.cycleType === "custom" && props.settDefaultDate) {
+        const defaultDate = dayjs(props.settDefaultDate);
+        const defaultDay = defaultDate.unix();
+        const newDay = newDate.unix();
+        const limitDay = (newDay - defaultDay) / (60 * 60 * 24);
+        const flag = limitDay > 0;
+        const v1 = limitDay % (props.cycle * 7);
+        const date = newDate.add(flag ? props.cycle * 7 - Math.abs(v1) : Math.abs(v1), "days");
+        const v3 = v1 !== 0 ? date.subtract(props.cycle * 7, "days") : newDate;
+        const maxDate = v3.add(props.cycle * 7 - 1, "days");
+        emit("pick", { minDate: v3, maxDate }, false);
+        emit("select", false);
+      } else {
+        emit("pick", { minDate: newDate, maxDate: null });
+        emit("select", true);
+      }
     } else {
       if (newDate >= props.minDate) {
         emit("pick", { minDate: props.minDate, maxDate: newDate });
@@ -29327,7 +29426,7 @@ const _sfc_main$1v = /* @__PURE__ */ defineComponent({
       const today = /* @__PURE__ */ new Date();
       const month = cell.text;
       style.disabled = props.disabledDate ? datesInMonth(props.date, year, month, lang.value).every(props.disabledDate) : false;
-      style.current = castArray(props.parsedValue).findIndex((date) => dayjs.isDayjs(date) && date.year() === year && date.month() === month) >= 0;
+      style.current = castArray(props.parsedValue).some((date) => dayjs.isDayjs(date) && date.year() === year && date.month() === month);
       style.today = today.getFullYear() === year && today.getMonth() === month;
       if (cell.inRange) {
         style["in-range"] = true;
@@ -30666,10 +30765,13 @@ const _sfc_main$1s = /* @__PURE__ */ defineComponent({
     const props = __props;
     const pickerBase = inject(PICKER_BASE_INJECTION_KEY);
     const isDefaultFormat = inject(ROOT_PICKER_IS_DEFAULT_FORMAT_INJECTION_KEY);
-    const { disabledDate, cellClassName, defaultTime, clearable } = pickerBase.props;
+    const { disabledDate, cellClassName, defaultTime, clearable, isFooter, isOk } = pickerBase.props;
     const format = toRef(pickerBase.props, "format");
     const shortcuts = toRef(pickerBase.props, "shortcuts");
     const defaultValue = toRef(pickerBase.props, "defaultValue");
+    const cycle = toRef(pickerBase.props, "cycle");
+    const settDefaultDate = toRef(pickerBase.props, "settDefaultDate");
+    const cycleType = toRef(pickerBase.props, "cycleType");
     const { lang } = useLocale();
     const leftDate = ref(dayjs().locale(lang.value));
     const rightDate = ref(dayjs().locale(lang.value).add(1, unit$2));
@@ -30836,11 +30938,17 @@ const _sfc_main$1s = /* @__PURE__ */ defineComponent({
       }
       return emitDayjs;
     };
+    const getSelectingDate = inject("getSelectingDate", {
+      getSelectingDate: void 0
+    });
     const handleRangePick = (val, close = true) => {
       const min_ = val.minDate;
       const max_ = val.maxDate;
       const minDate_ = formatEmit(min_, 0);
       const maxDate_ = formatEmit(max_, 1);
+      if (typeof getSelectingDate.getSelectingDate === "function") {
+        getSelectingDate.getSelectingDate(val);
+      }
       if (maxDate.value === maxDate_ && minDate.value === minDate_) {
         return;
       }
@@ -31238,13 +31346,16 @@ const _sfc_main$1s = /* @__PURE__ */ defineComponent({
                 "min-date": unref(minDate),
                 "max-date": unref(maxDate),
                 "range-state": unref(rangeState),
+                cycle: unref(cycle),
+                "sett-default-date": unref(settDefaultDate),
+                "cycle-type": unref(cycleType),
                 "disabled-date": unref(disabledDate),
                 "cell-class-name": unref(cellClassName),
                 "show-week-number": _ctx.showWeekNumber,
                 onChangerange: unref(handleChangeRange),
                 onPick: handleRangePick,
                 onSelect: unref(onSelect)
-              }, null, 8, ["date", "min-date", "max-date", "range-state", "disabled-date", "cell-class-name", "show-week-number", "onChangerange", "onSelect"])) : createCommentVNode("v-if", true),
+              }, null, 8, ["date", "min-date", "max-date", "range-state", "cycle", "sett-default-date", "cycle-type", "disabled-date", "cell-class-name", "show-week-number", "onChangerange", "onSelect"])) : createCommentVNode("v-if", true),
               unref(leftCurrentView) === "year" ? (openBlock(), createBlock(YearTable, {
                 key: 1,
                 ref_key: "leftCurrentViewRef",
@@ -31380,13 +31491,16 @@ const _sfc_main$1s = /* @__PURE__ */ defineComponent({
                 "min-date": unref(minDate),
                 "max-date": unref(maxDate),
                 "range-state": unref(rangeState),
+                cycle: unref(cycle),
+                "sett-default-date": unref(settDefaultDate),
+                "cycle-type": unref(cycleType),
                 "disabled-date": unref(disabledDate),
                 "cell-class-name": unref(cellClassName),
                 "show-week-number": _ctx.showWeekNumber,
                 onChangerange: unref(handleChangeRange),
                 onPick: handleRangePick,
                 onSelect: unref(onSelect)
-              }, null, 8, ["date", "min-date", "max-date", "range-state", "disabled-date", "cell-class-name", "show-week-number", "onChangerange", "onSelect"])) : createCommentVNode("v-if", true),
+              }, null, 8, ["date", "min-date", "max-date", "range-state", "cycle", "sett-default-date", "cycle-type", "disabled-date", "cell-class-name", "show-week-number", "onChangerange", "onSelect"])) : createCommentVNode("v-if", true),
               unref(rightCurrentView) === "year" ? (openBlock(), createBlock(YearTable, {
                 key: 1,
                 ref_key: "rightCurrentViewRef",
@@ -31410,7 +31524,7 @@ const _sfc_main$1s = /* @__PURE__ */ defineComponent({
             ], 2)
           ], 2)
         ], 2),
-        unref(showTime) ? (openBlock(), createElementBlock("div", {
+        unref(showTime) || ["week", "custom"].includes(unref(cycleType)) || unref(isFooter) ? (openBlock(), createElementBlock("div", {
           key: 0,
           class: normalizeClass(unref(ppNs).e("footer"))
         }, [
@@ -31426,7 +31540,8 @@ const _sfc_main$1s = /* @__PURE__ */ defineComponent({
             ]),
             _: 1
           }, 8, ["class"])) : createCommentVNode("v-if", true),
-          createVNode(unref(ElButton), {
+          unref(isOk) ? (openBlock(), createBlock(unref(ElButton), {
+            key: 1,
             plain: "",
             size: "small",
             class: normalizeClass(unref(ppNs).e("link-btn")),
@@ -31437,7 +31552,7 @@ const _sfc_main$1s = /* @__PURE__ */ defineComponent({
               createTextVNode(toDisplayString(unref(t)("el.datepicker.confirm")), 1)
             ]),
             _: 1
-          }, 8, ["class", "disabled", "onClick"])
+          }, 8, ["class", "disabled", "onClick"])) : createCommentVNode("v-if", true)
         ], 2)) : createCommentVNode("v-if", true)
       ], 2);
     };
@@ -32239,6 +32354,7 @@ var DatePicker = defineComponent({
       selectType.value = value;
     };
     const commonPicker = ref();
+    const selectingDate = ref();
     const refProps = {
       selectType,
       focus: () => {
@@ -32256,8 +32372,15 @@ var DatePicker = defineComponent({
       handleClose: () => {
         var _a;
         (_a = commonPicker.value) == null ? void 0 : _a.handleClose();
-      }
+      },
+      selectingDate
     };
+    const getSelectingDate = (val) => {
+      selectingDate.value = val;
+    };
+    provide("getSelectingDate", {
+      getSelectingDate
+    });
     expose(refProps);
     const onModelValueUpdated = (val) => {
       emit(UPDATE_MODEL_EVENT, val);
@@ -33670,7 +33793,7 @@ const _sfc_main$1k = /* @__PURE__ */ defineComponent({
                             _ctx.showClose ? (openBlock(), createElementBlock("button", {
                               key: 2,
                               "aria-label": unref(t)("el.drawer.close"),
-                              class: normalizeClass(unref(ns).e("close-btn")),
+                              class: normalizeClass(["icon-button", unref(ns).e("close-btn")]),
                               type: "button",
                               onClick: unref(handleClose)
                             }, [
@@ -36807,7 +36930,7 @@ const linkProps = buildProps({
   underline: {
     type: [Boolean, String],
     values: [true, false, "always", "never", "hover"],
-    default: void 0
+    default: "always"
   },
   disabled: Boolean,
   href: { type: String, default: "" },
@@ -39123,6 +39246,7 @@ const selectProps = buildProps({
     default: "light"
   },
   disabled: Boolean,
+  addItem: Boolean,
   clearable: Boolean,
   filterable: Boolean,
   allowCreate: Boolean,
@@ -39169,10 +39293,8 @@ const selectProps = buildProps({
     type: Boolean,
     default: true
   },
-  preStar: {
-    type: Boolean,
-    default: false
-  },
+  preStar: Boolean,
+  addShowTip: String,
   valueKey: {
     type: String,
     default: "value"
@@ -39192,7 +39314,10 @@ const selectProps = buildProps({
     type: iconPropType,
     default: circle_close_default
   },
-  fitInputWidth: Boolean,
+  fitInputWidth: {
+    type: Boolean,
+    default: true
+  },
   suffixIcon: {
     type: iconPropType,
     default: arrow_down_default
@@ -39211,7 +39336,7 @@ const selectProps = buildProps({
   showArrow: Boolean,
   offset: {
     type: Number,
-    default: 12
+    default: 4
   },
   placement: {
     type: definePropType(String),
@@ -39347,6 +39472,7 @@ const _sfc_main$W = defineComponent({
     UPDATE_MODEL_EVENT,
     CHANGE_EVENT,
     "remove-tag",
+    "add-item",
     "clear",
     "visible-change",
     "focus",
@@ -39390,6 +39516,9 @@ const _sfc_main$W = defineComponent({
         }
         return acc;
       }, []);
+    };
+    const handleAddSelect = () => {
+      emit("add-item", API.states.inputValue);
     };
     const manuallyRenderSlots = (vnodes) => {
       const children = flattedChildren(vnodes || []);
@@ -39449,7 +39578,9 @@ const _sfc_main$W = defineComponent({
       selectedLabel,
       calculatorRef,
       inputStyle,
+      handleAddSelect,
       getLabel,
+      isEmpty,
       getValue,
       getOptions,
       getDisabled,
@@ -39513,7 +39644,10 @@ function _sfc_render$9(_ctx, _cache) {
           }, [
             _ctx.floatLabel ? (openBlock(), createElementBlock("span", {
               key: 0,
-              class: normalizeClass(["float-label", { "prefix-label": _ctx.$slots.prefix }])
+              class: normalizeClass(["float-label", {
+                "prefix-label": _ctx.$slots.prefix,
+                "select-visible": _ctx.dropdownMenuVisible || !_ctx.isEmpty(_ctx.states.inputValue)
+              }])
             }, toDisplayString(_ctx.placeholder), 3)) : createCommentVNode("v-if", true),
             _ctx.$slots.prefix ? (openBlock(), createElementBlock("div", {
               key: 1,
@@ -39690,7 +39824,7 @@ function _sfc_render$9(_ctx, _cache) {
                   textContent: toDisplayString(_ctx.states.inputValue)
                 }, null, 10, ["textContent"])) : createCommentVNode("v-if", true)
               ], 2),
-              (_ctx.multiple ? !_ctx.hasModelValue : !_ctx.floatLabel || _ctx.shouldShowPlaceholder && _ctx.hasModelValue) ? (openBlock(), createElementBlock("div", {
+              !_ctx.floatLabel || _ctx.shouldShowPlaceholder && _ctx.hasModelValue ? (openBlock(), createElementBlock("div", {
                 key: 1,
                 class: normalizeClass([
                   _ctx.nsSelect.e("selected-item"),
@@ -39787,8 +39921,12 @@ function _sfc_render$9(_ctx, _cache) {
               onScroll: _ctx.popupScroll
             }, {
               default: withCtx(() => [
-                _ctx.showNewOption ? (openBlock(), createBlock(_component_el_option, {
+                _ctx.addShowTip && _ctx.filterable && !_ctx.emptyText ? (openBlock(), createElementBlock("div", {
                   key: 0,
+                  class: "select-add-tip"
+                }, toDisplayString(_ctx.addShowTip), 1)) : createCommentVNode("v-if", true),
+                _ctx.showNewOption ? (openBlock(), createBlock(_component_el_option, {
+                  key: 1,
                   value: _ctx.states.inputValue,
                   created: true
                 }, null, 8, ["value"])) : createCommentVNode("v-if", true),
@@ -39833,7 +39971,37 @@ function _sfc_render$9(_ctx, _cache) {
               class: normalizeClass(_ctx.nsSelect.be("dropdown", "empty"))
             }, [
               renderSlot(_ctx.$slots, "empty", {}, () => [
-                createElementVNode("span", null, toDisplayString(_ctx.emptyText), 1)
+                !_ctx.addItem ? (openBlock(), createElementBlock("span", { key: 0 }, toDisplayString(_ctx.emptyText), 1)) : (openBlock(), createElementBlock("div", {
+                  key: 1,
+                  class: "el-select-dropdown__item add-item",
+                  onClick: _ctx.handleAddSelect
+                }, [
+                  createVNode(_component_el_icon, { color: "#4f566" }, {
+                    default: withCtx(() => [
+                      (openBlock(), createElementBlock("svg", {
+                        width: "12",
+                        height: "12",
+                        viewBox: "0 0 12 12",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }, [
+                        createElementVNode("g", { "clip-path": "url(#clip0_743_39597)" }, [
+                          createElementVNode("path", { d: "M12 5.25H6.75V0H5.25V5.25H0V6.75H5.25V12H6.75V6.75H12V5.25Z" })
+                        ]),
+                        createElementVNode("defs", null, [
+                          createElementVNode("clipPath", { id: "clip0_743_39597" }, [
+                            createElementVNode("rect", {
+                              width: "12",
+                              height: "12",
+                              fill: "white"
+                            })
+                          ])
+                        ])
+                      ]))
+                    ]),
+                    _: 1
+                  }),
+                  createElementVNode("span", { class: "tip" }, toDisplayString(_ctx.states.inputValue), 1)
+                ], 8, ["onClick"]))
               ])
             ], 2)) : createCommentVNode("v-if", true),
             _ctx.$slots.footer ? (openBlock(), createElementBlock("div", {
@@ -49203,7 +49371,7 @@ function useEvent(props, emit) {
   const dragState = ref();
   const handleMouseDown = (event, column) => {
     var _a, _b;
-    if (!isClient)
+    if (!isClient || !column.resizable)
       return;
     if (column.children && column.children.length > 0)
       return;
@@ -51285,11 +51453,7 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
       ], 2)), [
         [vShow, !_ctx.isEmpty],
         [_directive_mousewheel, _ctx.handleHeaderFooterMousewheel]
-      ]) : createCommentVNode("v-if", true),
-      _ctx.border || _ctx.isGroup ? (openBlock(), createElementBlock("div", {
-        key: 2,
-        class: normalizeClass(_ctx.ns.e("border-left-patch"))
-      }, null, 2)) : createCommentVNode("v-if", true)
+      ]) : createCommentVNode("v-if", true)
     ], 2),
     withDirectives(createElementVNode("div", {
       ref: "resizeProxy",

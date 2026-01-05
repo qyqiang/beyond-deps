@@ -1,6 +1,9 @@
 import type { ExtractPropTypes, __ExtractPublicPropTypes } from 'vue';
 export declare const basicMonthTableProps: {
     selectionMode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, string, unknown, string, boolean>;
+    cycle: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
+    settDefaultDate: StringConstructor;
+    cycleType: StringConstructor;
     disabledDate: {
         readonly type: import("vue").PropType<import("./shared").DisabledDateType>;
         readonly required: false;

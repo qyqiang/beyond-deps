@@ -54,6 +54,7 @@ var DatePicker = defineComponent({
       selectType.value = value;
     };
     const commonPicker = ref();
+    const selectingDate = ref();
     const refProps = {
       selectType,
       focus: () => {
@@ -71,8 +72,15 @@ var DatePicker = defineComponent({
       handleClose: () => {
         var _a;
         (_a = commonPicker.value) == null ? void 0 : _a.handleClose();
-      }
+      },
+      selectingDate
     };
+    const getSelectingDate = (val) => {
+      selectingDate.value = val;
+    };
+    provide("getSelectingDate", {
+      getSelectingDate
+    });
     expose(refProps);
     const onModelValueUpdated = (val) => {
       emit(UPDATE_MODEL_EVENT, val);

@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
-import { isEmpty } from '../../../utils/types.mjs';
 import { isArray, isDate } from '@vue/shared';
+import { isEmpty } from '../../../utils/types.mjs';
 
 const buildTimeList = (value, bound) => {
   return [

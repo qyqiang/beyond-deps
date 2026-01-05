@@ -9746,6 +9746,15 @@
               ]
             },
             {
+              "name": "add-item",
+              "description": "whether Select need to add new item",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
               "name": "multiple",
               "description": "whether multiple-select is activated",
               "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
@@ -10268,6 +10277,11 @@
           ],
           "js": {
             "events": [
+              {
+                "name": "add-item",
+                "description": "triggers when select add new item",
+                "doc-url": "https://element-plus.org/en-US/component/select.html#select-events"
+              },
               {
                 "name": "change",
                 "description": "triggers when the selected value changes",

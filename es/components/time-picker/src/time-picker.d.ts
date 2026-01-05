@@ -58,6 +58,11 @@ declare const _default: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
+    cycle: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
+    settDefaultDate: StringConstructor;
+    cycleType: StringConstructor;
+    isOk: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    isFooter: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     format: StringConstructor;
     valueFormat: StringConstructor;
@@ -159,6 +164,11 @@ declare const _default: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
+    cycle: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
+    settDefaultDate: StringConstructor;
+    cycleType: StringConstructor;
+    isOk: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    isFooter: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     format: StringConstructor;
     valueFormat: StringConstructor;
@@ -218,6 +228,9 @@ declare const _default: import("vue").DefineComponent<{
     validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     automaticDropdown: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    cycle: number;
+    isOk: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    isFooter: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     editable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     rangeSeparator: string;
     shortcuts: unknown[];

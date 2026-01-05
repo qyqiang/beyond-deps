@@ -352,11 +352,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       ], 2)), [
         [vShow, !_ctx.isEmpty],
         [_directive_mousewheel, _ctx.handleHeaderFooterMousewheel]
-      ]) : createCommentVNode("v-if", true),
-      _ctx.border || _ctx.isGroup ? (openBlock(), createElementBlock("div", {
-        key: 2,
-        class: normalizeClass(_ctx.ns.e("border-left-patch"))
-      }, null, 2)) : createCommentVNode("v-if", true)
+      ]) : createCommentVNode("v-if", true)
     ], 2),
     withDirectives(createElementVNode("div", {
       ref: "resizeProxy",

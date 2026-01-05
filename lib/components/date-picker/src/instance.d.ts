@@ -6,5 +6,6 @@ export type DatePickerExpose = {
     blur: () => void;
     handleOpen: () => void;
     handleClose: () => void;
+    selectingDate: any;
 };
 export type DatePickerInstance = ComponentPublicInstance<DatePickerProps, DatePickerExpose>;

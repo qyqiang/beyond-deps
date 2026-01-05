@@ -77,7 +77,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const today = /* @__PURE__ */ new Date();
       const month = cell.text;
       style.disabled = props.disabledDate ? datesInMonth(props.date, year, month, lang.value).every(props.disabledDate) : false;
-      style.current = castArray(props.parsedValue).findIndex((date) => dayjs.isDayjs(date) && date.year() === year && date.month() === month) >= 0;
+      style.current = castArray(props.parsedValue).some((date) => dayjs.isDayjs(date) && date.year() === year && date.month() === month);
       style.today = today.getFullYear() === year && today.getMonth() === month;
       if (cell.inRange) {
         style["in-range"] = true;

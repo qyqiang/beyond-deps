@@ -2,7 +2,7 @@ import type { ExtractPropTypes, PropType, __ExtractPublicPropTypes } from 'vue';
 import type Link from './link.vue';
 export declare const linkProps: {
     readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "default" | "primary" | "success" | "warning" | "info" | "danger", unknown, undefined, boolean>;
-    readonly underline: import("element-plus/es/utils").EpPropFinalized<readonly [BooleanConstructor, StringConstructor], boolean | "always" | "never" | "hover", unknown, undefined, boolean>;
+    readonly underline: import("element-plus/es/utils").EpPropFinalized<readonly [BooleanConstructor, StringConstructor], boolean | "always" | "never" | "hover", unknown, "always", boolean>;
     readonly disabled: BooleanConstructor;
     readonly href: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly target: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string) | (() => string) | ((new (...args: any[]) => string) | (() => string))[], unknown, unknown, "_self", boolean>;

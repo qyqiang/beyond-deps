@@ -8,6 +8,7 @@ import { useAriaProps } from '../../../hooks/use-aria/index.mjs';
 import { isString } from '@vue/shared';
 
 const inputProps = buildProps({
+  isHoverSuffix: Boolean,
   id: {
     type: String,
     default: void 0

@@ -129,7 +129,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               onMousedown: clickThumbHandler
             }, null, 38)
           ], 42, ["onClick"]), [
-            [vShow, _ctx.always || visible.value]
+            [vShow, _ctx.always || visible.value || unref(bar).key === "horizontal"]
           ])
         ]),
         _: 1

@@ -20,6 +20,7 @@ export declare const selectProps: {
     };
     effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string) | (() => PopperEffect) | ((new (...args: any[]) => string) | (() => PopperEffect))[], unknown, unknown, string, boolean>;
     disabled: BooleanConstructor;
+    addItem: BooleanConstructor;
     clearable: BooleanConstructor;
     filterable: BooleanConstructor;
     allowCreate: BooleanConstructor;
@@ -60,7 +61,8 @@ export declare const selectProps: {
     defaultFirstOption: BooleanConstructor;
     reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
-    preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+    preStar: BooleanConstructor;
+    addShowTip: StringConstructor;
     valueKey: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
     collapseTags: BooleanConstructor;
     collapseTagsTooltip: BooleanConstructor;
@@ -73,7 +75,7 @@ export declare const selectProps: {
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    fitInputWidth: BooleanConstructor;
+    fitInputWidth: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     suffixIcon: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>>;
         readonly required: false;

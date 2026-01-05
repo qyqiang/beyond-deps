@@ -13,6 +13,12 @@ const selectionModes = [
   "range"
 ];
 const datePickerSharedProps = buildProps({
+  cycle: {
+    type: Number,
+    default: 0
+  },
+  settDefaultDate: String,
+  cycleType: String,
   disabledDate: {
     type: definePropType(Function)
   },

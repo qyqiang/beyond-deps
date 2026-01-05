@@ -26,7 +26,7 @@ function useEvent(props, emit) {
   const dragState = ref();
   const handleMouseDown = (event, column) => {
     var _a, _b;
-    if (!isClient)
+    if (!isClient || !column.resizable)
       return;
     if (column.children && column.children.length > 0)
       return;

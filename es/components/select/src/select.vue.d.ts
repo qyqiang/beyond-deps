@@ -15,6 +15,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string) | (() => import("element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus").PopperEffect))[], unknown, unknown, string, boolean>;
     disabled: BooleanConstructor;
+    addItem: BooleanConstructor;
     clearable: BooleanConstructor;
     filterable: BooleanConstructor;
     allowCreate: BooleanConstructor;
@@ -55,7 +56,8 @@ declare const _default: import("vue").DefineComponent<{
     defaultFirstOption: BooleanConstructor;
     reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
-    preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+    preStar: BooleanConstructor;
+    addShowTip: StringConstructor;
     valueKey: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
     collapseTags: BooleanConstructor;
     collapseTagsTooltip: BooleanConstructor;
@@ -68,7 +70,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    fitInputWidth: BooleanConstructor;
+    fitInputWidth: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     suffixIcon: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>>;
         readonly required: false;
@@ -117,7 +119,9 @@ declare const _default: import("vue").DefineComponent<{
     inputStyle: import("vue").ComputedRef<{
         minWidth: string;
     }>;
+    handleAddSelect: () => void;
     getLabel: (option: import("../../select-v2/src/select.types.js").Option) => any;
+    isEmpty: (val: unknown) => boolean;
     getValue: (option: import("../../select-v2/src/select.types.js").Option) => any;
     getOptions: (option: import("../../select-v2/src/select.types.js").Option) => any;
     getDisabled: (option: import("../../select-v2/src/select.types.js").Option) => any;
@@ -276,7 +280,7 @@ declare const _default: import("vue").DefineComponent<{
     menuRef: import("vue").Ref<HTMLElement | undefined>;
     tagMenuRef: import("vue").Ref<HTMLElement | undefined>;
     collapseItemRef: import("vue").Ref<HTMLElement | undefined>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("focus" | "update:modelValue" | "change" | "clear" | "blur" | "visible-change" | "remove-tag" | "popup-scroll")[], "focus" | "update:modelValue" | "change" | "clear" | "blur" | "visible-change" | "remove-tag" | "popup-scroll", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("focus" | "update:modelValue" | "change" | "clear" | "blur" | "visible-change" | "remove-tag" | "popup-scroll" | "add-item")[], "focus" | "update:modelValue" | "change" | "clear" | "blur" | "visible-change" | "remove-tag" | "popup-scroll" | "add-item", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     ariaLabel: StringConstructor;
     emptyValues: ArrayConstructor;
     valueOnClear: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | number | boolean | Function) | (() => string | number | boolean | Function | null) | ((new (...args: any[]) => string | number | boolean | Function) | (() => string | number | boolean | Function | null))[], unknown, unknown, undefined, boolean>;
@@ -293,6 +297,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string) | (() => import("element-plus").PopperEffect) | ((new (...args: any[]) => string) | (() => import("element-plus").PopperEffect))[], unknown, unknown, string, boolean>;
     disabled: BooleanConstructor;
+    addItem: BooleanConstructor;
     clearable: BooleanConstructor;
     filterable: BooleanConstructor;
     allowCreate: BooleanConstructor;
@@ -333,7 +338,8 @@ declare const _default: import("vue").DefineComponent<{
     defaultFirstOption: BooleanConstructor;
     reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
-    preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+    preStar: BooleanConstructor;
+    addShowTip: StringConstructor;
     valueKey: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
     collapseTags: BooleanConstructor;
     collapseTagsTooltip: BooleanConstructor;
@@ -346,7 +352,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    fitInputWidth: BooleanConstructor;
+    fitInputWidth: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     suffixIcon: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>>;
         readonly required: false;
@@ -397,6 +403,7 @@ declare const _default: import("vue").DefineComponent<{
     "onVisible-change"?: ((...args: any[]) => any) | undefined;
     "onRemove-tag"?: ((...args: any[]) => any) | undefined;
     "onPopup-scroll"?: ((...args: any[]) => any) | undefined;
+    "onAdd-item"?: ((...args: any[]) => any) | undefined;
 }, {
     disabled: boolean;
     tabindex: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | StringConstructor)[], unknown, unknown>;
@@ -417,12 +424,12 @@ declare const _default: import("vue").DefineComponent<{
     showArrow: boolean;
     autocomplete: string;
     floatLabel: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    preStar: boolean;
     validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     clearable: boolean;
     valueKey: string;
     debounce: number;
-    fitInputWidth: boolean;
+    fitInputWidth: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     automaticDropdown: boolean;
     filterable: boolean;
     collapseTags: boolean;
@@ -435,6 +442,7 @@ declare const _default: import("vue").DefineComponent<{
     allowCreate: boolean;
     defaultFirstOption: boolean;
     remote: boolean;
+    addItem: boolean;
     remoteShowSuffix: boolean;
 }>;
 export default _default;

@@ -10,7 +10,7 @@ const linkProps = buildProps({
   underline: {
     type: [Boolean, String],
     values: [true, false, "always", "never", "hover"],
-    default: void 0
+    default: "always"
   },
   disabled: Boolean,
   href: { type: String, default: "" },

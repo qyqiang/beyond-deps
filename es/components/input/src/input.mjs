@@ -12,6 +12,7 @@ import { useFormSize, useFormDisabled } from '../../form/src/hooks/use-form-comm
 import { useFocusController } from '../../../hooks/use-focus-controller/index.mjs';
 import { ValidateComponentsMap } from '../../../utils/vue/icon.mjs';
 import { useComposition } from '../../../hooks/use-composition/index.mjs';
+import { isEmpty } from '../../../utils/types.mjs';
 import { INPUT_EVENT, UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 import { useCursor } from '../../../hooks/use-cursor/index.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
@@ -81,8 +82,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return (_a = elForm == null ? void 0 : elForm.statusIcon) != null ? _a : false;
     });
     const validateState = computed(() => (elFormItem == null ? void 0 : elFormItem.validateState) || "");
-    const validateMsg = computed(() => (elFormItem == null ? void 0 : elFormItem.error) || "");
+    const validateMsg = computed(() => (elFormItem == null ? void 0 : elFormItem.validateMessage) || "");
     const validateIcon = computed(() => validateState.value && ValidateComponentsMap[validateState.value]);
+    const validateError = computed(() => validateState.value === "error");
     const containerStyle = computed(() => [
       rawAttrs.style
     ]);
@@ -367,9 +369,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               onChange: handleChange,
               onKeydown: handleKeydown
             }), null, 16, ["id", "name", "minlength", "maxlength", "type", "disabled", "readonly", "autocomplete", "tabindex", "aria-label", "placeholder", "form", "autofocus", "role", "inputmode", "onCompositionstart", "onCompositionupdate", "onCompositionend"]),
-            _ctx.floatLabel ? (openBlock(), createElementBlock("span", {
+            _ctx.floatLabel && _ctx.placeholder ? (openBlock(), createElementBlock("span", {
               key: 1,
-              class: normalizeClass(["float-label", { "prefix-label": _ctx.$slots.prefix || _ctx.prefixIcon }])
+              class: normalizeClass(["float-label", {
+                "prefix-label": _ctx.$slots.prefix || _ctx.prefixIcon,
+                "has-value": !unref(isEmpty)(_ctx.modelValue)
+              }])
             }, toDisplayString(_ctx.placeholder), 3)) : createCommentVNode("v-if", true),
             createCommentVNode(" suffix slot "),
             unref(suffixVisible) ? (openBlock(), createElementBlock("span", {
@@ -398,9 +403,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   _: 1
                 }, 8, ["class", "onMousedown"])) : createCommentVNode("v-if", true),
                 (!unref(showClear) || !unref(showPwdVisible) || !unref(isWordLimitVisible)) && !unref(validateState) ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-                  renderSlot(_ctx.$slots, "suffix"),
+                  _ctx.isHoverSuffix && hovering.value || !_ctx.isHoverSuffix ? renderSlot(_ctx.$slots, "suffix", { key: 0 }) : createCommentVNode("v-if", true),
                   _ctx.suffixIcon ? (openBlock(), createBlock(unref(ElIcon), {
-                    key: 0,
+                    key: 1,
                     class: normalizeClass(unref(nsInput).e("icon"))
                   }, {
                     default: withCtx(() => [
@@ -469,7 +474,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 }, null, 8, ["class", "innerHTML"])) : createCommentVNode("v-if", true)
               ], 2)
             ], 2)) : createCommentVNode("v-if", true),
-            unref(validateState) ? (openBlock(), createBlock(Tooltip, {
+            unref(validateError) ? (openBlock(), createBlock(Tooltip, {
               key: 3,
               content: unref(validateMsg),
               effect: "light",
@@ -553,7 +558,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           }, [
             renderSlot(_ctx.$slots, "textareaSuffix")
           ])) : createCommentVNode("v-if", true),
-          unref(validateState) ? (openBlock(), createBlock(Tooltip, {
+          unref(validateError) ? (openBlock(), createBlock(Tooltip, {
             key: 3,
             content: unref(validateMsg),
             effect: "light",
@@ -583,9 +588,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             ]),
             _: 1
           }, 8, ["content"])) : createCommentVNode("v-if", true),
-          _ctx.floatLabel ? (openBlock(), createElementBlock("span", {
+          _ctx.floatLabel && _ctx.placeholder ? (openBlock(), createElementBlock("span", {
             key: 4,
-            class: normalizeClass(["float-label", { "has-value": !!_ctx.modelValue }]),
+            class: normalizeClass(["float-label", { "has-value": !unref(isEmpty)(_ctx.modelValue) }]),
             onClick: handleTextareaFocus
           }, toDisplayString(_ctx.placeholder), 3)) : createCommentVNode("v-if", true),
           unref(isWordLimitVisible) ? (openBlock(), createElementBlock("span", {

@@ -7,6 +7,9 @@ declare const _default: import("vue").DefineComponent<{
     };
     readonly showWeekNumber: BooleanConstructor;
     readonly selectionMode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, string, unknown, string, boolean>;
+    readonly cycle: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
+    readonly settDefaultDate: StringConstructor;
+    readonly cycleType: StringConstructor;
     readonly disabledDate: {
         readonly type: import("vue").PropType<import("../props/shared").DisabledDateType>;
         readonly required: false;
@@ -57,6 +60,9 @@ declare const _default: import("vue").DefineComponent<{
     };
     readonly showWeekNumber: BooleanConstructor;
     readonly selectionMode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, string, unknown, string, boolean>;
+    readonly cycle: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
+    readonly settDefaultDate: StringConstructor;
+    readonly cycleType: StringConstructor;
     readonly disabledDate: {
         readonly type: import("vue").PropType<import("../props/shared").DisabledDateType>;
         readonly required: false;
@@ -92,6 +98,7 @@ declare const _default: import("vue").DefineComponent<{
         selecting: boolean;
     }, boolean>;
 }>>, {
+    readonly cycle: number;
     readonly showWeekNumber: boolean;
     readonly rangeState: import("../props/shared").RangeState;
     readonly selectionMode: string;
