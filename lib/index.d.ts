@@ -15484,6 +15484,8 @@ declare const _default_74: DefineComponent<{
         __epPropKey: true;
     };
     created: BooleanConstructor;
+    showTip: EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+    placement: EpPropFinalized<(new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement) | ((new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement))[], Placement, unknown, string, boolean>;
     disabled: BooleanConstructor;
 }, {
     ns: {
@@ -15518,6 +15520,10 @@ declare const _default_74: DefineComponent<{
         visible: boolean;
         hover: boolean;
     };
+    disabled: Ref<boolean>;
+    showTip: EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    placement: EpPropMergeType<(new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement) | ((new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement))[], Placement, unknown>;
+    handleCellMouseEnter: (event: MouseEvent) => void;
     hoverItem: () => void;
     updateOption: (query: string) => void;
     selectOptionClick: () => void;
@@ -15535,10 +15541,14 @@ declare const _default_74: DefineComponent<{
         __epPropKey: true;
     };
     created: BooleanConstructor;
+    showTip: EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+    placement: EpPropFinalized<(new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement) | ((new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement))[], Placement, unknown, string, boolean>;
     disabled: BooleanConstructor;
 }>>, {
     disabled: boolean;
     created: boolean;
+    placement: EpPropMergeType<(new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement) | ((new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement))[], Placement, unknown>;
+    showTip: EpPropMergeType<BooleanConstructor, unknown, unknown>;
 }>;
 declare const _default_75: DefineComponent<{
     /**
@@ -22807,6 +22817,8 @@ declare const optionProps: {
         __epPropKey: true;
     };
     created: BooleanConstructor;
+    showTip: EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+    placement: EpPropFinalized<(new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement) | ((new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement))[], Placement, unknown, string, boolean>;
     disabled: BooleanConstructor;
 };
 export { Options };

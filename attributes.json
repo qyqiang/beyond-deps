@@ -4483,6 +4483,20 @@
     "type": "boolean",
     "description": "whether option is disabled, default: false.\n\n[Docs](https://element-plus.org/en-US/component/select.html#option-attributes)"
   },
+  "el-option/show-tip": {
+    "type": "boolean",
+    "description": "whether option is showTip, default: true.\n\n[Docs](https://element-plus.org/en-US/component/select.html#option-attributes)"
+  },
+  "el-option/placement": {
+    "type": "'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end'",
+    "options": [
+      "top",
+      "bottom",
+      "left",
+      "right"
+    ],
+    "description": "position of dropdown, default: left.\n\n[Docs](https://element-plus.org/en-US/component/select-v2.html#attributes)"
+  },
   "el-skeleton/animated": {
     "type": "boolean",
     "description": "whether showing the animation, default: false.\n\n[Docs](https://element-plus.org/en-US/component/skeleton.html#skeleton-attributes)"

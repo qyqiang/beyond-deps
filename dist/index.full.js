@@ -38298,6 +38298,15 @@
       type: [String, Number]
     },
     created: Boolean,
+    showTip: {
+      type: Boolean,
+      default: true
+    },
+    placement: {
+      type: definePropType(String),
+      values: Ee,
+      default: "left"
+    },
     disabled: Boolean
   });
 
@@ -38384,10 +38393,15 @@
   const _sfc_main$Z = vue.defineComponent({
     name: COMPONENT_NAME$b,
     componentName: COMPONENT_NAME$b,
+    components: {
+      ElIcon,
+      ElTooltip
+    },
     props: optionProps,
     setup(props) {
       const ns = useNamespace("select");
       const id = useId();
+      const disabled = vue.ref(false);
       const containerKls = vue.computed(() => [
         ns.be("dropdown", "item"),
         ns.is("disabled", vue.unref(isDisabled)),
@@ -38429,6 +38443,38 @@
           select.handleOptionSelect(vm);
         }
       }
+      function isGreaterThan(a, b, epsilon = 0.03) {
+        return a - b > epsilon;
+      }
+      const getPadding = (el) => {
+        const style = window.getComputedStyle(el, null);
+        const paddingLeft = Number.parseInt(style.paddingLeft, 10) || 0;
+        const paddingRight = Number.parseInt(style.paddingRight, 10) || 0;
+        const paddingTop = Number.parseInt(style.paddingTop, 10) || 0;
+        const paddingBottom = Number.parseInt(style.paddingBottom, 10) || 0;
+        return {
+          left: paddingLeft,
+          right: paddingRight,
+          top: paddingTop,
+          bottom: paddingBottom
+        };
+      };
+      const handleCellMouseEnter = (event) => {
+        const cellChild = event.target.querySelector(".option-wrap-content");
+        if (cellChild && !(cellChild == null ? void 0 : cellChild.childNodes.length)) {
+          disabled.value = false;
+          return;
+        }
+        const range = document.createRange();
+        range.setStart(cellChild, 0);
+        range.setEnd(cellChild, cellChild.childNodes.length);
+        const { width: rangeWidth, height: rangeHeight } = range.getBoundingClientRect();
+        const { width: cellChildWidth, height: cellChildHeight } = cellChild.getBoundingClientRect();
+        const { top, left, right, bottom } = getPadding(cellChild);
+        const horizontalPadding = left + right;
+        const verticalPadding = top + bottom;
+        disabled.value = !(isGreaterThan(rangeWidth + horizontalPadding, cellChildWidth) || isGreaterThan(rangeHeight + verticalPadding, cellChildHeight) || isGreaterThan(cellChild.scrollWidth, cellChildWidth));
+      };
       return {
         ns,
         id,
@@ -38440,6 +38486,10 @@
         visible,
         hover,
         states,
+        disabled,
+        showTip: props.showTip,
+        placement: props.placement,
+        handleCellMouseEnter,
         hoverItem,
         updateOption,
         selectOptionClick
@@ -38447,6 +38497,7 @@
     }
   });
   function _sfc_render$c(_ctx, _cache) {
+    const _component_el_tooltip = vue.resolveComponent("el-tooltip");
     const _component_el_icon = vue.resolveComponent("el-icon");
     return vue.withDirectives((vue.openBlock(), vue.createElementBlock("li", {
       id: _ctx.id,
@@ -38455,11 +38506,24 @@
       "aria-disabled": _ctx.isDisabled || void 0,
       "aria-selected": _ctx.itemSelected,
       onMousemove: _ctx.hoverItem,
-      onClick: vue.withModifiers(_ctx.selectOptionClick, ["stop"])
+      onClick: vue.withModifiers(_ctx.selectOptionClick, ["stop"]),
+      onMouseenter: _ctx.handleCellMouseEnter
     }, [
       vue.renderSlot(_ctx.$slots, "default", {}, () => [
         vue.createElementVNode("div", { class: "option-wrap" }, [
-          vue.createElementVNode("div", { class: "option-wrap-content" }, vue.toDisplayString(_ctx.currentLabel), 1),
+          vue.createVNode(_component_el_tooltip, {
+            ref: "tooltipRef",
+            effect: "light",
+            disabled: !_ctx.showTip || _ctx.disabled,
+            content: _ctx.currentLabel,
+            placement: _ctx.placement,
+            "popper-class": "optionPopperClass"
+          }, {
+            default: vue.withCtx(() => [
+              vue.createElementVNode("div", { class: "option-wrap-content" }, vue.toDisplayString(_ctx.currentLabel), 1)
+            ]),
+            _: 1
+          }, 8, ["disabled", "content", "placement"]),
           vue.withDirectives(vue.createElementVNode("div", { class: "option-wrap-icon" }, [
             vue.createVNode(_component_el_icon, { size: "16px" }, {
               default: vue.withCtx(() => [
@@ -38483,7 +38547,7 @@
           ])
         ])
       ])
-    ], 42, ["id", "aria-disabled", "aria-selected", "onMousemove", "onClick"])), [
+    ], 42, ["id", "aria-disabled", "aria-selected", "onMousemove", "onClick", "onMouseenter"])), [
       [vue.vShow, _ctx.visible]
     ]);
   }
@@ -47656,6 +47720,7 @@
   function createTablePopper(props, popperContent, row, column, trigger, table) {
     var _a;
     const tableOverflowTooltipProps = getTableOverflowTooltipProps(props, popperContent, row, column);
+    debugger;
     const mergedProps = {
       ...tableOverflowTooltipProps,
       slotContent: void 0

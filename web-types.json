@@ -10388,6 +10388,24 @@
                 "boolean"
               ],
               "default": "false"
+            },
+            {
+              "name": "show-tip",
+              "description": "whether option is showTip",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#option-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "placement",
+              "description": "position of Tooltip",
+              "doc-url": "https://element-plus.org/en-US/component/slider.html#attributes",
+              "type": [
+                "'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end'"
+              ],
+              "default": "left"
             }
           ],
           "slots": [

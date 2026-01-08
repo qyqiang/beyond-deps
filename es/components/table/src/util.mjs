@@ -296,6 +296,7 @@ let removePopper = null;
 function createTablePopper(props, popperContent, row, column, trigger, table) {
   var _a;
   const tableOverflowTooltipProps = getTableOverflowTooltipProps(props, popperContent, row, column);
+  debugger;
   const mergedProps = {
     ...tableOverflowTooltipProps,
     slotContent: void 0

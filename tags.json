@@ -1404,6 +1404,8 @@
     "attributes": [
       "value",
       "label",
+      "show-tip",
+      "placement",
       "disabled"
     ],
     "description": "[Docs](https://element-plus.org/en-US/component/select.html#option)"

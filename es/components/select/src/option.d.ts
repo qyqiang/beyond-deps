@@ -1,3 +1,4 @@
+import type { Placement } from 'element-plus/es/components/popper';
 export declare const COMPONENT_NAME = "ElOption";
 export declare const optionProps: {
     value: {
@@ -13,5 +14,7 @@ export declare const optionProps: {
         __epPropKey: true;
     };
     created: BooleanConstructor;
+    showTip: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+    placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement) | ((new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement))[], Placement, unknown, string, boolean>;
     disabled: BooleanConstructor;
 };
