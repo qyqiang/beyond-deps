@@ -119,6 +119,8 @@ declare const _default: import("vue").DefineComponent<{
     inputStyle: import("vue").ComputedRef<{
         minWidth: string;
     }>;
+    validateError: import("vue").ComputedRef<boolean>;
+    validateMsg: import("vue").ComputedRef<string>;
     handleAddSelect: () => void;
     getLabel: (option: import("../../select-v2/src/select.types.js").Option) => any;
     isEmpty: (val: unknown) => boolean;
@@ -212,6 +214,7 @@ declare const _default: import("vue").DefineComponent<{
     iconComponent: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown> | undefined>;
     iconReverse: import("vue").ComputedRef<string>;
     validateState: import("vue").ComputedRef<"" | "error" | "success" | "validating">;
+    validateMessage: import("vue").ComputedRef<string>;
     validateIcon: import("vue").ComputedRef<"" | import("vue").Component>;
     showNewOption: import("vue").ComputedRef<boolean>;
     updateOptions: () => void;

@@ -38685,6 +38685,7 @@ const useSelect$3 = (props, emit) => {
   const iconComponent = computed(() => props.remote && props.filterable && !props.remoteShowSuffix ? "" : props.suffixIcon);
   const iconReverse = computed(() => nsSelect.is("reverse", !!(iconComponent.value && expanded.value)));
   const validateState = computed(() => (formItem == null ? void 0 : formItem.validateState) || "");
+  const validateMessage = computed(() => (formItem == null ? void 0 : formItem.validateMessage) || "");
   const validateIcon = computed(() => validateState.value && ValidateComponentsMap[validateState.value]);
   const debounce = computed(() => props.remote ? props.debounce : 0);
   const isRemoteSearchEmpty = computed(() => props.remote && !states.inputValue && states.options.size === 0);
@@ -39203,6 +39204,7 @@ const useSelect$3 = (props, emit) => {
     iconComponent,
     iconReverse,
     validateState,
+    validateMessage,
     validateIcon,
     showNewOption,
     updateOptions,
@@ -39567,6 +39569,8 @@ const _sfc_main$W = defineComponent({
     const API = useSelect$3(_props, emit);
     const { calculatorRef, inputStyle } = useCalcInputWidth();
     const { getLabel, getValue, getOptions, getDisabled } = useProps(props);
+    const validateError = computed(() => (API == null ? void 0 : API.validateState.value) === "error");
+    const validateMsg = computed(() => (API == null ? void 0 : API.validateMessage.value) || "");
     const getOptionProps = (option) => ({
       label: getLabel(option),
       value: getValue(option),
@@ -39642,6 +39646,8 @@ const _sfc_main$W = defineComponent({
       selectedLabel,
       calculatorRef,
       inputStyle,
+      validateError,
+      validateMsg,
       handleAddSelect,
       getLabel,
       isEmpty,
@@ -39911,7 +39917,7 @@ function _sfc_render$9(_ctx, _cache) {
             }, [
               createTextVNode(toDisplayString(_ctx.labelSuffix) + " ", 1),
               _ctx.$slots.info ? renderSlot(_ctx.$slots, "info", { key: 0 }) : createCommentVNode("v-if", true),
-              _ctx.iconComponent && !_ctx.showClearBtn ? (openBlock(), createBlock(_component_el_icon, {
+              _ctx.iconComponent && !_ctx.showClearBtn && !_ctx.validateError ? (openBlock(), createBlock(_component_el_icon, {
                 key: 1,
                 class: normalizeClass([_ctx.nsSelect.e("caret"), _ctx.nsSelect.e("icon"), _ctx.iconReverse])
               }, {
@@ -39948,8 +39954,38 @@ function _sfc_render$9(_ctx, _cache) {
                 ]),
                 _: 1
               }, 8, ["class", "onClick"])) : createCommentVNode("v-if", true),
-              _ctx.validateState && _ctx.validateIcon ? (openBlock(), createBlock(_component_el_icon, {
+              _ctx.validateError ? (openBlock(), createBlock(_component_el_tooltip, {
                 key: 3,
+                content: _ctx.validateMsg,
+                effect: "light",
+                placement: "top",
+                offset: 4
+              }, {
+                default: withCtx(() => [
+                  createVNode(_component_el_icon, { class: "error-icon" }, {
+                    default: withCtx(() => [
+                      (openBlock(), createElementBlock("svg", {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "12",
+                        height: "12",
+                        viewBox: "0 0 12 12",
+                        fill: "none"
+                      }, [
+                        createElementVNode("path", {
+                          "fill-rule": "evenodd",
+                          "clip-rule": "evenodd",
+                          d: "M12 6C12 9.31371 9.31371 12 6 12C2.68629 12 0 9.31371 0 6C0 2.68629 2.68629 0 6 0C9.31371 0 12 2.68629 12 6ZM6.5 2.5V7H5.5V2.5H6.5ZM6.5 9V8H5.5V9H6.5Z",
+                          fill: "#D91F11"
+                        })
+                      ]))
+                    ]),
+                    _: 1
+                  })
+                ]),
+                _: 1
+              }, 8, ["content"])) : createCommentVNode("v-if", true),
+              _ctx.validateState && _ctx.validateIcon ? (openBlock(), createBlock(_component_el_icon, {
+                key: 4,
                 class: normalizeClass([
                   _ctx.nsInput.e("icon"),
                   _ctx.nsInput.e("validateIcon"),
@@ -47716,7 +47752,6 @@ let removePopper = null;
 function createTablePopper(props, popperContent, row, column, trigger, table) {
   var _a;
   const tableOverflowTooltipProps = getTableOverflowTooltipProps(props, popperContent, row, column);
-  debugger;
   const mergedProps = {
     ...tableOverflowTooltipProps,
     slotContent: void 0

@@ -15144,6 +15144,8 @@ declare const _default_73: DefineComponent<{
     inputStyle: ComputedRef<{
         minWidth: string;
     }>;
+    validateError: ComputedRef<boolean>;
+    validateMsg: ComputedRef<string>;
     handleAddSelect: () => void;
     getLabel: (option: Option_2) => any;
     isEmpty: (val: unknown) => boolean;
@@ -15237,6 +15239,7 @@ declare const _default_73: DefineComponent<{
     iconComponent: ComputedRef<EpPropMergeType<(new (...args: any[]) => (string | Component) & {}) | (() => string | Component) | ((new (...args: any[]) => (string | Component) & {}) | (() => string | Component))[], unknown, unknown> | undefined>;
     iconReverse: ComputedRef<string>;
     validateState: ComputedRef<"" | "error" | "success" | "validating">;
+    validateMessage: ComputedRef<string>;
     validateIcon: ComputedRef<"" | Component>;
     showNewOption: ComputedRef<boolean>;
     updateOptions: () => void;

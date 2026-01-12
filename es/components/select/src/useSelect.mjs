@@ -101,6 +101,7 @@ const useSelect = (props, emit) => {
   const iconComponent = computed(() => props.remote && props.filterable && !props.remoteShowSuffix ? "" : props.suffixIcon);
   const iconReverse = computed(() => nsSelect.is("reverse", !!(iconComponent.value && expanded.value)));
   const validateState = computed(() => (formItem == null ? void 0 : formItem.validateState) || "");
+  const validateMessage = computed(() => (formItem == null ? void 0 : formItem.validateMessage) || "");
   const validateIcon = computed(() => validateState.value && ValidateComponentsMap[validateState.value]);
   const debounce = computed(() => props.remote ? props.debounce : 0);
   const isRemoteSearchEmpty = computed(() => props.remote && !states.inputValue && states.options.size === 0);
@@ -619,6 +620,7 @@ const useSelect = (props, emit) => {
     iconComponent,
     iconReverse,
     validateState,
+    validateMessage,
     validateIcon,
     showNewOption,
     updateOptions,

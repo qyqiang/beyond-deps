@@ -86,6 +86,7 @@ export declare const useSelect: (props: SelectProps, emit: SelectEmits) => {
     iconComponent: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | Component) & {}) | (() => string | Component) | ((new (...args: any[]) => (string | Component) & {}) | (() => string | Component))[], unknown, unknown> | undefined>;
     iconReverse: import("vue").ComputedRef<string>;
     validateState: import("vue").ComputedRef<"" | "error" | "success" | "validating">;
+    validateMessage: import("vue").ComputedRef<string>;
     validateIcon: import("vue").ComputedRef<"" | Component>;
     showNewOption: import("vue").ComputedRef<boolean>;
     updateOptions: () => void;
