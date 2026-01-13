@@ -20771,6 +20771,8 @@
         emit("visible-change", false);
       };
       const handleOpen = () => {
+        if (props.readonly || pickerDisabled.value)
+          return;
         pickerVisible.value = true;
       };
       const handleClose = () => {
