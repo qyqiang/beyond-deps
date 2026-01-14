@@ -1,4 +1,4 @@
-import { defineComponent, useSlots, inject, ref, computed, onMounted, watch, reactive, toRefs, provide, onBeforeUnmount, openBlock, createElementBlock, normalizeClass, unref, createVNode, withCtx, createBlock, resolveDynamicComponent, normalizeStyle, renderSlot, createTextVNode, toDisplayString, createCommentVNode, createElementVNode, TransitionGroup, nextTick } from 'vue';
+import { defineComponent, useSlots, inject, ref, computed, watch, reactive, toRefs, provide, onMounted, onBeforeUnmount, openBlock, createElementBlock, normalizeClass, unref, createVNode, withCtx, createBlock, resolveDynamicComponent, normalizeStyle, renderSlot, createTextVNode, toDisplayString, createCommentVNode, createElementVNode, TransitionGroup, nextTick } from 'vue';
 import AsyncValidator from 'async-validator';
 import { castArray, clone } from 'lodash-unified';
 import { refDebounced } from '@vueuse/core';
@@ -34,6 +34,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const validateMessage = ref("");
     const isShowError = ref(true);
     const formItemRef = ref();
+    const formItemContent = ref();
     let initialValue = void 0;
     let isResettingField = false;
     const labelPosition = computed(() => props.labelPosition || (formContext == null ? void 0 : formContext.labelPosition));
@@ -225,23 +226,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const removeInputId = (id) => {
       inputIds.value = inputIds.value.filter((listId) => listId !== id);
     };
-    onMounted(() => {
-      var _a;
-      const defaultSlot = (_a = slots.default) == null ? void 0 : _a.call(slots);
-      if (isArray(defaultSlot) && defaultSlot.length) {
-        defaultSlot.forEach((slot) => {
-          var _a2;
-          isShowError.value = ![
-            "ElAutocomplete",
-            "ElInput",
-            "ElSelectV2",
-            "ElDatePicker",
-            "ElTimePicker",
-            "ElSelect"
-          ].includes((_a2 = slot == null ? void 0 : slot.type) == null ? void 0 : _a2.name);
-        });
-      }
-    });
     watch(() => props.error, (val) => {
       validateMessage.value = val || "";
       setValidationState(val ? "error" : "");
@@ -267,9 +251,19 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     provide(formItemContextKey, context);
     onMounted(() => {
+      var _a;
       if (props.prop) {
         formContext == null ? void 0 : formContext.addField(context);
         initialValue = clone(fieldValue.value);
+      }
+      if (!formItemContent.value)
+        return;
+      const childEle = Array.from((_a = formItemContent.value) == null ? void 0 : _a.children);
+      if (childEle && childEle.length) {
+        childEle.forEach((ele) => {
+          var _a2, _b, _c, _d;
+          isShowError.value = !(((_a2 = ele.className) == null ? void 0 : _a2.indexOf("el-input")) > -1 || ((_b = ele.className) == null ? void 0 : _b.indexOf("el-autocomplete")) > -1 || ((_c = ele.className) == null ? void 0 : _c.indexOf("el-textarea")) > -1 || ((_d = ele.className) == null ? void 0 : _d.indexOf("el-select")) > -1);
+        });
       }
     });
     onBeforeUnmount(() => {
@@ -315,6 +309,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           _: 3
         }, 8, ["is-auto-width", "update-all"]),
         createElementVNode("div", {
+          ref_key: "formItemContent",
+          ref: formItemContent,
           class: normalizeClass(unref(ns).e("content")),
           style: normalizeStyle(unref(contentStyle))
         }, [
