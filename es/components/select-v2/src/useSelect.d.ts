@@ -85,6 +85,7 @@ declare const useSelect: (props: SelectV2Props, emit: SelectV2EmitFn) => {
     suffixRef: import("vue").Ref<HTMLElement | undefined>;
     collapseItemRef: import("vue").Ref<HTMLElement | undefined>;
     popperRef: import("vue").ComputedRef<HTMLElement | undefined>;
+    validateMessage: import("vue").ComputedRef<string>;
     validateState: import("vue").ComputedRef<"" | "error" | "success" | "validating">;
     validateIcon: import("vue").ComputedRef<any>;
     showTagList: import("vue").ComputedRef<Option[]>;

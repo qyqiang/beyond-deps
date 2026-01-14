@@ -116,6 +116,7 @@ const useSelect = (props, emit) => {
       return;
     return ValidateComponentsMap[validateState.value];
   });
+  const validateMessage = computed(() => (elFormItem == null ? void 0 : elFormItem.validateMessage) || "");
   const debounce = computed(() => props.remote ? props.debounce : 0);
   const isRemoteSearchEmpty = computed(() => props.remote && !states.inputValue && !hasOptions.value);
   const emptyText = computed(() => {
@@ -736,6 +737,7 @@ const useSelect = (props, emit) => {
     suffixRef,
     collapseItemRef,
     popperRef,
+    validateMessage,
     validateState,
     validateIcon,
     showTagList,

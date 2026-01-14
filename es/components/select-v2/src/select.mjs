@@ -39,6 +39,8 @@ const _sfc_main = defineComponent({
     }), emit);
     const { calculatorRef, inputStyle } = useCalcInputWidth();
     const contentId = useId();
+    const validateError = computed(() => (API == null ? void 0 : API.validateState.value) === "error");
+    const validateMsg = computed(() => (API == null ? void 0 : API.validateMessage.value) || "");
     provide(selectV2InjectionKey, {
       props: reactive({
         ...toRefs(props),
@@ -65,6 +67,8 @@ const _sfc_main = defineComponent({
       selectedLabel,
       calculatorRef,
       inputStyle,
+      validateError,
+      validateMsg,
       contentId,
       BORDER_HORIZONTAL_WIDTH
     };
@@ -105,7 +109,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       onHide: ($event) => _ctx.states.isBeforeHide = false
     }, {
       default: withCtx(() => {
-        var _a, _b;
+        var _a, _b, _c;
         return [
           createElementVNode("div", {
             ref: "wrapperRef",
@@ -321,24 +325,33 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
               ref: "suffixRef",
               class: normalizeClass(_ctx.nsSelect.e("suffix"))
             }, [
-              _ctx.iconComponent ? withDirectives((openBlock(), createBlock(_component_el_icon, {
-                key: 0,
-                class: normalizeClass([_ctx.nsSelect.e("caret"), _ctx.nsInput.e("icon"), _ctx.iconReverse])
-              }, {
-                default: withCtx(() => [
-                  (openBlock(), createElementBlock("svg", {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    width: "12",
-                    height: "12",
-                    viewBox: "0 0 12 12"
-                  }, [
-                    createElementVNode("path", { d: "M5.99992 7.75002C5.86862 7.75024 5.73856 7.72452 5.61723 7.67432C5.4959 7.62413 5.38569 7.55045 5.29292 7.45752L2.64642 4.81052L3.35342 4.10352L5.99992 6.75002L8.64642 4.10352L9.35342 4.81052L6.70692 7.45702C6.6142 7.55004 6.50401 7.62381 6.38267 7.67409C6.26134 7.72438 6.13126 7.75018 5.99992 7.75002Z" })
-                  ]))
-                ]),
-                _: 1
-              }, 8, ["class"])), [
-                [vShow, !_ctx.showClearBtn]
-              ]) : createCommentVNode("v-if", true),
+              _ctx.iconComponent && !_ctx.validateError ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
+                ((_c = _ctx.$slots) == null ? void 0 : _c.suffix) ? withDirectives((openBlock(), createElementBlock("div", {
+                  key: 0,
+                  class: "tip-wrap"
+                }, [
+                  renderSlot(_ctx.$slots, "suffix")
+                ], 512)), [
+                  [vShow, !_ctx.showClearBtn]
+                ]) : withDirectives((openBlock(), createBlock(_component_el_icon, {
+                  key: 1,
+                  class: normalizeClass([_ctx.nsSelect.e("caret"), _ctx.nsInput.e("icon"), _ctx.iconReverse])
+                }, {
+                  default: withCtx(() => [
+                    (openBlock(), createElementBlock("svg", {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "12",
+                      height: "12",
+                      viewBox: "0 0 12 12"
+                    }, [
+                      createElementVNode("path", { d: "M5.99992 7.75002C5.86862 7.75024 5.73856 7.72452 5.61723 7.67432C5.4959 7.62413 5.38569 7.55045 5.29292 7.45752L2.64642 4.81052L3.35342 4.10352L5.99992 6.75002L8.64642 4.10352L9.35342 4.81052L6.70692 7.45702C6.6142 7.55004 6.50401 7.62381 6.38267 7.67409C6.26134 7.72438 6.13126 7.75018 5.99992 7.75002Z" })
+                    ]))
+                  ]),
+                  _: 1
+                }, 8, ["class"])), [
+                  [vShow, !_ctx.showClearBtn]
+                ])
+              ], 64)) : createCommentVNode("v-if", true),
               _ctx.showClearBtn && _ctx.clearIcon ? (openBlock(), createBlock(_component_el_icon, {
                 key: 1,
                 class: normalizeClass([
@@ -360,8 +373,38 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 ]),
                 _: 1
               }, 8, ["class", "onClick"])) : createCommentVNode("v-if", true),
-              _ctx.validateState && _ctx.validateIcon && _ctx.needStatusIcon ? (openBlock(), createBlock(_component_el_icon, {
+              _ctx.validateError ? (openBlock(), createBlock(_component_el_tooltip, {
                 key: 2,
+                content: _ctx.validateMsg,
+                effect: "light",
+                placement: "top",
+                offset: 4
+              }, {
+                default: withCtx(() => [
+                  createVNode(_component_el_icon, { class: "error-icon" }, {
+                    default: withCtx(() => [
+                      (openBlock(), createElementBlock("svg", {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "12",
+                        height: "12",
+                        viewBox: "0 0 12 12",
+                        fill: "none"
+                      }, [
+                        createElementVNode("path", {
+                          "fill-rule": "evenodd",
+                          "clip-rule": "evenodd",
+                          d: "M12 6C12 9.31371 9.31371 12 6 12C2.68629 12 0 9.31371 0 6C0 2.68629 2.68629 0 6 0C9.31371 0 12 2.68629 12 6ZM6.5 2.5V7H5.5V2.5H6.5ZM6.5 9V8H5.5V9H6.5Z",
+                          fill: "#D91F11"
+                        })
+                      ]))
+                    ]),
+                    _: 1
+                  })
+                ]),
+                _: 1
+              }, 8, ["content"])) : createCommentVNode("v-if", true),
+              _ctx.validateState && _ctx.validateIcon && _ctx.needStatusIcon ? (openBlock(), createBlock(_component_el_icon, {
+                key: 3,
                 class: normalizeClass([
                   _ctx.nsInput.e("icon"),
                   _ctx.nsInput.e("validateIcon"),

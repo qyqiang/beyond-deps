@@ -1,4 +1,4 @@
-import { defineComponent, useSlots, inject, ref, computed, watch, reactive, toRefs, provide, onMounted, onBeforeUnmount, openBlock, createElementBlock, normalizeClass, unref, createVNode, withCtx, createBlock, resolveDynamicComponent, normalizeStyle, renderSlot, createTextVNode, toDisplayString, createCommentVNode, createElementVNode, TransitionGroup, nextTick } from 'vue';
+import { defineComponent, useSlots, inject, ref, computed, onMounted, watch, reactive, toRefs, provide, onBeforeUnmount, openBlock, createElementBlock, normalizeClass, unref, createVNode, withCtx, createBlock, resolveDynamicComponent, normalizeStyle, renderSlot, createTextVNode, toDisplayString, createCommentVNode, createElementVNode, TransitionGroup, nextTick } from 'vue';
 import AsyncValidator from 'async-validator';
 import { castArray, clone } from 'lodash-unified';
 import { refDebounced } from '@vueuse/core';
@@ -32,6 +32,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const validateState = ref("");
     const validateStateDebounced = refDebounced(validateState, 100);
     const validateMessage = ref("");
+    const isShowError = ref(true);
     const formItemRef = ref();
     let initialValue = void 0;
     let isResettingField = false;
@@ -224,6 +225,23 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const removeInputId = (id) => {
       inputIds.value = inputIds.value.filter((listId) => listId !== id);
     };
+    onMounted(() => {
+      var _a;
+      const defaultSlot = (_a = slots.default) == null ? void 0 : _a.call(slots);
+      if (isArray(defaultSlot) && defaultSlot.length) {
+        defaultSlot.forEach((slot) => {
+          var _a2;
+          isShowError.value = ![
+            "ElAutocomplete",
+            "ElInput",
+            "ElSelectV2",
+            "ElDatePicker",
+            "ElTimePicker",
+            "ElSelect"
+          ].includes((_a2 = slot == null ? void 0 : slot.type) == null ? void 0 : _a2.name);
+        });
+      }
+    });
     watch(() => props.error, (val) => {
       validateMessage.value = val || "";
       setValidationState(val ? "error" : "");
@@ -301,7 +319,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           style: normalizeStyle(unref(contentStyle))
         }, [
           renderSlot(_ctx.$slots, "default"),
-          createVNode(TransitionGroup, {
+          isShowError.value ? (openBlock(), createBlock(TransitionGroup, {
+            key: 0,
             name: `${unref(ns).namespace.value}-zoom-in-top`
           }, {
             default: withCtx(() => [
@@ -315,7 +334,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               ]) : createCommentVNode("v-if", true)
             ]),
             _: 3
-          }, 8, ["name"])
+          }, 8, ["name"])) : createCommentVNode("v-if", true)
         ], 6)
       ], 10, ["role", "aria-labelledby"]);
     };

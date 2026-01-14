@@ -228,6 +228,8 @@ declare const _default: import("vue").DefineComponent<{
     inputStyle: import("vue").ComputedRef<{
         minWidth: string;
     }>;
+    validateError: import("vue").ComputedRef<boolean>;
+    validateMsg: import("vue").ComputedRef<string>;
     contentId: import("vue").Ref<string>;
     BORDER_HORIZONTAL_WIDTH: number;
     inputId: import("vue").Ref<string | undefined>;
@@ -311,6 +313,7 @@ declare const _default: import("vue").DefineComponent<{
     suffixRef: import("vue").Ref<HTMLElement | undefined>;
     collapseItemRef: import("vue").Ref<HTMLElement | undefined>;
     popperRef: import("vue").ComputedRef<HTMLElement | undefined>;
+    validateMessage: import("vue").ComputedRef<string>;
     validateState: import("vue").ComputedRef<"" | "error" | "success" | "validating">;
     validateIcon: import("vue").ComputedRef<any>;
     showTagList: import("vue").ComputedRef<import("./select.types").Option[]>;

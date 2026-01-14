@@ -14443,6 +14443,7 @@
       const validateState = vue.ref("");
       const validateStateDebounced = refDebounced(validateState, 100);
       const validateMessage = vue.ref("");
+      const isShowError = vue.ref(true);
       const formItemRef = vue.ref();
       let initialValue = void 0;
       let isResettingField = false;
@@ -14635,6 +14636,23 @@
       const removeInputId = (id) => {
         inputIds.value = inputIds.value.filter((listId) => listId !== id);
       };
+      vue.onMounted(() => {
+        var _a;
+        const defaultSlot = (_a = slots.default) == null ? void 0 : _a.call(slots);
+        if (isArray$1(defaultSlot) && defaultSlot.length) {
+          defaultSlot.forEach((slot) => {
+            var _a2;
+            isShowError.value = ![
+              "ElAutocomplete",
+              "ElInput",
+              "ElSelectV2",
+              "ElDatePicker",
+              "ElTimePicker",
+              "ElSelect"
+            ].includes((_a2 = slot == null ? void 0 : slot.type) == null ? void 0 : _a2.name);
+          });
+        }
+      });
       vue.watch(() => props.error, (val) => {
         validateMessage.value = val || "";
         setValidationState(val ? "error" : "");
@@ -14712,7 +14730,8 @@
             style: vue.normalizeStyle(vue.unref(contentStyle))
           }, [
             vue.renderSlot(_ctx.$slots, "default"),
-            vue.createVNode(vue.TransitionGroup, {
+            isShowError.value ? (vue.openBlock(), vue.createBlock(vue.TransitionGroup, {
+              key: 0,
               name: `${vue.unref(ns).namespace.value}-zoom-in-top`
             }, {
               default: vue.withCtx(() => [
@@ -14726,7 +14745,7 @@
                 ]) : vue.createCommentVNode("v-if", true)
               ]),
               _: 3
-            }, 8, ["name"])
+            }, 8, ["name"])) : vue.createCommentVNode("v-if", true)
           ], 6)
         ], 10, ["role", "aria-labelledby"]);
       };
@@ -44315,6 +44334,7 @@
         return;
       return ValidateComponentsMap[validateState.value];
     });
+    const validateMessage = vue.computed(() => (elFormItem == null ? void 0 : elFormItem.validateMessage) || "");
     const debounce = vue.computed(() => props.remote ? props.debounce : 0);
     const isRemoteSearchEmpty = vue.computed(() => props.remote && !states.inputValue && !hasOptions.value);
     const emptyText = vue.computed(() => {
@@ -44935,6 +44955,7 @@
       suffixRef,
       collapseItemRef,
       popperRef,
+      validateMessage,
       validateState,
       validateIcon,
       showTagList,
@@ -44998,6 +45019,8 @@
       }), emit);
       const { calculatorRef, inputStyle } = useCalcInputWidth();
       const contentId = useId();
+      const validateError = vue.computed(() => (API == null ? void 0 : API.validateState.value) === "error");
+      const validateMsg = vue.computed(() => (API == null ? void 0 : API.validateMessage.value) || "");
       vue.provide(selectV2InjectionKey, {
         props: vue.reactive({
           ...vue.toRefs(props),
@@ -45024,6 +45047,8 @@
         selectedLabel,
         calculatorRef,
         inputStyle,
+        validateError,
+        validateMsg,
         contentId,
         BORDER_HORIZONTAL_WIDTH
       };
@@ -45064,7 +45089,7 @@
         onHide: ($event) => _ctx.states.isBeforeHide = false
       }, {
         default: vue.withCtx(() => {
-          var _a, _b;
+          var _a, _b, _c;
           return [
             vue.createElementVNode("div", {
               ref: "wrapperRef",
@@ -45280,24 +45305,33 @@
                 ref: "suffixRef",
                 class: vue.normalizeClass(_ctx.nsSelect.e("suffix"))
               }, [
-                _ctx.iconComponent ? vue.withDirectives((vue.openBlock(), vue.createBlock(_component_el_icon, {
-                  key: 0,
-                  class: vue.normalizeClass([_ctx.nsSelect.e("caret"), _ctx.nsInput.e("icon"), _ctx.iconReverse])
-                }, {
-                  default: vue.withCtx(() => [
-                    (vue.openBlock(), vue.createElementBlock("svg", {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      width: "12",
-                      height: "12",
-                      viewBox: "0 0 12 12"
-                    }, [
-                      vue.createElementVNode("path", { d: "M5.99992 7.75002C5.86862 7.75024 5.73856 7.72452 5.61723 7.67432C5.4959 7.62413 5.38569 7.55045 5.29292 7.45752L2.64642 4.81052L3.35342 4.10352L5.99992 6.75002L8.64642 4.10352L9.35342 4.81052L6.70692 7.45702C6.6142 7.55004 6.50401 7.62381 6.38267 7.67409C6.26134 7.72438 6.13126 7.75018 5.99992 7.75002Z" })
-                    ]))
-                  ]),
-                  _: 1
-                }, 8, ["class"])), [
-                  [vue.vShow, !_ctx.showClearBtn]
-                ]) : vue.createCommentVNode("v-if", true),
+                _ctx.iconComponent && !_ctx.validateError ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 0 }, [
+                  ((_c = _ctx.$slots) == null ? void 0 : _c.suffix) ? vue.withDirectives((vue.openBlock(), vue.createElementBlock("div", {
+                    key: 0,
+                    class: "tip-wrap"
+                  }, [
+                    vue.renderSlot(_ctx.$slots, "suffix")
+                  ], 512)), [
+                    [vue.vShow, !_ctx.showClearBtn]
+                  ]) : vue.withDirectives((vue.openBlock(), vue.createBlock(_component_el_icon, {
+                    key: 1,
+                    class: vue.normalizeClass([_ctx.nsSelect.e("caret"), _ctx.nsInput.e("icon"), _ctx.iconReverse])
+                  }, {
+                    default: vue.withCtx(() => [
+                      (vue.openBlock(), vue.createElementBlock("svg", {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "12",
+                        height: "12",
+                        viewBox: "0 0 12 12"
+                      }, [
+                        vue.createElementVNode("path", { d: "M5.99992 7.75002C5.86862 7.75024 5.73856 7.72452 5.61723 7.67432C5.4959 7.62413 5.38569 7.55045 5.29292 7.45752L2.64642 4.81052L3.35342 4.10352L5.99992 6.75002L8.64642 4.10352L9.35342 4.81052L6.70692 7.45702C6.6142 7.55004 6.50401 7.62381 6.38267 7.67409C6.26134 7.72438 6.13126 7.75018 5.99992 7.75002Z" })
+                      ]))
+                    ]),
+                    _: 1
+                  }, 8, ["class"])), [
+                    [vue.vShow, !_ctx.showClearBtn]
+                  ])
+                ], 64)) : vue.createCommentVNode("v-if", true),
                 _ctx.showClearBtn && _ctx.clearIcon ? (vue.openBlock(), vue.createBlock(_component_el_icon, {
                   key: 1,
                   class: vue.normalizeClass([
@@ -45319,8 +45353,38 @@
                   ]),
                   _: 1
                 }, 8, ["class", "onClick"])) : vue.createCommentVNode("v-if", true),
-                _ctx.validateState && _ctx.validateIcon && _ctx.needStatusIcon ? (vue.openBlock(), vue.createBlock(_component_el_icon, {
+                _ctx.validateError ? (vue.openBlock(), vue.createBlock(_component_el_tooltip, {
                   key: 2,
+                  content: _ctx.validateMsg,
+                  effect: "light",
+                  placement: "top",
+                  offset: 4
+                }, {
+                  default: vue.withCtx(() => [
+                    vue.createVNode(_component_el_icon, { class: "error-icon" }, {
+                      default: vue.withCtx(() => [
+                        (vue.openBlock(), vue.createElementBlock("svg", {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "12",
+                          height: "12",
+                          viewBox: "0 0 12 12",
+                          fill: "none"
+                        }, [
+                          vue.createElementVNode("path", {
+                            "fill-rule": "evenodd",
+                            "clip-rule": "evenodd",
+                            d: "M12 6C12 9.31371 9.31371 12 6 12C2.68629 12 0 9.31371 0 6C0 2.68629 2.68629 0 6 0C9.31371 0 12 2.68629 12 6ZM6.5 2.5V7H5.5V2.5H6.5ZM6.5 9V8H5.5V9H6.5Z",
+                            fill: "#D91F11"
+                          })
+                        ]))
+                      ]),
+                      _: 1
+                    })
+                  ]),
+                  _: 1
+                }, 8, ["content"])) : vue.createCommentVNode("v-if", true),
+                _ctx.validateState && _ctx.validateIcon && _ctx.needStatusIcon ? (vue.openBlock(), vue.createBlock(_component_el_icon, {
+                  key: 3,
                   class: vue.normalizeClass([
                     _ctx.nsInput.e("icon"),
                     _ctx.nsInput.e("validateIcon"),

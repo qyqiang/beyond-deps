@@ -15836,6 +15836,8 @@ declare const _default_76: DefineComponent<{
     inputStyle: ComputedRef<{
         minWidth: string;
     }>;
+    validateError: ComputedRef<boolean>;
+    validateMsg: ComputedRef<string>;
     contentId: Ref<string>;
     BORDER_HORIZONTAL_WIDTH: number;
     inputId: Ref<string | undefined>;
@@ -15919,6 +15921,7 @@ declare const _default_76: DefineComponent<{
     suffixRef: Ref<HTMLElement | undefined>;
     collapseItemRef: Ref<HTMLElement | undefined>;
     popperRef: ComputedRef<HTMLElement | undefined>;
+    validateMessage: ComputedRef<string>;
     validateState: ComputedRef<"" | "error" | "success" | "validating">;
     validateIcon: ComputedRef<any>;
     showTagList: ComputedRef<Option_2[]>;
