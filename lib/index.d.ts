@@ -15083,6 +15083,12 @@ declare const _default_73: DefineComponent<{
     floatLabel: EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     preStar: BooleanConstructor;
     addShowTip: StringConstructor;
+    haveAll: {
+        readonly type: PropType<string>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     valueKey: EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
     collapseTags: BooleanConstructor;
     collapseTagsTooltip: BooleanConstructor;
@@ -15368,6 +15374,12 @@ declare const _default_73: DefineComponent<{
     floatLabel: EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     preStar: BooleanConstructor;
     addShowTip: StringConstructor;
+    haveAll: {
+        readonly type: PropType<string>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     valueKey: EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
     collapseTags: BooleanConstructor;
     collapseTagsTooltip: BooleanConstructor;
@@ -23910,6 +23922,12 @@ export declare const selectProps: {
     floatLabel: EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     preStar: BooleanConstructor;
     addShowTip: StringConstructor;
+    haveAll: {
+        readonly type: PropType<string>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     valueKey: EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
     collapseTags: BooleanConstructor;
     collapseTagsTooltip: BooleanConstructor;

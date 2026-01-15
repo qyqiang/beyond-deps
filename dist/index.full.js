@@ -38463,6 +38463,8 @@
       };
       const handleCellMouseEnter = (event) => {
         const cellChild = event.target.querySelector(".option-wrap-content");
+        if (!cellChild)
+          return;
         if (cellChild && !(cellChild == null ? void 0 : cellChild.childNodes.length)) {
           disabled.value = false;
           return;
@@ -38521,10 +38523,18 @@
             placement: _ctx.placement,
             "popper-class": "optionPopperClass"
           }, {
-            default: vue.withCtx(() => [
-              vue.createElementVNode("div", { class: "option-wrap-content" }, vue.toDisplayString(_ctx.currentLabel), 1)
-            ]),
-            _: 1
+            default: vue.withCtx(() => {
+              var _a;
+              return [
+                vue.createElementVNode("div", { class: "option-wrap-content" }, [
+                  vue.renderSlot(_ctx.$slots, "optionIcon"),
+                  vue.createElementVNode("span", {
+                    class: vue.normalizeClass(["select-label", { "select-margin": (_a = _ctx.$slots) == null ? void 0 : _a.optionIcon }])
+                  }, vue.toDisplayString(_ctx.currentLabel), 3)
+                ])
+              ];
+            }),
+            _: 3
           }, 8, ["disabled", "content", "placement"]),
           vue.withDirectives(vue.createElementVNode("div", { class: "option-wrap-icon" }, [
             vue.createVNode(_component_el_icon, { size: "16px" }, {
@@ -39367,6 +39377,9 @@
     },
     preStar: Boolean,
     addShowTip: String,
+    haveAll: {
+      type: String
+    },
     valueKey: {
       type: String,
       default: "value"
@@ -39710,6 +39723,7 @@
               class: vue.normalizeClass([
                 _ctx.nsSelect.e("wrapper"),
                 _ctx.nsSelect.is("focused", _ctx.isFocused),
+                _ctx.nsSelect.is("all", !!_ctx.haveAll),
                 _ctx.nsSelect.is("hovering", _ctx.states.inputHovering),
                 _ctx.nsSelect.is("filterable", _ctx.filterable),
                 _ctx.nsSelect.is("disabled", _ctx.selectDisabled),
@@ -39745,6 +39759,10 @@
                   deleteTag: _ctx.deleteTag,
                   selectDisabled: _ctx.selectDisabled
                 }, () => [
+                  _ctx.haveAll && !_ctx.states.selected.length ? (vue.openBlock(), vue.createElementBlock("span", {
+                    key: 0,
+                    class: "select-all-tag"
+                  }, vue.toDisplayString(_ctx.haveAll), 1)) : vue.createCommentVNode("v-if", true),
                   (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(_ctx.showTagList, (item) => {
                     return vue.openBlock(), vue.createElementBlock("div", {
                       key: _ctx.getValueKey(item),
@@ -39777,7 +39795,7 @@
                     ], 2);
                   }), 128)),
                   _ctx.collapseTags && _ctx.states.selected.length > _ctx.maxCollapseTags ? (vue.openBlock(), vue.createBlock(_component_el_tooltip, {
-                    key: 0,
+                    key: 1,
                     ref: "tagTooltipRef",
                     disabled: _ctx.dropdownMenuVisible || !_ctx.collapseTagsTooltip,
                     "fallback-placements": ["bottom", "top", "right", "left"],
@@ -40027,12 +40045,16 @@
                 onScroll: _ctx.popupScroll
               }, {
                 default: vue.withCtx(() => [
-                  _ctx.addShowTip && _ctx.filterable && !_ctx.emptyText ? (vue.openBlock(), vue.createElementBlock("div", {
+                  _ctx.states.selected.length && _ctx.haveAll ? (vue.openBlock(), vue.createElementBlock("div", {
                     key: 0,
+                    class: "select-all-item"
+                  }, vue.toDisplayString(_ctx.haveAll), 1)) : vue.createCommentVNode("v-if", true),
+                  _ctx.addShowTip && _ctx.filterable && !_ctx.emptyText ? (vue.openBlock(), vue.createElementBlock("div", {
+                    key: 1,
                     class: "select-add-tip"
                   }, vue.toDisplayString(_ctx.addShowTip), 1)) : vue.createCommentVNode("v-if", true),
                   _ctx.showNewOption ? (vue.openBlock(), vue.createBlock(_component_el_option, {
-                    key: 1,
+                    key: 2,
                     value: _ctx.states.inputValue,
                     created: true
                   }, null, 8, ["value"])) : vue.createCommentVNode("v-if", true),

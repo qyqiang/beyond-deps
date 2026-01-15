@@ -1321,6 +1321,7 @@
   "el-select": {
     "attributes": [
       "model-value",
+      "have-all",
       "multiple",
       "add-item",
       "options",

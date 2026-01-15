@@ -38459,6 +38459,8 @@ const _sfc_main$Z = defineComponent({
     };
     const handleCellMouseEnter = (event) => {
       const cellChild = event.target.querySelector(".option-wrap-content");
+      if (!cellChild)
+        return;
       if (cellChild && !(cellChild == null ? void 0 : cellChild.childNodes.length)) {
         disabled.value = false;
         return;
@@ -38517,10 +38519,18 @@ function _sfc_render$c(_ctx, _cache) {
           placement: _ctx.placement,
           "popper-class": "optionPopperClass"
         }, {
-          default: withCtx(() => [
-            createElementVNode("div", { class: "option-wrap-content" }, toDisplayString(_ctx.currentLabel), 1)
-          ]),
-          _: 1
+          default: withCtx(() => {
+            var _a;
+            return [
+              createElementVNode("div", { class: "option-wrap-content" }, [
+                renderSlot(_ctx.$slots, "optionIcon"),
+                createElementVNode("span", {
+                  class: normalizeClass(["select-label", { "select-margin": (_a = _ctx.$slots) == null ? void 0 : _a.optionIcon }])
+                }, toDisplayString(_ctx.currentLabel), 3)
+              ])
+            ];
+          }),
+          _: 3
         }, 8, ["disabled", "content", "placement"]),
         withDirectives(createElementVNode("div", { class: "option-wrap-icon" }, [
           createVNode(_component_el_icon, { size: "16px" }, {
@@ -39363,6 +39373,9 @@ const selectProps = buildProps({
   },
   preStar: Boolean,
   addShowTip: String,
+  haveAll: {
+    type: String
+  },
   valueKey: {
     type: String,
     default: "value"
@@ -39706,6 +39719,7 @@ function _sfc_render$9(_ctx, _cache) {
             class: normalizeClass([
               _ctx.nsSelect.e("wrapper"),
               _ctx.nsSelect.is("focused", _ctx.isFocused),
+              _ctx.nsSelect.is("all", !!_ctx.haveAll),
               _ctx.nsSelect.is("hovering", _ctx.states.inputHovering),
               _ctx.nsSelect.is("filterable", _ctx.filterable),
               _ctx.nsSelect.is("disabled", _ctx.selectDisabled),
@@ -39741,6 +39755,10 @@ function _sfc_render$9(_ctx, _cache) {
                 deleteTag: _ctx.deleteTag,
                 selectDisabled: _ctx.selectDisabled
               }, () => [
+                _ctx.haveAll && !_ctx.states.selected.length ? (openBlock(), createElementBlock("span", {
+                  key: 0,
+                  class: "select-all-tag"
+                }, toDisplayString(_ctx.haveAll), 1)) : createCommentVNode("v-if", true),
                 (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.showTagList, (item) => {
                   return openBlock(), createElementBlock("div", {
                     key: _ctx.getValueKey(item),
@@ -39773,7 +39791,7 @@ function _sfc_render$9(_ctx, _cache) {
                   ], 2);
                 }), 128)),
                 _ctx.collapseTags && _ctx.states.selected.length > _ctx.maxCollapseTags ? (openBlock(), createBlock(_component_el_tooltip, {
-                  key: 0,
+                  key: 1,
                   ref: "tagTooltipRef",
                   disabled: _ctx.dropdownMenuVisible || !_ctx.collapseTagsTooltip,
                   "fallback-placements": ["bottom", "top", "right", "left"],
@@ -40023,12 +40041,16 @@ function _sfc_render$9(_ctx, _cache) {
               onScroll: _ctx.popupScroll
             }, {
               default: withCtx(() => [
-                _ctx.addShowTip && _ctx.filterable && !_ctx.emptyText ? (openBlock(), createElementBlock("div", {
+                _ctx.states.selected.length && _ctx.haveAll ? (openBlock(), createElementBlock("div", {
                   key: 0,
+                  class: "select-all-item"
+                }, toDisplayString(_ctx.haveAll), 1)) : createCommentVNode("v-if", true),
+                _ctx.addShowTip && _ctx.filterable && !_ctx.emptyText ? (openBlock(), createElementBlock("div", {
+                  key: 1,
                   class: "select-add-tip"
                 }, toDisplayString(_ctx.addShowTip), 1)) : createCommentVNode("v-if", true),
                 _ctx.showNewOption ? (openBlock(), createBlock(_component_el_option, {
-                  key: 1,
+                  key: 2,
                   value: _ctx.states.inputValue,
                   created: true
                 }, null, 8, ["value"])) : createCommentVNode("v-if", true),

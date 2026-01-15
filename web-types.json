@@ -9798,6 +9798,14 @@
               "default": "value"
             },
             {
+              "name": "have-all",
+              "description": "set have all",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
               "name": "size",
               "description": "size of Input",
               "doc-url": "https://element-plus.org/en-US/component/select.html#select-attributes",
@@ -10412,6 +10420,11 @@
             {
               "name": "default",
               "description": "customize default content",
+              "doc-url": "https://element-plus.org/en-US/component/select.html#option-slots"
+            },
+            {
+              "name": "option-icon",
+              "description": "customize option-icon",
               "doc-url": "https://element-plus.org/en-US/component/select.html#option-slots"
             }
           ]

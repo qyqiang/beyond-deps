@@ -4222,6 +4222,10 @@
     "type": "string",
     "description": "unique identity key name for value, required when value is an object, default: value.\n\n[Docs](https://element-plus.org/en-US/component/select.html#select-attributes)"
   },
+  "el-select/have-all": {
+    "type": "string",
+    "description": "set haveAll"
+  },
   "el-select/size": {
     "type": "'' | 'large' | 'default' | 'small'",
     "options": [
