@@ -3318,7 +3318,7 @@ declare const __VLS_component_44: DefineComponent<{
     };
     readonly for: StringConstructor;
     readonly inlineMessage: EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
-    readonly showMessage: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showMessage: BooleanConstructor;
     readonly size: {
         readonly type: PropType<EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", unknown>>;
         readonly required: false;
@@ -3379,7 +3379,7 @@ declare const __VLS_component_44: DefineComponent<{
     };
     readonly for: StringConstructor;
     readonly inlineMessage: EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
-    readonly showMessage: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showMessage: BooleanConstructor;
     readonly size: {
         readonly type: PropType<EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", unknown>>;
         readonly required: false;
@@ -3394,7 +3394,7 @@ declare const __VLS_component_44: DefineComponent<{
     ], unknown, unknown>;
     readonly labelPosition: EpPropMergeType<StringConstructor, "" | "left" | "right" | "top", unknown>;
     readonly inlineMessage: EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly showMessage: EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly showMessage: boolean;
 }>;
 declare const __VLS_component_45: DefineComponent<{
     readonly size: {
@@ -20754,7 +20754,7 @@ export declare const formItemProps: {
     };
     readonly for: StringConstructor;
     readonly inlineMessage: EpPropFinalized<BooleanConstructor, unknown, unknown, undefined, boolean>;
-    readonly showMessage: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly showMessage: BooleanConstructor;
     readonly size: {
         readonly type: PropType<EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", unknown>>;
         readonly required: false;

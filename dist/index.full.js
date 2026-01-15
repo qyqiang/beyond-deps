@@ -14328,10 +14328,7 @@
       type: Boolean,
       default: void 0
     },
-    showMessage: {
-      type: Boolean,
-      default: true
-    },
+    showMessage: Boolean,
     size: {
       type: String,
       values: componentSizes
@@ -14443,7 +14440,6 @@
       const validateState = vue.ref("");
       const validateStateDebounced = refDebounced(validateState, 100);
       const validateMessage = vue.ref("");
-      const isShowError = vue.ref(true);
       const formItemRef = vue.ref();
       const formItemContent = vue.ref();
       let initialValue = void 0;
@@ -14662,19 +14658,9 @@
       });
       vue.provide(formItemContextKey, context);
       vue.onMounted(() => {
-        var _a;
         if (props.prop) {
           formContext == null ? void 0 : formContext.addField(context);
           initialValue = clone(fieldValue.value);
-        }
-        if (!formItemContent.value)
-          return;
-        const childEle = Array.from((_a = formItemContent.value) == null ? void 0 : _a.children);
-        if (childEle && childEle.length) {
-          childEle.forEach((ele) => {
-            var _a2, _b, _c, _d;
-            isShowError.value = !(((_a2 = ele.className) == null ? void 0 : _a2.indexOf("el-input")) > -1 || ((_b = ele.className) == null ? void 0 : _b.indexOf("el-autocomplete")) > -1 || ((_c = ele.className) == null ? void 0 : _c.indexOf("el-textarea")) > -1 || ((_d = ele.className) == null ? void 0 : _d.indexOf("el-select")) > -1);
-          });
         }
       });
       vue.onBeforeUnmount(() => {
@@ -14726,8 +14712,7 @@
             style: vue.normalizeStyle(vue.unref(contentStyle))
           }, [
             vue.renderSlot(_ctx.$slots, "default"),
-            isShowError.value ? (vue.openBlock(), vue.createBlock(vue.TransitionGroup, {
-              key: 0,
+            vue.createVNode(vue.TransitionGroup, {
               name: `${vue.unref(ns).namespace.value}-zoom-in-top`
             }, {
               default: vue.withCtx(() => [
@@ -14741,7 +14726,7 @@
                 ]) : vue.createCommentVNode("v-if", true)
               ]),
               _: 3
-            }, 8, ["name"])) : vue.createCommentVNode("v-if", true)
+            }, 8, ["name"])
           ], 6)
         ], 10, ["role", "aria-labelledby"]);
       };
