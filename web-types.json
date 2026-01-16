@@ -26,6 +26,15 @@
               "default": "0"
             },
             {
+              "name": "disabled",
+              "description": "disable the affix",
+              "doc-url": "https://element-plus.org/en-US/component/button.html#button-attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
               "name": "position",
               "description": "position of affix",
               "doc-url": "https://element-plus.org/en-US/component/affix.html#attributes",
@@ -268,11 +277,19 @@
           "doc-url": "https://element-plus.org/en-US/component/autocomplete.html#autocomplete",
           "props": [
             {
+              "name": "always-show-suffix",
+              "description": "is required",
+              "doc-url": "https://element-plus.org/en-US/component/autocomplete.html#attributes",
+              "type": [
+                "boolean"
+              ]
+            },
+            {
               "name": "pre-star",
               "description": "is required",
               "doc-url": "https://element-plus.org/en-US/component/autocomplete.html#attributes",
               "type": [
-                "string"
+                "boolean"
               ]
             },
             {

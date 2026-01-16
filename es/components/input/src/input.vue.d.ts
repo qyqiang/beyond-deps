@@ -12,6 +12,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly name: StringConstructor;
     readonly ariaLabel: StringConstructor;
     readonly isHoverSuffix: BooleanConstructor;
+    readonly alwaysShowSuffix: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -75,7 +76,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     };
     readonly readonly: BooleanConstructor;
     readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly preStar: BooleanConstructor;
     readonly clearable: BooleanConstructor;
     readonly clearIcon: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>>;
@@ -145,6 +146,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly name: StringConstructor;
     readonly ariaLabel: StringConstructor;
     readonly isHoverSuffix: BooleanConstructor;
+    readonly alwaysShowSuffix: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -208,7 +210,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     };
     readonly readonly: BooleanConstructor;
     readonly floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly preStar: BooleanConstructor;
     readonly clearable: BooleanConstructor;
     readonly clearIcon: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>>;
@@ -257,11 +259,11 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly type: string;
     readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | number) | (() => string | number | null | undefined) | ((new (...args: any[]) => string | number) | (() => string | number | null | undefined))[], unknown, unknown>;
     readonly readonly: boolean;
+    readonly alwaysShowSuffix: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly modelModifiers: import("./input").InputModelModifiers;
     readonly autosize: import("./input").InputAutoSize;
     readonly autocomplete: AutoFill;
     readonly floatLabel: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly wordLimitPosition: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "inside" | "outside", unknown>;
     readonly containerRole: string;
     readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
@@ -269,6 +271,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly rows: number;
     readonly inputmode: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown>;
     readonly isHoverSuffix: boolean;
+    readonly preStar: boolean;
     readonly clearable: boolean;
     readonly showPassword: boolean;
     readonly showWordLimit: boolean;

@@ -12585,6 +12585,7 @@
   };
 
   const affixProps = buildProps({
+    disabled: Boolean,
     zIndex: {
       type: definePropType([Number, String]),
       default: 100
@@ -12728,7 +12729,7 @@
           style: vue.normalizeStyle(vue.unref(rootStyle))
         }, [
           vue.createElementVNode("div", {
-            class: vue.normalizeClass({ [vue.unref(ns).m("fixed")]: fixed.value }),
+            class: vue.normalizeClass({ [vue.unref(ns).m("fixed")]: fixed.value && !_ctx.disabled }),
             style: vue.normalizeStyle(vue.unref(affixStyle))
           }, [
             vue.renderSlot(_ctx.$slots, "default")
@@ -16359,6 +16360,10 @@
 
   const inputProps = buildProps({
     isHoverSuffix: Boolean,
+    alwaysShowSuffix: {
+      type: Boolean,
+      default: true
+    },
     id: {
       type: String,
       default: void 0
@@ -16416,10 +16421,7 @@
       type: Boolean,
       default: true
     },
-    preStar: {
-      type: Boolean,
-      default: false
-    },
+    preStar: Boolean,
     clearable: Boolean,
     clearIcon: {
       type: iconPropType,
@@ -16838,6 +16840,7 @@
         resizeTextarea
       });
       return (_ctx, _cache) => {
+        var _a;
         return vue.openBlock(), vue.createElementBlock("div", {
           class: vue.normalizeClass([
             vue.unref(containerKls),
@@ -16947,7 +16950,7 @@
                     ]),
                     _: 1
                   }, 8, ["class", "onMousedown"])) : vue.createCommentVNode("v-if", true),
-                  (!vue.unref(showClear) || !vue.unref(showPwdVisible) || !vue.unref(isWordLimitVisible)) && !vue.unref(validateState) ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 1 }, [
+                  (!vue.unref(showClear) || !vue.unref(showPwdVisible) || !vue.unref(isWordLimitVisible)) && ((_a = _ctx.alwaysShowSuffix) != null ? _a : !vue.unref(validateState)) ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 1 }, [
                     _ctx.isHoverSuffix && hovering.value || !_ctx.isHoverSuffix ? vue.renderSlot(_ctx.$slots, "suffix", { key: 0 }) : vue.createCommentVNode("v-if", true),
                     _ctx.suffixIcon ? (vue.openBlock(), vue.createBlock(vue.unref(ElIcon), {
                       key: 1,
@@ -17684,7 +17687,6 @@
       type: String,
       default: "value"
     },
-    preStar: Boolean,
     modelValue: {
       type: [String, Number],
       default: ""
@@ -18167,6 +18169,7 @@
                 "is-hover-suffix": _ctx.isHoverSuffix
               }, vue.mergeProps(vue.unref(passInputProps), _ctx.$attrs), {
                 "model-value": _ctx.modelValue,
+                "always-show-suffix": _ctx.alwaysShowSuffix,
                 "pre-star": _ctx.preStar,
                 disabled: vue.unref(disabled),
                 onInput: handleInput,
@@ -18203,7 +18206,7 @@
                     vue.renderSlot(_ctx.$slots, "suffix")
                   ])
                 } : void 0
-              ]), 1040, ["is-hover-suffix", "model-value", "pre-star", "disabled"])
+              ]), 1040, ["is-hover-suffix", "model-value", "always-show-suffix", "pre-star", "disabled"])
             ], 14, ["aria-expanded", "aria-owns"])
           ]),
           _: 3

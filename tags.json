@@ -2,6 +2,7 @@
   "el-affix": {
     "attributes": [
       "offset",
+      "disabled",
       "position",
       "target",
       "z-index",
@@ -41,6 +42,7 @@
   "el-autocomplete": {
     "attributes": [
       "pre-star",
+      "always-show-suffix",
       "model-value",
       "placeholder",
       "clearable",

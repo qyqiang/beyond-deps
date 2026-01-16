@@ -80,6 +80,7 @@ import { Window as Window_2 } from "@popperjs/core";
 import { WritableComputedRef } from "vue";
 import { ZIndexProperty } from "csstype";
 declare const __VLS_component: DefineComponent<{
+    readonly disabled: BooleanConstructor;
     readonly zIndex: EpPropFinalized<(new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => ZIndexProperty) | ((new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => ZIndexProperty))[], unknown, unknown, 100, boolean>;
     readonly target: EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly offset: EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -96,6 +97,7 @@ declare const __VLS_component: DefineComponent<{
         fixed: boolean;
     }) => void;
 }, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{
+    readonly disabled: BooleanConstructor;
     readonly zIndex: EpPropFinalized<(new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => ZIndexProperty) | ((new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => ZIndexProperty))[], unknown, unknown, 100, boolean>;
     readonly target: EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly offset: EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -107,6 +109,7 @@ declare const __VLS_component: DefineComponent<{
         fixed: boolean;
     }) => any) | undefined;
 }, {
+    readonly disabled: boolean;
     readonly position: EpPropMergeType<StringConstructor, "top" | "bottom", unknown>;
     readonly zIndex: EpPropMergeType<(new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => ZIndexProperty) | ((new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => ZIndexProperty))[], unknown, unknown>;
     readonly offset: number;
@@ -1751,7 +1754,6 @@ declare const __VLS_component_29: DefineComponent<{
 }>;
 declare const __VLS_component_3: DefineComponent<{
     readonly valueKey: EpPropFinalized<StringConstructor, unknown, unknown, "value", boolean>;
-    readonly preStar: BooleanConstructor;
     readonly modelValue: EpPropFinalized<readonly [
         StringConstructor,
         NumberConstructor
@@ -1887,6 +1889,7 @@ declare const __VLS_component_3: DefineComponent<{
     readonly inputmode: EpPropFinalized<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown, undefined, boolean>;
     readonly name: StringConstructor;
     readonly ariaLabel: StringConstructor;
+    readonly alwaysShowSuffix: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly id: EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly size: {
         readonly type: PropType<EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -1955,6 +1958,7 @@ declare const __VLS_component_3: DefineComponent<{
     };
     readonly readonly: BooleanConstructor;
     readonly floatLabel: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly preStar: BooleanConstructor;
     readonly clearable: BooleanConstructor;
     readonly clearIcon: {
         readonly type: PropType<EpPropMergeType<(new (...args: any[]) => (string | Component) & {}) | (() => string | Component) | ((new (...args: any[]) => (string | Component) & {}) | (() => string | Component))[], unknown, unknown>>;
@@ -2025,7 +2029,6 @@ declare const __VLS_component_3: DefineComponent<{
     blur: (evt: FocusEvent) => void;
 }, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{
     readonly valueKey: EpPropFinalized<StringConstructor, unknown, unknown, "value", boolean>;
-    readonly preStar: BooleanConstructor;
     readonly modelValue: EpPropFinalized<readonly [
         StringConstructor,
         NumberConstructor
@@ -2161,6 +2164,7 @@ declare const __VLS_component_3: DefineComponent<{
     readonly inputmode: EpPropFinalized<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown, undefined, boolean>;
     readonly name: StringConstructor;
     readonly ariaLabel: StringConstructor;
+    readonly alwaysShowSuffix: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly id: EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly size: {
         readonly type: PropType<EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -2229,6 +2233,7 @@ declare const __VLS_component_3: DefineComponent<{
     };
     readonly readonly: BooleanConstructor;
     readonly floatLabel: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly preStar: BooleanConstructor;
     readonly clearable: BooleanConstructor;
     readonly clearIcon: {
         readonly type: PropType<EpPropMergeType<(new (...args: any[]) => (string | Component) & {}) | (() => string | Component) | ((new (...args: any[]) => (string | Component) & {}) | (() => string | Component))[], unknown, unknown>>;
@@ -2283,11 +2288,11 @@ declare const __VLS_component_3: DefineComponent<{
     readonly placement: EpPropMergeType<(new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement) | ((new (...args: any[]) => "left" | "right" | "top" | "bottom" | "auto" | "auto-start" | "auto-end" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end") | (() => Placement))[], "top" | "bottom" | "top-start" | "top-end" | "bottom-start" | "bottom-end", unknown>;
     readonly readonly: boolean;
     readonly teleported: EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly alwaysShowSuffix: EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly modelModifiers: InputModelModifiers;
     readonly autosize: InputAutoSize;
     readonly autocomplete: AutoFill;
     readonly floatLabel: EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly preStar: boolean;
     readonly wordLimitPosition: EpPropMergeType<StringConstructor, "inside" | "outside", unknown>;
     readonly containerRole: string;
     readonly validateEvent: EpPropMergeType<BooleanConstructor, unknown, unknown>;
@@ -2295,6 +2300,7 @@ declare const __VLS_component_3: DefineComponent<{
     readonly rows: number;
     readonly inputmode: EpPropMergeType<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown>;
     readonly isHoverSuffix: EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly preStar: boolean;
     readonly clearable: boolean;
     readonly showPassword: boolean;
     readonly showWordLimit: boolean;
@@ -2673,6 +2679,7 @@ declare const __VLS_component_4: DefineComponent<{
     readonly name: StringConstructor;
     readonly ariaLabel: StringConstructor;
     readonly isHoverSuffix: BooleanConstructor;
+    readonly alwaysShowSuffix: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly id: EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly size: {
         readonly type: PropType<EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -2742,7 +2749,7 @@ declare const __VLS_component_4: DefineComponent<{
     };
     readonly readonly: BooleanConstructor;
     readonly floatLabel: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly preStar: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly preStar: BooleanConstructor;
     readonly clearable: BooleanConstructor;
     readonly clearIcon: {
         readonly type: PropType<EpPropMergeType<(new (...args: any[]) => (string | Component) & {}) | (() => string | Component) | ((new (...args: any[]) => (string | Component) & {}) | (() => string | Component))[], unknown, unknown>>;
@@ -2815,6 +2822,7 @@ declare const __VLS_component_4: DefineComponent<{
     readonly name: StringConstructor;
     readonly ariaLabel: StringConstructor;
     readonly isHoverSuffix: BooleanConstructor;
+    readonly alwaysShowSuffix: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly id: EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly size: {
         readonly type: PropType<EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -2884,7 +2892,7 @@ declare const __VLS_component_4: DefineComponent<{
     };
     readonly readonly: BooleanConstructor;
     readonly floatLabel: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly preStar: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly preStar: BooleanConstructor;
     readonly clearable: BooleanConstructor;
     readonly clearIcon: {
         readonly type: PropType<EpPropMergeType<(new (...args: any[]) => (string | Component) & {}) | (() => string | Component) | ((new (...args: any[]) => (string | Component) & {}) | (() => string | Component))[], unknown, unknown>>;
@@ -2939,11 +2947,11 @@ declare const __VLS_component_4: DefineComponent<{
     readonly type: string;
     readonly modelValue: EpPropMergeType<(new (...args: any[]) => string | number) | (() => string | number | null | undefined) | ((new (...args: any[]) => string | number) | (() => string | number | null | undefined))[], unknown, unknown>;
     readonly readonly: boolean;
+    readonly alwaysShowSuffix: EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly modelModifiers: InputModelModifiers;
     readonly autosize: InputAutoSize;
     readonly autocomplete: AutoFill;
     readonly floatLabel: EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly preStar: EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly wordLimitPosition: EpPropMergeType<StringConstructor, "inside" | "outside", unknown>;
     readonly containerRole: string;
     readonly validateEvent: EpPropMergeType<BooleanConstructor, unknown, unknown>;
@@ -2951,6 +2959,7 @@ declare const __VLS_component_4: DefineComponent<{
     readonly rows: number;
     readonly inputmode: EpPropMergeType<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown>;
     readonly isHoverSuffix: boolean;
+    readonly preStar: boolean;
     readonly clearable: boolean;
     readonly showPassword: boolean;
     readonly showWordLimit: boolean;
@@ -8760,6 +8769,7 @@ declare const __VLS_component_86: DefineComponent<{
     name: StringConstructor;
     ariaLabel: StringConstructor;
     isHoverSuffix: BooleanConstructor;
+    alwaysShowSuffix: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     id: EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     size: {
         readonly type: PropType<EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -8828,7 +8838,7 @@ declare const __VLS_component_86: DefineComponent<{
     };
     readonly: BooleanConstructor;
     floatLabel: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    preStar: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    preStar: BooleanConstructor;
     clearable: BooleanConstructor;
     clearIcon: {
         readonly type: PropType<EpPropMergeType<(new (...args: any[]) => (string | Component) & {}) | (() => string | Component) | ((new (...args: any[]) => (string | Component) & {}) | (() => string | Component))[], unknown, unknown>>;
@@ -9003,6 +9013,7 @@ declare const __VLS_component_86: DefineComponent<{
     name: StringConstructor;
     ariaLabel: StringConstructor;
     isHoverSuffix: BooleanConstructor;
+    alwaysShowSuffix: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     id: EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     size: {
         readonly type: PropType<EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -9071,7 +9082,7 @@ declare const __VLS_component_86: DefineComponent<{
     };
     readonly: BooleanConstructor;
     floatLabel: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    preStar: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    preStar: BooleanConstructor;
     clearable: BooleanConstructor;
     clearIcon: {
         readonly type: PropType<EpPropMergeType<(new (...args: any[]) => (string | Component) & {}) | (() => string | Component) | ((new (...args: any[]) => (string | Component) & {}) | (() => string | Component))[], unknown, unknown>>;
@@ -9129,11 +9140,11 @@ declare const __VLS_component_86: DefineComponent<{
     readonly: boolean;
     popperOptions: Partial<Options>;
     showArrow: boolean;
+    alwaysShowSuffix: EpPropMergeType<BooleanConstructor, unknown, unknown>;
     modelModifiers: InputModelModifiers;
     autosize: InputAutoSize;
     autocomplete: AutoFill;
     floatLabel: EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    preStar: EpPropMergeType<BooleanConstructor, unknown, unknown>;
     wordLimitPosition: EpPropMergeType<StringConstructor, "inside" | "outside", unknown>;
     containerRole: string;
     validateEvent: EpPropMergeType<BooleanConstructor, unknown, unknown>;
@@ -9141,6 +9152,7 @@ declare const __VLS_component_86: DefineComponent<{
     rows: number;
     inputmode: EpPropMergeType<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown>;
     isHoverSuffix: boolean;
+    preStar: boolean;
     clearable: boolean;
     showPassword: boolean;
     showWordLimit: boolean;
@@ -10969,6 +10981,7 @@ export declare const affixEmits: {
 export declare type AffixInstance = InstanceType<typeof _default_2> & unknown;
 export declare type AffixProps = ExtractPropTypes<typeof affixProps>;
 export declare const affixProps: {
+    readonly disabled: BooleanConstructor;
     readonly zIndex: EpPropFinalized<(new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => ZIndexProperty) | ((new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => ZIndexProperty))[], unknown, unknown, 100, boolean>;
     readonly target: EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly offset: EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -11076,7 +11089,6 @@ export declare type AutocompleteInstance = InstanceType<typeof _default_4> & unk
 export declare type AutocompleteProps = ExtractPropTypes<typeof autocompleteProps>;
 export declare const autocompleteProps: {
     readonly valueKey: EpPropFinalized<StringConstructor, unknown, unknown, "value", boolean>;
-    readonly preStar: BooleanConstructor;
     readonly modelValue: EpPropFinalized<readonly [
         StringConstructor,
         NumberConstructor
@@ -11212,6 +11224,7 @@ export declare const autocompleteProps: {
     readonly inputmode: EpPropFinalized<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown, undefined, boolean>;
     readonly name: StringConstructor;
     readonly ariaLabel: StringConstructor;
+    readonly alwaysShowSuffix: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly id: EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly size: {
         readonly type: PropType<EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -11280,6 +11293,7 @@ export declare const autocompleteProps: {
     };
     readonly readonly: BooleanConstructor;
     readonly floatLabel: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+    readonly preStar: BooleanConstructor;
     readonly clearable: BooleanConstructor;
     readonly clearIcon: {
         readonly type: PropType<EpPropMergeType<(new (...args: any[]) => (string | Component) & {}) | (() => string | Component) | ((new (...args: any[]) => (string | Component) & {}) | (() => string | Component))[], unknown, unknown>>;
@@ -15464,8 +15478,8 @@ declare const _default_73: DefineComponent<{
     showArrow: boolean;
     autocomplete: string;
     floatLabel: EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    preStar: boolean;
     validateEvent: EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    preStar: boolean;
     clearable: boolean;
     valueKey: string;
     debounce: number;
@@ -16239,8 +16253,8 @@ declare const _default_76: DefineComponent<{
     readonly showArrow: boolean;
     readonly autocomplete: EpPropMergeType<(new (...args: any[]) => "none" | "both" | "inline" | "list") | (() => "none" | "both" | "inline" | "list") | ((new (...args: any[]) => "none" | "both" | "inline" | "list") | (() => "none" | "both" | "inline" | "list"))[], unknown, unknown>;
     readonly floatLabel: EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly preStar: EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly validateEvent: EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly preStar: EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly clearable: boolean;
     readonly valueKey: string;
     readonly debounce: number;
@@ -21739,6 +21753,7 @@ export declare const inputProps: {
     readonly name: StringConstructor;
     readonly ariaLabel: StringConstructor;
     readonly isHoverSuffix: BooleanConstructor;
+    readonly alwaysShowSuffix: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly id: EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly size: {
         readonly type: PropType<EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -21808,7 +21823,7 @@ export declare const inputProps: {
     };
     readonly readonly: BooleanConstructor;
     readonly floatLabel: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly preStar: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly preStar: BooleanConstructor;
     readonly clearable: BooleanConstructor;
     readonly clearIcon: {
         readonly type: PropType<EpPropMergeType<(new (...args: any[]) => (string | Component) & {}) | (() => string | Component) | ((new (...args: any[]) => (string | Component) & {}) | (() => string | Component))[], unknown, unknown>>;
@@ -22245,6 +22260,7 @@ export declare const mentionProps: {
     name: StringConstructor;
     ariaLabel: StringConstructor;
     isHoverSuffix: BooleanConstructor;
+    alwaysShowSuffix: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     id: EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     size: {
         readonly type: PropType<EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -22313,7 +22329,7 @@ export declare const mentionProps: {
     };
     readonly: BooleanConstructor;
     floatLabel: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    preStar: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    preStar: BooleanConstructor;
     clearable: BooleanConstructor;
     clearIcon: {
         readonly type: PropType<EpPropMergeType<(new (...args: any[]) => (string | Component) & {}) | (() => string | Component) | ((new (...args: any[]) => (string | Component) & {}) | (() => string | Component))[], unknown, unknown>>;

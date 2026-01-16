@@ -12581,6 +12581,7 @@ const makeInstaller = (components = []) => {
 };
 
 const affixProps = buildProps({
+  disabled: Boolean,
   zIndex: {
     type: definePropType([Number, String]),
     default: 100
@@ -12724,7 +12725,7 @@ const _sfc_main$2w = /* @__PURE__ */ defineComponent({
         style: normalizeStyle(unref(rootStyle))
       }, [
         createElementVNode("div", {
-          class: normalizeClass({ [unref(ns).m("fixed")]: fixed.value }),
+          class: normalizeClass({ [unref(ns).m("fixed")]: fixed.value && !_ctx.disabled }),
           style: normalizeStyle(unref(affixStyle))
         }, [
           renderSlot(_ctx.$slots, "default")
@@ -16355,6 +16356,10 @@ var Tooltip = /* @__PURE__ */ _export_sfc(_sfc_main$2j, [["__file", "tooltip.vue
 
 const inputProps = buildProps({
   isHoverSuffix: Boolean,
+  alwaysShowSuffix: {
+    type: Boolean,
+    default: true
+  },
   id: {
     type: String,
     default: void 0
@@ -16412,10 +16417,7 @@ const inputProps = buildProps({
     type: Boolean,
     default: true
   },
-  preStar: {
-    type: Boolean,
-    default: false
-  },
+  preStar: Boolean,
   clearable: Boolean,
   clearIcon: {
     type: iconPropType,
@@ -16834,6 +16836,7 @@ const _sfc_main$2i = /* @__PURE__ */ defineComponent({
       resizeTextarea
     });
     return (_ctx, _cache) => {
+      var _a;
       return openBlock(), createElementBlock("div", {
         class: normalizeClass([
           unref(containerKls),
@@ -16943,7 +16946,7 @@ const _sfc_main$2i = /* @__PURE__ */ defineComponent({
                   ]),
                   _: 1
                 }, 8, ["class", "onMousedown"])) : createCommentVNode("v-if", true),
-                (!unref(showClear) || !unref(showPwdVisible) || !unref(isWordLimitVisible)) && !unref(validateState) ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
+                (!unref(showClear) || !unref(showPwdVisible) || !unref(isWordLimitVisible)) && ((_a = _ctx.alwaysShowSuffix) != null ? _a : !unref(validateState)) ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
                   _ctx.isHoverSuffix && hovering.value || !_ctx.isHoverSuffix ? renderSlot(_ctx.$slots, "suffix", { key: 0 }) : createCommentVNode("v-if", true),
                   _ctx.suffixIcon ? (openBlock(), createBlock(unref(ElIcon), {
                     key: 1,
@@ -17680,7 +17683,6 @@ const autocompleteProps = buildProps({
     type: String,
     default: "value"
   },
-  preStar: Boolean,
   modelValue: {
     type: [String, Number],
     default: ""
@@ -18163,6 +18165,7 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
               "is-hover-suffix": _ctx.isHoverSuffix
             }, mergeProps(unref(passInputProps), _ctx.$attrs), {
               "model-value": _ctx.modelValue,
+              "always-show-suffix": _ctx.alwaysShowSuffix,
               "pre-star": _ctx.preStar,
               disabled: unref(disabled),
               onInput: handleInput,
@@ -18199,7 +18202,7 @@ const _sfc_main$2e = /* @__PURE__ */ defineComponent({
                   renderSlot(_ctx.$slots, "suffix")
                 ])
               } : void 0
-            ]), 1040, ["is-hover-suffix", "model-value", "pre-star", "disabled"])
+            ]), 1040, ["is-hover-suffix", "model-value", "always-show-suffix", "pre-star", "disabled"])
           ], 14, ["aria-expanded", "aria-owns"])
         ]),
         _: 3

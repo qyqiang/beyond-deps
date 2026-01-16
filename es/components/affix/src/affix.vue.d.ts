@@ -2,6 +2,7 @@ declare function __VLS_template(): {
     default?(_: {}): any;
 };
 declare const __VLS_component: import("vue").DefineComponent<{
+    readonly disabled: BooleanConstructor;
     readonly zIndex: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => import("csstype").ZIndexProperty) | ((new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => import("csstype").ZIndexProperty))[], unknown, unknown, 100, boolean>;
     readonly target: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly offset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -18,6 +19,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
         fixed: boolean;
     }) => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    readonly disabled: BooleanConstructor;
     readonly zIndex: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => import("csstype").ZIndexProperty) | ((new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => import("csstype").ZIndexProperty))[], unknown, unknown, 100, boolean>;
     readonly target: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly offset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -29,6 +31,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
         fixed: boolean;
     }) => any) | undefined;
 }, {
+    readonly disabled: boolean;
     readonly position: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "top" | "bottom", unknown>;
     readonly zIndex: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => import("csstype").ZIndexProperty) | ((new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => import("csstype").ZIndexProperty))[], unknown, unknown>;
     readonly offset: number;

@@ -439,8 +439,8 @@ declare const _default: import("vue").DefineComponent<{
     showArrow: boolean;
     autocomplete: string;
     floatLabel: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    preStar: boolean;
     validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    preStar: boolean;
     clearable: boolean;
     valueKey: string;
     debounce: number;

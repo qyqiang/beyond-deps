@@ -134,6 +134,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     name: StringConstructor;
     ariaLabel: StringConstructor;
     isHoverSuffix: BooleanConstructor;
+    alwaysShowSuffix: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -196,7 +197,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     };
     readonly: BooleanConstructor;
     floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    preStar: BooleanConstructor;
     clearable: BooleanConstructor;
     clearIcon: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>>;
@@ -368,6 +369,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     name: StringConstructor;
     ariaLabel: StringConstructor;
     isHoverSuffix: BooleanConstructor;
+    alwaysShowSuffix: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "small" | "default" | "large", never>>;
@@ -430,7 +432,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     };
     readonly: BooleanConstructor;
     floatLabel: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    preStar: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    preStar: BooleanConstructor;
     clearable: BooleanConstructor;
     clearIcon: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component) | ((new (...args: any[]) => (string | import("vue").Component) & {}) | (() => string | import("vue").Component))[], unknown, unknown>>;
@@ -482,11 +484,11 @@ declare const __VLS_component: import("vue").DefineComponent<{
     readonly: boolean;
     popperOptions: Partial<import("@popperjs/core").Options>;
     showArrow: boolean;
+    alwaysShowSuffix: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     modelModifiers: import("element-plus/es/components/input").InputModelModifiers;
     autosize: import("element-plus/es/components/input").InputAutoSize;
     autocomplete: AutoFill;
     floatLabel: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    preStar: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     wordLimitPosition: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "inside" | "outside", unknown>;
     containerRole: string;
     validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
@@ -494,6 +496,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     rows: number;
     inputmode: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined) | ((new (...args: any[]) => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal") | (() => "search" | "text" | "none" | "url" | "email" | "tel" | "numeric" | "decimal" | undefined))[], unknown, unknown>;
     isHoverSuffix: boolean;
+    preStar: boolean;
     clearable: boolean;
     showPassword: boolean;
     showWordLimit: boolean;

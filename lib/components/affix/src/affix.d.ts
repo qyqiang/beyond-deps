@@ -2,6 +2,7 @@ import type { ExtractPropTypes, __ExtractPublicPropTypes } from 'vue';
 import type { ZIndexProperty } from 'csstype';
 import type Affix from './affix.vue';
 export declare const affixProps: {
+    readonly disabled: BooleanConstructor;
     readonly zIndex: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => ZIndexProperty) | ((new (...args: any[]) => number | "-moz-initial" | "inherit" | "initial" | "revert" | "unset" | "auto") | (() => ZIndexProperty))[], unknown, unknown, 100, boolean>;
     readonly target: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly offset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;

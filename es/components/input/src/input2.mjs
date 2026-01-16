@@ -293,6 +293,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       resizeTextarea
     });
     return (_ctx, _cache) => {
+      var _a;
       return openBlock(), createElementBlock("div", {
         class: normalizeClass([
           unref(containerKls),
@@ -402,7 +403,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   ]),
                   _: 1
                 }, 8, ["class", "onMousedown"])) : createCommentVNode("v-if", true),
-                (!unref(showClear) || !unref(showPwdVisible) || !unref(isWordLimitVisible)) && !unref(validateState) ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
+                (!unref(showClear) || !unref(showPwdVisible) || !unref(isWordLimitVisible)) && ((_a = _ctx.alwaysShowSuffix) != null ? _a : !unref(validateState)) ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
                   _ctx.isHoverSuffix && hovering.value || !_ctx.isHoverSuffix ? renderSlot(_ctx.$slots, "suffix", { key: 0 }) : createCommentVNode("v-if", true),
                   _ctx.suffixIcon ? (openBlock(), createBlock(unref(ElIcon), {
                     key: 1,

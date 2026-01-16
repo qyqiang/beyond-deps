@@ -9,6 +9,10 @@ import { isString } from '@vue/shared';
 
 const inputProps = buildProps({
   isHoverSuffix: Boolean,
+  alwaysShowSuffix: {
+    type: Boolean,
+    default: true
+  },
   id: {
     type: String,
     default: void 0
@@ -66,10 +70,7 @@ const inputProps = buildProps({
     type: Boolean,
     default: true
   },
-  preStar: {
-    type: Boolean,
-    default: false
-  },
+  preStar: Boolean,
   clearable: Boolean,
   clearIcon: {
     type: iconPropType,

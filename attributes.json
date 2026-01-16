@@ -3,6 +3,10 @@
     "type": "number",
     "description": "offset distance, default: 0.\n\n[Docs](https://element-plus.org/en-US/component/affix.html#attributes)"
   },
+  "el-affix/disabled": {
+    "type": "boolean",
+    "description": "is disabled"
+  },
   "el-affix/position": {
     "type": "'top' | 'bottom'",
     "options": [
@@ -98,8 +102,12 @@
     "type": "event",
     "description": "Triggered when the user clicks on the link\n\n[Docs](https://element-plus.org/en-US/component/anchor.html#anchor-events)"
   },
+  "el-autocomplete/always-show-suffix": {
+    "type": "boolean",
+    "description": "suffix slot is show"
+  },
   "el-autocomplete/pre-star": {
-    "type": "string",
+    "type": "boolean",
     "description": "is required\n\n[Docs](https://element-plus.org/en-US/component/autocomplete.html#attributes)"
   },
   "el-autocomplete/model-value": {
