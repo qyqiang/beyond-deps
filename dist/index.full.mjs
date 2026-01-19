@@ -1,6 +1,6 @@
 /*! Element Plus v0.0.0-dev.1 */
 
-import { unref, readonly, shallowRef, watchEffect, getCurrentScope, onScopeDispose, computed, isRef, reactive, getCurrentInstance, onMounted, nextTick, ref, watch, defineComponent, openBlock, createElementBlock, createElementVNode, warn, isVNode, Fragment, Comment, onBeforeUnmount, inject, onUnmounted, h as h$1, Teleport as Teleport$1, onBeforeMount, provide, triggerRef, renderSlot, normalizeClass, normalizeStyle, mergeProps, useSlots, toRef, createBlock, Transition, withCtx, withDirectives, createCommentVNode, createTextVNode, toDisplayString, createVNode, vShow, toRefs, onUpdated, resolveDynamicComponent, TransitionGroup, cloneVNode, Text as Text$1, onDeactivated, useAttrs as useAttrs$1, withModifiers, onActivated, renderList, createSlots, normalizeProps, guardReactiveProps, toRaw, vModelCheckbox, vModelRadio, onBeforeUpdate, withKeys, vModelText, toHandlers, resolveComponent, markRaw, effectScope, resolveDirective, toHandlerKey, render, createApp, shallowReactive } from 'vue';
+import { unref, readonly, shallowRef, watchEffect, getCurrentScope, onScopeDispose, computed, isRef, reactive, getCurrentInstance, onMounted, nextTick, ref, watch, defineComponent, openBlock, createElementBlock, createElementVNode, warn, isVNode, Fragment, Comment, onBeforeUnmount, inject, onUnmounted, h as h$1, Teleport as Teleport$1, onBeforeMount, provide, triggerRef, renderSlot, normalizeClass, normalizeStyle, mergeProps, useSlots, toRef, createBlock, Transition, withCtx, withDirectives, createCommentVNode, createTextVNode, toDisplayString, createVNode, vShow, toRefs, onUpdated, resolveDynamicComponent, TransitionGroup, cloneVNode, Text as Text$1, onDeactivated, useAttrs as useAttrs$1, withModifiers, onActivated, renderList, createSlots, normalizeProps, guardReactiveProps, toRaw, vModelCheckbox, vModelRadio, onBeforeUpdate, withKeys, vModelText, toHandlers, resolveDirective, resolveComponent, markRaw, effectScope, toHandlerKey, render, createApp, shallowReactive } from 'vue';
 
 const FOCUSABLE_ELEMENT_SELECTORS = `a[href],button:not([disabled]),button:not([hidden]),:not([tabindex="-1"]),input:not([disabled]),input:not([type="hidden"]),select:not([disabled]),textarea:not([disabled])`;
 const isHTMLElement$2 = (e) => {
@@ -33045,6 +33045,7 @@ var ElDialogContent = /* @__PURE__ */ _export_sfc(_sfc_main$1n, [["__file", "dia
 
 const dialogProps = buildProps({
   ...dialogContentProps,
+  loading: Boolean,
   appendToBody: Boolean,
   appendTo: {
     type: teleportProps.to.type,
@@ -33410,6 +33411,7 @@ const _sfc_main$1m = /* @__PURE__ */ defineComponent({
       handleClose
     });
     return (_ctx, _cache) => {
+      const _directive_loading = resolveDirective("loading");
       return openBlock(), createBlock(unref(ElTeleport$1), {
         to: _ctx.appendTo,
         disabled: _ctx.appendTo !== "body" ? false : !_ctx.appendToBody
@@ -33452,7 +33454,7 @@ const _sfc_main$1m = /* @__PURE__ */ defineComponent({
                         onReleaseRequested: unref(onCloseRequested)
                       }, {
                         default: withCtx(() => [
-                          unref(rendered) ? (openBlock(), createBlock(ElDialogContent, mergeProps({
+                          unref(rendered) ? withDirectives((openBlock(), createBlock(ElDialogContent, mergeProps({
                             key: 0,
                             ref_key: "dialogContentRef",
                             ref: dialogContentRef
@@ -33492,7 +33494,9 @@ const _sfc_main$1m = /* @__PURE__ */ defineComponent({
                                 renderSlot(_ctx.$slots, "footer")
                               ])
                             } : void 0
-                          ]), 1040, ["center", "align-center", "close-icon", "draggable", "overflow", "fullscreen", "header-class", "body-class", "footer-class", "show-close", "title", "header-background-color", "header-type", "aria-level", "onClose"])) : createCommentVNode("v-if", true)
+                          ]), 1040, ["center", "align-center", "close-icon", "draggable", "overflow", "fullscreen", "header-class", "body-class", "footer-class", "show-close", "title", "header-background-color", "header-type", "aria-level", "onClose"])), [
+                            [_directive_loading, _ctx.loading]
+                          ]) : createCommentVNode("v-if", true)
                         ]),
                         _: 3
                       }, 8, ["trapped", "onFocusAfterTrapped", "onFocusAfterReleased", "onFocusoutPrevented", "onReleaseRequested"])
@@ -33647,6 +33651,7 @@ const drawerProps = buildProps({
     values: ["ltr", "rtl", "ttb", "btt"]
   },
   resizable: Boolean,
+  loading: Boolean,
   size: {
     type: [String, Number],
     default: "30%"
@@ -33713,6 +33718,7 @@ const _sfc_main$1k = /* @__PURE__ */ defineComponent({
       afterLeave
     });
     return (_ctx, _cache) => {
+      const _directive_loading = resolveDirective("loading");
       return openBlock(), createBlock(unref(ElTeleport$1), {
         to: _ctx.appendTo,
         disabled: _ctx.appendTo !== "body" ? false : !_ctx.appendToBody
@@ -33751,7 +33757,7 @@ const _sfc_main$1k = /* @__PURE__ */ defineComponent({
                       onReleaseRequested: unref(onCloseRequested)
                     }, {
                       default: withCtx(() => [
-                        createElementVNode("div", mergeProps({
+                        withDirectives((openBlock(), createElementBlock("div", mergeProps({
                           ref_key: "drawerRef",
                           ref: drawerRef,
                           "aria-modal": "true",
@@ -33840,7 +33846,9 @@ const _sfc_main$1k = /* @__PURE__ */ defineComponent({
                             style: normalizeStyle({ zIndex: unref(zIndex) }),
                             class: normalizeClass(unref(ns).e("dragger"))
                           }, null, 6)) : createCommentVNode("v-if", true)
-                        ], 16, ["aria-label", "aria-labelledby", "aria-describedby", "onClick"])
+                        ], 16, ["aria-label", "aria-labelledby", "aria-describedby", "onClick"])), [
+                          [_directive_loading, _ctx.loading]
+                        ])
                       ]),
                       _: 3
                     }, 8, ["trapped", "focus-trap-el", "focus-start-el", "onFocusAfterTrapped", "onFocusAfterReleased", "onFocusoutPrevented", "onReleaseRequested"])

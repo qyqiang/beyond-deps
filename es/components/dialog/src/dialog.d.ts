@@ -4,6 +4,7 @@ type DoneFn = (cancel?: boolean) => void;
 export type DialogBeforeCloseFn = (done: DoneFn) => void;
 export type DialogTransition = string | TransitionProps;
 export declare const dialogProps: {
+    readonly loading: BooleanConstructor;
     readonly appendToBody: BooleanConstructor;
     readonly appendTo: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown, "body", boolean>;
     readonly beforeClose: {

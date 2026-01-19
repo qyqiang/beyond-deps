@@ -33049,6 +33049,7 @@
 
   const dialogProps = buildProps({
     ...dialogContentProps,
+    loading: Boolean,
     appendToBody: Boolean,
     appendTo: {
       type: teleportProps.to.type,
@@ -33414,6 +33415,7 @@
         handleClose
       });
       return (_ctx, _cache) => {
+        const _directive_loading = vue.resolveDirective("loading");
         return vue.openBlock(), vue.createBlock(vue.unref(ElTeleport$1), {
           to: _ctx.appendTo,
           disabled: _ctx.appendTo !== "body" ? false : !_ctx.appendToBody
@@ -33456,7 +33458,7 @@
                           onReleaseRequested: vue.unref(onCloseRequested)
                         }, {
                           default: vue.withCtx(() => [
-                            vue.unref(rendered) ? (vue.openBlock(), vue.createBlock(ElDialogContent, vue.mergeProps({
+                            vue.unref(rendered) ? vue.withDirectives((vue.openBlock(), vue.createBlock(ElDialogContent, vue.mergeProps({
                               key: 0,
                               ref_key: "dialogContentRef",
                               ref: dialogContentRef
@@ -33496,7 +33498,9 @@
                                   vue.renderSlot(_ctx.$slots, "footer")
                                 ])
                               } : void 0
-                            ]), 1040, ["center", "align-center", "close-icon", "draggable", "overflow", "fullscreen", "header-class", "body-class", "footer-class", "show-close", "title", "header-background-color", "header-type", "aria-level", "onClose"])) : vue.createCommentVNode("v-if", true)
+                            ]), 1040, ["center", "align-center", "close-icon", "draggable", "overflow", "fullscreen", "header-class", "body-class", "footer-class", "show-close", "title", "header-background-color", "header-type", "aria-level", "onClose"])), [
+                              [_directive_loading, _ctx.loading]
+                            ]) : vue.createCommentVNode("v-if", true)
                           ]),
                           _: 3
                         }, 8, ["trapped", "onFocusAfterTrapped", "onFocusAfterReleased", "onFocusoutPrevented", "onReleaseRequested"])
@@ -33651,6 +33655,7 @@
       values: ["ltr", "rtl", "ttb", "btt"]
     },
     resizable: Boolean,
+    loading: Boolean,
     size: {
       type: [String, Number],
       default: "30%"
@@ -33717,6 +33722,7 @@
         afterLeave
       });
       return (_ctx, _cache) => {
+        const _directive_loading = vue.resolveDirective("loading");
         return vue.openBlock(), vue.createBlock(vue.unref(ElTeleport$1), {
           to: _ctx.appendTo,
           disabled: _ctx.appendTo !== "body" ? false : !_ctx.appendToBody
@@ -33755,7 +33761,7 @@
                         onReleaseRequested: vue.unref(onCloseRequested)
                       }, {
                         default: vue.withCtx(() => [
-                          vue.createElementVNode("div", vue.mergeProps({
+                          vue.withDirectives((vue.openBlock(), vue.createElementBlock("div", vue.mergeProps({
                             ref_key: "drawerRef",
                             ref: drawerRef,
                             "aria-modal": "true",
@@ -33844,7 +33850,9 @@
                               style: vue.normalizeStyle({ zIndex: vue.unref(zIndex) }),
                               class: vue.normalizeClass(vue.unref(ns).e("dragger"))
                             }, null, 6)) : vue.createCommentVNode("v-if", true)
-                          ], 16, ["aria-label", "aria-labelledby", "aria-describedby", "onClick"])
+                          ], 16, ["aria-label", "aria-labelledby", "aria-describedby", "onClick"])), [
+                            [_directive_loading, _ctx.loading]
+                          ])
                         ]),
                         _: 3
                       }, 8, ["trapped", "focus-trap-el", "focus-start-el", "onFocusAfterTrapped", "onFocusAfterReleased", "onFocusoutPrevented", "onReleaseRequested"])

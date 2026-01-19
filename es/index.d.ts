@@ -2503,6 +2503,7 @@ declare const __VLS_component_38: DefineComponent<{
     readonly extra: string;
 }>;
 declare const __VLS_component_39: DefineComponent<{
+    readonly loading: BooleanConstructor;
     readonly appendToBody: BooleanConstructor;
     readonly appendTo: EpPropFinalized<(new (...args: any[]) => string | HTMLElement) | (() => EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown, "body", boolean>;
     readonly beforeClose: {
@@ -2579,6 +2580,7 @@ declare const __VLS_component_39: DefineComponent<{
     openAutoFocus: () => void;
     closeAutoFocus: () => void;
 }, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{
+    readonly loading: BooleanConstructor;
     readonly appendToBody: BooleanConstructor;
     readonly appendTo: EpPropFinalized<(new (...args: any[]) => string | HTMLElement) | (() => EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown, "body", boolean>;
     readonly beforeClose: {
@@ -2653,6 +2655,7 @@ declare const __VLS_component_39: DefineComponent<{
     readonly center: boolean;
     readonly overflow: EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly transition: EpPropMergeType<(new (...args: any[]) => string | TransitionProps) | (() => DialogTransition) | ((new (...args: any[]) => string | TransitionProps) | (() => DialogTransition))[], unknown, unknown>;
+    readonly loading: boolean;
     readonly modelValue: boolean;
     readonly ariaLevel: string;
     readonly appendTo: EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown>;
@@ -2984,6 +2987,7 @@ declare const __VLS_component_40: DefineComponent<{
 declare const __VLS_component_41: DefineComponent<{
     readonly direction: EpPropFinalized<StringConstructor, "ltr" | "rtl" | "ttb" | "btt", unknown, "rtl", boolean>;
     readonly resizable: BooleanConstructor;
+    readonly loading: BooleanConstructor;
     readonly size: EpPropFinalized<readonly [
         StringConstructor,
         NumberConstructor
@@ -3066,6 +3070,7 @@ declare const __VLS_component_41: DefineComponent<{
 }, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{
     readonly direction: EpPropFinalized<StringConstructor, "ltr" | "rtl" | "ttb" | "btt", unknown, "rtl", boolean>;
     readonly resizable: BooleanConstructor;
+    readonly loading: BooleanConstructor;
     readonly size: EpPropFinalized<readonly [
         StringConstructor,
         NumberConstructor
@@ -3151,6 +3156,7 @@ declare const __VLS_component_41: DefineComponent<{
         StringConstructor,
         NumberConstructor
     ], unknown, unknown>;
+    readonly loading: boolean;
     readonly modelValue: boolean;
     readonly ariaLevel: string;
     readonly appendTo: EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown>;
@@ -18818,6 +18824,7 @@ export declare const dialogInjectionKey: InjectionKey<DialogContext>;
 export declare type DialogInstance = InstanceType<typeof _default_42> & unknown;
 export declare type DialogProps = ExtractPropTypes<typeof dialogProps>;
 export declare const dialogProps: {
+    readonly loading: BooleanConstructor;
     readonly appendToBody: BooleanConstructor;
     readonly appendTo: EpPropFinalized<(new (...args: any[]) => string | HTMLElement) | (() => EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>) | ((new (...args: any[]) => string | HTMLElement) | (() => EpPropMergeType<(new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement) | ((new (...args: any[]) => string | HTMLElement) | (() => string | HTMLElement))[], unknown, unknown>))[], unknown, unknown, "body", boolean>;
     readonly beforeClose: {
@@ -18916,6 +18923,7 @@ export declare type DrawerProps = ExtractPropTypes<typeof drawerProps>;
 export declare const drawerProps: {
     readonly direction: EpPropFinalized<StringConstructor, "ltr" | "rtl" | "ttb" | "btt", unknown, "rtl", boolean>;
     readonly resizable: BooleanConstructor;
+    readonly loading: BooleanConstructor;
     readonly size: EpPropFinalized<readonly [
         StringConstructor,
         NumberConstructor

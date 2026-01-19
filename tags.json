@@ -544,6 +544,7 @@
   },
   "el-dialog": {
     "attributes": [
+      "loading",
       "model-value",
       "title",
       "width",
@@ -595,6 +596,7 @@
   "el-drawer": {
     "attributes": [
       "model-value",
+      "loading",
       "append-to-body",
       "append-to",
       "lock-scroll",

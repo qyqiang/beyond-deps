@@ -3885,6 +3885,15 @@
           "doc-url": "https://element-plus.org/en-US/component/dialog.html#dialog",
           "props": [
             {
+              "name": "loading",
+              "description": "whether Select is loading data from server",
+              "doc-url": "https://element-plus.org/en-US/component/select-v2.html#attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
+            {
               "name": "model-value",
               "description": "visibility of Dialog",
               "doc-url": "https://element-plus.org/en-US/component/dialog.html#attributes",
@@ -4286,6 +4295,15 @@
           "description": "Sometimes, `Dialog` does not always satisfy our requirements, let's say you have a massive form, or you need space to display something like `terms & conditions`, `Drawer` has almost identical API with `Dialog`, but it introduces different user experience.",
           "doc-url": "https://element-plus.org/en-US/component/drawer.html#drawer",
           "props": [
+            {
+              "name": "loading",
+              "description": "whether Select is loading data from server",
+              "doc-url": "https://element-plus.org/en-US/component/select-v2.html#attributes",
+              "type": [
+                "boolean"
+              ],
+              "default": "false"
+            },
             {
               "name": "model-value",
               "description": "Should Drawer be displayed",

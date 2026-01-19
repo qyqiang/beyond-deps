@@ -1,4 +1,4 @@
-import { defineComponent, useSlots, computed, ref, openBlock, createBlock, unref, withCtx, createVNode, Transition, withDirectives, createElementVNode, mergeProps, withModifiers, normalizeClass, createElementBlock, renderSlot, toDisplayString, createCommentVNode, normalizeStyle, vShow } from 'vue';
+import { defineComponent, useSlots, computed, ref, resolveDirective, openBlock, createBlock, unref, withCtx, createVNode, Transition, withDirectives, createElementBlock, mergeProps, withModifiers, createElementVNode, normalizeClass, renderSlot, toDisplayString, createCommentVNode, normalizeStyle, vShow } from 'vue';
 import ElFocusTrap from '../../focus-trap/src/focus-trap.mjs';
 import { ElIcon } from '../../icon/index.mjs';
 import { ElOverlay } from '../../overlay/index.mjs';
@@ -58,6 +58,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       afterLeave
     });
     return (_ctx, _cache) => {
+      const _directive_loading = resolveDirective("loading");
       return openBlock(), createBlock(unref(ElTeleport), {
         to: _ctx.appendTo,
         disabled: _ctx.appendTo !== "body" ? false : !_ctx.appendToBody
@@ -96,7 +97,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       onReleaseRequested: unref(onCloseRequested)
                     }, {
                       default: withCtx(() => [
-                        createElementVNode("div", mergeProps({
+                        withDirectives((openBlock(), createElementBlock("div", mergeProps({
                           ref_key: "drawerRef",
                           ref: drawerRef,
                           "aria-modal": "true",
@@ -185,7 +186,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                             style: normalizeStyle({ zIndex: unref(zIndex) }),
                             class: normalizeClass(unref(ns).e("dragger"))
                           }, null, 6)) : createCommentVNode("v-if", true)
-                        ], 16, ["aria-label", "aria-labelledby", "aria-describedby", "onClick"])
+                        ], 16, ["aria-label", "aria-labelledby", "aria-describedby", "onClick"])), [
+                          [_directive_loading, _ctx.loading]
+                        ])
                       ]),
                       _: 3
                     }, 8, ["trapped", "focus-trap-el", "focus-start-el", "onFocusAfterTrapped", "onFocusAfterReleased", "onFocusoutPrevented", "onReleaseRequested"])

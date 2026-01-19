@@ -1,4 +1,4 @@
-import { defineComponent, useSlots, computed, ref, provide, openBlock, createBlock, unref, withCtx, createVNode, Transition, mergeProps, withDirectives, createElementVNode, normalizeClass, normalizeStyle, createSlots, renderSlot, createCommentVNode, vShow } from 'vue';
+import { defineComponent, useSlots, computed, ref, provide, resolveDirective, openBlock, createBlock, unref, withCtx, createVNode, Transition, mergeProps, withDirectives, createElementVNode, normalizeClass, normalizeStyle, createSlots, renderSlot, createCommentVNode, vShow } from 'vue';
 import { ElOverlay } from '../../overlay/index.mjs';
 import ElFocusTrap from '../../focus-trap/src/focus-trap.mjs';
 import { ElTeleport } from '../../teleport/index.mjs';
@@ -73,6 +73,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       handleClose
     });
     return (_ctx, _cache) => {
+      const _directive_loading = resolveDirective("loading");
       return openBlock(), createBlock(unref(ElTeleport), {
         to: _ctx.appendTo,
         disabled: _ctx.appendTo !== "body" ? false : !_ctx.appendToBody
@@ -115,7 +116,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         onReleaseRequested: unref(onCloseRequested)
                       }, {
                         default: withCtx(() => [
-                          unref(rendered) ? (openBlock(), createBlock(ElDialogContent, mergeProps({
+                          unref(rendered) ? withDirectives((openBlock(), createBlock(ElDialogContent, mergeProps({
                             key: 0,
                             ref_key: "dialogContentRef",
                             ref: dialogContentRef
@@ -155,7 +156,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                                 renderSlot(_ctx.$slots, "footer")
                               ])
                             } : void 0
-                          ]), 1040, ["center", "align-center", "close-icon", "draggable", "overflow", "fullscreen", "header-class", "body-class", "footer-class", "show-close", "title", "header-background-color", "header-type", "aria-level", "onClose"])) : createCommentVNode("v-if", true)
+                          ]), 1040, ["center", "align-center", "close-icon", "draggable", "overflow", "fullscreen", "header-class", "body-class", "footer-class", "show-close", "title", "header-background-color", "header-type", "aria-level", "onClose"])), [
+                            [_directive_loading, _ctx.loading]
+                          ]) : createCommentVNode("v-if", true)
                         ]),
                         _: 3
                       }, 8, ["trapped", "onFocusAfterTrapped", "onFocusAfterReleased", "onFocusoutPrevented", "onReleaseRequested"])

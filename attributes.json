@@ -1613,6 +1613,10 @@
     "type": "boolean",
     "description": "visibility of Dialog, default: false.\n\n[Docs](https://element-plus.org/en-US/component/dialog.html#attributes)"
   },
+  "el-dialog/loading": {
+    "type": "boolean",
+    "description": "determine whether it's loading, default: false.\n\n[Docs](https://element-plus.org/en-US/component/button.html#button-attributes)"
+  },
   "el-dialog/title": {
     "type": "string",
     "description": "title of Dialog. Can also be passed with a named slot (see the following table), default: ''.\n\n[Docs](https://element-plus.org/en-US/component/dialog.html#attributes)"
@@ -1787,6 +1791,10 @@
   "el-drawer/model-value": {
     "type": "boolean",
     "description": "Should Drawer be displayed, default: false.\n\n[Docs](https://element-plus.org/en-US/component/drawer.html#attributes)"
+  },
+  "el-drawer/loading": {
+    "type": "boolean",
+    "description": "determine whether it's loading, default: false.\n\n[Docs](https://element-plus.org/en-US/component/button.html#button-attributes)"
   },
   "el-drawer/append-to-body": {
     "type": "boolean",
