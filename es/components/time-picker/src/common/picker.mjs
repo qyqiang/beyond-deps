@@ -561,6 +561,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               id: _ctx.id,
               ref_key: "inputRef",
               ref: inputRef,
+              "float-label": _ctx.floatLabel,
+              "picker-visible": pickerVisible.value,
               "model-value": unref(displayValue),
               name: _ctx.name,
               disabled: unref(pickerDisabled),
@@ -618,7 +620,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 }, 8, ["class", "onMousedown"])) : createCommentVNode("v-if", true)
               ]),
               _: 3
-            }, 8, ["id", "model-value", "name", "disabled", "readonly", "start-placeholder", "end-placeholder", "class", "style", "aria-label", "tabindex", "onFocus", "onBlur"]))
+            }, 8, ["id", "float-label", "picker-visible", "model-value", "name", "disabled", "readonly", "start-placeholder", "end-placeholder", "class", "style", "aria-label", "tabindex", "onFocus", "onBlur"]))
           ], 64))
         ]),
         content: withCtx(() => [

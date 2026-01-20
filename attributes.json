@@ -1367,6 +1367,10 @@
     "type": "string",
     "description": "placeholder for the start date in range mode\n\n[Docs](https://element-plus.org/en-US/component/date-picker.html#attributes)"
   },
+  "el-date-picker/float-label": {
+    "type": "string",
+    "description": "floatLabel for the start date in range mode\n\n[Docs](https://element-plus.org/en-US/component/date-picker.html#attributes)"
+  },
   "el-date-picker/end-placeholder": {
     "type": "string",
     "description": "placeholder for the end date in range mode\n\n[Docs](https://element-plus.org/en-US/component/date-picker.html#attributes)"

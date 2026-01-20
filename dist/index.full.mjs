@@ -20386,6 +20386,7 @@ const timePickerDefaultProps = buildProps({
     default: 0
   },
   settDefaultDate: String,
+  floatLabel: String,
   cycleType: String,
   isOk: {
     type: Boolean,
@@ -20499,9 +20500,11 @@ const timePickerRangeTriggerProps = buildProps({
   modelValue: {
     type: definePropType([Array, String])
   },
+  floatLabel: String,
   startPlaceholder: String,
   endPlaceholder: String,
-  disabled: Boolean
+  disabled: Boolean,
+  pickerVisible: Boolean
 });
 const timePickerRngeTriggerProps = timePickerRangeTriggerProps;
 
@@ -20541,6 +20544,7 @@ const _sfc_main$26 = /* @__PURE__ */ defineComponent({
     const { wrapperRef, isFocused } = useFocusController(inputRef, {
       disabled: computed(() => props.disabled)
     });
+    const isError = computed(() => (formItem == null ? void 0 : formItem.validateState) === "error");
     const handleClick = (evt) => {
       emit("click", evt);
     };
@@ -20590,31 +20594,35 @@ const _sfc_main$26 = /* @__PURE__ */ defineComponent({
         onTouchstartPassive: handleTouchStart
       }, [
         renderSlot(_ctx.$slots, "prefix"),
+        _ctx.floatLabel ? (openBlock(), createElementBlock("span", {
+          key: 0,
+          class: normalizeClass(["dateRangeLabel", {
+            "range-label-float": _ctx.pickerVisible || _ctx.modelValue && _ctx.modelValue.length > 1 || unref(isError)
+          }])
+        }, toDisplayString(_ctx.floatLabel), 3)) : createCommentVNode("v-if", true),
         createElementVNode("input", mergeProps(unref(attrs), {
           id: unref(inputId),
           ref_key: "inputRef",
           ref: inputRef,
           name: _ctx.name && _ctx.name[0],
-          placeholder: _ctx.startPlaceholder,
           value: _ctx.modelValue && _ctx.modelValue[0],
           class: unref(nsRange).b("input"),
           disabled: _ctx.disabled,
           onInput: handleStartInput,
           onChange: handleStartChange
-        }), null, 16, ["id", "name", "placeholder", "value", "disabled"]),
+        }), null, 16, ["id", "name", "value", "disabled"]),
         renderSlot(_ctx.$slots, "range-separator"),
         createElementVNode("input", mergeProps(unref(attrs), {
           id: _ctx.id && _ctx.id[1],
           ref_key: "endInputRef",
           ref: endInputRef,
           name: _ctx.name && _ctx.name[1],
-          placeholder: _ctx.endPlaceholder,
           value: _ctx.modelValue && _ctx.modelValue[1],
           class: unref(nsRange).b("input"),
           disabled: _ctx.disabled,
           onInput: handleEndInput,
           onChange: handleEndChange
-        }), null, 16, ["id", "name", "placeholder", "value", "disabled"]),
+        }), null, 16, ["id", "name", "value", "disabled"]),
         renderSlot(_ctx.$slots, "suffix")
       ], 38);
     };
@@ -21161,6 +21169,8 @@ const _sfc_main$25 = /* @__PURE__ */ defineComponent({
               id: _ctx.id,
               ref_key: "inputRef",
               ref: inputRef,
+              "float-label": _ctx.floatLabel,
+              "picker-visible": pickerVisible.value,
               "model-value": unref(displayValue),
               name: _ctx.name,
               disabled: unref(pickerDisabled),
@@ -21218,7 +21228,7 @@ const _sfc_main$25 = /* @__PURE__ */ defineComponent({
                 }, 8, ["class", "onMousedown"])) : createCommentVNode("v-if", true)
               ]),
               _: 3
-            }, 8, ["id", "model-value", "name", "disabled", "readonly", "start-placeholder", "end-placeholder", "class", "style", "aria-label", "tabindex", "onFocus", "onBlur"]))
+            }, 8, ["id", "float-label", "picker-visible", "model-value", "name", "disabled", "readonly", "start-placeholder", "end-placeholder", "class", "style", "aria-label", "tabindex", "onFocus", "onBlur"]))
           ], 64))
         ]),
         content: withCtx(() => [

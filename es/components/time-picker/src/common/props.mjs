@@ -22,6 +22,7 @@ const timePickerDefaultProps = buildProps({
     default: 0
   },
   settDefaultDate: String,
+  floatLabel: String,
   cycleType: String,
   isOk: {
     type: Boolean,
@@ -135,9 +136,11 @@ const timePickerRangeTriggerProps = buildProps({
   modelValue: {
     type: definePropType([Array, String])
   },
+  floatLabel: String,
   startPlaceholder: String,
   endPlaceholder: String,
-  disabled: Boolean
+  disabled: Boolean,
+  pickerVisible: Boolean
 });
 const timePickerRngeTriggerProps = timePickerRangeTriggerProps;
 

@@ -72,6 +72,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     readonly cycle: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly settDefaultDate: StringConstructor;
+    readonly floatLabel: StringConstructor;
     readonly cycleType: StringConstructor;
     readonly isOk: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly isFooter: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -189,6 +190,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     readonly cycle: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly settDefaultDate: StringConstructor;
+    readonly floatLabel: StringConstructor;
     readonly cycleType: StringConstructor;
     readonly isOk: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly isFooter: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;

@@ -6493,6 +6493,7 @@ declare const __VLS_component_71: DefineComponent<{
     };
     readonly cycle: EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly settDefaultDate: StringConstructor;
+    readonly floatLabel: StringConstructor;
     readonly cycleType: StringConstructor;
     readonly isOk: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly isFooter: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -6656,6 +6657,7 @@ declare const __VLS_component_71: DefineComponent<{
     };
     readonly cycle: EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly settDefaultDate: StringConstructor;
+    readonly floatLabel: StringConstructor;
     readonly cycleType: StringConstructor;
     readonly isOk: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly isFooter: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -13157,6 +13159,7 @@ export declare const datePickerProps: {
     };
     readonly cycle: EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly settDefaultDate: StringConstructor;
+    readonly floatLabel: StringConstructor;
     readonly cycleType: StringConstructor;
     readonly isOk: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly isFooter: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -13890,6 +13893,7 @@ declare const _default_40: DefineComponent<{
     };
     readonly cycle: EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly settDefaultDate: StringConstructor;
+    readonly floatLabel: StringConstructor;
     readonly cycleType: StringConstructor;
     readonly isOk: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly isFooter: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -14036,6 +14040,7 @@ declare const _default_40: DefineComponent<{
     };
     readonly cycle: EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly settDefaultDate: StringConstructor;
+    readonly floatLabel: StringConstructor;
     readonly cycleType: StringConstructor;
     readonly isOk: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly isFooter: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -17767,6 +17772,7 @@ declare const _default_90: DefineComponent<{
     };
     cycle: EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     settDefaultDate: StringConstructor;
+    floatLabel: StringConstructor;
     cycleType: StringConstructor;
     isOk: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     isFooter: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -17902,6 +17908,7 @@ declare const _default_90: DefineComponent<{
     };
     cycle: EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     settDefaultDate: StringConstructor;
+    floatLabel: StringConstructor;
     cycleType: StringConstructor;
     isOk: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     isFooter: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -26678,6 +26685,7 @@ export declare const timePickerDefaultProps: {
     };
     readonly cycle: EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly settDefaultDate: StringConstructor;
+    readonly floatLabel: StringConstructor;
     readonly cycleType: StringConstructor;
     readonly isOk: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly isFooter: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -26762,9 +26770,11 @@ export declare const timePickerRangeTriggerProps: {
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
+    readonly floatLabel: StringConstructor;
     readonly startPlaceholder: StringConstructor;
     readonly endPlaceholder: StringConstructor;
     readonly disabled: BooleanConstructor;
+    readonly pickerVisible: BooleanConstructor;
 };
 /**
  * @deprecated Use `timePickerRangeTriggerProps` instead. This will be removed in future versions.
@@ -26794,9 +26804,11 @@ export declare const timePickerRngeTriggerProps: {
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
+    readonly floatLabel: StringConstructor;
     readonly startPlaceholder: StringConstructor;
     readonly endPlaceholder: StringConstructor;
     readonly disabled: BooleanConstructor;
+    readonly pickerVisible: BooleanConstructor;
 };
 export declare const TimePickPanel: DefineComponent<{
     readonly datetimeRole: StringConstructor;

@@ -466,6 +466,7 @@
   },
   "el-date-picker": {
     "attributes": [
+      "float-label",
       "model-value",
       "readonly",
       "disabled",

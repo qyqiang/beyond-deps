@@ -22,9 +22,11 @@ declare const __VLS_component: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
+    readonly floatLabel: StringConstructor;
     readonly startPlaceholder: StringConstructor;
     readonly endPlaceholder: StringConstructor;
     readonly disabled: BooleanConstructor;
+    readonly pickerVisible: BooleanConstructor;
 }, {
     focus: () => void;
     blur: () => void;
@@ -58,9 +60,11 @@ declare const __VLS_component: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
+    readonly floatLabel: StringConstructor;
     readonly startPlaceholder: StringConstructor;
     readonly endPlaceholder: StringConstructor;
     readonly disabled: BooleanConstructor;
+    readonly pickerVisible: BooleanConstructor;
 }>> & {
     onFocus?: ((...args: any[]) => any) | undefined;
     onBlur?: ((...args: any[]) => any) | undefined;
@@ -74,6 +78,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     onEndChange?: ((...args: any[]) => any) | undefined;
 }, {
     readonly disabled: boolean;
+    readonly pickerVisible: boolean;
 }>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
 export default _default;

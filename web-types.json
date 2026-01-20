@@ -3310,6 +3310,14 @@
               "default": "''"
             },
             {
+              "name": "float-label",
+              "description": "floatLabel for the start date in range mode",
+              "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",
+              "type": [
+                "string"
+              ]
+            },
+            {
               "name": "start-placeholder",
               "description": "placeholder for the start date in range mode",
               "doc-url": "https://element-plus.org/en-US/component/date-picker.html#attributes",

@@ -69,6 +69,7 @@ export declare const timePickerDefaultProps: {
     };
     readonly cycle: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly settDefaultDate: StringConstructor;
+    readonly floatLabel: StringConstructor;
     readonly cycleType: StringConstructor;
     readonly isOk: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly isFooter: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -146,9 +147,11 @@ export declare const timePickerRangeTriggerProps: {
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
+    readonly floatLabel: StringConstructor;
     readonly startPlaceholder: StringConstructor;
     readonly endPlaceholder: StringConstructor;
     readonly disabled: BooleanConstructor;
+    readonly pickerVisible: BooleanConstructor;
 };
 /**
  * @deprecated Use `timePickerRangeTriggerProps` instead. This will be removed in future versions.
@@ -172,7 +175,9 @@ export declare const timePickerRngeTriggerProps: {
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
+    readonly floatLabel: StringConstructor;
     readonly startPlaceholder: StringConstructor;
     readonly endPlaceholder: StringConstructor;
     readonly disabled: BooleanConstructor;
+    readonly pickerVisible: BooleanConstructor;
 };

@@ -20390,6 +20390,7 @@
       default: 0
     },
     settDefaultDate: String,
+    floatLabel: String,
     cycleType: String,
     isOk: {
       type: Boolean,
@@ -20503,9 +20504,11 @@
     modelValue: {
       type: definePropType([Array, String])
     },
+    floatLabel: String,
     startPlaceholder: String,
     endPlaceholder: String,
-    disabled: Boolean
+    disabled: Boolean,
+    pickerVisible: Boolean
   });
   const timePickerRngeTriggerProps = timePickerRangeTriggerProps;
 
@@ -20545,6 +20548,7 @@
       const { wrapperRef, isFocused } = useFocusController(inputRef, {
         disabled: vue.computed(() => props.disabled)
       });
+      const isError = vue.computed(() => (formItem == null ? void 0 : formItem.validateState) === "error");
       const handleClick = (evt) => {
         emit("click", evt);
       };
@@ -20594,31 +20598,35 @@
           onTouchstartPassive: handleTouchStart
         }, [
           vue.renderSlot(_ctx.$slots, "prefix"),
+          _ctx.floatLabel ? (vue.openBlock(), vue.createElementBlock("span", {
+            key: 0,
+            class: vue.normalizeClass(["dateRangeLabel", {
+              "range-label-float": _ctx.pickerVisible || _ctx.modelValue && _ctx.modelValue.length > 1 || vue.unref(isError)
+            }])
+          }, vue.toDisplayString(_ctx.floatLabel), 3)) : vue.createCommentVNode("v-if", true),
           vue.createElementVNode("input", vue.mergeProps(vue.unref(attrs), {
             id: vue.unref(inputId),
             ref_key: "inputRef",
             ref: inputRef,
             name: _ctx.name && _ctx.name[0],
-            placeholder: _ctx.startPlaceholder,
             value: _ctx.modelValue && _ctx.modelValue[0],
             class: vue.unref(nsRange).b("input"),
             disabled: _ctx.disabled,
             onInput: handleStartInput,
             onChange: handleStartChange
-          }), null, 16, ["id", "name", "placeholder", "value", "disabled"]),
+          }), null, 16, ["id", "name", "value", "disabled"]),
           vue.renderSlot(_ctx.$slots, "range-separator"),
           vue.createElementVNode("input", vue.mergeProps(vue.unref(attrs), {
             id: _ctx.id && _ctx.id[1],
             ref_key: "endInputRef",
             ref: endInputRef,
             name: _ctx.name && _ctx.name[1],
-            placeholder: _ctx.endPlaceholder,
             value: _ctx.modelValue && _ctx.modelValue[1],
             class: vue.unref(nsRange).b("input"),
             disabled: _ctx.disabled,
             onInput: handleEndInput,
             onChange: handleEndChange
-          }), null, 16, ["id", "name", "placeholder", "value", "disabled"]),
+          }), null, 16, ["id", "name", "value", "disabled"]),
           vue.renderSlot(_ctx.$slots, "suffix")
         ], 38);
       };
@@ -21165,6 +21173,8 @@
                 id: _ctx.id,
                 ref_key: "inputRef",
                 ref: inputRef,
+                "float-label": _ctx.floatLabel,
+                "picker-visible": pickerVisible.value,
                 "model-value": vue.unref(displayValue),
                 name: _ctx.name,
                 disabled: vue.unref(pickerDisabled),
@@ -21222,7 +21232,7 @@
                   }, 8, ["class", "onMousedown"])) : vue.createCommentVNode("v-if", true)
                 ]),
                 _: 3
-              }, 8, ["id", "model-value", "name", "disabled", "readonly", "start-placeholder", "end-placeholder", "class", "style", "aria-label", "tabindex", "onFocus", "onBlur"]))
+              }, 8, ["id", "float-label", "picker-visible", "model-value", "name", "disabled", "readonly", "start-placeholder", "end-placeholder", "class", "style", "aria-label", "tabindex", "onFocus", "onBlur"]))
             ], 64))
           ]),
           content: vue.withCtx(() => [
