@@ -10,7 +10,7 @@ declare function __VLS_template(): {
     }): any;
 };
 declare const __VLS_component: import("vue").DefineComponent<{
-    readonly alwaysShowError: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly alwaysShowError: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly label: StringConstructor;
     readonly labelWidth: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, "", boolean>;
     readonly labelPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "left" | "right" | "top", unknown, "", boolean>;
@@ -69,7 +69,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
      */
     resetField: () => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    readonly alwaysShowError: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly alwaysShowError: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly label: StringConstructor;
     readonly labelWidth: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, "", boolean>;
     readonly labelPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "left" | "right" | "top", unknown, "", boolean>;

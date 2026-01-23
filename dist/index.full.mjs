@@ -14297,7 +14297,7 @@ const formItemValidateStates = [
 const formItemProps = buildProps({
   alwaysShowError: {
     type: Boolean,
-    default: false
+    default: true
   },
   label: String,
   labelWidth: {
@@ -20308,7 +20308,7 @@ const extractDateFormat = (format) => {
   return format.replace(/\W?m{1,2}|\W?ZZ/g, "").replace(/\W?h{1,2}|\W?s{1,3}|\W?a/gi, "").trim();
 };
 const extractTimeFormat = (format) => {
-  return format.replace(/\W?D{1,2}|\W?Do|\W?d{1,4}|\W?M{1,4}|\W?Y{2,4}/g, "").trim();
+  return format.replace(/\W?D{1,2}|\W?Do|\W?d{1,4}|\W?M{1,4}|\W?Y{2,4}/g, "").replace(",", "").trim();
 };
 const dateEquals = function(a, b) {
   const aIsDate = isDate$1(a);
@@ -21149,19 +21149,6 @@ const _sfc_main$25 = /* @__PURE__ */ defineComponent({
               onClick: withModifiers(() => {
               }, ["stop"])
             }, {
-              prefix: withCtx(() => [
-                unref(triggerIcon) ? (openBlock(), createBlock(unref(ElIcon), {
-                  key: 0,
-                  class: normalizeClass(unref(nsInput).e("icon")),
-                  onMousedown: withModifiers(onMouseDownInput, ["prevent"]),
-                  onTouchstartPassive: onTouchStartInput
-                }, {
-                  default: withCtx(() => [
-                    (openBlock(), createBlock(resolveDynamicComponent(unref(triggerIcon))))
-                  ]),
-                  _: 1
-                }, 8, ["class", "onMousedown"])) : createCommentVNode("v-if", true)
-              ]),
               suffix: withCtx(() => [
                 showClose.value && _ctx.clearIcon ? (openBlock(), createBlock(unref(ElIcon), {
                   key: 0,
@@ -21171,6 +21158,36 @@ const _sfc_main$25 = /* @__PURE__ */ defineComponent({
                 }, {
                   default: withCtx(() => [
                     (openBlock(), createBlock(resolveDynamicComponent(_ctx.clearIcon)))
+                  ]),
+                  _: 1
+                }, 8, ["class", "onMousedown"])) : createCommentVNode("v-if", true),
+                unref(triggerIcon) ? (openBlock(), createBlock(unref(ElIcon), {
+                  key: 1,
+                  color: "#2A3F4D",
+                  class: normalizeClass(unref(nsInput).e("icon")),
+                  onMousedown: withModifiers(onMouseDownInput, ["prevent"]),
+                  onTouchstartPassive: onTouchStartInput
+                }, {
+                  default: withCtx(() => [
+                    (openBlock(), createElementBlock("svg", {
+                      width: "24",
+                      height: "24",
+                      viewBox: "0 0 24 24",
+                      xmlns: "http://www.w3.org/2000/svg"
+                    }, [
+                      createElementVNode("g", { "clip-path": "url(#clip0_1022_276)" }, [
+                        createElementVNode("path", { d: "M24 10V24H0V10H24ZM24 8V5C24 4.20435 23.6839 3.44129 23.1213 2.87868C22.5587 2.31607 21.7956 2 21 2H18V0H16V2H8V0H6V2H3C2.20435 2 1.44129 2.31607 0.87868 2.87868C0.31607 3.44129 0 4.20435 0 5L0 8H24ZM18 14H16V16H18V14ZM13 14H11V16H13V14ZM8 14H6V16H8V14ZM18 18H16V20H18V18ZM13 18H11V20H13V18ZM8 18H6V20H8V18Z" })
+                      ]),
+                      createElementVNode("defs", null, [
+                        createElementVNode("clipPath", { id: "clip0_1022_276" }, [
+                          createElementVNode("rect", {
+                            width: "24",
+                            height: "24",
+                            fill: "white"
+                          })
+                        ])
+                      ])
+                    ]))
                   ]),
                   _: 1
                 }, 8, ["class", "onMousedown"])) : createCommentVNode("v-if", true)
@@ -21211,10 +21228,30 @@ const _sfc_main$25 = /* @__PURE__ */ defineComponent({
               prefix: withCtx(() => [
                 unref(triggerIcon) ? (openBlock(), createBlock(unref(ElIcon), {
                   key: 0,
+                  color: "#2A3F4D",
+                  size: "14px",
                   class: normalizeClass([unref(nsInput).e("icon"), unref(nsRange).e("icon")])
                 }, {
                   default: withCtx(() => [
-                    (openBlock(), createBlock(resolveDynamicComponent(unref(triggerIcon))))
+                    (openBlock(), createElementBlock("svg", {
+                      width: "24",
+                      height: "24",
+                      viewBox: "0 0 24 24",
+                      xmlns: "http://www.w3.org/2000/svg"
+                    }, [
+                      createElementVNode("g", { "clip-path": "url(#clip0_1022_276)" }, [
+                        createElementVNode("path", { d: "M24 10V24H0V10H24ZM24 8V5C24 4.20435 23.6839 3.44129 23.1213 2.87868C22.5587 2.31607 21.7956 2 21 2H18V0H16V2H8V0H6V2H3C2.20435 2 1.44129 2.31607 0.87868 2.87868C0.31607 3.44129 0 4.20435 0 5L0 8H24ZM18 14H16V16H18V14ZM13 14H11V16H13V14ZM8 14H6V16H8V14ZM18 18H16V20H18V18ZM13 18H11V20H13V18ZM8 18H6V20H8V18Z" })
+                      ]),
+                      createElementVNode("defs", null, [
+                        createElementVNode("clipPath", { id: "clip0_1022_276" }, [
+                          createElementVNode("rect", {
+                            width: "24",
+                            height: "24",
+                            fill: "white"
+                          })
+                        ])
+                      ])
+                    ]))
                   ]),
                   _: 1
                 }, 8, ["class"])) : createCommentVNode("v-if", true)

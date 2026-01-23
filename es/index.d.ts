@@ -3305,7 +3305,7 @@ declare const __VLS_component_43: DefineComponent<{
     readonly scrollToError: boolean;
 }>;
 declare const __VLS_component_44: DefineComponent<{
-    readonly alwaysShowError: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly alwaysShowError: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly label: StringConstructor;
     readonly labelWidth: EpPropFinalized<readonly [
         StringConstructor,
@@ -3367,7 +3367,7 @@ declare const __VLS_component_44: DefineComponent<{
     */
     resetField: () => void;
 }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, Record<string, any>, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{
-    readonly alwaysShowError: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly alwaysShowError: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly label: StringConstructor;
     readonly labelWidth: EpPropFinalized<readonly [
         StringConstructor,
@@ -20797,7 +20797,7 @@ export declare type FormItemInstance = InstanceType<typeof _default_50> & unknow
 export declare type FormItemProp = Arrayable<string>;
 export declare type FormItemProps = ExtractPropTypes<typeof formItemProps>;
 export declare const formItemProps: {
-    readonly alwaysShowError: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly alwaysShowError: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly label: StringConstructor;
     readonly labelWidth: EpPropFinalized<readonly [
         StringConstructor,

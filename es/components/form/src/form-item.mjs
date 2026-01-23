@@ -10,7 +10,7 @@ const formItemValidateStates = [
 const formItemProps = buildProps({
   alwaysShowError: {
     type: Boolean,
-    default: false
+    default: true
   },
   label: String,
   labelWidth: {
