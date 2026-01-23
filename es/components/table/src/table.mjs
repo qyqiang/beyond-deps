@@ -282,6 +282,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
               }, null, 8, ["class", "border", "default-sort", "store", "append-filter-panel-to", "onSetDragVisible"])) : createCommentVNode("v-if", true),
               createVNode(_component_table_body, {
                 context: _ctx.context,
+                "row-draggable": _ctx.rowDraggable,
+                "on-dragend": _ctx.onDragend,
+                "on-dragstart": _ctx.onDragstart,
                 highlight: _ctx.highlightCurrentRow,
                 "row-class-name": _ctx.rowClassName,
                 "tooltip-effect": _ctx.tooltipEffect,
@@ -289,7 +292,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 "row-style": _ctx.rowStyle,
                 store: _ctx.store,
                 stripe: _ctx.stripe
-              }, null, 8, ["context", "highlight", "row-class-name", "tooltip-effect", "tooltip-options", "row-style", "store", "stripe"]),
+              }, null, 8, ["context", "row-draggable", "on-dragend", "on-dragstart", "highlight", "row-class-name", "tooltip-effect", "tooltip-options", "row-style", "store", "stripe"]),
               _ctx.showSummary && _ctx.tableLayout === "auto" ? (openBlock(), createBlock(_component_table_footer, {
                 key: 1,
                 class: normalizeClass(_ctx.ns.e("body-footer")),

@@ -5,6 +5,7 @@ export declare const formItemValidateStates: readonly ["", "error", "validating"
 export type FormItemValidateState = (typeof formItemValidateStates)[number];
 export type FormItemProp = Arrayable<string>;
 export declare const formItemProps: {
+    readonly alwaysShowError: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly label: StringConstructor;
     readonly labelWidth: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, "", boolean>;
     readonly labelPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "left" | "right" | "top", unknown, "", boolean>;

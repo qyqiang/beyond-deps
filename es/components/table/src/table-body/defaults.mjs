@@ -18,7 +18,19 @@ const defaultProps = {
     type: String,
     default: ""
   },
-  highlight: Boolean
+  highlight: Boolean,
+  rowDraggable: {
+    type: [Function, Boolean],
+    default: false
+  },
+  onDragend: {
+    type: Function,
+    default: void 0
+  },
+  onDragstart: {
+    type: Function,
+    default: void 0
+  }
 };
 
 export { defaultProps as default };

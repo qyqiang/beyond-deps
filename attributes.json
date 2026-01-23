@@ -2206,6 +2206,10 @@
     "type": "boolean",
     "description": "Whether the field is required or not, will be determined by validation rules if omitted.\n\n[Docs](https://element-plus.org/en-US/component/form.html#formitem-attributes)"
   },
+  "el-form-item/always-show-error": {
+    "type": "boolean",
+    "description": "Whether the field is always-show-error or not, will be determined by validation rules if omitted.\n\n[Docs](https://element-plus.org/en-US/component/form.html#formitem-attributes)"
+  },
   "el-form-item/rules": {
     "type": "Arrayable<FormItemRule>",
     "description": "Validation rules of form, see the [following table](#formitemrule), more advanced usage at [async-validator](https://github.com/yiminghe/async-validator).\n\n[Docs](https://element-plus.org/en-US/component/form.html#formitem-attributes)"

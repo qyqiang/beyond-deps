@@ -12,6 +12,9 @@ interface TableBodyProps<T extends DefaultRow> {
     highlight: boolean;
     tooltipEffect?: string;
     tooltipOptions?: TableOverflowTooltipOptions;
+    rowDraggable: any;
+    onDragstart: any;
+    onDragend: any;
 }
 declare const defaultProps: {
     store: {
@@ -34,6 +37,18 @@ declare const defaultProps: {
         default: string;
     };
     highlight: BooleanConstructor;
+    rowDraggable: {
+        type: (BooleanConstructor | FunctionConstructor)[];
+        default: boolean;
+    };
+    onDragend: {
+        type: FunctionConstructor;
+        default: undefined;
+    };
+    onDragstart: {
+        type: FunctionConstructor;
+        default: undefined;
+    };
 };
 export { TableBodyProps };
 export default defaultProps;

@@ -108,6 +108,9 @@ interface TableProps<T extends DefaultRow> {
     defaultSort?: Sort;
     tooltipEffect?: string;
     tooltipOptions?: TableOverflowTooltipOptions;
+    rowDraggable: ((val: any) => boolean) | boolean;
+    onDragend: (e: Event, val: any) => void;
+    onDragstart: (e: Event, val: any) => void;
     spanMethod?: (data: {
         row: T;
         rowIndex: number;
@@ -356,6 +359,18 @@ declare const _default: {
      * @description whether to hide extra content and show them in a tooltip when hovering on the cell.It will affect all the table columns
      */
     showOverflowTooltip: PropType<TableProps<any>["showOverflowTooltip"]>;
+    rowDraggable: {
+        type: PropType<any>;
+        default: boolean;
+    };
+    onDragend: {
+        type: PropType<any>;
+        default: undefined;
+    };
+    onDragstart: {
+        type: PropType<any>;
+        default: undefined;
+    };
     /**
      * @description function that formats cell tooltip content, works when `show-overflow-tooltip` is `true`
      */

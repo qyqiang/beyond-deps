@@ -44,7 +44,14 @@ function useRender(props) {
     return index;
   };
   const rowRender = (row, $index, treeRowData, expanded = false) => {
-    const { tooltipEffect, tooltipOptions, store } = props;
+    const {
+      tooltipEffect,
+      tooltipOptions,
+      store,
+      rowDraggable,
+      onDragstart,
+      onDragend
+    } = props;
     const { indent, columns } = store.states;
     const rowClasses = [];
     let display = true;
@@ -64,6 +71,9 @@ function useRender(props) {
       style: [displayStyle, getRowStyle(row, $index)],
       class: rowClasses,
       key: getKeyOfRow(row, $index),
+      draggable: typeof rowDraggable === "function" ? rowDraggable(row) : rowDraggable,
+      onDragstart: ($event) => onDragstart($event, row),
+      onDragend: ($event) => onDragend($event, row),
       onDblclick: ($event) => handleDoubleClick($event, row),
       onClick: ($event) => handleClick($event, row),
       onContextmenu: ($event) => handleContextMenu($event, row),

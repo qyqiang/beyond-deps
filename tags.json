@@ -718,6 +718,7 @@
       "prop",
       "label",
       "label-position",
+      "always-show-error",
       "label-width",
       "required",
       "rules",

@@ -3305,6 +3305,7 @@ declare const __VLS_component_43: DefineComponent<{
     readonly scrollToError: boolean;
 }>;
 declare const __VLS_component_44: DefineComponent<{
+    readonly alwaysShowError: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly label: StringConstructor;
     readonly labelWidth: EpPropFinalized<readonly [
         StringConstructor,
@@ -3366,6 +3367,7 @@ declare const __VLS_component_44: DefineComponent<{
     */
     resetField: () => void;
 }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, Record<string, any>, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{
+    readonly alwaysShowError: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly label: StringConstructor;
     readonly labelWidth: EpPropFinalized<readonly [
         StringConstructor,
@@ -3403,6 +3405,7 @@ declare const __VLS_component_44: DefineComponent<{
     };
 }>>, {
     readonly required: EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly alwaysShowError: EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly labelWidth: EpPropMergeType<readonly [
         StringConstructor,
         NumberConstructor
@@ -16554,6 +16557,18 @@ declare const _default_84: DefineComponent<{
     scrollbarAlwaysOn: BooleanConstructor;
     flexible: BooleanConstructor;
     showOverflowTooltip: PropType<TableProps<any>["showOverflowTooltip"]>;
+    rowDraggable: {
+        type: PropType<any>;
+        default: boolean;
+    };
+    onDragend: {
+        type: PropType<any>;
+        default: undefined;
+    };
+    onDragstart: {
+        type: PropType<any>;
+        default: undefined;
+    };
     tooltipFormatter: PropType<TableProps<any>["tooltipFormatter"]>;
     appendFilterPanelTo: StringConstructor;
     scrollbarTabindex: {
@@ -17287,6 +17302,18 @@ declare const _default_84: DefineComponent<{
     scrollbarAlwaysOn: BooleanConstructor;
     flexible: BooleanConstructor;
     showOverflowTooltip: PropType<TableProps<any>["showOverflowTooltip"]>;
+    rowDraggable: {
+        type: PropType<any>;
+        default: boolean;
+    };
+    onDragend: {
+        type: PropType<any>;
+        default: undefined;
+    };
+    onDragstart: {
+        type: PropType<any>;
+        default: undefined;
+    };
     tooltipFormatter: PropType<TableProps<any>["tooltipFormatter"]>;
     appendFilterPanelTo: StringConstructor;
     scrollbarTabindex: {
@@ -17325,6 +17352,8 @@ declare const _default_84: DefineComponent<{
     tableLayout: "fixed" | "auto";
     border: boolean;
     className: string;
+    onDragend: any;
+    onDragstart: any;
     lazy: boolean;
     fit: boolean;
     scrollbarAlwaysOn: boolean;
@@ -17337,6 +17366,7 @@ declare const _default_84: DefineComponent<{
     showHeader: boolean;
     showSummary: boolean;
     highlightCurrentRow: boolean;
+    rowDraggable: any;
     flexible: boolean;
     scrollbarTabindex: string | number;
     nativeScrollbar: boolean;
@@ -20767,6 +20797,7 @@ export declare type FormItemInstance = InstanceType<typeof _default_50> & unknow
 export declare type FormItemProp = Arrayable<string>;
 export declare type FormItemProps = ExtractPropTypes<typeof formItemProps>;
 export declare const formItemProps: {
+    readonly alwaysShowError: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly label: StringConstructor;
     readonly labelWidth: EpPropFinalized<readonly [
         StringConstructor,
@@ -25309,6 +25340,9 @@ export declare interface TableProps<T extends DefaultRow> {
     defaultSort?: Sort;
     tooltipEffect?: string;
     tooltipOptions?: TableOverflowTooltipOptions;
+    rowDraggable: ((val: any) => boolean) | boolean;
+    onDragend: (e: Event, val: any) => void;
+    onDragstart: (e: Event, val: any) => void;
     spanMethod?: (data: {
         row: T;
         rowIndex: number;

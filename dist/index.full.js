@@ -14299,6 +14299,10 @@
     "success"
   ];
   const formItemProps = buildProps({
+    alwaysShowError: {
+      type: Boolean,
+      default: false
+    },
     label: String,
     labelWidth: {
       type: [String, Number],
@@ -14659,9 +14663,15 @@
       });
       vue.provide(formItemContextKey, context);
       vue.onMounted(() => {
+        var _a, _b, _c;
         if (props.prop) {
           formContext == null ? void 0 : formContext.addField(context);
           initialValue = clone(fieldValue.value);
+          if (isRequired.value && props.alwaysShowError && isEmpty(initialValue) && (((_a = formItemContent.value) == null ? void 0 : _a.querySelector(".el-input")) || ((_b = formItemContent.value) == null ? void 0 : _b.querySelector(".el-textarea")) || ((_c = formItemContent.value) == null ? void 0 : _c.querySelector(".el-date-editor")))) {
+            const currentRule = normalizedRules.value.find((rule) => rule.required);
+            setValidationState("error");
+            validateMessage.value = (currentRule == null ? void 0 : currentRule.message) ? currentRule == null ? void 0 : currentRule.message : "Required";
+          }
         }
       });
       vue.onBeforeUnmount(() => {
@@ -17030,20 +17040,21 @@
                 offset: 4
               }, {
                 default: vue.withCtx(() => [
-                  vue.createVNode(vue.unref(ElIcon), { class: "error-icon" }, {
+                  vue.createVNode(vue.unref(ElIcon), {
+                    class: "error-icon",
+                    color: "#D91F11"
+                  }, {
                     default: vue.withCtx(() => [
                       (vue.openBlock(), vue.createElementBlock("svg", {
                         xmlns: "http://www.w3.org/2000/svg",
                         width: "12",
-                        height: "12",
-                        viewBox: "0 0 12 12",
-                        fill: "none"
+                        height: "11",
+                        viewBox: "0 0 12 11"
                       }, [
                         vue.createElementVNode("path", {
                           "fill-rule": "evenodd",
                           "clip-rule": "evenodd",
-                          d: "M12 6C12 9.31371 9.31371 12 6 12C2.68629 12 0 9.31371 0 6C0 2.68629 2.68629 0 6 0C9.31371 0 12 2.68629 12 6ZM6.5 2.5V7H5.5V2.5H6.5ZM6.5 9V8H5.5V9H6.5Z",
-                          fill: "#D91F11"
+                          d: "M0 10.5H12L6 0L0 10.5ZM6.5 8.5H5.5V7.5H6.5V8.5ZM6.5 6.5H5.5V4.5H6.5V6.5Z"
                         })
                       ]))
                     ]),
@@ -17114,20 +17125,21 @@
               offset: 4
             }, {
               default: vue.withCtx(() => [
-                vue.createVNode(vue.unref(ElIcon), { class: "error-icon" }, {
+                vue.createVNode(vue.unref(ElIcon), {
+                  class: "error-icon",
+                  color: "#D91F11"
+                }, {
                   default: vue.withCtx(() => [
                     (vue.openBlock(), vue.createElementBlock("svg", {
                       xmlns: "http://www.w3.org/2000/svg",
                       width: "12",
-                      height: "12",
-                      viewBox: "0 0 12 12",
-                      fill: "none"
+                      height: "11",
+                      viewBox: "0 0 12 11"
                     }, [
                       vue.createElementVNode("path", {
                         "fill-rule": "evenodd",
                         "clip-rule": "evenodd",
-                        d: "M12 6C12 9.31371 9.31371 12 6 12C2.68629 12 0 9.31371 0 6C0 2.68629 2.68629 0 6 0C9.31371 0 12 2.68629 12 6ZM6.5 2.5V7H5.5V2.5H6.5ZM6.5 9V8H5.5V9H6.5Z",
-                        fill: "#D91F11"
+                        d: "M0 10.5H12L6 0L0 10.5ZM6.5 8.5H5.5V7.5H6.5V8.5ZM6.5 6.5H5.5V4.5H6.5V6.5Z"
                       })
                     ]))
                   ]),
@@ -40007,20 +40019,21 @@
                   offset: 4
                 }, {
                   default: vue.withCtx(() => [
-                    vue.createVNode(_component_el_icon, { class: "error-icon" }, {
+                    vue.createVNode(_component_el_icon, {
+                      class: "error-icon",
+                      color: "#D91F11"
+                    }, {
                       default: vue.withCtx(() => [
                         (vue.openBlock(), vue.createElementBlock("svg", {
                           xmlns: "http://www.w3.org/2000/svg",
                           width: "12",
-                          height: "12",
-                          viewBox: "0 0 12 12",
-                          fill: "none"
+                          height: "11",
+                          viewBox: "0 0 12 11"
                         }, [
                           vue.createElementVNode("path", {
                             "fill-rule": "evenodd",
                             "clip-rule": "evenodd",
-                            d: "M12 6C12 9.31371 9.31371 12 6 12C2.68629 12 0 9.31371 0 6C0 2.68629 2.68629 0 6 0C9.31371 0 12 2.68629 12 6ZM6.5 2.5V7H5.5V2.5H6.5ZM6.5 9V8H5.5V9H6.5Z",
-                            fill: "#D91F11"
+                            d: "M0 10.5H12L6 0L0 10.5ZM6.5 8.5H5.5V7.5H6.5V8.5ZM6.5 6.5H5.5V4.5H6.5V6.5Z"
                           })
                         ]))
                       ]),
@@ -45385,20 +45398,21 @@
                   offset: 4
                 }, {
                   default: vue.withCtx(() => [
-                    vue.createVNode(_component_el_icon, { class: "error-icon" }, {
+                    vue.createVNode(_component_el_icon, {
+                      class: "error-icon",
+                      color: "#D91F11"
+                    }, {
                       default: vue.withCtx(() => [
                         (vue.openBlock(), vue.createElementBlock("svg", {
                           xmlns: "http://www.w3.org/2000/svg",
                           width: "12",
-                          height: "12",
-                          viewBox: "0 0 12 12",
-                          fill: "none"
+                          height: "11",
+                          viewBox: "0 0 12 11"
                         }, [
                           vue.createElementVNode("path", {
                             "fill-rule": "evenodd",
                             "clip-rule": "evenodd",
-                            d: "M12 6C12 9.31371 9.31371 12 6 12C2.68629 12 0 9.31371 0 6C0 2.68629 2.68629 0 6 0C9.31371 0 12 2.68629 12 6ZM6.5 2.5V7H5.5V2.5H6.5ZM6.5 9V8H5.5V9H6.5Z",
-                            fill: "#D91F11"
+                            d: "M0 10.5H12L6 0L0 10.5ZM6.5 8.5H5.5V7.5H6.5V8.5ZM6.5 6.5H5.5V4.5H6.5V6.5Z"
                           })
                         ]))
                       ]),
@@ -50392,7 +50406,14 @@
       return index;
     };
     const rowRender = (row, $index, treeRowData, expanded = false) => {
-      const { tooltipEffect, tooltipOptions, store } = props;
+      const {
+        tooltipEffect,
+        tooltipOptions,
+        store,
+        rowDraggable,
+        onDragstart,
+        onDragend
+      } = props;
       const { indent, columns } = store.states;
       const rowClasses = [];
       let display = true;
@@ -50412,6 +50433,9 @@
         style: [displayStyle, getRowStyle(row, $index)],
         class: rowClasses,
         key: getKeyOfRow(row, $index),
+        draggable: typeof rowDraggable === "function" ? rowDraggable(row) : rowDraggable,
+        onDragstart: ($event) => onDragstart($event, row),
+        onDragend: ($event) => onDragend($event, row),
         onDblclick: ($event) => handleDoubleClick($event, row),
         onClick: ($event) => handleClick($event, row),
         onContextmenu: ($event) => handleContextMenu($event, row),
@@ -50590,7 +50614,19 @@
       type: String,
       default: ""
     },
-    highlight: Boolean
+    highlight: Boolean,
+    rowDraggable: {
+      type: [Function, Boolean],
+      default: false
+    },
+    onDragend: {
+      type: Function,
+      default: void 0
+    },
+    onDragstart: {
+      type: Function,
+      default: void 0
+    }
   };
   var defaultProps$4 = defaultProps$3;
 
@@ -51249,6 +51285,18 @@
     scrollbarAlwaysOn: Boolean,
     flexible: Boolean,
     showOverflowTooltip: [Boolean, Object],
+    rowDraggable: {
+      type: [Function, Boolean],
+      default: false
+    },
+    onDragend: {
+      type: Function,
+      default: void 0
+    },
+    onDragstart: {
+      type: Function,
+      default: void 0
+    },
     tooltipFormatter: Function,
     appendFilterPanelTo: String,
     scrollbarTabindex: {
@@ -51577,6 +51625,9 @@
                 }, null, 8, ["class", "border", "default-sort", "store", "append-filter-panel-to", "onSetDragVisible"])) : vue.createCommentVNode("v-if", true),
                 vue.createVNode(_component_table_body, {
                   context: _ctx.context,
+                  "row-draggable": _ctx.rowDraggable,
+                  "on-dragend": _ctx.onDragend,
+                  "on-dragstart": _ctx.onDragstart,
                   highlight: _ctx.highlightCurrentRow,
                   "row-class-name": _ctx.rowClassName,
                   "tooltip-effect": _ctx.tooltipEffect,
@@ -51584,7 +51635,7 @@
                   "row-style": _ctx.rowStyle,
                   store: _ctx.store,
                   stripe: _ctx.stripe
-                }, null, 8, ["context", "highlight", "row-class-name", "tooltip-effect", "tooltip-options", "row-style", "store", "stripe"]),
+                }, null, 8, ["context", "row-draggable", "on-dragend", "on-dragstart", "highlight", "row-class-name", "tooltip-effect", "tooltip-options", "row-style", "store", "stripe"]),
                 _ctx.showSummary && _ctx.tableLayout === "auto" ? (vue.openBlock(), vue.createBlock(_component_table_footer, {
                   key: 1,
                   class: vue.normalizeClass(_ctx.ns.e("body-footer")),

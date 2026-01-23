@@ -78,6 +78,18 @@ declare const _default: import("vue").DefineComponent<{
     scrollbarAlwaysOn: BooleanConstructor;
     flexible: BooleanConstructor;
     showOverflowTooltip: import("vue").PropType<import("./table/defaults").TableProps<any>["showOverflowTooltip"]>;
+    rowDraggable: {
+        type: import("vue").PropType<any>;
+        default: boolean;
+    };
+    onDragend: {
+        type: import("vue").PropType<any>;
+        default: undefined;
+    };
+    onDragstart: {
+        type: import("vue").PropType<any>;
+        default: undefined;
+    };
     tooltipFormatter: import("vue").PropType<import("./table/defaults").TableProps<any>["tooltipFormatter"]>;
     appendFilterPanelTo: StringConstructor;
     scrollbarTabindex: {
@@ -811,6 +823,18 @@ declare const _default: import("vue").DefineComponent<{
     scrollbarAlwaysOn: BooleanConstructor;
     flexible: BooleanConstructor;
     showOverflowTooltip: import("vue").PropType<import("./table/defaults").TableProps<any>["showOverflowTooltip"]>;
+    rowDraggable: {
+        type: import("vue").PropType<any>;
+        default: boolean;
+    };
+    onDragend: {
+        type: import("vue").PropType<any>;
+        default: undefined;
+    };
+    onDragstart: {
+        type: import("vue").PropType<any>;
+        default: undefined;
+    };
     tooltipFormatter: import("vue").PropType<import("./table/defaults").TableProps<any>["tooltipFormatter"]>;
     appendFilterPanelTo: StringConstructor;
     scrollbarTabindex: {
@@ -849,6 +873,8 @@ declare const _default: import("vue").DefineComponent<{
     tableLayout: "fixed" | "auto";
     border: boolean;
     className: string;
+    onDragend: any;
+    onDragstart: any;
     lazy: boolean;
     fit: boolean;
     scrollbarAlwaysOn: boolean;
@@ -861,6 +887,7 @@ declare const _default: import("vue").DefineComponent<{
     showHeader: boolean;
     showSummary: boolean;
     highlightCurrentRow: boolean;
+    rowDraggable: any;
     flexible: boolean;
     scrollbarTabindex: string | number;
     nativeScrollbar: boolean;

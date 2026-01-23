@@ -20,6 +20,18 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     highlight: BooleanConstructor;
+    rowDraggable: {
+        type: (BooleanConstructor | FunctionConstructor)[];
+        default: boolean;
+    };
+    onDragend: {
+        type: FunctionConstructor;
+        default: undefined;
+    };
+    onDragstart: {
+        type: FunctionConstructor;
+        default: undefined;
+    };
 }, {
     ns: {
         namespace: import("vue").ComputedRef<string>;
@@ -73,10 +85,25 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     highlight: BooleanConstructor;
+    rowDraggable: {
+        type: (BooleanConstructor | FunctionConstructor)[];
+        default: boolean;
+    };
+    onDragend: {
+        type: FunctionConstructor;
+        default: undefined;
+    };
+    onDragstart: {
+        type: FunctionConstructor;
+        default: undefined;
+    };
 }>>, {
     fixed: string;
+    onDragend: Function;
+    onDragstart: Function;
     highlight: boolean;
     stripe: boolean;
     context: import("element-plus").Table<any>;
+    rowDraggable: boolean | Function;
 }>;
 export default _default;
